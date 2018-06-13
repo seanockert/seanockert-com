@@ -1,0 +1,136 @@
+
+/* Animations for buttons */
+.download-links a,
+#download-footer,
+.arrow-down, 
+.arrow-up {
+  
+  -webkit-transform-origin: 50% 50%;
+  -moz-transform-origin: 50% 50%;
+  -ms-transform-origin: 50% 50%;
+  transform-origin: 50% 50%;  
+  
+  &:hover {
+    -webkit-animation: bounce 0.2s ease-in-out;
+    -moz-animation: bounce 0.2s ease-in-out;
+    -ms-animation: bounce 0.2s ease-in-out;
+    animation: bounce 0.2s ease-in-out;
+  }  
+  
+  &:active {
+    -webkit-animation: press 0.2s ease-in-out;
+    -moz-animation: press 0.2s ease-in-out;
+    -ms-animation: press 0.2s ease-in-out;
+    animation: press 0.2s ease-in-out;    
+  }  
+}
+
+
+@-keyframes bounce
+{
+    0%   { transform: scale(1,1); }
+    50%   { transform: scale(1.1,0.9); }
+    100%   { transform: scale(1,1); }
+}
+
+
+
+/* Button Animations */
+
+@-keyframes bounce {
+    0%   { transform: scale(1,1); }
+    50%   { transform: scale(1.1,0.9); }
+    100%   { transform: scale(1,1); }
+} 
+
+@-webkit-keyframes bounce {
+    0%   { -webkit-transform: scale(1,1); }
+    50%   { -webkit-transform: scale(1.1,0.9); }
+    100%   { -webkit-transform: scale(1,1); }
+} 
+
+@-moz-keyframes bounce {
+    0%   { -moz-transform: scale(1,1); }
+    50%   { -moz-transform: scale(1.1,0.9); }
+    100%   { -moz-transform: scale(1,1); }
+}
+
+@-ms-keyframes bounce {
+    0%   { -ms-transform: scale(1,1); }
+    50%   { -ms-transform: scale(1.1,0.9); }
+    100%   { -ms-transform: scale(1,1); }
+} 
+
+@-keyframes press {
+    0%   { transform: scale(1,1); }
+    50%   { transform: scale(0.7,0.85); }
+    100%   { transform: scale(0.9,0.9); }
+}
+ 
+@-webkit-keyframes press {
+    0%   { -webkit-transform: scale(1,1); }
+    50%   { -webkit-transform: scale(0.7,0.85); }
+    100%   { -webkit-transform: scale(0.9,0.9); }
+} 
+
+@-moz-keyframes press {
+    0%   { -moz-transform: scale(1,1); }
+    50%   { -moz-transform: scale(0.7,0.85); }
+    100%   { -moz-transform: scale(0.9,0.9); }
+} 
+
+@-ms-keyframes press {
+    0%   { -ms-transform: scale(1,1); }
+    50%   { -ms-transform: scale(0.7,0.85); }
+    100%   { -ms-transform: scale(0.9,0.9); }
+} 
+
+#logo #logo-ai {
+    -webkit-transform-origin: 50% 50%;
+    -moz-transform-origin: 50% 50%;
+    -ms-transform-origin: 50% 50%;
+    transform-origin: 50% 50%;  
+
+    -webkit-transform: scale(0,0); 
+
+    -webkit-animation: spinIn 0.5s 1s ease-in-out;
+    -moz-animation: spinIn 0.5s 1s ease-in-out;
+    -ms-animation: spinIn 0.5s 1s ease-in-out;
+    animation: spinIn 0.5s 1s ease-in-out;
+
+    -webkit-animation-fill-mode: forwards;
+    -moz-animation-fill-mode: forwards;
+    -ms-animation-fill-mode: forwards;
+    animation-fill-mode: forwards;
+  
+}
+
+/* Rotating Rays Animation */
+@-webkit-keyframes spinIn {
+    0% { 
+        -webkit-transform: scale(0,0) rotate(90deg); 
+    }    
+    50% { 
+        -webkit-transform: scale(1.15,1.15) rotate(400deg); 
+    }
+    100% { 
+        -webkit-transform: scale(1,1) rotate(360deg);
+    }
+}
+
+@-moz-keyframes spinIn {
+    from { -moz-transform: rotate(0deg); }
+    to { -moz-transform: rotate(360deg); }
+}
+
+@-ms-keyframes spinIn {
+    from { -ms-transform: rotate(0deg); }
+    to { -ms-transform: rotate(360deg); }
+}
+
+@-keyframes spinIn {
+    from { -ms-transform: rotate(0deg); }
+    to { -ms-transform: rotate(360deg); }
+}
+
+

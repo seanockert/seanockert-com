@@ -1,0 +1,48 @@
+@media #{$large-up} {
+  .home-header {
+    //background-size: 110% auto;
+    background-position: 50% 80%;
+
+    .header-inner {
+      h1 {
+        font-size: 3.6em;
+      }
+
+      h1,
+      h2 {
+        text-shadow: 0 0 6px rgba(0, 0, 0, 0.6);
+      }
+    }
+  }
+
+  .home-content {
+    background: $color-off-white;
+
+    .inner {
+      padding: $base-padding*2 $base-padding;
+      padding-bottom: 0;
+    }
+  }
+
+  .page-section {
+    .row {
+      max-width: 44em;
+
+      &.wide {
+        max-width: 60em;
+      }
+    }
+
+    p,
+    li,
+    h3,
+    h4 {
+      font-size: 1.2em;
+    }
+
+    p,
+    li {
+      line-height: 1.5;
+    }
+  }
+}

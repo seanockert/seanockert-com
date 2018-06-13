@@ -1,0 +1,53 @@
+
+/* Grid  ---------------------- */
+
+.row {
+  margin: 0 auto;
+
+  &:after {
+    clear: both;
+    display: block;
+    content: '';
+  }
+}
+
+.columns {
+  float: left;
+  padding: $base-padding $base-padding/2;
+  width: 100%;
+
+  &.large-12 {
+    @media #{$small-up} {
+      padding: $base-padding;
+    }
+  }
+
+  &.medium-12 {
+    @media #{$medium-up} {
+      padding: $base-padding;
+    }
+  }
+
+  &.large-6 {
+    width: 100%;
+    @media #{$large-up} {
+      width: 50%;
+      padding: $base-padding;
+    }
+  }
+
+  &.medium-6 {
+    width: 100%;
+    @media #{$medium-up} {
+      width: 50%;
+      padding: $base-padding;
+    }
+  }
+
+  &.small-6 {
+    width: 50%;
+    @media #{$medium-up} {
+      width: 100%;
+    }
+  }
+}

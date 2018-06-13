@@ -1,0 +1,48 @@
+/* Slanted box layout  ---------------------- */
+
+// To try: http://tympanus.net/Tutorials/SlopyElements/
+
+.slanted-box {
+  background: transparent;
+  padding-bottom: 30px;
+  margin-bottom: $base-padding;
+  position: relative;
+  width: 100%;
+  text-align: center;
+  color: #fff;
+  overflow: hidden;
+
+  &:before, &:after {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    content: '';
+    background-color: $color-yellow;
+    display: block;
+    z-index: 0;
+    line-height: 0;
+  }
+
+  &:before {
+    height: 30px;
+  }
+
+  &:after {
+    height: 100%;
+    color: #fff;
+    @include vendor-prefix(transform, rotate(-3deg) scale(1.04));
+    z-index: 0;
+    margin-top: -30px;
+    margin-bottom: $base-padding;
+  }
+  
+  .slanted-box_content {
+    position: relative;
+    z-index: 100;
+    padding-top: $base-padding;
+    padding-bottom: $base-padding;
+    margin: 0 auto;
+  }
+  
+}

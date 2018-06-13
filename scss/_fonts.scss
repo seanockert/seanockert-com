@@ -1,0 +1,48 @@
+/* Load custom fonts */
+
+$typeface-header: Lato, sans-serif;
+$typeface-primary: Merriweather, Georgia, sans-serif;
+
+@import 'https://fonts.googleapis.com/css?family=Lato:400,900|Merriweather:300';
+
+body {
+  font-family: Georgia, sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4,
+.home-header,
+.page-cta,
+.intro,
+.cta,
+#projects a .link,
+.skills li strong,
+.page-header p,
+.page-overview .date {
+  font-family: sans-serif;
+}
+
+/* uncss:ignore */
+.fonts-loaded {
+  body {
+    font-family: $typeface-primary;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  .home-header,
+  .page-cta,
+  .intro,
+  .cta,
+  #projects a .link,
+  .skills li strong,
+  .page-header p,
+  .page-overview .date {
+    font-family: $typeface-header;
+    font-style: normal;
+  }
+}

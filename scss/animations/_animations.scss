@@ -1,0 +1,119 @@
+@include keyframes(slideInHome) {
+  0%, 100% { @include vendor-prefix(transition-timing-function, ease-out); }
+  0% { opacity: 0; @include transform(translate3d(100%, 0, 0)); }
+  100% { opacity: 0; @include transform(translate3d(0, 0, 0)); }
+}
+
+@include keyframes(fadeInHome) {
+  0% { opacity: 0; }
+  100% { opacity: 1;}
+}
+
+@include keyframes(slideOutHomeContent) {
+  0%, 100% { @include vendor-prefix(transition-timing-function, ease-out); }
+  100% { opacity: 0; @include transform(translate3d(-100%, 0, 0)); }
+}
+
+@include keyframes(slideOutHomeHeader) {
+  0%, 100% { @include vendor-prefix(transition-timing-function, ease-out); }
+  100% { opacity: 0; @include transform(translate3d(-100%, 0, 0)); }
+}
+
+@include keyframes(slideInPage) {
+  0%, 100% { @include vendor-prefix(transition-timing-function, ease-out); }
+  0% { opacity: 0; @include transform(translate3d(-100%, 0, 0)); }
+  100% { opacity: 0; @include transform(translate3d(0, 0, 0)); }
+}
+
+@include keyframes(slideInPageContent) {
+  0%, 100% { @include vendor-prefix(transition-timing-function, ease-out); }
+  0% { opacity: 0; @include transform(translate3d(100%, 0, 0)); }
+  100% { opacity: 1; @include transform(translate3d(0, 0, 0)); }
+}
+
+@include keyframes(slideOutPage) {
+  0%, 100% { @include vendor-prefix(transition-timing-function, ease-out); }
+  100% { opacity: 0; @include transform(translate3d(100%, 0, 0)); }
+}
+
+
+#header, .header-inner {
+  @include vendor-prefix(transition, all 0.2s 0.2s ease-out); 
+}
+
+@media #{$small-only} {
+  /* uncss:ignore */
+  .transition-out {
+      #home {
+          @include vendor-prefix(animation, slideOutPage 0.3s);
+      }
+      
+      #page {
+          @include vendor-prefix(animation, slideOutHomeContent 0.3s);  
+      }
+  }  
+  
+  /* uncss:ignore */  
+  .transition-in {
+      #home {
+          @include transform(translate3d(-100%, 0, 0));
+          @include vendor-prefix(animation, slideInHome 0.4s);
+      }
+      
+      #page {
+          @include transform(translate3d(100%, 0, 0));
+          @include vendor-prefix(animation, slideInPage 0.3s 0.1s);    
+      }
+  }
+}
+@media #{$medium-up} {
+  /* uncss:ignore */
+  .transition-out {
+      .home-header {
+        @include vendor-prefix(animation, slideOutHomeHeader 0.5s);  
+        
+        #header {
+          opacity: 0;
+          @include transform(translate3d(250px, -50%, 0));
+        }
+      } 
+      
+      .home-content {
+          @include vendor-prefix(animation, slideOutHomeContent 0.3s);  
+      }
+      
+      #page {
+          @include vendor-prefix(animation, slideOutPage 0.4s);  
+      }
+  }
+
+  /* uncss:ignore */
+  .transition-in {  
+      #page {
+          @include transform(translate3d(-100%, 0, 0));
+          @include vendor-prefix(animation, slideInPageContent 0.3s 0.3s);    
+      }
+      
+      .page-section {
+          @include vendor-prefix(animation, slideInPageContent 0.3s 0.35s);  
+      } 
+
+      #home {
+          opacity: 0;
+          @include vendor-prefix(animation, fadeInHome 0.4s 0.25s); 
+      } 
+
+  }
+}
+
+/* uncss:ignore */
+.transition-in #page, 
+.transition-out #page, 
+.transition-in .page-section, 
+.transition-out #page, 
+.transition-in #home, 
+.transition-out #home, 
+.transition-out .home-header, 
+.transition-out .home-content {
+ @include vendor-prefix(animation-fill-mode, forwards);   
+} 

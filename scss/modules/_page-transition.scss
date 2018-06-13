@@ -1,0 +1,181 @@
+$color-1: #4089a6; // Steel Blue
+$color-2: #283040; // Ebony Clay
+$color-3: #ffffff; // White
+
+@mixin center($xy:xy) {
+  @if $xy == xy {
+    left: 50%;
+    top: 50%;
+    bottom: auto;
+    right: auto;
+    @include vendor-prefix(transform, translateX(-50%) translateY(-50%));
+  }
+  @else if $xy == x {
+    left: 50%;
+    right: auto;
+    @include vendor-prefix(transform, translateX(-50%));
+  }
+  @else if $xy == y {
+    top: 50%;
+    bottom: auto;
+    @include vendor-prefix(transform, translateY(-50%));
+  }
+}
+
+
+/* Patterns - reusable parts of our design -------------------------------- */
+
+.cd-btn {
+	display: inline-block;
+	padding: 1.4em 1.6em;
+	margin-bottom: 2em;
+	border-radius: 50em;
+	background-color: $color-2;
+	color: $color-3;
+	font-weight: bold;
+	font-size: 1.3rem;
+	letter-spacing: 1px;
+	text-transform: uppercase;
+	box-shadow: 0 1px 4px rgba(#000, .1);
+
+	.no-touch &:hover {
+		background-color: lighten($color-2, 5%);
+	}
+
+	.cd-about & {
+		background-color: $color-1;
+	}
+}
+
+/* Main Components -------------------------------- */
+
+body {
+
+	&:after, &:before {
+		/* these are the 2 half blocks which cover the content once the animation is triggered */
+		content: '';
+		height: 50vh;
+		width: 100%;
+		position: fixed;
+		left: 0;
+		background-color: $color-3;
+		z-index: 1;
+	
+		/* Force Hardware Acceleration */
+		@include vendor-prefix(backface-visibility, hidden);
+		@include vendor-prefix(transform, translateZ(0));
+
+		@include vendor-prefix(transition, transform 0.4s 0.4s);
+	}
+
+	&:before {
+		top: 0;
+		@include vendor-prefix(transform, translateY(-100%));
+	}
+
+	&:after {
+		bottom: 0;
+		@include vendor-prefix(transform, translateY(100%));
+	}
+
+	&.page-is-changing:after, &.page-is-changing:before {
+		@include vendor-prefix(transform, translateY(0));
+		@include vendor-prefix(transition, transform 0.4s 0s);
+	}
+}
+
+
+.cd-cover-layer {
+	/* layer that covers the content when the animation is triggered */
+	position: fixed;
+	@include center;
+	height: calc(100% - 20px);
+	width: calc(100% - 20px);
+	opacity: 0;
+	visibility: hidden;
+	background-color: $color-1;
+	@include vendor-prefix(transition, opacity 0.4s 0.4s);
+	@include vendor-prefix(transition, visibility 0s 0.8s);
+
+	.cd-about & {
+		background-color: $color-2;
+	}
+
+	.page-is-changing & {
+		opacity: 1;
+		visibility: visible;
+		@include vendor-prefix(transition, opacity 0.3s 0s);
+		@include vendor-prefix(transition, visibility 0s 0s);
+	}
+}
+
+.cd-loading-bar {
+	/* this is the loading bar - visible while switching from one page to the following one */
+	position: fixed;
+	z-index: 2;
+	left: 50%;
+    top: 50%;
+	height: 2px;
+	width: 90%;
+	background-color: $color-1;
+	visibility: hidden;
+	@include vendor-prefix(transition, visibility 0s 0.4s);
+	@include vendor-prefix(transition, transform 0.4s 0s ease-in);
+
+	/* Force Hardware Acceleration */
+	@include vendor-prefix(backface-visibility, hidden);
+	@include vendor-prefix(transform, translateZ(0));
+
+	@include vendor-prefix(transform, translateX(-50%) translateY(-50%));
+
+	.cd-about & {
+		background-color: $color-2;
+
+		&:before {
+			background-color: $color-1;
+		}
+	}
+
+	&:before {
+		/* this is the progress bar inside the loading bar */
+		content: '';
+		position: absolute;
+		left: 0;
+		top: 0;
+		height: 100%;
+		width: 100%;
+		background-color: $color-2;
+
+		/* Force Hardware Acceleration */
+		@include vendor-prefix(backface-visibility, hidden);
+		@include vendor-prefix(transform, translateZ(0));
+
+		@include vendor-prefix(transform, scaleX(0));
+		@include vendor-prefix(transform-origin, left center);
+	}
+
+	.page-is-changing & {
+		visibility: visible;
+		@include vendor-prefix(transform, translateX(-50%) translateY(-50%) scaleX(.3));
+		@include vendor-prefix(transition, visibility 0s 0.3s);
+		@include vendor-prefix(transition, transform 0.4s 0.4s);
+
+		&:before {
+			@include vendor-prefix(transform, scaleX(1));
+			@include vendor-prefix(transition, transform 0.8s 0.8s ease-in);
+		}
+	}
+}
+
+@media only screen and (min-width: 48em) {
+	.cd-cover-layer {
+		height: calc(100% - 40px);
+		width: calc(100% - 40px);
+	}
+	
+	.cd-loading-bar {
+		&:before {
+			width: calc(100% - 40px);
+		}
+	}
+}

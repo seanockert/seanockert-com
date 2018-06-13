@@ -1,0 +1,64 @@
+.page {
+
+	#header {
+	  min-height: 430px;
+	  height: 50%;
+	  text-align: center;
+	  @include vendor-prefix(transform-style, preserve-3d);
+	}
+
+  #head-inner {
+    max-width: none;
+    text-align: center;
+    width: 100%;
+    color: #fff;
+    @include vertical-align;
+    @include vendor-prefix(transform, translateY(50%));
+  }
+
+	
+	#content {
+	  overflow-y: auto;
+	  -webkit-overflow-scrolling: touch;
+	  padding: 2em;
+	  background: #fff;
+	  color: #444;
+	}
+	
+	#article {
+	  max-width: 40em;
+	  margin: 0 auto;
+	}
+
+	p, h2, li {
+	  color: #444;
+	}
+
+	h2 {
+		font-weight: 700;
+	}
+
+	&#fruit-ninja {
+		background: #D42525;
+		color: #fff;
+
+		p, h2, li {
+		  color: #fff;
+		}
+
+	}
+}
+
+@media #{$large-up} {
+	.page {
+	  #header {
+	    position: fixed;
+	    height: 100%;
+
+	    #head-inner {
+	      @include vendor-prefix(transform, translateY(-50%));
+	    }
+
+	  }
+  }
+}

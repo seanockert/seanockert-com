@@ -1,0 +1,95 @@
+/* Common Elements and Helpers */
+
+.main-content { 
+  .row { padding: $base-padding*2 0; }
+}  
+  
+  
+.arrow-down, .arrow-up {
+  display: block;
+  height: auto;
+  width: 55px;
+  margin: $base-padding*2 auto;
+  -webkit-tap-highlight-color:rgba(0,0,0,0);
+
+  &:hover {
+    background-position: 50% 0; 
+    opacity: 1;
+  }
+
+  &:active {
+    background-position: 50% 4px;   
+    opacity: 1;      
+  }
+}
+
+.arrow-down { display: none; }
+
+.arrow-up {
+  width: 30px;
+}
+
+.mfp-iframe-scaler {
+  min-height: 760px;
+  max-width: 600px;
+}
+
+/* This parent can be any width and height */
+.block {
+  display: table;
+  width: 100%;
+}
+   
+
+/* The element to be centered, can also be of any width and height */ 
+.centered {
+  display: table-cell;
+ vertical-align: middle;
+} 
+
+
+
+
+#support-form, #download-form, #coming-soon {
+  background: #fff;
+  max-width: 600px;
+  margin: 0 auto;
+  padding: $base-padding;
+
+  p {
+    line-height: 1.5;
+  }
+  
+  h2 {
+    padding-top: $base-padding*2;
+  }
+  
+}
+
+
+
+@media #{$medium} {
+  .main-content {
+    padding-top: $base-padding*6 0;
+    padding-bottom: 0;
+     
+    .row { padding: $base-padding*3 0; }
+    .block { text-align: left;}
+  }
+     
+  .arrow-down { display: block; } 
+
+  #support-form, #download-form, #coming-soon {
+    form {
+      padding: $base-padding*3 $base-padding*4;
+    } 
+  }
+
+
+}
+
+@media #{$desktop} {
+  
+}
+
+

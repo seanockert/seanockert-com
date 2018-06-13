@@ -1,0 +1,94 @@
+﻿/* Basa Modal */
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  background: #fff;
+  color: #444;
+  box-shadow: 0 0 7px rgba(0,0,0,0.8);
+  padding: $base-padding*2;
+  font-size: 16px;
+  text-align: left;
+  z-index: 10001;
+  display: none;
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
+
+  h2, h3 {
+      margin-top: 0;
+  }
+}
+
+
+#modal-overlay {
+  background: rgba(0,0,0,0.5);
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  z-index: 10000;
+  display: none;
+}
+
+.modal-open .modal,
+.modal-closing .modal,
+.modal-open #modal-overlay {
+  display: block !important;
+}
+
+.modal-open body {
+    overflow: hidden;
+}
+
+.close {
+  position: fixed;
+  top: 0;
+  right: 0;
+  font-weight: bold;
+  color: #888;
+  font-size: 36px;
+  text-decoration: none;
+  line-height: 1;
+  padding: 12px;
+  padding-top: 8px;
+}
+
+  .close:hover {
+    color: #000;
+  }
+
+
+#modal-content {
+
+}
+
+@media only screen and (min-width: 40em) {
+
+  .modal {
+    //left: 50%;
+    //width: 600px;
+    //margin-left: -300px;
+  }
+
+}
+
+.modal-open .modal {
+  opacity: 1;
+  @include vendor-prefix(animation, modalOpen 0.35s forwards);
+  @include vendor-prefix (transform, translate3d(0, 0, 0) scale(1,1))
+}
+
+.modal-closing .modal {
+  @include vendor-prefix(animation, modalClose 0.2s forwards);
+}
+
+
+
+
+

@@ -1,0 +1,31 @@
+/*!
+Site Name:      Sean Ockert
+Site URI:       https://seanockert.com/
+Description:    Based on Basa framework
+Author:         Sean Ockert @seanockert
+Author URI:     https://seanockert.com
+Version:        1.0
+*/
+
+// Base Config
+@import "reset"; /* Browser resets - no need to edit */
+@import "settings"; /* Mixins and Media queries - no need to edit */
+@import "fonts"; /* Load Google Webfonts */
+@import "variables"; /* Set the base colours and fonts here */
+
+@import "modules/simple-grid";
+
+@import "modules/type";
+@import "modules/buttons";
+
+@import "global";
+@import "page";
+
+//@import "small";
+@import "medium";
+@import "large";
+
+@import "animations/animation-mixins";
+@import "animations/animations";
+
+@import "print";

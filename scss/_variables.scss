@@ -1,0 +1,73 @@
+/* Colours ---------------------- */
+
+$color-off-white: #f9f9f9;
+$color-off-black: #444;
+$color-light-grey: #eee;
+$color-mute: #999;
+
+$color-base: #ed2d4d; //red
+$color-purple: #4e51ce;
+$color-red: #ed2d4d;
+$color-blue: #2a97ec;
+$color-green: #30c81e;
+$color-dark-blue: #26353f;
+//$color-yellow: #f2e73f;
+//$color-yellow: #F8EE53;
+$color-yellow: #fade4e;
+$color-text-yellow: #232325;
+$color-text: #222;
+$color-text-light: #555;
+
+$color-chat-blue: #0882fd;
+$color-chat-grey: #e9e3dd;
+$color-chat-grey: #fff;
+
+$color-ninja-background: #edc995;
+$color-ninja-button: #d22d3a;
+$color-ninja-text: #592311;
+
+$color-halfbrick-background: #ea5124;
+$color-halfbrick-button: #661f0a;
+$color-halfbrick-text: #fff;
+
+$color-steepery-background: #c4e6ec;
+$color-steepery-button: #4a6469;
+$color-steepery-text: #171717;
+
+$color-basa-background: #27b987;
+$color-basa-button: #225e49;
+$color-basa-text: #fff;
+
+$social-facebook-blue: #3b5997;
+$social-twitter-blue: #32ccfe;
+$social-googleplus-red: #f23c26;
+$social-pinterest-red: #cc2229;
+
+/* Fonts  ---------------------- */
+
+$typeface-header: Lato, sans-serif;
+$typeface-primary: Merriweather, Georgia, sans-serif;
+
+$font-size-base: 1em !default;
+$font-size-small: 0.875em;
+$font-size-normal: 1.2em;
+$font-size-medium: 1.375em;
+$font-size-large: 2.5em;
+
+$light: 300;
+$normal: 400;
+$strong: 900;
+
+/* Mixins ---------------------- */
+
+.no-list {
+	@include blank-list;
+}
+
+.inline-list {
+	@include blank-list;
+
+	li {
+		display: inline-block;
+	}
+}

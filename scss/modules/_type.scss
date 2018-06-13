@@ -1,0 +1,58 @@
+/* Typography and buttons  ---------------------- */
+
+p   { line-height: 1.5;}
+
+/* Headers  ---------------------- */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: $typeface-header;
+  line-height: 1.1;
+  font-weight: $strong;
+  margin: 0;
+  margin-bottom: $base-padding/4;
+  padding: 0;
+}
+
+h1, h2 {
+  font-size: $font-size-large;
+}
+
+h2 {
+  font-size: $font-size-medium;
+  font-weight: normal;
+  padding-bottom: $base-padding/2;
+  margin-bottom: $base-padding/2;
+}
+
+/* Lists  ---------------------- */
+
+ul li,
+ol li {
+  line-height: 1.45;
+  padding-bottom: $base-padding/4;
+}
+
+menu, ol, ul {
+  padding: 0 0 0 30px
+}
+
+@media #{$medium-up} {
+
+  menu, ol, ul {
+    padding: 0 0 0 40px
+  }
+
+}
+
+
+hr {
+  border: none;
+  height: 1px;
+  display: block;
+  background: #ddd;
+  margin: $base-padding 0;
+}

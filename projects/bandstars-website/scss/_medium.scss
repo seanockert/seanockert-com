@@ -1,0 +1,212 @@
+ @media #{$medium} {
+  .text-center p {
+    max-width: 80%;
+  }
+  
+  
+  #intro {
+    max-width: 1200px;
+    margin: 0 auto;
+    background-size: contain;
+  }
+
+  #logo{
+    img {
+      margin-top: 10px;
+      margin-left: 40px;
+      margin-bottom: 10px;
+      height: auto;
+      width: 70%; 
+      max-width: 550px;        
+    }
+    
+    #logo-pp {
+      height: 180px;
+      width: auto;
+      margin-top: -40px;
+      margin-bottom: -40px;
+    }
+  }
+  
+  #support-link {  right: 20px; }
+  
+  #social-icons {
+    left: 30px;
+    top: 12px;
+    
+    a { opacity: 0.9; }
+  }
+
+
+  .download-links a {
+    height: 60px;
+    width: auto;
+    margin-top: 0;
+    
+    img {
+      width: auto;
+      height: 60px;
+    }
+  } 
+  
+  #content { 
+    h2 { font-size: 2.6em; line-height: 1.1; }  
+  }     
+
+  #video {
+    margin-top: $base-padding*2;
+    
+    iframe {
+      background: #000;
+      box-shadow: 1px 1px 3px rgba(0,0,0,0.9);
+    }
+  }
+  
+  #form-band,
+  #features,
+  #creators,
+  #download {
+      h2 { 
+        padding-top: 0;
+        text-shadow:
+         3px 3px 0 rgba(0,0,0,0.4),
+        -1px -1px 0 rgba(0,0,0,0.4),  
+         1px -1px 0 rgba(0,0,0,0.4),
+        -1px 1px 0 rgba(0,0,0,0.4),
+         1px 1px 0 rgba(0,0,0,0.4);
+      }
+  } 
+  
+  #form-band {
+    ul.screenshots {
+      li { 
+        margin-bottom: 16px;       
+         img {
+          border-radius: 4px;
+        }  
+      }
+    }
+  }
+  
+  
+  #creators, #features {
+      text-align: left;
+      
+      h2 {
+        font-size: 3.2em;
+      }
+      
+      br { display: block; }       
+      .character { padding-top: 0; width: 255px; }    
+  }
+  
+  #features {
+    .character { margin-top: $base-padding*5; }
+    
+    li {
+      font-size: $font-size-large;
+    }
+  }
+  
+  #download { 
+    padding-top: $base-padding*2; 
+    padding-bottom: $base-padding; 
+    
+    h2 { line-height: 1;}
+  
+    .blurb {
+      float: left;
+      margin-left: $base-padding*2;
+    }
+    
+    #game-icon img { 
+      width: 180px;
+      height: 180px;
+      margin-right: $base-padding*2;
+    } 
+    
+  }  
+  
+  .pink {
+    background-size: 700px 700px;
+  }
+
+
+}
+
+
+
+@media #{$desktop} {
+ 
+  body {
+    background-size: 1440px auto;
+  }
+ 
+  #logo {
+    img {
+      margin-top: 20px;
+      width: 550px;    
+    }
+    
+    
+    #logo-pp {
+      height: 220px;
+      width: auto;
+      position: absolute; 
+      left: 50%;
+      margin-left: 160px;
+      margin-top: 0;
+      top: 170px;
+    }    
+    
+  }  
+  
+  #content { 
+    h2 { font-size: 3.2em; line-height: 1.1 } 
+
+    .row {
+      padding: $base-padding*5 0;
+    } 
+    
+    #intro .row {
+      padding: $base-padding 0;
+    }
+  }  
+
+}   
+
+@media only screen and (max-width: 999px) and (min-width: 568px) {
+  
+  img#character-left,
+  img#character-right {
+    display: none;   
+  }
+
+}
+
+@media only screen and (min-width: 1000px) {
+    
+
+  #download .row {
+    background-size: 800px 800px;
+  }
+  
+  img#character-left,
+  img#character-right {
+    position: absolute;  
+    top: 50px; 
+    height: 300px;
+    width: auto;
+  }
+
+  img#character-left { left: -170px; }
+  img#character-right { right: -170px; }  
+      
+}
+
+@media only screen and (min-width: 1200px) {
+
+  img#character-left { left: -210px; }
+  img#character-right { right: -210px; }        
+  
+}

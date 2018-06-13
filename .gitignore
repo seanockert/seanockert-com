@@ -1,0 +1,11 @@
+*.sass-cache/
+node_modules
+_ARCHIVE/
+*.config
+*.old
+*.backup
+*.DS_Store
+*Thumbs.db
+*.sql
+*.rb
+*.psd

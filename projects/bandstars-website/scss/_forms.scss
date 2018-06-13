@@ -1,0 +1,159 @@
+$color-border: #ccc;
+
+form {
+    padding: 0;
+    
+    h2 {
+        font-family: "billybold", sans-serif;
+        margin-top: 0;
+    }
+}
+
+fieldset {
+    border:0;
+    border:1px solid $color-border;
+    background: $color-off-white;
+}
+
+legend {
+    display:none;
+}
+
+input, select {
+    color: $color-base-font;
+    background: #fff;
+    width: 100%;
+}
+
+input[type="checkbox"],
+input[type="radio"] {
+    vertical-align:middle;
+    display:inline-block;
+    margin:-4px 0 0;
+}
+
+input[type="text"],
+input[type="email"],
+select,
+textarea {
+    vertical-align:middle;
+    display:inline-block;
+    width: 100%;
+    padding: 6px 6px;
+    @include border-radius(3px);
+    border: 1px solid $color-border;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    
+    &:focus {
+        background: #fff;
+        color: $color-base-font;
+        border:1px solid $color-dark;
+    }
+}
+
+input[type="submit"] {
+    margin-top: $base-padding;
+    width: auto;
+}
+
+textarea {
+    width:100% !important;
+    height:150px;
+}
+
+label {
+    display:inline-block;
+    line-height:1.5;
+    margin-top: $base-padding;
+    margin-bottom: $base-padding/2;
+    width:100%;
+    font-size: $font-size-small;
+    font-weight: $bold;
+    
+    &.checkbox, &.radio {
+        margin:0 0 0 5px;
+        width:auto;     
+    }
+    
+    &.textarea {
+        display:block;
+    }
+}
+
+#prereg {
+    width: 100%;
+    margin: $base-padding*2 auto;
+    padding: $base-padding*2;
+    background: #fff;
+    box-shadow: 0 0 5px #000;
+    background: #12182E;
+    color: #fff;
+    text-align: center;
+    border-radius: 10px;
+    
+    h2 {
+        color: #fff;
+        text-align: center;
+    }
+
+    p {
+        font-size: $base-font-size;
+        line-height: 1.4;
+        overflow: hidden;
+        margin-top: 0;
+    }
+    
+    input[type="text"], input[type="email"] {
+        margin-bottom: $base-padding;
+    }
+    
+    small {
+        color: #6f768c;
+        margin-top: 10px;
+        display: block;
+    }
+}
+
+
+@media #{$medium} {
+    textarea {
+        width:80%;
+    } 
+    
+    #prereg {
+        width: 50%;
+        margin-top: $base-padding*4;
+        position: relative;
+        text-align: left;        
+        
+        .stars-left,
+        .stars-right {
+            position: absolute;
+            z-index: 999;
+            top: -71px;
+            height: 175px;
+            width: 166px;
+        }
+        
+        .stars-left {
+            background: url('../images/stars-left.png') no-repeat 0 0;
+            left: -82px;
+        }        
+        
+        .stars-right {
+            background: url('../images/stars-right.png') no-repeat 0 0;
+            right: -82px;
+        }
+        
+        img {
+            margin-right: $base-padding;
+            float: left;
+        } 
+        
+        small {
+            margin-top: 0;
+            display: inline-block;
+        }      
+    }     
+}    
+
