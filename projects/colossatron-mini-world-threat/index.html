@@ -1,0 +1,99 @@
+<!DOCTYPE html> 
+<html>
+<head>
+  <title>Mini World Threat! | Halfbrick</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link href="css/normalize.min.css" media="screen" rel="stylesheet" type="text/css"> 
+  <link href="css/snakes.css" media="screen" rel="stylesheet" type="text/css"> 
+  <link rel="icon" type="image/png" href="images/favicon.png">
+</head>
+ 
+<body> 
+  <div id="frame">
+    <div id="snakes">
+
+      <div id="sound" class="on" title="Toggle Music and Effects" style="display:none;"></div>
+
+      <div id="score">
+        <span class="current"><span class='label'>Score: </span><span class="value">000000</span></span>
+        <span class="high"><span class='label'>High: </span><span class="value">000000</span></span>
+      </div>
+
+      <canvas id="canvas">
+        <div class='unsupported'>
+          <img src="images/mini-world-threat.png"><br><br>
+          <p>Sorry, Mini World Threat cannot play because your browser does not support the &lt;canvas&gt; element. <br><br>Try Google Chrome, Apple Safari, Firefox or IE9+</p>
+        </div>
+      </canvas>
+
+      <div id="overlay">
+
+        <img id="logo" src="images/mini-world-threat.png">
+        <img id="controls" src="images/controls.png">
+
+        <div id="loading" class="menu" style="display:none;">
+          <h1>Loading...</h1>
+        </div>
+
+        <div id="highscores" class="menu" style="display:none;">
+          <h1>Mini World Threat <br>Was Destroyed</h1>
+          <p>You scored <span id="yourscore">0</span> points</p>  
+
+        </div>  
+        
+        <div id="award" style="display:none">
+          <h2>Unlocked the Mech</h2>
+          <a href="images/colossatron-generals-mech.png" target="_blank"><img src="images/prize.jpg"></a>
+          <a href="#" onclick="hideThis()" id="close">Close</a>
+        </div> 
+        <div id="addscore" style="display:none">
+          <h2>High Score</h2>
+          <p>You scored <span id="yourhighscore">0</span> points</p>
+          <input type="text" id="nameInput" placeholder="Type name" maxlength="15" value="Player" onkeypress="keypress(event)" autofocus>
+           <a href="#" onclick="keypress(13);return false;" class="button">Add Score</a>
+        </div>         
+        
+        <div id="modal-overlay" style="display:none"></div>     
+        
+      </div>
+
+
+    </div>
+  </div>
+  <div class="clear"></div>
+  
+  <!--<div id="leaderboard">
+    <h2>Leaderboard</h2>
+    <table id="leaderboardTable"></table>
+  </div>-->  
+  
+  <div class="fb-like" style="margin: 20px auto;width: 580px; display: block" data-href="https://facebook.com/colossatron" data-layout="standard" data-action="like" data-show-faces="true" data-colorscheme="light" data-share="false"></div>
+
+  <br><br>
+  <script src="https://cdn.firebase.com/v0/firebase.js"></script>
+  <script src="js/scripts.js"></script>
+  <script src="js/snake.js"></script>
+
+  <div id="fb-root"></div>
+  <script>
+  
+  Game.ready(function() {
+    game = MWT();
+  });
+
+  var award = document.getElementById('award');
+  var addscore = document.getElementById('addscore');
+  var modal = document.getElementById('modal-overlay');
+  modal.addEventListener('click', hideThis);
+
+  function hideThis() {
+    modal.style.display = 'none';
+    award.style.display = 'none';
+    addscore.style.display = 'none';
+    return false;
+  }
+  
+  </script>
+
+</body> 
+</html>
