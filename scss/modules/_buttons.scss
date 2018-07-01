@@ -22,7 +22,7 @@
     padding: $base-padding/2 $base-padding*1.2;
     background: darken($color-base, 15%);
     box-shadow: none;
-    @include vendor-prefix(transform, scale(1.05,1.05));
+    @include vendor-prefix(transform, scale(1.05,1));
   }
 
   &:active {

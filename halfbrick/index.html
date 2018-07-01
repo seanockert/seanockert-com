@@ -8,7 +8,7 @@
     <title>Halfbrick Studios - Sean Ockert</title>
     <meta name="description" content="At Halfbrick, I was responsible for creating and running all of our public websites and online campaigns, seen by over 1 million visitors every month." />
     <link href="../images/icon-sean-bamboo.png" rel="icon" type="image/png">
-    <link href="../css/style.css?rev=afb0d2738e57d6a1dca39a7754e9a487" rel="stylesheet" type="text/css">
+    <link href="../dist/css/style.css?rev=afb0d2738e57d6a1dca39a7754e9a490" rel="stylesheet" type="text/css">
     <!--[if lt IE 9]>
       <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.6.2/html5shiv.js"></script>
       <script src="//cdnjs.cloudflare.com/ajax/libs/respond.js/1.1.0/respond.min.js"></script>
@@ -26,16 +26,16 @@
   <body>
     <div id="barba-wrapper"><div class="barba-container"> <!-- Start barba -->
       <div id="page">
-        <div class="page-header halfbrick">
+        <header class="page-header halfbrick">
           <div class="row">
             <h1>Halfbrick Studios</h1>
             <hr>
             <p>Website design, online marketing, email campaigns, internal tools and game design.</p>
             <a href="https://halfbrick.com" class="button" title="Visit Halfbrick.com homepage">Visit the website</a>
           </div>
-        </div>
+        </header>
 
-        <div class="page-section">
+        <article class="page-section">
           <div class="row">
             <p>Halfbrick is a successful games company based in Brisbane, who has developed hugely popular mobile games such as Fruit Ninja and Jetpack Joyride.</p> 
 
@@ -45,13 +45,11 @@
             
             <p>I also helped support the release of a dozen new games to multiple platforms (Android, iOS, Amazon, Xbox One) and run numerous campaigns for game update and events.</p>
 
-          </div>
-          
-          <div class="row wide">
-            <a href="https://halfbrick.com" title="Visit Halfbrick.com homepage"><img src="../images/page/screen-halfbrick-homepage.jpg" alt="Screenshot of Halfbrick website"></a>
-          </div>          
+            <figure>
+              <a href="https://halfbrick.com" title="Visit Halfbrick.com homepage"><img src="../images/page/screen-halfbrick-homepage.jpg" alt="Screenshot of Halfbrick website"></a>
+            </figure>          
             
-          <div class="row">  
+
             <h3>Key roles</h3>
             <ul>
               <li>Designing responsive websites for all Halfbrick brands</li>
@@ -62,15 +60,11 @@
               <li>Sys-admin for Linux servers on Amazon Web Services</li>
               <li>Building internal tools, plus scripts to handle app deeplinking, geo-targeting etc.</li>
             </ul>
-          </div>
-          
-        
-          <div class="row wide">
-            <a href="https://halfbrick.com/our-games/" title="Halfbrick games listing"><img src="../images/page/screen-halfbrick-game-listing.jpg" alt="Screenshot of Halfbrick games listing"></a>
-          </div>
 
-          <div class="row">
-            
+          
+            <figure>
+              <a href="https://halfbrick.com/our-games/" title="Halfbrick games listing"><img src="../images/page/screen-halfbrick-game-listing.jpg" alt="Screenshot of Halfbrick games listing"></a>
+            </figure>
 
             <div class="page-case">
               <h3 id="case-study">Case Study</h3>
@@ -117,13 +111,11 @@
             
             
             <h4 class="padding" id="release-calendar">Release Calendar</h4>
-          </div>
-          
-          <div class="row wide">
-            <img src="../images/page/screen-halfbrick-calendar.jpg" alt="Screenshot of Calendar app">
-          </div>             
-            
-          <div class="row">
+
+            <figure>
+              <img src="../images/page/screen-halfbrick-calendar.jpg" alt="Screenshot of Calendar app">
+            </figure>             
+
             <p>This calendar was made for the producers to keep track of upcoming release dates.</p> 
               
             <p>Releases can be edited, moved and removed directly on the calendar or via an Excel spreadsheet where the data is stored (some producers preferred this). 
@@ -131,25 +123,21 @@
             <p>Each day, a cron job compares the current calendar with yesterdays and sends out an email digest of all the changes.</p>
               
             <h4 class="padding" id="bug-tracker-dashboard">TestTrack Bug Tracker Dashboard</h4>
-          </div>
 
-          <div class="row wide">
-            <img src="../images/page/screen-halfbrick-bugtracker.jpg" alt="Screenshot of Bug Tracker app">
-          </div>   
-          
-          <div class="row">
+            <figure>
+              <img src="../images/page/screen-halfbrick-bugtracker.jpg" alt="Screenshot of Bug Tracker app">
+            </figure>   
+
             <p>This dashboard gives an overview of the bugs in the current software project. It displays the history of bugs filed and filters bugs by their type, priority and assigned team member. The data is pulled from TestTrack via a Python backend and periodically updates. </p>
             
             <p>There's 8-10 different projects running at any one time, which all use this dashboard.</p>
           
             <h4 class="padding" id="burndown-chart">Project Burndown Chart</h4>
-          </div>
-             
-          <div class="row wide">
-            <img src="../images/page/screen-halfbrick-burndown.jpg" alt="Screenshot of Burndown Charts app">
-          </div>
 
-          <div class="row">
+            <figure>
+              <img src="../images/page/screen-halfbrick-burndown.jpg" alt="Screenshot of Burndown Charts app">
+            </figure>
+
             <p>This dashboard tracks how the team is progressing through its current 2 week sprint.</p>
               
             <p>The data is pulled daily from the sprint's Trello board. Each task on the board has an number of hours assigned to it. When tasks are completed, the dashboard shows the remaining hours required to complete the sprint.</p>
@@ -157,38 +145,33 @@
             <p>Filters allow you to view Code, Art and Design as separate burndown charts.</p>
             
             <h3>Branding</h3>
-          </div>
-     
-           <div class="row wide">
-            <img src="../images/page/screen-halfbrick-branding.jpg" alt="Screenshot of Halfbrick logo alternatives">
-          </div>            
-          
-          <div class="row">
+
+            <figure>
+              <img src="../images/page/screen-halfbrick-branding.jpg" alt="Screenshot of Halfbrick logo alternatives">
+            </figure>            
+
             <p>In 2014, I was asked to investigate refreshing the Halfbrick logo.</p> 
               
-            <p>A limitation with the existing logo was it can only be displayed on a white or black background. We needed it to work with all of Halfbrick games, whose brandings are very colourful.</p>
+            <p>A limitation with the existing logo was it can only be displayed on a white or black background. We needed it to work across all of Halfbrick games, whose brandings were very colourful.</p>
             
-            <p>In the version above, the wordmark conveys the character of the brand without the 'brick' icon and works on any coloured background to tie in with the game's branding.</p>
+            <p>In the version above, the wordmark conveys the playful character of the brand without needing the <em>brick</em> icon, and it works on any coloured background which helps tie in with each game's branding.</p>
              
-            <p>Halfbrick didn't end up adopting the new logo, but it was helpful to explore alternatives.</p>
+            <p>Halfbrick didn't end up adopting a new logo, but it was helpful to explore alternatives.</p>
             
-            <h3>One more thing...</h3>
-          </div>
-     
-           <div class="row wide">
-            <a href="https://seanockert.com/projects/colossatron-mini-world-threat/" title="Play the Mini World Threat game"><img src="../images/page/screen-halfbrick-game.jpg" alt="Screenshot of Mini World Threat game"></a>
-          </div>  
+            <h3>Game on!</h3>
+       
+            <figure>
+              <a href="https://seanockert.com/projects/colossatron-mini-world-threat/" title="Play the Mini World Threat game"><img src="../images/page/screen-halfbrick-game.jpg" alt="Screenshot of Mini World Threat game"></a>
+            </figure>  
           
-          <div class="row">
-            <p>I made an online mini-game to accompany the release of <a href="https://colossatron.com">Colossatron</a>. Mini World Threat was built in HTML5 canvas and uses Firebase for the leaderboard.</p> 
+            <p>To accompany the release of <a href="https://colossatron.com">Colossatron</a>, as part of the marketing, I made an online mini-game: Mini World Threat. This was built in HTML5 canvas and used Firebase for the leaderboard. The game was hosted on miniworldthreat.com, but has since been removed. You can still <a href="https://seanockert.com/projects/colossatron-mini-world-threat/" title="Play the Mini World Threat game">play the game here</a>.</p> 
               
-            <p class="hidden-small">The controls are keyboard only. Can you beat 2020 points?</p>  
-            <p class="hidden-large">View on desktop to play.</p>  
-            <p><a href="https://seanockert.com/projects/colossatron-mini-world-threat/" class="button hidden-small" title="Play the Mini World Threat game">Play Mini World Threat</a></p> 
+            <p><em>The game controls are keyboard only. Can you beat 2,000 points?</em></p>  
+            <p class="hidden-large">View on desktop to play.</p> 
           </div>
-        </div>
+        </article>
 
-        <div class="page-cta">
+        <footer class="page-cta">
           <h2><a href="mailto:hello@seanockert.com" title="Send me an email">
             <img src="../images/face.png" alt="Sean's face">
             Let's work together<span>.</span></a>
@@ -198,7 +181,7 @@
             <li><a href="https://www.linkedin.com/in/sean-ockert-b2294230" title="Connect with me on LinkedIn">LinkedIn</a></li>
             <li><a href="../sean-ockert-resume-2018.png" title="Download my resume" class="no-barba">Resume</a></li>
           </ul>
-        </div>
+        </footer>
 
       </div>
     </div></div> <!-- End barba -->

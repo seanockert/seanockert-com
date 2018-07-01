@@ -31,7 +31,10 @@
       padding: $base-padding/2;
       cursor: pointer;
 
-      @include vendor-prefix(transition, all 0.3s cubic-bezier(0.87,-0.41,0.19,1.44));
+      @include vendor-prefix(
+        transition,
+        all 0.3s cubic-bezier(0.87, -0.41, 0.19, 1.44)
+      );
 
       img {
         display: block;
@@ -68,7 +71,7 @@
     opacity: 1;
 
     img {
-      @include vendor-prefix(transform, scale(1.1,1.1));
+      @include vendor-prefix(transform, scale(1.1, 1.1));
     }
   }
 }
@@ -96,7 +99,7 @@
 }
 
 .page-header {
-  padding: $base-padding*2 $base-padding/2;
+  padding: $base-padding * 2 $base-padding/2;
   text-align: center;
 
   h1 {
@@ -119,6 +122,10 @@
     font-size: 1.2em;
     margin-bottom: 0;
     line-height: 1.4;
+
+    span {
+      white-space: nowrap;
+    }
   }
 
   .button {
@@ -128,7 +135,7 @@
   }
 
   &.halfbrick {
-    //background: #ef6524 url(../images/page/header-halfbrick.jpg) bottom center;
+    //background: #ef6524 url(https://seanockert.com/images/page/header-halfbrick.jpg) bottom center;
     //background-size: cover;
     background: #ef6524;
     background: linear-gradient(45deg, darken(#ef6524, 15%), #ef6524);
@@ -145,7 +152,9 @@
   }
 
   &.fruitninja {
-    background: #f5c96c url(../images/page/header-fruit-ninja.jpg) center center;
+    background: #f5c96c
+      url(https://seanockert.com/images/page/header-fruit-ninja.jpg) center
+      center;
     background-size: cover;
     //background: #ef6524;
     //background: linear-gradient(45deg, darken(#ef6524, 15%), #ef6524);
@@ -162,6 +171,21 @@
     .button {
       color: #fff;
       background: #d32525;
+    }
+  }
+
+  &.neto {
+    background: #083e52;
+    background: linear-gradient(45deg, #0f7398, #083e52);
+    color: rgba(255, 255, 255, 0.7);
+
+    h1 {
+      color: #fff;
+    }
+
+    .button {
+      color: #373a36;
+      background: #ffc907;
     }
   }
 }
@@ -183,7 +207,12 @@
   padding-bottom: $base-padding;
 
   h3 {
-    margin-top: $base-padding*2;
+    margin-top: $base-padding * 2;
+  }
+
+  h4 {
+    margin-top: $base-padding * 1.5;
+    font-size: 1.25em;
   }
 
   h2 {
@@ -207,14 +236,32 @@
     margin: 0 auto;
     max-width: 37em;
     padding: 0 $base-padding/2;
+  }
 
-    &.wide {
-      max-width: 60em;
-      text-align: center;
-      padding: 0;
+  figure {
+    img {
+      width: 100%;
+    }
+  }
+}
 
-      img {
-        width: 100%;
+@media screen and (min-width: 47em) {
+  .page-section {
+    .row {
+      figure {
+        margin-left: -5em;
+        margin-right: -5em;
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 60em) {
+  .page-section {
+    .row {
+      figure {
+        margin-left: -11.5em;
+        margin-right: -11.5em;
       }
     }
   }
@@ -225,12 +272,14 @@
   padding-top: $base-padding;
   margin: $base-padding 0;
   margin-bottom: 0;
-  background: $color-yellow;
+  background: #eee;
   border-radius: 4px;
 
   h3 {
     margin-top: 0;
     color: rgba(0, 0, 0, 0.5);
+    border: none;
+    padding-bottom: 0;
 
     &:after {
       background-color: rgba(0, 0, 0, 0.15);
@@ -252,7 +301,7 @@
 }
 
 .page-cta {
-  padding: $base-padding*2 $base-padding/2;
+  padding: $base-padding * 2 $base-padding/2;
   font-weight: $normal;
 
   h2 {
