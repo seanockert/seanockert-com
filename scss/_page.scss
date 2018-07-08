@@ -43,7 +43,8 @@
         margin-bottom: 4px;
       }
 
-      &:hover {
+      &:hover, 
+      &:focus {
         text-decoration: none;
         @include vendor-prefix(transform, scale(1.1));
       }
@@ -232,6 +233,12 @@
     margin-bottom: $base-padding/4;
   }
 
+  a {
+    &:active {
+      background: $color-yellow;
+    }
+  }
+
   .row {
     margin: 0 auto;
     max-width: 37em;
@@ -239,8 +246,29 @@
   }
 
   figure {
+    margin-bottom: $base-padding;
+    text-align: center;
+
     img {
-      width: 100%;
+      max-width: 100%;
+      box-shadow: 0 0 3px rgba(0,0,0,0.1);
+    }
+  }
+
+  figcaption {
+    text-align: center;
+    font-size: $font-size-small;
+    color: $color-text-light;
+    display: block;
+    padding: $base-padding/4;
+    font-style: italic;
+  }
+
+  p {
+    img {
+      margin-bottom: $base-padding;
+      display: block;
+      max-width: 200px;
     }
   }
 }
@@ -252,7 +280,19 @@
         margin-left: -5em;
         margin-right: -5em;
       }
+
+      p {
+        img {
+          float: right;
+          margin-right: -5em;
+          margin-top: 0;
+          margin-left: $base-padding;
+          max-width: 100%;
+        }
+      }
     }
+
+
   }
 }
 
@@ -260,8 +300,14 @@
   .page-section {
     .row {
       figure {
-        margin-left: -11.5em;
-        margin-right: -11.5em;
+        margin-left: -7em;
+        margin-right: -7em;
+      }
+
+      p {
+        img {
+         margin-right: -7em;
+        }
       }
     }
   }
@@ -304,10 +350,10 @@
   padding: $base-padding * 2 $base-padding/2;
   font-weight: $normal;
 
-  h2 {
+  h4 {
     color: $color-dark-blue;
     font-weight: $strong;
-    font-size: $font-size-large;
+    font-size: $font-size-medium;
 
     img {
       display: block;
@@ -319,11 +365,13 @@
     }
 
     a,
-    a:hover {
+    a:hover,
+    a:focus {
       color: $color-dark-blue;
     }
 
-    a:hover {
+    a:hover,
+    a:focus {
       img {
         @include vendor-prefix(transform, scale(1));
       }

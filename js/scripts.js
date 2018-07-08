@@ -1,4 +1,4 @@
-window.onload = function() {
+/*window.onload = function() {
 	if (localStorage.getItem('returnVisit')) {
 		var intro = document.getElementById('i');
     if (intro) {
@@ -7,7 +7,8 @@ window.onload = function() {
 	} else {
 		localStorage.setItem('returnVisit', 'true');	
 	}
-}
+}*/
+
 
 // Load fonts
 (function(w){
