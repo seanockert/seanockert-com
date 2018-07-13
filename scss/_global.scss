@@ -387,7 +387,7 @@ h4 {
     margin-bottom: $base-padding*2;
 
     p {
-      font-size: $font-size-medium;
+      font-size: $font-size-base;
       margin: 0;
       margin-bottom: $base-padding/2;
       color: $color-text-light;
@@ -411,7 +411,10 @@ h4 {
     }
 
     strong {
-      color: $color-dark-blue;
+      color: #111;
+    }
+
+    h4 {
       font-size: $font-size-medium;
       font-weight: $strong;
       display: block;

@@ -17,7 +17,7 @@
     height: 100%;
     width: 50%;
 
-    padding-top: $base-padding*2;
+    padding-top: $base-padding * 2;
 
     #header {
       padding: $base-padding 0;
@@ -60,8 +60,15 @@
     overflow-y: auto;
 
     .inner {
-      padding: $base-padding*2 $base-padding;
+      padding: $base-padding * 2 $base-padding;
       padding-bottom: 0;
+    }
+
+    #projects .intro {
+      p {
+        font-size: $font-size-base * 1.2;
+        line-height: 1.6;
+      }
     }
   }
 
@@ -122,6 +129,6 @@
   }
 
   #footer {
-    padding-bottom: $base-padding*2;
+    padding-bottom: $base-padding * 2;
   }
 }

@@ -278,7 +278,6 @@ h3,
 h4,
 .home-header,
 .page-cta,
-.intro,
 .cta,
 #projects a .link,
 .skills li strong,
@@ -296,7 +295,6 @@ h4,
 .fonts-loaded h4,
 .fonts-loaded .home-header,
 .fonts-loaded .page-cta,
-.fonts-loaded .intro,
 .fonts-loaded .cta,
 .fonts-loaded #projects a .link,
 .fonts-loaded .skills li strong,
@@ -747,7 +745,7 @@ h4 {
     margin: 0;
     margin-bottom: 3.75rem; }
     .home-content #projects .intro p {
-      font-size: 1.375em;
+      font-size: 1em;
       margin: 0;
       margin-bottom: 0.9375rem;
       color: #555; }
@@ -762,14 +760,15 @@ h4 {
         text-decoration: underline;
         transform: none; }
     .home-content #projects .intro strong {
-      color: #26353f;
+      color: #111; }
+    .home-content #projects .intro h4 {
       font-size: 1.375em;
       font-weight: 900;
       display: block;
       margin: 0;
       margin-bottom: 0.46875rem;
       line-height: 1.1; }
-      .home-content #projects .intro strong span {
+      .home-content #projects .intro h4 span {
         color: #ed2d4d; }
   .home-content .skills h2 {
     margin-bottom: 1.875rem; }
@@ -1128,6 +1127,9 @@ h4 {
     .home-content .inner {
       padding: 3.75rem 1.875rem;
       padding-bottom: 0; }
+    .home-content #projects .intro p {
+      font-size: 1.2em;
+      line-height: 1.6; }
   .skills li {
     padding-bottom: 0.9375rem; }
   #page .icon-list li {
