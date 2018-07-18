@@ -494,6 +494,23 @@ h4 {
   padding-bottom: $base-padding/2;
 }
 
+/* Figures  ---------------------- */
+
+@media #{$medium-up} {
+  figure.img-two {
+    img {
+      width: 49%;
+    }
+  }
+
+  figure.img-three {
+    img {
+      width: 32%;
+    }
+  }
+}
+
+
 /* Footer  ---------------------- */
 
 #footer {

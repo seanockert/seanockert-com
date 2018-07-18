@@ -825,6 +825,13 @@ h4 {
   border-bottom: 2px solid #fade4e;
   padding-bottom: 0.9375rem; }
 
+/* Figures  ---------------------- */
+@media only screen and (min-width: 40.063em) {
+  figure.img-two img {
+    width: 49%; }
+  figure.img-three img {
+    width: 32%; } }
+
 /* Footer  ---------------------- */
 #footer {
   padding: 3.75rem 0;
