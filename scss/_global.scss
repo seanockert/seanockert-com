@@ -41,7 +41,7 @@ body {
   display: none;
 }
 .hidden-small {
-  display: none;
+  display: none !important;
 }
 .hide {
   opacity: 0;

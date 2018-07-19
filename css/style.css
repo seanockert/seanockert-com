@@ -494,7 +494,7 @@ body {
   display: none; }
 
 .hidden-small {
-  display: none; }
+  display: none !important; }
 
 .hide {
   opacity: 0; }
@@ -1098,7 +1098,7 @@ h4 {
   .hidden-large {
     display: none !important; }
   .hidden-small {
-    display: block !important; }
+    display: inline-block !important; }
   h3 .hidden-small {
     display: inline-block !important; }
   .home-header {
