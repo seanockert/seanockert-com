@@ -459,7 +459,7 @@ hr {
 
 /*  Default body styles ---------------------- */
 html {
-  background: #fade4e; }
+  background: #2e1988; }
 
 body {
   color: #222;
@@ -507,14 +507,14 @@ small {
 
 /* Links  ---------------------- */
 a {
-  color: #2a97ec;
+  color: #2e1988;
   text-decoration: none;
   -webkit-transition: all 0.15s ease-out;
   -moz-transition: all 0.15s ease-out;
   transition: all 0.15s ease-out; }
   a:hover, a:focus, a:active {
     text-decoration: underline;
-    color: #116fb9; }
+    color: #180d47; }
 
 /* Lists  ---------------------- */
 ul li,
@@ -604,7 +604,7 @@ h4 {
       color: rgba(0, 0, 0, 0.9); }
 
 .home-header {
-  background: #150d0a url(https://seanockert.com/images/sean-bamboo.jpg) bottom center no-repeat;
+  background: #150d0a url(/images/sean-bamboo.jpg) bottom center no-repeat;
   background-size: cover;
   padding: 1.875rem 0;
   min-height: 390px; }
@@ -639,23 +639,6 @@ h4 {
         color: #fff; }
     .home-header .contacts h3 {
       margin: 0; }
-
-.parallax {
-  overflow: hidden; }
-  .parallax #bamboo {
-    background-image: url(https://seanockert.com/images/sean-bamboo-bg.jpg);
-    -webkit-perspective: 400px;
-    -webkit-perspective-origin: 50% 50%;
-    -webkit-transform-style: preserve-3d;
-    transform-style: preserve-3d;
-    transform: translateZ(10px);
-    overflow: hidden; }
-  .parallax #fg {
-    position: absolute;
-    z-index: 1;
-    bottom: 0;
-    left: 0;
-    -webkit-transform: translateZ(15px); }
 
 .home-content {
   background: #f9f9f9; }
@@ -698,7 +681,7 @@ h4 {
       .home-content #projects a p span {
         white-space: nowrap; }
     .home-content #projects a .link {
-      color: #2a97ec;
+      color: #2e1988;
       text-transform: uppercase;
       font-size: 0.875em;
       letter-spacing: 0.1em; }
@@ -716,7 +699,7 @@ h4 {
         color: #26353f; }
       .home-content #projects a:hover .link, .home-content #projects a:focus .link {
         text-decoration: underline;
-        color: #116fb9; }
+        color: #180d47; }
   .home-content #projects li {
     padding: 0;
     margin: 0; }
@@ -754,7 +737,7 @@ h4 {
     .home-content #projects .intro a {
       display: inline;
       padding: 0;
-      color: #2a97ec;
+      color: #2e1988;
       white-space: nowrap; }
       .home-content #projects .intro a:hover, .home-content #projects .intro a:focus {
         text-decoration: underline;
@@ -824,6 +807,11 @@ h4 {
   overflow: hidden;
   border-bottom: 2px solid #fade4e;
   padding-bottom: 0.9375rem; }
+
+.wave {
+  transform: translateY(-50%);
+  width: 100%;
+  position: absolute; }
 
 /* Figures  ---------------------- */
 @media only screen and (min-width: 40.063em) {
@@ -922,6 +910,7 @@ h4 {
 
 .page-header {
   padding: 3.75rem 0.9375rem;
+  padding-bottom: 5.625rem;
   text-align: center; }
   .page-header h1 {
     margin-bottom: 0.9375rem;

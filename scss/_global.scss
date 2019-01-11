@@ -4,7 +4,7 @@
 
 /*  Default body styles ---------------------- */
 html {
-  background: $color-yellow;
+  background: $color-purple;
 }
 
 body {
@@ -59,7 +59,7 @@ small {
 /* Links  ---------------------- */
 
 a {
-  color: $color-blue;
+  color: $color-purple;
   text-decoration: none;
   @include vendor-prefix(transition, all 0.15s ease-out);
 
@@ -67,7 +67,7 @@ a {
   &:focus,
   &:active {
     text-decoration: underline;
-    color: darken($color-blue, 15%);
+    color: darken($color-purple, 15%);
   }
 }
 
@@ -186,7 +186,7 @@ h4 {
 
 // For cover photo
 .home-header {
-  background: #150d0a url(https://seanockert.com/images/sean-bamboo.jpg) bottom center no-repeat;
+  background: #150d0a url(/images/sean-bamboo.jpg) bottom center no-repeat;
   background-size: cover;
   padding: $base-padding 0;
   min-height: 390px;
@@ -236,28 +236,6 @@ h4 {
     h3 {
       margin: 0;
     }
-  }
-}
-
-.parallax {
-  overflow: hidden;
-
-  #bamboo {
-    background-image: url(https://seanockert.com/images/sean-bamboo-bg.jpg);
-    -webkit-perspective: 400px;
-    -webkit-perspective-origin: 50% 50%;
-    -webkit-transform-style: preserve-3d;
-    transform-style: preserve-3d;
-    transform: translateZ(10px);
-    overflow: hidden;
-  }
-
-  #fg {
-    position: absolute;
-    z-index: 1;
-    bottom: 0;
-    left: 0;
-    -webkit-transform: translateZ(15px);
   }
 }
 
@@ -325,7 +303,7 @@ h4 {
       }
 
       .link {
-        color: $color-blue;
+        color: $color-purple;
         text-transform: uppercase;
         font-size: $font-size-small;
         letter-spacing: 0.1em;
@@ -347,7 +325,7 @@ h4 {
 
         .link {
           text-decoration: underline;
-          color: darken($color-blue, 15%);
+          color: darken($color-purple, 15%);
         }
       }
     }
@@ -400,7 +378,7 @@ h4 {
     a {
       display: inline;
       padding: 0;
-      color: $color-blue;
+      color: $color-purple;
       white-space: nowrap;
 
       &:hover,
@@ -492,6 +470,12 @@ h4 {
   overflow: hidden;
   border-bottom: 2px solid $color-yellow;
   padding-bottom: $base-padding/2;
+}
+
+.wave {
+  transform: translateY(-50%);
+  width: 100%;
+  position: absolute;
 }
 
 /* Figures  ---------------------- */
