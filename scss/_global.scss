@@ -112,7 +112,7 @@ h4 {
   position: relative;
 
   #header {
-    padding: $base-padding*2 0;
+    padding: $base-padding * 2 0;
   }
 
   h1 {
@@ -260,8 +260,8 @@ h4 {
       color: $color-text-light;
       display: block;
       padding: $base-padding 0;
-      padding-right: $base-padding;
       text-decoration: none;
+      @include vendor-prefix(transition, all 0.2s ease-out);
 
       &.fruitninja {
         background: #fedea7;
@@ -278,14 +278,22 @@ h4 {
         }
       }
 
-      img {
-        border-radius: 6px 6px 0 0;
+      figure {
+        margin-bottom: $base-padding/2;
+        border-radius: 4px;
+        overflow: hidden;
+
+        img {
+          width: 100%; 
+          display: block;
+          border-radius: 4px;
+          @include vendor-prefix(transition, all 0.5s cubic-bezier(1,-0.26,.06,1.35));
+          box-shadow: none;
+        }
       }
 
-      .project {
-        padding: 0 $base-padding;
-        padding-bottom: $base-padding;
-        @include vendor-prefix(transition, all 0.2s ease-out);
+      > div {
+        padding-right: $base-padding;
       }
 
       h3 {
@@ -317,8 +325,12 @@ h4 {
       &:hover,
       &:focus {
         text-decoration: none;
-        @include vendor-prefix(transform, translate3d(5px, 0, 0));
-
+        @include vendor-prefix(transform, translate3d(5px,0,0));
+        
+        figure > img {
+          @include vendor-prefix(transform, scale(1.05));
+        }
+        
         p {
           color: $color-dark-blue;
         }
@@ -362,7 +374,7 @@ h4 {
 
   #projects .intro {
     margin: 0;
-    margin-bottom: $base-padding*2;
+    margin-bottom: $base-padding * 2;
 
     p {
       font-size: $font-size-base;
@@ -454,6 +466,11 @@ h4 {
       @include vendor-prefix(transform, rotate(3deg));
       @include vendor-prefix(transition, all 0.2s ease-out);
     }
+
+    &:hover,
+    &:focus {
+      color: $color-purple;
+    }
   }
 }
 
@@ -494,11 +511,10 @@ h4 {
   }
 }
 
-
 /* Footer  ---------------------- */
 
 #footer {
-  padding: $base-padding*2 0;
+  padding: $base-padding * 2 0;
   text-align: center;
   font-size: $font-size-small;
   color: rgba(0, 0, 0, 0.5);

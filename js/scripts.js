@@ -31,7 +31,7 @@ var isMobile = function() {
     w.document.documentElement.className += ' fonts-loaded';
   });
 }(this));
-
+/*
 if (!isMobile) {
   Barba.Pjax.start();
   Barba.Prefetch.init();
@@ -90,3 +90,4 @@ if (!isMobile) {
     return SlideTransition;
   };
 }
+*/

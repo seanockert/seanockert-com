@@ -653,8 +653,10 @@ h4 {
     color: #555;
     display: block;
     padding: 1.875rem 0;
-    padding-right: 1.875rem;
-    text-decoration: none; }
+    text-decoration: none;
+    -webkit-transition: all 0.2s ease-out;
+    -moz-transition: all 0.2s ease-out;
+    transition: all 0.2s ease-out; }
     .home-content #projects a.fruitninja {
       background: #fedea7; }
     .home-content #projects a.halfbrick {
@@ -664,14 +666,20 @@ h4 {
       .home-content #projects a.halfbrick p,
       .home-content #projects a.halfbrick .link {
         color: #fff; }
-    .home-content #projects a img {
-      border-radius: 6px 6px 0 0; }
-    .home-content #projects a .project {
-      padding: 0 1.875rem;
-      padding-bottom: 1.875rem;
-      -webkit-transition: all 0.2s ease-out;
-      -moz-transition: all 0.2s ease-out;
-      transition: all 0.2s ease-out; }
+    .home-content #projects a figure {
+      margin-bottom: 0.9375rem;
+      border-radius: 4px;
+      overflow: hidden; }
+      .home-content #projects a figure img {
+        width: 100%;
+        display: block;
+        border-radius: 4px;
+        -webkit-transition: all 0.5s cubic-bezier(1, -0.26, 0.06, 1.35);
+        -moz-transition: all 0.5s cubic-bezier(1, -0.26, 0.06, 1.35);
+        transition: all 0.5s cubic-bezier(1, -0.26, 0.06, 1.35);
+        box-shadow: none; }
+    .home-content #projects a > div {
+      padding-right: 1.875rem; }
     .home-content #projects a h3 {
       color: #26353f; }
     .home-content #projects a p {
@@ -695,6 +703,10 @@ h4 {
       -webkit-transform: translate3d(5px, 0, 0);
       -moz-transform: translate3d(5px, 0, 0);
       transform: translate3d(5px, 0, 0); }
+      .home-content #projects a:hover figure > img, .home-content #projects a:focus figure > img {
+        -webkit-transform: scale(1.05);
+        -moz-transform: scale(1.05);
+        transform: scale(1.05); }
       .home-content #projects a:hover p, .home-content #projects a:focus p {
         color: #26353f; }
       .home-content #projects a:hover .link, .home-content #projects a:focus .link {
@@ -793,6 +805,8 @@ h4 {
       -webkit-transition: all 0.2s ease-out;
       -moz-transition: all 0.2s ease-out;
       transition: all 0.2s ease-out; }
+    .home-content .cta:hover, .home-content .cta:focus {
+      color: #2e1988; }
 
 .home-content h2,
 .page-section h3 {
@@ -996,10 +1010,12 @@ h4 {
     padding: 0 0.9375rem; }
   .page-section figure {
     margin-bottom: 1.875rem;
-    text-align: center; }
+    text-align: center;
+    border-radius: 4px; }
     .page-section figure img {
       max-width: 100%;
-      box-shadow: 0 0 3px rgba(0, 0, 0, 0.1); }
+      box-shadow: 0 0 3px rgba(0, 0, 0, 0.1);
+      border-radius: inherit; }
   .page-section figcaption {
     text-align: center;
     font-size: 0.875em;
