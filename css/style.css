@@ -699,10 +699,7 @@ h4 {
         -moz-transition: all 0.2s ease-out;
         transition: all 0.2s ease-out; }
     .home-content #projects a:hover, .home-content #projects a:focus {
-      text-decoration: none;
-      -webkit-transform: translate3d(5px, 0, 0);
-      -moz-transform: translate3d(5px, 0, 0);
-      transform: translate3d(5px, 0, 0); }
+      text-decoration: none; }
       .home-content #projects a:hover figure > img, .home-content #projects a:focus figure > img {
         -webkit-transform: scale(1.05);
         -moz-transform: scale(1.05);

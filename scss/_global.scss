@@ -325,7 +325,7 @@ h4 {
       &:hover,
       &:focus {
         text-decoration: none;
-        @include vendor-prefix(transform, translate3d(5px,0,0));
+        //@include vendor-prefix(transform, translate3d(5px,0,0));
         
         figure > img {
           @include vendor-prefix(transform, scale(1.05));
