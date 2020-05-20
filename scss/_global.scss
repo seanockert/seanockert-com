@@ -256,6 +256,12 @@ h4 {
       margin-bottom: 0;
     }
 
+    p {
+      span {
+        white-space: nowrap;
+      }
+    }
+
     a {
       color: $color-text-light;
       display: block;
@@ -304,10 +310,6 @@ h4 {
         margin: 0;
         margin-bottom: $base-padding/4;
         color: $color-text-light;
-
-        span {
-          white-space: nowrap;
-        }
       }
 
       .link {

@@ -649,6 +649,8 @@ h4 {
     margin-bottom: 1.875rem; }
   .home-content #projects h2 {
     margin-bottom: 0; }
+  .home-content #projects p span {
+    white-space: nowrap; }
   .home-content #projects a {
     color: #555;
     display: block;
@@ -686,8 +688,6 @@ h4 {
       margin: 0;
       margin-bottom: 0.46875rem;
       color: #555; }
-      .home-content #projects a p span {
-        white-space: nowrap; }
     .home-content #projects a .link {
       color: #2e1988;
       text-transform: uppercase;
