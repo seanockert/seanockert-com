@@ -670,6 +670,7 @@ h4 {
         color: #fff; }
     .home-content #projects a figure {
       margin-bottom: 0.9375rem;
+      max-width: 40rem;
       border-radius: 4px;
       overflow: hidden; }
       .home-content #projects a figure img {
@@ -983,6 +984,7 @@ h4 {
     margin-top: -0.46875rem; }
 
 .page-section {
+  position: relative;
   padding-top: 0.9375rem;
   padding-bottom: 1.875rem; }
   .page-section h3 {
