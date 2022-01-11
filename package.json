@@ -18,7 +18,7 @@
   "author": "Sean Ockert",
   "homepage": "https://seanockert.com",
   "devDependencies": {
-    "gulp": "^3.9.1",
+    "gulp": "^3.9.1"
   },
   "dependencies": {
     "natives": "^1.1.6"
