@@ -12,18 +12,12 @@
     "url": ""
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "preinstall": "npx npm-force-resolutions"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Sean Ockert",
   "homepage": "https://seanockert.com",
   "devDependencies": {
-    "gulp": "^3.9.1"
-  },
-  "dependencies": {
-    "natives": "^1.1.6"
-  },
-  "resolutions": {
-    "graceful-fs": "4.2.3"
+    "gulp": "^3.9.1",
+    "jshint": "^2.11.0"
   }
 }
