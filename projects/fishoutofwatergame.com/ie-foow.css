@@ -1,0 +1,229 @@
+	/* For IE */
+#content { 
+	height: 637px;
+	width: 881px;
+	margin: 0 auto;
+	margin-top: 20px;
+	position: relative;
+}
+
+#logo {
+	margin:0;
+	padding: 0;
+	float:left;
+	position: absolute;
+	z-index: 999;
+	top: 0px;				
+}
+
+#logo img {
+	width: 	329px;
+	height: 191px;			
+}
+	
+#background {
+	height: 637px;
+	width: 860px;
+	padding-top: 0;
+	background: #2997cc url('//assets.halfbrick.com/foow/images/foow-water.jpg') no-repeat 50% 50%;
+}
+
+a.download { background-image: url("//assets.halfbrick.com/foow/images/app-icons.png"); }
+
+
+#mask {
+  width:100%;
+  height:100%;
+  position:absolute;
+  left:0;
+  top: 0;
+  z-index: 2;
+  background:url('//assets.halfbrick.com/foow/images/mask-splash-circle-blue.png') 100% 100% no-repeat;
+}	
+
+			
+
+.fish {
+	background: url('//assets.halfbrick.com/foow/images/fish.png') no-repeat 0 0;
+	bottom: 0;
+	position: absolute;
+	background-size: 1854px 573px;
+}
+
+.fish.olympus {
+	left: 250px;
+	bottom: 200px;
+	width: 282px;
+	height: 260px;
+	background-position: 0 0;
+	z-index: 12;
+}		
+	
+	.fish.olympus-splash {
+		left: 344px;
+		bottom: 68px;
+		width: 188px;
+		height: 128px;
+		background-position: -62px -290px;
+		z-index: 11;
+	}
+	
+.fish.rocket {
+	left: 72px;
+	width: 298px;
+	height: 200px;			
+	bottom: 80px;
+	background-position: -1210px -46px;
+	z-index: 11;
+}		
+	
+	.fish.rocket-splash {
+		left: 85px;
+		width: 291px;
+		height: 119px;			
+		bottom: 70px;
+		background-position: -1210px -279px;
+		z-index: 10;
+	}				
+
+
+.fish.brothers {
+	left: 530px;
+	bottom: 110px;
+	height: 303px;
+	width: 282px;
+	background-position: -1557px -34px;
+	z-index: 9;
+}	
+		
+	.fish.brothers-splash {
+		left: 520px;
+		width: 258px;
+		height: 227px;			
+		bottom: 110px;
+		background-position: -1537px -345px;
+		z-index: 4;
+	}
+
+.fish.dolphin {
+	left: 567px;
+	width: 224px;
+	height: 268px;
+	bottom: 347px;
+	background-position: -654px -21px;
+	z-index: 6;
+}			
+
+.fish.errol {
+	left: 95px;
+	width: 151px;
+	height: 188px;
+	bottom: 265px;
+	background-position: -959px -52px;
+	z-index: 7;
+}		
+
+
+.fish.micro {
+	left: 325px;
+	bottom: 448px;
+	height: 200px;
+	width: 213px;
+	background-position: -322px -10px;
+	z-index: 4;
+}
+
+.screenshots { clear: both; }	
+.screenshots li { display: inline; }
+.ie8 .screenshots li { display: inline-block;}
+
+.screenshots li a img {
+	width: 160px;
+	height: 106px;
+	width: auto;
+}
+
+#trailer-label, #download-label { display: block; }		
+
+#trailer-label {
+height: 57px;
+width: 94px;
+background: url('//assets.halfbrick.com/foow/images/labels.png') no-repeat 0 0;
+position: absolute;
+height:57px;
+bottom: -15px;
+left: -100px;		
+}
+	
+#download-label {
+height: 70px;
+width: 85px;
+background: url('//assets.halfbrick.com/foow/images/labels.png') no-repeat left bottom;
+position: absolute;
+bottom: 0;
+right: -90px;	
+}	
+
+
+.ie7 a.download {
+display: block;
+margin-bottom: 10px;
+}
+
+
+.social li {
+width: 130px;
+}				
+
+
+.social li.email {
+width: 270px;				
+display: inline-block;
+float: left;
+height: auto;
+margin-right: 12px;
+margin-left: 40px;
+clear: none;
+padding-top: 0;
+
+}	
+
+.social li.email #nlydd-nlydd, .social li.email #submit {
+font-size: 14px;
+}			
+
+.social li.email #submit {
+padding-bottom: 8px;
+}
+
+.ie7 .social {
+width: 650px;
+margin: 0 auto;
+}
+
+
+.modal { font-size: 1em;}
+.modal .arrow { display: block; }
+.fish.olympus .modal { margin-left: 50px; margin-top: 20px;}
+.fish.rocket .modal { margin-left: 0; }
+.fish.micro .modal { margin-left: 20px; margin-top: -50px; }
+.fish.errol .modal { margin-left:0; margin-top: -80px; }
+.fish.brothers .modal { margin-top: -30px; margin-left: 50px; }
+.fish.dolphin .modal { margin-top: -80px; margin-left: 50px; }
+
+.flex-video {
+padding-bottom: 38.25%; 
+margin: 0 98px;
+}	
+
+.video-frame {
+position:absolute;
+top:-33px;
+width:100%;
+z-index:10;
+display: block;
+}	
+
+.button-wallpaper {
+margin-top: -20px;
+}

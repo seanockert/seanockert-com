@@ -1,0 +1,802 @@
+/*! 
+Site Name:      Star Sk8r YouTube Stars
+Site URI:     	http://starstakergame.com/youtube 
+Description:    Star Skater Promotional Page
+Author:         Sean Ockert, Halfbrick Studios
+Author URI:     http://halfbrick.com
+Version:        0.6
+*/
+
+@import 'reset';
+@import "variables";
+@import "animation-mixins";
+@import "animations";
+@import 'grid';
+
+
+/* Variables  ---------------------- */
+
+$base-padding: 24px;
+
+$color-red: #cd201f;
+$color-yellow: #FFCB3D;
+$color-yellow-light: #FFF8E4;
+$color-blue-text: #2e4256;
+$color-blue-light: #739DC6;
+$color-road: #6B6D8C;
+$color-brown-light: #7b776c;
+$color-brown-dark: darken($color-yellow, 40%);
+$color-green: #5FE234;
+$color-green-dark: #005910;
+
+$font-size-yt: 20px;
+$font-size-yt-med: 20px;
+$font-size-yt-large: 30px;
+$font-size-yt-xlarge: 32px;
+$font-size-yt-xxlarge: 45px;
+
+
+
+/* Fonts  ---------------------- */
+
+@font-face {
+    font-family: 'mini_pixel_tweakedregular';
+    src: url('../fonts/minipixeltweaked-webfont.eot');
+    src: url('../fonts/minipixeltweaked-webfont.eot?#iefix') format('embedded-opentype'),a
+         url('../fonts/minipixeltweaked-webfont.woff2') format('woff2'),
+         url('../fonts/minipixeltweaked-webfont.woff') format('woff'),
+         url('../fonts/minipixeltweaked-webfont.ttf') format('truetype'),
+         url('../fonts/minipixeltweaked-webfont.svg#mini_pixel_tweakedregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+::-moz-selection {background: $color-red;color: #fff;text-shadow: none;}
+::selection {background: $color-red;color: #fff;text-shadow: none;}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  background: #94cafe;
+  background: -webkit-linear-gradient(#94cafe,#d1e9ff);
+  background: linear-gradient(#94cafe,#d1e9ff);
+  background: #94cafe;
+  font-size: 16px;
+  line-height: 1.45;
+  font-family: 'mini_pixel_tweakedregular', sans-serif;
+  color: $color-blue-text;
+  text-transform: uppercase;
+}
+
+body {
+  background: url(//assets.halfbrick.com/ss/images/youtube/bg-dots.png) repeat top center;
+  background: #8FC7FA;
+  
+}
+
+#container {
+  overflow-x: hidden;
+}
+
+.row {
+  margin: 0 auto;
+}
+
+#bg-top {
+  background: url(//assets.halfbrick.com/ss/images/youtube/b-top.jpg) no-repeat bottom center;
+  background-size: 100% auto;
+}
+
+#bg-bottom {
+  box-shadow: inset 1px 3px 32px -10px rgba(0,0,0,0.4);
+  background-size: 100% auto;
+  border-top: 20px solid #514b6e;
+  background: #3B3C59 url(//assets.halfbrick.com/ss/images/youtube/bg-dots-purple.png) top center;
+  background-size: 389px 748px;
+}
+
+
+/* Misc  ---------------------- */
+
+.content {
+  text-align: center;
+  margin: 0 auto;
+  padding: 0 $base-padding/2;
+}
+
+p {
+  font-size: $font-size-yt-med;
+  line-height: 1.3;
+}
+
+a {
+  color: darken($color-blue-text,10%);
+  outline: none;
+}
+
+.hidden-small {
+  display: none; 
+}
+
+strong {
+  font-weight: normal;
+  color: $color-yellow;
+  text-shadow:
+    -1px -1px 0 #972424,  
+    1px -1px 0 #972424,
+    -1px 1px 0 #972424,
+     1px 1px 0 #972424;
+}
+
+.button {
+  display: inline-block;
+  color: #fff;
+  background: $color-red;
+  padding: $base-padding/2;
+  text-decoration: none;
+  font-size: $font-size-yt-med;
+  line-height: 1;
+  box-shadow: 2px 2px 0px #801c19;
+  border-radius: 5px;
+  @include vendor-prefix(transition, all 0.1s ease-out);
+  
+  img {
+    height: 30px;
+    margin-bottom: -6px;
+  }
+  
+  &:hover {
+    background: tint($color-red, 8%);
+  }
+  
+  &:active {
+    margin-top: 1px;
+    box-shadow: none;
+    margin-bottom: -1px;
+    box-shadow: 0 1px 0px #801c19;
+  }  
+
+  &.ajax-modal {
+    &:hover {
+      @include vendor-prefix(transform, rotate(2deg));
+    }
+  }
+}
+
+
+
+/* Header  ---------------------- */
+
+#gohome {
+  position: absolute;
+  left: 0;
+  top: 0;
+  opacity: 0.7;
+  z-index: 999;
+
+  img {
+    height: 40px;
+  }
+
+  &:hover {
+    opacity: 1;
+  }
+}
+
+#head {
+  text-align: center;
+  padding-top: $base-padding;
+  margin-bottom: $base-padding; 
+  background: $color-red url(//assets.halfbrick.com/ss/images/youtube/bg-dots-red.png) top center;
+  background-size: 389px 748px;
+  color: #fff;
+  position: relative;
+  
+
+  .inner {
+    background: url(//assets.halfbrick.com/ss/images/youtube/stars.png) no-repeat top center;
+    background-size: 120% auto;  
+  }
+
+  .row {
+    position: relative;
+    z-index: 10;
+    
+  }
+
+  h1 {
+    background: #fff;
+    color: $color-red;
+    @include animation(animHead 1s); 
+    max-width: 280px;
+
+    span {
+      white-space: nowrap;
+    }
+  }
+
+  #logo {
+    @include animation(animLogo 0.6s); 
+  }
+
+  h1, #logo {
+    @include vendor-prefix(animation-timing-function, cubic-bezier(0.5, -0.2, 0.5, 1.5));
+  }
+
+  p {
+    max-width: 80%; 
+    margin-left: auto;
+    margin-right: auto;
+    text-shadow:
+      -2px 2px 0 rgba(0,0,0,0.1),
+      2px 2px 0 rgba(0,0,0,0.1); 
+
+    a {
+      color: tint($color-yellow, 10%);
+      
+      &:hover {
+        color: tint($color-yellow, 20%);
+        text-shadow: 0 0 10px rgba(255,255,255,0.5);
+      }
+    }
+
+    span {
+      white-space: nowrap;
+    }
+  }
+
+  h2 {
+
+    color: tint($color-yellow, 10%) !important;
+    margin-bottom: $base-padding/2;
+    padding: 0 $base-padding/4;
+    text-shadow:
+        -2px 2px 0 rgba(0,0,0,0.3),
+         2px 2px 0 rgba(0,0,0,0.3) !important; 
+  }
+
+  a.button {
+    background: $color-green;
+    color: $color-green-dark;
+    box-shadow: 3px 3px 0 rgba(0,0,0,0.3);
+    outline: none;
+    padding: $base-padding/1.5 $base-padding !important;
+    
+    &:hover {
+      background: tint($color-green, 8%);
+      box-shadow: 3px 3px 0 rgba(0,0,0,0.5);
+      @include vendor-prefix(transform, rotate(2deg));
+    }
+
+    &:active {
+      margin-top: 2px;
+      margin-bottom: -2px;
+      box-shadow: 1px 1px 0 rgba(0,0,0,0.6);
+    }
+  
+  }
+
+  &:after {
+    position: absolute;
+    content:'';
+    bottom: -$base-padding*2;
+    left: -25%;
+    z-index: -1;
+    width: 150%;
+    height: $base-padding*2;
+    background: $color-red;
+    z-index: 9;
+    @include vendor-prefix(transform, rotate(-2deg));
+    @include vendor-prefix(transform-origin, 3% 0);
+  }
+
+  ::-moz-selection {background: $color-yellow;color: #fff;text-shadow: none;}
+  ::selection {background: $color-yellow;color: #fff;text-shadow: none;}
+
+
+  .cta {
+    padding-top: $base-padding;
+    vertical-align: middle;
+
+    .badge img, .icon {
+      height: 50px;
+      margin-bottom: -8px;
+
+    }
+
+    span {
+      display: block;
+      margin-bottom: $base-padding/4;
+      font-size: $font-size-yt;
+      color: #fff;
+      line-height: 1;
+      @include vendor-prefix(transform, rotate(-3deg));
+      text-shadow:
+        -2px 2px 0 rgba(0,0,0,0.1),
+        2px 2px 0 rgba(0,0,0,0.1); 
+    }
+  }
+
+}
+
+#logo {
+  z-index: 2;
+  position: relative;
+  pointer-events: none;
+  max-width: 250px;
+  margin: 0 auto;
+  
+  img {
+    width: 250px;
+  }
+}
+
+#social-bar {
+  position: absolute;
+  top: $base-padding/2;
+  right: $base-padding/2;
+  z-index: 999;
+  
+  img {
+    height: 36px;
+  }
+  
+  a {
+    display: inline-block;
+    vertical-align: middle;
+    line-height: 36px;
+    margin: 0;
+    
+    &.yellow-link {
+      font-size: 20px;
+      margin-top: -10px;
+      position: relative;
+
+      &:active {
+        margin-top: -9px;
+      }
+    }
+  }
+}
+
+
+/* Headings  ---------------------- */
+
+h1, h2, h3 {
+  font-weight: normal; 
+  line-height: 1.1;
+}
+
+h1 {
+  display: inline-block;
+  background: $color-red;
+  padding: $base-padding/2 $base-padding/2;
+  font-weight: normal;
+  font-size: $font-size-yt-xlarge;
+  color: #fff;
+  line-height: 1;
+  margin-top: -30px;
+   margin-bottom: $base-padding;
+  z-index: 1;
+  transform: skew(-2deg);
+  
+  
+  img {
+    height: 30px;
+    margin-bottom: -$base-padding/4;
+
+  }
+}
+
+h2 {
+  margin: 0;
+  font-size: $font-size-yt-xlarge;
+  line-height: 1.1;
+      text-align: center;
+      color: $color-red;
+      text-shadow:
+         2px 2px 0 #fff,
+       -2px -2px 0 #fff,  
+        2px -2px 0 #fff,
+        -2px 2px 0 #fff,
+         2px 2px 0 #fff;  
+  
+  &#logo {
+    padding: 0;
+  }
+}
+ 
+h3 {
+  margin: 0;
+  padding: 0;
+  font-size: $font-size-yt-large;
+  line-height: 1.2;
+  color: #fff;
+  display: inline-block;
+  background: $color-red;
+  padding: $base-padding/2 $base-padding;
+  transform: skew(-2deg);    
+}
+
+
+
+/* Sections  ---------------------- */
+
+
+.section {
+  padding: $base-padding*2 0;
+}
+
+#bg-bottom {
+  h2 {
+    color: #FFD460;
+    text-shadow:
+      -2px 2px 0 rgba(0,0,0,0.3),
+       2px 2px 0 rgba(0,0,0,0.3); 
+  }
+
+  p {
+    color: #fff;
+    text-shadow:
+      -2px 2px 0 rgba(0,0,0,0.3),
+       2px 2px 0 rgba(0,0,0,0.3);
+  }
+}
+
+#skate-off {
+
+}
+
+
+.pack {
+  background: $color-yellow;
+  padding: $base-padding;
+  color: $color-brown-dark;
+  text-align: center;
+
+  strong {
+    color: $color-blue-text;  
+    text-shadow: none;
+    font-size: 1.2em;
+  }
+}
+
+#stars {
+  text-align: center;
+
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    padding-bottom: $base-padding*4;
+  }
+  
+  li {
+    width: 100%;
+    width: 46%;
+    margin: 1%;
+    display: inline-block;
+    text-align: center;
+    vertical-align: top;
+    position: relative;
+    padding: $base-padding/4;
+    margin: 2%;
+    line-height: 0;
+    background: #d8ecff;
+    transition: all 0.15s ease-out;
+    
+    a {
+      text-decoration: none;
+    }
+
+    p {
+      font-size: $font-size-yt/1.3;
+      line-height: 1;
+      color: #617992;
+      padding: 0;
+      margin: 0;
+      margin-top: $base-padding/4;
+      text-shadow: none;
+    }
+    
+    .inner {
+      background: $color-blue-light;
+    }
+    
+    &.revealed {
+      background: #FFF8E4;
+      margin-bottom: $base-padding*2;
+      
+      p {
+        padding: 0;
+        color: $color-brown-light;
+        margin-bottom: $base-padding;
+      }
+      
+      .inner {
+        background: $color-yellow;
+      }
+      
+          
+      &:hover {
+        box-shadow: 3px 3px 0px rgba(0,0,0,0.2);
+        transform: rotate(0deg);
+      }
+      
+    }
+    
+    h3 {      
+      font-size: $font-size-yt;
+      margin-top: -20px;
+      line-height: 1.1;
+      transform: rotate(-3deg);
+      position: absolute;
+      width: 100%;
+      text-align: center;
+      left: 2px;
+      padding: 0;
+      background: transparent;
+      color: $color-red;
+      text-shadow:
+         2px 2px 0 #fff,
+       -2px -2px 0 #fff,  
+        2px -2px 0 #fff,
+        -2px 2px 0 #fff,
+         2px 2px 0 #fff; 
+    }
+    
+    .button {
+      display: block;
+      position: absolute;
+      left: 3px;
+      right: 5px;
+      bottom: -6px;
+      font-size: $font-size-yt/1.3;
+      padding: 8px;
+      width: 30%;
+
+      span {
+        display: none;
+      }
+  
+      /*margin-bottom: -30px;*/
+      
+      &.green {
+        width: 60%;
+        background:#6BE444;
+        left:auto;
+        box-shadow: 2px 2px 0px rgba(0,0,0,0.5);
+        color: #005910;
+        
+
+        &:active {
+          box-shadow: 0px 1px 0px rgba(0,0,0,0.5) !important;
+        }
+      }
+
+      &:active {
+        margin-top: 1px;
+      }
+      
+      img {
+        height: 20px;
+      }
+    }
+    
+    img {
+      line-height: 0;
+    }
+  }
+}
+
+
+
+#download  {
+  text-align: center;
+  margin: 0 $base-padding/2;
+  margin-top: $base-padding*2;
+
+  .columns {
+    position: relative;
+    padding-top: 46px;
+    background: $color-orange url(#{$asset-path}/orange-bg.png) repeat-x top left;
+    padding: $base-padding/2;
+    display: inline-block;
+    @include vendor-prefix(transform, rotate(1deg));
+    margin: 0 auto;
+    color: #fff;
+    box-shadow: 6px 6px 0 rgba(0,0,0,0.2);
+    text-shadow:
+     -2px -2px 0 #972424,  
+      2px -2px 0 #972424,
+      -2px 2px 0 #972424,
+       2px 2px 0 #972424;      
+  }
+  
+  .icon {
+    position: absolute;
+    left: 50%;
+    top: -70px;
+    width: 100px;
+    margin-left: -50px;
+    @include vendor-prefix(transform, rotate(-3deg));
+  }
+
+  .badge {
+    display: inline-block;
+    img {
+      height: 54px;
+      width: auto;
+    }
+  }
+
+  h3 {
+    margin: 0;
+    margin-bottom: $base-padding/4;
+    padding-top: $base-padding*1.5;
+    font-size: 30px;
+    background: none;
+    color: #fff;
+  }
+  
+  p {
+    margin: 0;
+  }
+
+  .link {
+    text-shadow: none;
+    color: #fff;
+    font-size: $font-size-yt-med;
+  }
+}
+
+
+
+#footer {
+  text-align: center;
+  padding: $base-padding*2 0;
+  
+  p {
+    font-size: 14px; 
+    color: rgba(255,255,255,0.6);
+    margin: 0;
+  }
+    
+  a {
+    color: #444a63;
+    color: rgba(255,255,255,0.9);
+    
+    &:hover {
+      color: $color-red;
+      color: #fff;
+    }
+  }
+
+}
+
+@import 'youtube/mq';
+@import 'youtube/leaderboard';
+//@import 'youtube/timer';
+
+
+/* For modal popups  ---------------------- */
+
+@import "modal";
+
+.modal {
+  max-width: 700px;
+
+  h4 {
+    text-align: center;
+    color: $color-red;
+    margin-top: $base-padding*1.5;
+    margin-bottom: $base-padding;
+  }
+
+  p {
+    line-height: 1.25;
+
+    img {
+      &.left {
+        float: left;
+        height: 70px;
+        margin-right: 10px;
+      }
+    }
+  }
+
+  a {
+    &:hover {
+      color: $color-red;
+    }
+  }
+
+  hr {
+    margin-top: $base-padding*2;
+    margin-bottom: $base-padding*2;
+  }
+}
+
+#modal-terms {
+
+  h1, h2, h3 {
+    font-size: $font-size-yt-xxlarge;
+    background: transparent;
+    color: $color-red;
+    line-height: 1.1;
+    margin: 0;
+    margin-bottom: $base-padding/2;
+    text-align: center;
+    display: block;
+    width: 100%;
+    @include vendor-prefix(transform, none);
+  }
+
+  h2 {
+    font-size: $font-size-yt-large;
+  }
+
+  h3 {
+    font-size: $font-size-yt-med;
+  }
+
+  p {
+    font-size: $font-size-yt;
+  }
+
+  strong {
+    text-shadow: none;
+    color: $color-red;
+  }
+
+  ol, ul {
+    > li {
+      padding-bottom: $base-padding;
+      text-transform: none;
+
+      strong {
+        text-transform: uppercase;
+      }
+    }
+
+    ol li, ul li {
+      padding-bottom: $base-padding/2;
+    }
+  }
+}
+
+
+/* For hiding the other app store badges on devices */
+a.link-google,
+a.link-amazon,
+a.link-apple {
+  display: inline-block;
+}
+
+.ios .link-google, 
+.ios .link-amazon, 
+.android .link-apple, 
+.android .link-amazon, 
+.amazon .link-apple, 
+.amazon .link-google {
+  display: none !important;
+} 
+
+
+/* Animations  ---------------------- */
+@include keyframes(animHead)
+{
+    0% { @include transform(rotate(-10deg) scale(0, 0));}
+    40% { @include transform(rotate(-10deg) scale(0, 0));}
+    80% { @include transform(rotate(5deg) scale(1.1,1.2)); }
+    100% { @include transform(rotate(0deg) scale(1,1)); }
+} 
+
+@include keyframes(animLogo)
+{
+    0% { @include transform(rotate(-10deg) scale(0, 0));}
+    75% { @include transform(rotate(-10deg) scale(0.5, 0.6)); }
+    100% { @include transform(rotate(0deg) scale(1,1)); }
+} 

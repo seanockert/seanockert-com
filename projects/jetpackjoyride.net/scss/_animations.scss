@@ -1,0 +1,23 @@
+
+/* Animations */
+
+@include keyframes(bounce) {
+  0%    { @include transform(scale(1,1)); }
+  40%   { @include transform(scale(1.1,0.9)); }
+  65%   { @include transform(scale(0.95,1.05)); }
+  100%  { @include transform(scale(1,1)); }
+}
+
+.amim {
+  @include vendor-prefix(transition, all 0.45s cubic-bezier(0.650, 0.045, 0.405, 1.000));
+}
+
+
+/* Apply these classes to trigger animation */
+.bounce {
+  @include vendor-prefix(animation, bounce 0.35s );
+}
+
+.bounce {
+  @include vendor-prefix(fill-mode, forwards);
+}

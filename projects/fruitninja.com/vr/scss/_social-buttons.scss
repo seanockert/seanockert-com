@@ -1,0 +1,80 @@
+a.social {
+  text-decoration: none;  
+  display: inline-block;  
+  font-size: 16px;   
+  font-family: sans-serif;
+  margin: 0 4px;
+  margin-top: 12px;
+  font-weight: bold;
+  text-transform: none;
+}
+
+  a.social span {
+    background: #333;
+    color: #fff;
+    display: inline-block;
+    border-radius: 0.20em;
+    padding: 0.5em 0.5em 0.5em 0.1em;
+    line-height: 1;
+    font-weight: normal;
+    box-shadow: 1px 1px 1px rgba(0,0,0,0.2);
+    -moz-transition: background-color 0.15s ease-in;
+    -webkit-transition: background-color 0.15s ease-in;
+    transition: background-color 0.2s ease-in;
+
+    b {
+      font-weight: normal;
+    }
+
+    &:active {
+      box-shadow: none;
+      margin-bottom: -1px;
+    }
+  }
+
+  a.social span:before {
+    background-size: 28px 28px;
+    background-repeat: no-repeat;
+    margin-top: -7px;
+    margin-bottom: -9px;
+    margin-right: 0.1em;
+    height: 28px;
+    width: 28px;
+    content: ' ';
+    display: inline-block;
+  }
+
+    a.social.facebook span {
+      background-color: #3b5997;    
+    }
+
+    a.social.facebook span:before {
+      background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAPVJREFUeNpi/P//P8NQBkwMQxyMemDUA6MeGPXA8PWAEhB3APFJIH4FxP+A+D8WTBFgoZHjC4G4FYg5aR0DjDSoibOAeCopbhhMHuAB4odALEQvD1A7D7iT6HiGwZYHdAjIfwDiu4PZAxx45K4CsQ3UE0OyHjhEbcePVmSDAVAjDwgSmQfY0dTCwPuBrgcoMeAjEAsM5ST0YqjngadD3QP3h7oHKK6VqVEKVSCxPYDYAYe6E0C8AU1s62DwQCcSWwCPB86jqR2tyEY9MOqBUQ+MemDUA6MeGPXAqAdGPTDqgYEFjKMT3aMeGPXAqAdGPUAJAAgwAO0ELMJWTmP8AAAAAElFTkSuQmCC');
+    }  
+
+    a.social.facebook:hover span,
+    a.social.facebook:focus span {
+      background-color: darken(#3b5997, 10%);
+    }       
+    
+    a.social.facebook:active span {
+      background-color: darken(#3b5997, 20%);
+    }     
+
+  a.social.twitter span {
+    background-color: #32ccfe;
+  }
+
+    a.social.twitter span:before {
+      background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAABtklEQVR42u3YwSuDYQDH8XezKG27TFyUWinFwbaDdmAHU25LXGTKAXdJKW6kJCNzWqnlhH9gLLUpuSCnSSk5zFKUAw4Le30PisMy79v7vNvyfOtzXOvX1t49j6KqalWTA+QAOUAOkAPkADngvw1ohg8dsFfTgCCSeIZKBdxiBS4oXxwIw2X0gADWoegwg9/KYASryGFHxCewBpWWoWgwAC0dw4kW1Bg54ED9Lg4HlBLqcIW/9ogNHGESViMHJPGzCwRKvMYPPW2K+ApFUaw4OqEUMQYtvWNW1K9QT4k33scE2lAHBUPQ0j1sYgYA2yjVG66RRApayqJexAArBuFDCqK6hFXUJ5DGC24gqoTIJ/E0RLckckAjHiCyPnEDgBA+IKIc7GIHAEGcowAji5j1b7QdYSRgVHm0mjUgBKOLmn0e2IJRZdFg9oBaxGBE/eU8kfUihlPoaaoSjpRN2IXW5sp5qLfBhwieoKVXjJt5K2FBNxYRxR4y0FMa3nJcq9gxijPo6QTDsFTCvZAH8zhEFvkiD6U7pLEAfyVfbDnghhdd8MANp7xalAPkADlADpAD5AA5oAp8ApLonD+K3UnKAAAAAElFTkSuQmCC');
+    }
+   
+    a.social.twitter:hover span,
+    a.social.twitter:focus span {
+      background-color: darken(#32ccfe, 10%);
+    }       
+    
+    a.social.twitter:active span {
+      background-color: darken(#32ccfe, 20%);
+    }   
+

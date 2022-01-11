@@ -1,0 +1,63 @@
+/* Timeline Animations */
+
+@include keyframes(cd-bounce-1)
+{
+    0% { opacity: 0; @include transform(scale(0.2)); }
+    60% { opacity: 1; @include transform(scale(1.2)); }
+    100% { opacity: 1; @include transform(scale(1)); }
+}  
+
+@include keyframes(cd-bounce-2)
+{
+    0% { opacity: 0; @include transform( translate3d(-10%, 50%, 0) rotate(-25deg)); }
+    60% { opacity: 1; @include transform(translate3d(10px, 0, 0) rotate(2deg)); }
+    100% { opacity: 1; @include transform(translate3d(0, 0, 0) rotate(0deg)); }
+}  
+
+@include keyframes(cd-bounce-2-out)
+{
+    0% { opacity: 1; @include transform( translate3d(0, 0, 0) rotate(0deg)); }
+    60% { opacity: 1; @include transform(translate3d(10px, 0, 0) rotate(2deg)); }
+    100% { opacity: 0; @include transform(translate3d(-10%, 50%, 0) rotate(-25deg)); }
+}  
+
+@include keyframes(cd-bounce-2-inverse)
+{
+    0% { opacity: 0; @include transform(translate3d(10%, 50%, 0) rotate(25deg)); }
+    60% { opacity: 1; @include transform(translate3d(-10px, 0, 0) rotate(-2deg)); }
+    100% { opacity: 1; @include transform(translate3d(0, 0, 0) rotate(0deg)); }
+}  
+
+@include keyframes(cd-arrow-down)
+{
+    0% { @include transform(translate3d(0, 0, 0)); }
+    10% { @include transform(translate3d(0, 5px, 0)); }
+    26% { @include transform(translate3d(0, -5px, 0)); }
+    40% { @include transform(translate3d(0, 0px, 0)); }
+    100% { @include transform(translate3d(0, 0, 0)); }
+}  
+
+@include keyframes(bounce-up)
+{
+    0% { opacity: 0; @include transform(scale(0.9, 1.1) translate3d(0, 300px, 0)); }
+    60% { opacity: 1; @include transform(scale(1.1, 0.9) translate3d(0, 5px, 0)); }
+    100% { opacity: 1; @include transform(scale(1, 1)  translate3d(0, 10px, 0)); }
+}  
+
+@include keyframes(wiggle)
+{
+    0% { @include transform(rotate(0deg)); }
+    3% { @include transform(rotate(4deg)); }
+    6% { @include transform(rotate(-3deg)); }
+    10% { @include transform(rotate(0deg)); }
+    100% { @include transform(rotate(0deg)); }
+}  
+
+
+//.example-animation {
+    //@include animation(cd-bounce-1 1.2s linear infinite); 
+//}
+
+.merch {
+    @include animation(wiggle 5s ease-out infinite); 
+}

@@ -1,0 +1,139 @@
+
+/* Tablet and up media queries  ---------------------- */
+@media #{$medium-up} {
+
+	.hidden-small { display: block !important; }
+	.hidden-medium { display: none !important; }
+	.hidden-large { display: none !important; }
+
+	.icon-anniversary {
+	  img {
+	    height: 100px;
+	  }
+	}
+	
+	#header {
+		min-height: auto;
+		padding-bottom: $base-padding;
+	}
+
+	#nav {
+		background-size: 378px 69px;
+		padding: 0 $base-padding/2;
+		
+		li {
+			
+			a {
+				font-size: 26px;
+				line-height: 1.45;
+				padding: $base-padding/2.5;
+				padding-bottom: $base-padding/2;		
+				
+				&.social {
+					height: 40px;
+					width: 40px;					
+				}		
+				
+				sup {
+					top: 14px;
+					font-size: 17px;
+				}	
+			}
+		}
+
+	}	
+
+	#paper-top {
+		bottom: -25px;
+		background-size: 1921px 94px;	
+		height: 94px;
+	}
+	
+	#content {
+		text-align: left;
+		
+		h3 {
+			margin-bottom: $base-padding/2;
+		}
+		
+		img.left { 
+			float: left; 
+			height: 75px;
+			margin-top: -25px;
+			margin-right: -13px;
+		}
+
+		.green {
+			a {
+				img {
+					margin-top: -10px;
+				}
+			}
+		}	
+
+	}
+			
+	#subscribe-form {
+		margin-top: 0;
+		margin-bottom: $base-padding;
+		border-radius: 6px;
+		padding: $base-padding;
+
+		label {
+			padding: 0;
+			transform: rotate(-1deg);
+			display: inline-block;
+			padding-bottom: 20px;
+		}
+
+		input[type="email"] {
+			width: 340px;
+		}
+
+		input#subscribe {
+			width: 130px;
+		}
+	}
+	
+	#fruit-left,
+	#fruit-right {
+		width: 150px;
+	}	
+
+
+}	
+
+@media #{$ipad-landscape} {
+
+	#panels li  {
+		a.button {
+			&.button-trailer {
+				margin: 0 $base-padding*2;
+			}	
+		}
+	}
+
+	#content {
+		img.left { 
+			margin-top: -30px;
+		}
+	}
+
+}
+
+
+/* iPad Portrait */
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: portrait) and (-webkit-min-device-pixel-ratio: 1) {
+	#hero .logo {
+		height: 250px;
+		margin-top: 90px;
+	}
+}
+
+/* Landscape */
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) and (-webkit-min-device-pixel-ratio: 1) {
+	#hero .logo {
+		height: 250px;
+		margin-top: 50px;
+	}
+}

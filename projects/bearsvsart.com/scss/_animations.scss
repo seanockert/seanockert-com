@@ -1,0 +1,179 @@
+
+/* Button Animations */
+
+@include keyframes(bounce)
+{
+    0% { @include transform(scale(1,1)); }
+    50% { @include transform(scale(1.1,0.9)); }
+    100% { @include transform(scale(1,1)); }
+} 
+
+@include keyframes(press)
+{
+    0% { @include transform(scale(1,1)); }
+    50% { @include transform(scale(0.7,0.85)); }
+    100% { @include transform(scale(0.9,0.9)); }
+} 
+
+@include keyframes(bounceIn)
+{
+    0% { opacity: 1; @include transform(scale(0,0)); }
+    50% { opacity: 1; @include transform(scale(1.1,0.9)); }
+    100% { opacity: 1; @include transform(scale(1,1)); }
+}  
+
+@include keyframes(walkIn)
+{
+    0% { @include transform(translate3d(0,280px,0) ); }
+    100% { @include transform(translate3d(0,0,0) ); }
+}   
+
+/* Button Animations */
+
+
+/* Painting Scene Animations */ 
+
+@include keyframes(gallery)
+{
+    0%    { @include transform(translate3d(0,-1000px,0) scale(1,1.2)); }
+    30%   { @include transform(translate3d(0,0,0) scale(1,0.9)); }
+    40%   { @include transform(scale(1,1.05)); }
+    50%   { @include transform(scale(1,1)); }
+    100%  { @include transform(translate3d(0,0,0) scale(1,1)); }
+}   
+
+@include keyframes(shake)
+{
+    0%    { @include transform(translate3d(0,0,0) rotate(0deg)); }
+    25%   { @include transform(translate3d(1px,0,0) rotate(0deg)); }
+    50%   { @include transform(translate3d(-1px,3px,0) rotate(1deg)); }
+    75%   { @include transform(translate3d(1px,0,0) rotate(-1deg)); }
+    100%  { @include transform(translate3d(0,0,0) rotate(0deg)); }
+}  
+
+@include keyframes(shakeLogo)
+{
+    0%    { @include transform(rotate(0deg)); }
+    25%   { @include transform(rotate(-1deg)); }
+    50%   { @include transform(rotate(3deg)); }
+    80%   { @include transform(rotate(-2deg)); }
+    100%  { @include transform(rotate(0deg)); }
+}   
+
+@include keyframes(shadow)
+{
+    0%   { @include transform(scale(0,0)); }
+    100% { @include transform(scale(1,1)); }
+} 
+
+@include keyframes(smoke)
+{
+    0%  { opacity: 0; @include transform(scale(0,0)); }
+    20% { opacity: 0; @include transform(scale(0,0)); }
+    32% { opacity: 1; @include transform(scale(1,1)); }
+    80% { opacity: 0; @include transform(scale(1.2,1.2)); }
+}
+       
+@include keyframes(cloud)
+{
+    0%    {   @include transform(translate3d(-$cloudX, 0, 0)); }
+    100%  {   @include transform(translate3d(1200px, 0, 0)); }
+} 
+
+@include keyframes(sign)
+{
+    0%   { @include transform(translateY(0) scale(0, 0)); }
+    80%  { @include transform(translateY(0) scale(1.1, 0.9)); }
+    100% { @include transform(translateY(0) scale(1, 1)); }
+}
+
+@include keyframes(signLightMedium)
+{
+    0%  { background-position: 0 0; }
+    100%  { background-position: 0 -504px/$medium-scale; }
+} 
+
+@include keyframes(signLight)
+{
+    0%  { background-position: 0 0; }
+    100%  { background-position: 0 -504px; }
+} 
+
+/* Painting Scene Animations */ 
+
+
+
+/* Bear Animations */ 
+
+@include keyframes(bear)
+{
+    0%   { @include transform(translateY(250px) scale(0.8, 1.5)); }
+    80%  { @include transform(translateY(0) scale(1.05, 0.95)); }
+    100% { @include transform(translateY(0) scale(1, 1)); }
+}
+
+@include keyframes(pawMove)
+{
+    0% { @include transform(translate3d(0,0,0) rotate(0)); }
+    5% { @include transform(translate3d(0,0,0) rotate(0)); }
+    20%, 60% { @include transform(translate3d(6px,20px,0) rotate(10deg)); }
+    75% { @include transform(translate3d(0,0,0) rotate(0)); }
+    100% { @include transform(translate3d(0,0,0) rotate(0)); }
+} 
+
+@include keyframes(breathe)
+{
+    0%   { @include transform(translateY(0)); }
+    55%   { @include transform(translateY(2px)); }
+    100%   { @include transform(translateY(0)); }
+}
+
+@include keyframes(blinkSmall)
+{
+    0%  { background-position: 0 0; }
+    50%  { background-position: 0 0; }
+    55%, 70%  { background-position: 3px 0; }
+    75%, 92%  { background-position: 0 0; }
+    100%  { background-position: 0 -180px/$half-scale; }
+} 
+
+@include keyframes(blinkMedium)
+{
+    0%  { background-position: 0 0; }
+    50%  { background-position: 0 0; }
+    55%, 70%  { background-position: 3px 0; }
+    75%, 92%  { background-position: 0 0; }
+    100%  { background-position: 0 -180px/$medium-scale; }
+} 
+
+@include keyframes(blink)
+{
+    0%, 50%  { background-position: 0 0; }
+    55%, 70%  { background-position: 5px -2px; }
+    75%, 92%  { background-position: 0 0; }
+    100%  { background-position: 0 -180px; }
+} 
+
+@include keyframes(earFlick)
+{
+    0%, 5%  {  @include transform(rotate(0deg)); }
+    6%, 8%  { @include transform(translate3d(-10px,10px,0) rotate(-50deg)); }
+    8%, 10%  { @include transform(rotate(0deg));  }
+    10%, 100%  { @include transform(rotate(0deg));  }
+} 
+
+@include keyframes(paw)
+{
+    0% { @include transform(translate3d(60%,180px,0) rotate(90deg) ); }
+    100% { @include transform(translate3d(0,0,0) rotate(0deg)); }
+} 
+
+@include keyframes(shine)
+{
+    0% {  @include transform(scale(0,0) rotate(0deg)); }
+    50% {  @include transform(scale(1,1) rotate(180deg)); }
+    100%  { @include transform(scale(0,0) rotate(360deg));  }
+}   
+
+/* Bear Animations  */
+

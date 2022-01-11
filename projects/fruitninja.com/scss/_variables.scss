@@ -1,0 +1,155 @@
+// This is the default html and body font-size for the base rem value.
+$rem-base: 16px !default;
+
+$modules: () !default;
+@mixin exports($name) {
+  @if (index($modules, $name) == false) {
+    $modules: append($modules, $name);
+    @content;
+  }
+}
+
+//
+// @functions
+//
+
+@function lower-bound($range){
+  @if length($range) <= 0 {
+    @return 0;
+  }
+  @return nth($range,1);
+}
+
+@function upper-bound($range) {
+  @if length($range) < 2 {
+    @return 999999999999;
+  }
+  @return nth($range, 2);
+}
+
+
+// It strips the unit of measure and returns it
+@function strip-unit($num) {
+  @return $num / ($num * 0 + 1);
+}
+
+@function convert-to-rem($value, $base-value: $rem-base)  {
+  $value: strip-unit($value) / strip-unit($base-value) * 1rem;
+  @if ($value == 0rem) { $value: 0; } // Turn 0rem into 0
+  @return $value;
+}
+
+@function rem-calc($values, $base-value: $rem-base) {
+  $max: length($values);
+
+  @if $max == 1 { @return convert-to-rem(nth($values, 1), $base-value); }
+
+  $remValues: ();
+  @for $i from 1 through $max {
+    $remValues: append($remValues, convert-to-rem(nth($values, $i), $base-value));
+  }
+  @return $remValues;
+}
+
+
+// Media Query Ranges
+$small-range: (0em, 32em) !default;
+$medium-range: (40.063em, 64em) !default;
+$large-range: (64.063em, 90em) !default;
+$xlarge-range: (90.063em, 120em) !default;
+$xxlarge-range: (120.063em) !default;
+
+$screen: "only screen" !default;
+
+$landscape: "#{$screen} and (orientation: landscape)" !default;
+$portrait: "#{$screen} and (orientation: portrait)" !default;
+
+$small-up: $screen !default;
+$small-only: "#{$screen} and (max-width: #{upper-bound($small-range)})" !default;
+
+$medium-up: "#{$screen} and (min-width:#{lower-bound($medium-range)})" !default;
+$medium-only: "#{$screen} and (min-width:#{lower-bound($medium-range)}) and (max-width:#{upper-bound($medium-range)})" !default;
+
+$large-up: "#{$screen} and (min-width:#{lower-bound($large-range)})" !default;
+$large-only: "#{$screen} and (min-width:#{lower-bound($large-range)}) and (max-width:#{upper-bound($large-range)})" !default;
+
+$xlarge-up: "#{$screen} and (min-width:#{lower-bound($xlarge-range)})" !default;
+$xlarge-only: "#{$screen} and (min-width:#{lower-bound($xlarge-range)}) and (max-width:#{upper-bound($xlarge-range)})" !default;
+
+$xxlarge-up: "#{$screen} and (min-width:#{lower-bound($xxlarge-range)})" !default;
+$xxlarge-only: "#{$screen} and (min-width:#{lower-bound($xxlarge-range)}) and (max-width:#{upper-bound($xxlarge-range)})" !default;
+
+$ipad-landscape: "#{$screen} and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : landscape)" !default;
+
+//Padding
+$base-padding: 24px;
+
+
+// Colors
+$social-facebook-blue: #3b5997;
+$social-twitter-blue: #32ccfe;
+$social-googleplus-red: #f23c26;
+$social-pinterest-red: #CC2229;
+
+
+
+//$asset-path: '../images';
+$asset-path: '//assets.halfbrick.com/fn/v3/images';
+
+/* Fonts  ---------------------- */
+
+@font-face {
+    font-family: 'bronicregular';
+    src: url('../fonts/bronic.eot');
+    src: url('../fonts/bronic.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/bronic.woff') format('woff'),
+         url('../fonts/bronic.ttf') format('truetype'),
+         url('../fonts/bronic.svg#bronicregular') format('svg');
+    font-weight: normal !important;
+    font-style: normal;
+}
+
+ 
+// Allow vendor prefixes
+$vendors: true;  
+  
+/* Mixins */
+	
+/* Clear floats */  
+@mixin clearfix() {
+  *zoom:1;
+  &:before, &:after { content: " "; display: table; }
+  &:after { clear: both; }
+}
+
+.clear { clear: both; }
+  
+/* Replaced by Bourbon functions */
+@mixin vendor-prefix($name, $argument) {
+  -webkit-#{$name}: #{$argument};
+  -ms-#{$name}: #{$argument};
+  -moz-#{$name}: #{$argument};
+  #{$name}: #{$argument};
+}
+
+@mixin box-sizing($type:border-box) {
+  @if $vendors {
+    -moz-box-sizing: $type;
+    -webkit-box-sizing: $type;
+  }
+  box-sizing: $type;
+}
+
+@mixin blank-list {
+    list-style-type:none;
+    padding:0;
+    margin:0;
+    overflow:hidden;
+    > li{
+        display:block;
+    }
+}
+
+.no-list {
+  @include blank-list;
+}

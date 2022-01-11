@@ -1,0 +1,118 @@
+
+
+.button {
+  padding: $base-padding/2 $base-padding;
+  background: $color-xbox-green;
+  color: #fff;
+  font-family: $typeface-header;
+  border-radius: 16px;
+  display: inline-block;
+  text-decoration: none;
+  font-size: 26px;
+  letter-spacing: 0.02em;
+  margin: $base-padding/4;
+  box-shadow: 1px 1px 1px rgba(0,0,0,0.8);
+  text-transform: uppercase;
+  
+  //cursor: url(#{$asset-path}/cursor-hand.png), auto;
+  cursor: url(#{$asset-path}/cursor-hand-up.png), auto;
+  
+  &.download {
+    b {
+      display: inline-block;
+      background: url(#{$asset-path}/logo-xbox-one-icon.png) no-repeat 0 0;
+      background-size: 30px 30px;
+      height: 30px;
+      width: 30px;
+      margin-bottom: -$base-padding/4;
+      margin-right: $base-padding/4;
+    }
+  }
+  
+  &.orange {
+    background: $color-orange;
+  }
+  
+  &:hover, &:focus {
+    color: #fff;
+  } 
+   
+  &:active {
+    @include vendor-prefix(transform, scale(0.9));
+    cursor: url(#{$asset-path}/cursor-hand-down.png), auto;
+  }
+}
+
+
+.subscribe {
+  width: 100%;
+  margin: $base-padding/2 auto;
+  margin-bottom: 0;
+  
+  input, button {
+    line-height: 1;
+    padding: $base-padding/2;
+    border: none;
+    border: 4px solid $color-yellow;
+    font-weight: bold;
+    outline: none !important;
+  }
+  
+  input {
+    border-radius: 16px 0 0 16px;
+    border-right: none;
+    width: 65%;
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+  }
+  
+  button {
+    background: $color-orange;
+    color: #fff;
+    margin-left: -6px;
+    font-weight: bold;
+    border-left: 1px solid $color-yellow;
+    border-radius: 0 16px 16px 0;
+    padding: 14px $base-padding/3;
+    width: 35%;
+    
+    &:hover, &:focus {
+      background: $color-xbox-green;
+    }    
+    &:active {
+      background: shade($color-xbox-green, 10%);
+    }
+  }
+}
+
+
+
+/* Tablet and up media queries  ---------------------- */
+@media #{$medium-up} {
+
+  /* Subscribe form */
+  .subscribe {
+    width: 600px;
+    width: 96%;
+    margin: $base-padding/2 auto;
+    margin-bottom: 0;
+
+    input, button {
+      font-size: $font-size-med;
+      border: 8px solid #F5C815;
+    }
+
+    input {
+      border-right: none;
+      width: 70%;
+    }
+
+    button {
+      padding: 13px $base-padding;
+      padding-bottom: 14px;
+      border-left: 1px solid #F5C815;
+      width: 30%;
+    }
+  }
+
+ 
+} 

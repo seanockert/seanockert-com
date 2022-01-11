@@ -1,0 +1,454 @@
+@import "reset"; 
+@import "settings";
+@import "variables";
+
+//@import "grid/grid";
+
+$default-float: 'left';
+
+@import "plugins/social-buttons";
+@import "plugins/lightbox";
+@import "grid/flex-video";
+
+
+html {
+  background: #F2F2F2 url(http://assets.halfbrick.com/jj/v2/images/bg-repeat.jpg) top center;
+  font-family: $typeface-primary;
+  font-size: 16px;
+}
+
+a {
+  color: $color-blue;
+  text-decoration: underline;
+  -webkit-transition: all 0.1s ease-out;
+  -moz-transition: all 0.1s ease-out;
+  transition: all 0.1s ease-out;
+
+  &:hover {
+    color: darken($color-blue, 20%);
+  }
+  
+  &.button {
+    color: #fff;
+    background: #0064E0;
+    border-radius: 6px;
+    padding: 12px 16px;
+    font-size: 16px;
+    text-decoration: none;
+    text-transform: uppercase;
+    margin-bottom: $base-padding/2;
+    display: inline-block;
+    line-height: 1.4;
+    font-weight: bold;
+    
+    b {
+      float: left;
+      padding-right: 20px;
+      padding-top: 1px;
+    }
+    
+    span {
+      white-space: nowrap;
+      display: block;
+      font-size: 16px;
+      font-weight: normal;
+      text-transform: none;
+    }
+    
+    img {
+      height: 46px;
+      width: auto;
+      margin-right: 16px;
+      float: left;
+    }
+    
+    &:hover, &:focus {
+      background: darken(#0064E0, 10%);
+      box-shadow: 0 0 10px #FBD531;
+    }
+    
+    &:active {
+      background: lighten(#0064E0, 10%);
+      box-shadow: inset 1px 1px rgba(0,0,0,0.5);
+    }
+    
+  }
+}
+
+code {
+  display: inline-block;
+  background: #FBD531;
+  padding: 3px 5px;
+  line-height: 1;
+  font-weight: bold;
+  
+  &::-moz-selection {background: #0064E0;color:#fff;text-shadow:none;}
+  &::selection {background: #0064E0;color:#fff;text-shadow:none;}
+}
+
+.row {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  background: #f7f7f7;
+
+}
+
+.columns {
+  margin: 0 $base-padding;
+}
+
+.header-topbar {
+  img.header-topbar-logo {
+  
+  }
+}
+
+#header {
+  margin: 0 auto;
+  text-align: center;
+}
+
+.content-description {
+  max-width: 780px;
+  margin: 0 auto;
+  padding: $base-padding/2;
+  line-height: 1.5;
+  color: #404040;
+  
+  h1, h2, p {
+    span {
+      white-space: nowrap;
+    }
+  }
+
+  h1, h2 {
+    font-family: $typeface-header;
+    font-weight: normal;
+    text-transform: uppercase;
+    color: $color-purple;
+  }
+  
+  h1 {
+    line-height: 1.1;
+    text-align: center;
+    font-size: 2em;
+    margin: 0;
+  }
+  
+  h2 {
+    line-height: 1.2;
+    margin: 0;
+    margin-top: 1em;
+    margin-bottom: -0.5em;
+    font-size: 30px;
+  }
+  
+  h3 {
+    font-size: 14px;
+    margin: 0;
+    margin-bottom: 6px;
+    padding: 0;
+    text-transform: uppercase;
+    color: #D82D24;
+    text-align: left !important;
+    position: relative;
+    
+    /*&:after {
+      position: absolute;
+      top: 48%;
+      overflow: hidden;
+      width: 90%;
+      height: 1px;
+      margin-left: 12px;
+      content: '\a0';
+      background-color: #ddd;
+    }*/
+  }
+  
+  p {
+    margin: 1em 0;
+  }
+  
+  sup {
+    color: #999;
+  }
+}
+
+.content-download {
+  text-align: left;
+  
+  img {
+    height: 60px;
+    width: auto;
+  }
+  
+  small {
+    font-size: 13px;
+    line-height: 1.4;
+    display: block;
+    background: #fdf7d2;
+    padding: 3px 6px;
+  }
+}
+
+.unsupported {
+  border: 1px solid #ddd;
+  background: #eee;
+  padding: $base-padding/2;
+  margin-top: $base-padding/2;
+  
+  a { white-space: nowrap; }
+}
+
+
+blockquote {
+  font-size: 22px;
+  line-height: 1.4;
+  background: $color-purple;
+  color: #fff;
+  padding: 16px;
+  margin: 0 auto;
+  margin-top: $base-padding;
+  border-radius: 6px;
+  
+  .qt {
+    font-family: georgia, serif;
+    font-size: 26px;
+    display: inline-block;
+    margin-bottom: -12px;
+    line-height: 0;
+  }
+  
+  a {
+    text-decoration: none;
+    font-weight: normal;
+    outline: 0 none;
+    
+    a:hover, a:focus {
+      color: #fff;
+      text-decoration: underline;
+    } 
+  }
+  
+  &.twitter-tweet {
+    display: block;
+    font-family: "Helvetica Neue", Roboto, "Segoe UI", Calibri, sans-serif;
+    font-size: 12px;
+    font-weight: bold;
+    line-height: 16px;
+    background: #fff;
+    color: #222;
+    border-color: #eee #ddd #bbb;
+    border-radius: 5px;
+    border-style: solid;
+    border-width: 1px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15);
+    padding: 16px;
+    max-width: 568px;
+    color: #292f33;
+    margin-top: $base-padding/2;
+  
+     
+    a {
+      color: #363256;
+    }
+    
+    a:hover, a:focus {
+      color:lighten(#363256, 20%);
+      text-decoration: underline;
+    } 
+  
+    .icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 5px;
+      margin-right: 10px;
+      float: left;
+    }
+    
+    a.author {
+      color: #292f33;
+      font-size: 16px;
+      font-weight: bold;
+      margin-top: 6px;
+      float: left;
+      
+      span {
+        font-weight: normal;
+        font-size: 13px;
+        color: #8899a6;
+        display: block;
+        margin-top: 4px;
+      }
+      
+      &:hover, &:focus {
+        color: #111;
+        text-decoration: none !important;
+        
+        span {
+          color: #111;
+        }
+        
+      }
+    }
+    
+    .right {
+      margin-top: 6px;
+      height: 28px;
+      width: auto;
+      float: right;
+    }
+  
+    p {
+      font-size: 18px;
+      font-weight: normal;
+      line-height: 22px;
+      margin: 16px 0;
+    }
+    
+    small {
+      a {
+        font-size: 13px;
+        color: #8899a6;
+      }
+    }
+
+}
+ 
+}
+
+author {
+  text-align: right;
+  font-size: 16px;
+  color: rgba(255,255,255,.5);
+  display: block;
+  padding-top: 6px;
+  
+  a {
+    color: rgba(255,255,255,.5);
+    
+    &:hover {
+      color: #fff;
+    }
+  }
+}
+
+.nopadding {
+  margin-top: 0 !important;
+}
+
+hr {
+  margin: $base-padding 0;
+}
+
+#footer {
+  padding: $base-padding*2 0;
+  text-align: center;
+  font-size: 14px;
+  color: #666;
+  
+  img {
+    height: 40px;
+  }
+}
+
+
+/* For hiding the other app store badges on devices */
+.ios a.download-google, 
+.ios a.download-amazon, 
+.ios a.download-facebook, 
+.android a.download-apple, 
+.android a.download-amazon, 
+.android a.download-facebook, 
+.kindle a.download-apple, 
+.kindle a.download-google,
+.kindle a.download-facebook  {
+  display: none !important;
+} 
+
+.ios .download-apple,
+.kindle .download-amazon,
+.android .download-google {
+  display: block !important;
+}
+
+
+@media #{$medium-up} {
+  
+  a {
+    &.button {
+      padding: 10px;
+      font-size: 20px;
+      
+      b{
+        padding-top: 5px;
+      }
+      
+      img {
+        height: 60px;
+        width: auto;
+        margin-top: 0;
+        margin-right: 16px;
+        margin-bottom: 0;
+        display: inline-block;
+      }
+    }
+      
+  }
+  
+  .content-description {
+    font-size: 1.25em;
+    line-height: 1.4;
+    padding: $base-padding;
+    
+    h1 {
+      line-height: 1.1;
+      font-size: 3em;
+    }
+  }  
+  
+  .content-download {
+    small {
+      font-size: 16px;
+    }
+  }
+  
+  blockquote {
+    padding: $base-padding;
+    
+    &.twitter-tweet {
+      padding: 16px;
+     
+      a.author {
+        font-size: 18px;
+        
+        span {
+          font-size: 14px;
+        }
+      }
+      
+      p {
+        font-size: 28px;
+        line-height: 34px;
+      } 
+      
+      .right {
+        height: 36px;
+        margin-top: 0;
+      }
+    }
+  }
+      
+}
+
+@media #{$large-up} {
+ 
+.content-download {
+
+  img {
+    height: 70px;
+  }
+}  
+
+}

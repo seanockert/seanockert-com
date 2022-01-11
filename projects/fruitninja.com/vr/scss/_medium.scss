@@ -1,0 +1,171 @@
+
+/* Tablet and up media queries  ---------------------- */
+@media #{$medium-up} {
+
+	.hidden-large { display: none !important; }
+	.hidden-small { display: inline-block !important; }
+
+
+	h2 {
+	  font-size: $font-size-xlarge;
+	}
+
+	.content, 
+	#social {
+	  .inner {
+	    padding: $base-padding*2 $base-padding/2;
+	    max-width: 900px;
+	    margin: 0 auto;
+	  }
+	}
+
+	.header {
+		.inner {
+			padding-bottom: 180px;
+		}
+
+		h2 {
+			img {
+				max-height: 60px;
+				width: auto;
+				padding: 0 $base-padding;
+			}
+		}
+
+		p {
+			font-size: $font-size-medium;
+		}
+	}
+
+	.paper-top {
+	  background-size: 1921px 94px;
+	  height: 94px;
+	  width: 100%;
+	  position: absolute;
+	  bottom: -1px;
+	  left: 0;
+	}
+
+	.paper-bottom {
+		background-size: 1921px 94px;
+		height: 94px;
+		width: 100%;
+	}
+
+
+	.button-trailer,
+	.button-download {
+	  position: absolute;
+	  bottom: 0;
+	  z-index: 999;
+
+
+	  img {
+	    height: 140px;
+	    max-width: 100%;
+	  }
+	}
+
+	.button-trailer {
+	  left: 20%;
+	}
+
+	.button-download {
+	  right: 20%;
+	}
+
+	#early-access {
+	  height: 40px;
+	}	
+
+	#play {
+		.inner {
+			padding-top: $base-padding;
+		}
+	}
+
+	.box {
+	  padding: $base-padding/2 $base-padding;
+	  margin: 0 auto;
+	  margin-bottom: $base-padding;
+	  width: 70%;
+	}
+
+	.logo-vive {
+		width: 30%;
+		img {
+			height: 130px;
+		}
+	}
+
+	.box, 
+	.logo-vive {
+		margin-top: $base-padding/2;
+		float: left;
+		
+	}
+
+	.logos {
+	  img {
+	    height: 36px;
+	    margin: 0 6px;
+	  }
+
+	  .rating {
+	    img {
+	      height: 40px;
+	    }
+	    
+	  }
+
+	  &.soon {
+		  img {
+		    height: 30px;
+		    margin-bottom: -7px;
+		  }
+		}
+	}
+	
+
+	#watch {
+		.inner {
+			padding: $base-padding*2 0;
+		}
+	}
+
+
+	#features {
+		.inner {
+			padding-bottom: 0;
+		}
+	}
+
+	#social {
+		.inner {
+			padding-top: $base-padding*3;
+		}
+
+
+		.social-icons {
+			img {
+				height: 40px;
+			}
+		}
+	}
+
+	.extras {
+
+	  a {
+	    font-size: $font-size-medium;
+	    line-height: 34px;
+
+	    img {
+	      height: 34px;
+	      margin-bottom: -10px;
+	      margin-right: 10px;
+	    }
+	  }
+	}
+
+
+}	

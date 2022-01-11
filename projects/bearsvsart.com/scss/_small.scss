@@ -1,0 +1,310 @@
+/* Mobile and up media queries  ---------------------- */
+@media #{$small-up} {
+
+}  
+
+
+#scene {
+	position: relative;
+	overflow: hidden;
+	height: $sceneY/$mini-scale;
+	width: 100%;
+	margin: 0 auto;
+	background: #71C9ED url(#{$asset-path}/scene.jpg) no-repeat bottom center;
+	background-size: $sceneX/$mini-scale $sceneY/$mini-scale;
+	@include vendor-prefix(perspective, 500px);
+	@include vendor-prefix(perspective-origin, 50% 50%);
+}
+
+	#cloud-big, 
+	#cloud-small,
+	#cloud-xsmall {
+		background: url(#{$asset-path}/cloud-large.png) no-repeat bottom center;
+	}
+	
+	#cloud-big {
+		top: 65px;	
+		opacity: 0.8;
+		z-index: 10;		
+		width: $cloudX;
+		height: $cloudY;	
+		background-size: $cloudX $cloudY;	
+		@include animation(cloud 150s linear infinite);
+	}
+	
+	#cloud-small {
+		top: 40px;
+		opacity: 0.5;
+		z-index: 9;
+		right: 10%;
+		width: $cloudX/$half-scale;
+		height: $cloudY/$half-scale;
+		background-size: $cloudX/$half-scale $cloudY/$half-scale;
+		@include animation(cloud 200s linear infinite);
+	}	
+	
+	#cloud-xsmall {
+		top: 200px;
+		opacity: 0.3;
+		z-index: 7;
+		right: 0%;
+		width: $cloudX/2;
+		height: $cloudY/4;
+		background-size: $cloudX/2 $cloudY/4;
+		@include animation(cloud 300s linear infinite);
+	}
+	
+	#cloud-big,
+	#cloud-small,
+	#cloud-xsmall,
+	#sign,
+	#gallery,
+	#shadow,
+	#smoke,
+	#trees,
+	#play,
+	#bear,
+	#eyes,
+	#paw,
+	#shine,
+	#ear {
+		position: absolute;		
+	}
+
+	#trees,
+	#shadow,
+	#gallery,
+	#smoke {
+		left: 50%;
+	}	
+
+	#trees,
+	#shadow,
+	#gallery,
+	#sign,
+	#smoke,
+	#bearface,
+	#ear,
+	#paw,
+	#shine,
+	#play .button, 
+	#art .button
+	 {
+		background-image: url(#{$asset-path}/spritesheet-v2.png); //#{$asset-path}
+		background-repeat: no-repeat;
+		background-size: $spritesheetX/$small-scale $spritesheetY/$small-scale;		
+	}	
+
+	#trees,
+	#shadow,
+	#gallery {
+		background-size: $spritesheetX/$mini-scale $spritesheetY/$mini-scale;			
+	}
+
+	#trees {
+		height: $treesY/$mini-scale;
+		width: $treesX/$mini-scale;
+		bottom: 45px/$mini-scale;
+		margin-left: -240px/$mini-scale;	
+		z-index: 95;
+		background-position: -5px /$small-scale -665px/$mini-scale;
+		@include vendor-prefix(transition, opacity 0.01s 0.2s linear);
+	}
+	
+	#shadow {
+		height: $shadowY/$mini-scale;
+		width: $shadowX/$mini-scale;
+		bottom: -11px/$mini-scale;
+		margin-left: -195px/$mini-scale;	
+		z-index: 96;	
+		background-position: -281px /$mini-scale -527px/$mini-scale;							
+	}	
+	
+	#gallery {
+		height: $galleryXY/$mini-scale;
+		width: $galleryXY/$mini-scale;
+		bottom: -5px;
+		margin-left: -180px/$mini-scale;
+		z-index: 97;	
+		background-position: -370px/$mini-scale -5px/$mini-scale;				
+	}
+
+	#sign {
+		height: $signY/$small-scale;
+		width: $signX/$small-scale;
+		right: 70px;
+		bottom: 40px;
+		z-index: 98;
+		background-position: -180px/$small-scale -280px/$small-scale;
+		display: none;
+	}
+	
+	
+	#smoke {
+		height: $smokeY/$small-scale;
+		width: $smokeX/$small-scale;
+		bottom: 0;
+		margin-left: -252px;	
+		z-index: 99;
+		opacity: 0;	
+		pointer-events: none;		
+		background-position: -803px/$small-scale -577px/$small-scale;
+	}
+	
+	#play, 
+	#art,
+	#play-now, 
+	#coming {
+		position: absolute;
+		z-index: 1001;
+		top: 0;
+		width: 140px/$small-scale;
+		color: #002F45;
+		text-transform: uppercase;
+		font-size: $font-size-med/$small-scale;
+		text-align: center;
+		
+		span { display: none;}
+		
+		.button {
+			height: 94px/$small-scale;
+			width: 120px/$small-scale;
+			display: block;
+			margin: 0 auto;
+			clear: both;
+			
+		}
+	}
+	
+		#art {
+			left: 10px;
+				
+			.button {
+				margin-bottom: 4px;	
+				background-position: -5px/$small-scale -527px/$small-scale;			
+			}
+			
+			span { display: none; }
+		}	
+
+		#play {
+			right: 0;
+			
+			.button {
+				background-position: -143px/$small-scale -527px/$small-scale;
+			}	
+		}
+		
+		#play-now, 
+		#coming {
+			top: 15px;
+			right: 30px;
+			
+			a {
+				display: block;
+				background-repeat: no-repeat;
+				background-size: 180px/$small-scale 70px/$small-scale;
+				width: 180px/$small-scale;
+				height: 70px/$small-scale;
+				
+			}
+		}
+
+
+
+	#bear {
+		bottom: -10px;
+		left:10px;
+		z-index: 999;
+		height: $bearY/$half-scale;
+		width: $bearX/$half-scale;
+		@include animation(breathe 4s 1.5s cubic-bezier(0.310, 0.440, 0.445, 1.5) infinite);	
+	}
+				
+		#eyes {
+			z-index: 1000;
+			height: $eyesY/$half-scale;
+			width: $eyesX/$half-scale;
+			margin-top: 52px/$half-scale;
+			background: url(#{$asset-path}/bear-eyes-v2.png) no-repeat 50% 0;	
+			background-size: $eyesX/$half-scale ($eyesY/$half-scale)*4;
+			@include animation(blinkSmall 4s steps(3) 0.2s infinite normal);		
+		}		
+
+		#ear {
+			z-index: -1;
+			height: $earsY/$half-scale;
+			width: $earsX/$half-scale;
+			margin-top: -12px;
+			margin-left: 10px/$half-scale;
+			background-position: -286px/$half-scale -5px/$half-scale;	
+			background-size: $spritesheetX/$half-scale ($spritesheetY/$half-scale);
+			@include animation(earFlick 3s 0.5s cubic-bezier(0.470, -0.390, 0.425, 1.385) infinite);	
+			@include vendor-prefix(transform-origin, 50% 25%);	
+		}	
+		
+		#bearface {
+			height: $bearY/$half-scale;
+			width: $bearX/$half-scale;
+			background-position: -5px/$half-scale -5px/$half-scale;	
+			background-size: $spritesheetX/$half-scale $spritesheetY/$half-scale;					
+		}
+		
+		#paw {
+			height: $pawY/$half-scale;
+			width: $pawX/$half-scale;
+			bottom: 0;
+			left: 0;
+			z-index: 99;
+			background-position: -16px/$half-scale -273px/$half-scale;	
+			background-size: $spritesheetX/$half-scale $spritesheetY/$half-scale;		
+			@include animation(pawMove 14s 1.5s cubic-bezier(0.735, -0.400, 0.205, 1.385) infinite);		
+		}	
+			
+		#shine {
+			height: $shineY/$half-scale;
+			width: $shineX/$half-scale;
+			bottom: 45px/$half-scale;
+			right: 14px/$half-scale;
+			z-index: 100;
+			background-position: -296px/$half-scale -79px/$half-scale;	
+			background-size: $spritesheetX/$half-scale $spritesheetY/$half-scale;
+			@include vendor-prefix(perspective-origin, 50% 50%);
+			@include transform(scale(0,0));
+			
+			&.shine {
+				@include animation(shine 0.4s);
+			}				
+		}
+			
+
+	#logo {
+		position: absolute;
+		z-index: 1001;
+		left: 50%;
+		margin-left: -($logoX/$small-scale)/2;
+		top: 65px;
+		width: $logoX/$small-scale;
+		text-align: center;
+		
+		#bva {
+			@include vendor-prefix(perspective-origin, 50% 50%);
+			@include vendor-prefix(animation-timing-function, cubic-bezier(0.5, -0.5, 0.5, 1.5));
+			
+			&.shake {
+				@include animation(shakeLogo 0.4s);
+			}
+		}
+	}	
+	
+	
+	#halfbrick { width: 269px/$small-scale; }
+	
+	
+@media only screen and (min-width : 320px) and (max-width : 667px) and (orientation : landscape) {
+
+	#scene {
+		background-size: 100% auto;
+	}
+
+}  

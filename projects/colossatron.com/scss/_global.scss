@@ -1,0 +1,821 @@
+
+
+/*  Default body styles ---------------------- */
+
+html, body {
+  height: 100%;
+}
+
+html {
+  background: $color-purple;
+  max-width: 100%;
+  max-width: 1680px;
+  margin: 0 auto;
+}
+
+body {
+  background: transparent;
+  color: $color-base-font;
+  padding: 0;
+  margin: 0;
+  font-family: $base-font-family;
+  font-weight: $normal;
+  line-height: 1;
+  position: relative;
+}
+
+/* Miscellaneous useful HTML classes ---------------------- */
+.left         { float: left !important; }
+.right        { float: right !important; }
+.text-left    { text-align: left !important; }
+.text-right   { text-align: right !important; }
+.text-center  { text-align: center !important; }
+.hidden         { display: none; }
+
+// Antialiased font smoothing works best for light text on a dark background.
+// Apply to single elements instead of globally to body.
+// Note this only applies to webkit-based desktop browsers on the Mac.
+.antialiased { -webkit-font-smoothing: antialiased; }
+
+/* This parent can be any width and height */
+.block {
+  display: table;
+  width: 100%;
+}
+
+.mobile {
+  display: block;
+}  
+
+.medium {
+  display: none;
+}  
+   
+
+/* The element to be centered, can also be of any width and height */ 
+.centered {
+  display: table-cell;
+ vertical-align: middle;
+} 
+
+
+/* Links  ---------------------- */
+
+a {
+  color: $color-blue;
+  text-decoration: none;
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
+  -webkit-user-select: none;
+  
+  &:hover {
+    text-decoration: underline;
+    color: darken($color-blue, 10%);
+  }
+}
+
+// Override outline from normalize, we don't like it
+a:focus { outline: none; }
+
+
+/* Lists  ---------------------- */
+
+ul, ol {
+  li {
+    margin-bottom: $base-padding/2;
+  }
+}
+
+
+/* Fonts  ---------------------- */
+
+@font-face {
+    font-family: 'aeromatics';
+    src: url('../fonts/aero_matics_display_bold_italic-webfont.eot');
+    src: url('../fonts/aero_matics_display_bold_italic-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/aero_matics_display_bold_italic-webfont.woff') format('woff'),
+         url('../fonts/aero_matics_display_bold_italic-webfont.ttf') format('truetype'),
+         url('../fonts/aero_matics_display_bold_italic-webfont.svg#aero_matics_displayBdIt') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+
+
+/* Header  ---------------------- */
+
+#header {
+  background: #ccc;
+}
+
+#logo {
+    text-align: center;
+    margin: 0 auto;
+    padding-top: 30px;
+    width: 100%;
+    @include hide-text;
+    clear: both;
+}
+
+#banner-update {
+  background: #C02828 url('../images/banner-update@2x.png') no-repeat 50% 50%;
+  background-size: 96% auto;
+  width:100%;
+  height: 35px;
+  border-bottom: 2px solid #000;
+  z-index: 999;
+}
+
+nav ul {
+  //@include navigation-list;
+  li {
+    a {
+      display: block;
+      padding: $base-padding;
+      text-decoration: none;
+      color: $color-base-font;
+      
+      &:hover {
+        background: $color-light-grey;
+        text-decoration: none;
+      }
+      
+      &:active {
+        background: $color-dark;
+        color: #fff;
+      }      
+      
+      &.active {
+        font-weight: $bold;
+      }
+    }
+  }
+}
+
+.social-icons {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  float: right;
+  
+  li {
+    display: inline-block;
+    float: left;
+    text-transform: uppercase;
+    font-size: 0.8em;
+    line-height: 44px;
+    text-shadow:
+       -2px -2px 0 #000,  
+        2px -2px 0 #000,
+        -2px 2px 0 #000,
+         2px 2px 0 #000;    
+  }
+  
+      
+  img {
+    padding-top: 8px;
+  } 
+  
+  a {
+    float: left;
+    margin-left: 10px;
+    background: url('//wac.76ff.edgecastcdn.net/0076FF/hbwebmedia/ct/images/social-icons@2x.png') no-repeat 0 0;
+    background-size: 176px 36px;
+    width: 36px;
+    height: 36px;
+    left: 10px;
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+    -webkit-user-select: none;
+
+    &.icon-twitter {
+      background-position: -41px 0;
+    }
+              
+    &.icon-google {
+      background-position: -82px 0;
+    }
+    
+        
+    &:active {
+      -webkit-transform: scale(0.9);
+    }
+          
+  } 
+  
+  .text-share {
+    display: block;
+    background: url('//wac.76ff.edgecastcdn.net/0076FF/hbwebmedia/ct/images/social-icons@2x.png') no-repeat -120px 3px;
+    background-size: 176px 36px;
+    width: 57px;
+    height: 36px;
+  } 
+}
+
+
+  
+#button-trailer {
+  background: $color-red url('//wac.76ff.edgecastcdn.net/0076FF/hbwebmedia/ct/images/button-trailer@2x.png') no-repeat 0 0;
+}
+
+#button-facebook {
+  background: $color-facebook-blue url('//wac.76ff.edgecastcdn.net/0076FF/hbwebmedia/ct/images/button-facebook@2x.png') no-repeat 0 0;
+}
+
+#button-trailer, 
+#button-facebook {
+  background-size: 280px 47px;
+  height: 47px;
+  width: 280px;
+  margin: 20px auto;
+  margin-bottom: 20px;
+  display: block;
+  
+  &:active {
+  -webkit-transform: scale(0.9);
+  }   
+}  
+
+/* Hero Banner  ---------------------- */
+
+
+
+#hero { 
+  text-align: center;
+  padding: $base-padding 0;
+  color: $color-off-white;
+  
+  
+  background: url('//wac.76ff.edgecastcdn.net/0076FF/hbwebmedia/ct/images/header-bg-small@2x.jpg') no-repeat top center;
+  background-size: 960px /$scale-factor-med 1052px /$scale-factor-med;
+  height: 1052px /$scale-factor-med;
+    
+  .columns {
+    font-size: 1.4em;
+    line-height: 1.4;
+  }
+
+}
+
+.button-more {
+  background: url('//wac.76ff.edgecastcdn.net/0076FF/hbwebmedia/ct/images/button-more@2x.png') no-repeat 0 0;
+  background-size: 106px /$scale-factor-med 87px /$scale-factor-med;
+  height: 87px /$scale-factor-med;
+  width: 106px /$scale-factor-med;
+  display: block;
+  margin: 0 auto;
+  
+  &:active {
+    -webkit-transform: scale(0.9);
+  }
+}
+
+/* Content  ---------------------- */
+
+#content {
+  line-height: 1.5;
+  box-shadow: 0 0 10px #000;
+}
+
+#sections {
+  color: #111;
+
+  h2, h3 {
+    color: #fff;
+    line-height: 1.2;
+    font-size: 2em; 
+    width: 100%;
+    padding: 10px;
+
+    text-align: center;
+    text-transform: uppercase;
+    text-shadow:
+    -2px -2px 0 #000,  
+    2px -2px 0 #000,
+    -2px 2px 0 #000,
+     2px 2px 0 #000;        
+    
+    
+    a {
+      color: $color-yellow;
+      
+      &:hover {
+        text-decoration: none;
+        color: lighten($color-yellow, 20%);
+      }
+    }
+    
+  }
+  
+  p {
+    line-height: 1.2;
+    margin-top: 0;
+  }
+  
+  .flex-video {
+    background: #000;
+    box-shadow: 1px 1px 3px #000;
+    
+    iframe {
+      cursor: pointer;  
+    }
+    
+  }
+  
+  .overlay {
+    cursor: pointer;
+    box-shadow: 1px 1px 3px #000;
+    
+    &:hover, &:active {
+      box-shadow: 1px 1px 10px #000;
+    }
+  }
+  
+  #updates .row,
+  #about .row {
+      position: relative;
+  }
+  
+  #updates {
+    background: #2C3C9C url('//wac.76ff.edgecastcdn.net/0076FF/hbwebmedia/ct/images/updates-bg-small@2x.jpg') no-repeat top center;
+    background-size: 960px /$scale-factor-med 997px /$scale-factor-med;
+    padding-top: $base-padding *3;
+    position: relative;
+    text-align: center;
+    
+    .description {
+        padding-left: 20px;
+        text-transform: uppercase;
+        font-size: 1.2em;
+        text-shadow:
+        -1px -1px 0 #fff,  
+        1px -1px 0 #fff,
+        -1px 1px 0 #fff,
+         1px 1px 0 #fff; 
+    } 
+    
+    h2 {
+      margin-top: 0;
+    }      
+        
+  }
+    
+  #about {
+    background: $color-dark-blue;
+    color: #fff;
+    text-transform: uppercase;
+    padding-bottom: $base-padding *3;
+    position: relative;
+    text-align: center;
+    
+    .row {
+      padding-bottom: $base-padding;
+    }
+    
+    h3 {
+      background: none;
+    }
+    
+    .description {
+        font-size: 1.2em;
+    }   
+   
+    .button-more {
+      display: block;
+    } 
+
+
+  } 
+  
+  .screenshots {
+    margin: 0;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    
+    li {
+      padding: 0 5px 0px; 
+    }
+    
+    img {
+      box-shadow: 1px 1px 3px #000;
+    }
+  } 
+  
+}
+
+
+#footer {
+  padding: 0;
+  background: $color-yellow url('//wac.76ff.edgecastcdn.net/0076FF/hbwebmedia/ct/images/footer-bg-small@2x.jpg') no-repeat center top;
+  background-size: 960px /$scale-factor-med 1024px /$scale-factor-med;
+  color: #222;
+  height: 1024px /1.6;
+  padding-top: 70px;
+  text-align: center;
+  text-transform: uppercase;
+  
+  h2 {
+    font-size: 2em;
+    margin-top: 10px;
+    line-height: 1;
+  }
+  
+  #icon {
+    height: 156px /$scale-factor-med;
+    width: 156px /$scale-factor-med;
+  }   
+  
+  a {
+    color: #222;
+    text-decoration: underline;
+    
+    &:hover {
+      text-shadow: 0 0 10px #fff;
+      color: #060411;
+    }
+  }
+  
+  a.button-follow {
+    display: block;
+    background: #314B81 url('//wac.76ff.edgecastcdn.net/0076FF/hbwebmedia/ct/images/button-facebook.png') no-repeat 0 0;
+    background-size: 325px 61px; 
+    height: 61px;
+    width: 325px;
+    margin: 0 auto;
+  }
+  
+
+  } 
+  
+  p {
+    width: 80%;
+    margin: 20px auto;
+  }
+  
+   
+  .button-apple img,  
+  .button-android img,
+  .button-amazon img {
+    width: auto;
+    height: 45px;
+  } 
+  
+
+  .button-apple,  
+  .button-android,
+  .button-amazon {
+    margin: 0px;
+    margin-bottom: 0px;
+    display: inline-block;
+    
+    &:active img {
+      -webkit-transform: scale(0.9);
+    }  
+  
+
+}
+
+
+
+
+
+/* Mobile and up media queries  ---------------------- */
+@media #{$small} {
+    #sections {  
+      #about {  
+        padding-top: $base-padding * 2; 
+        text-align: left;  
+      }
+      
+      #updates {
+        text-align: left;
+      }
+    }
+
+    
+}  
+
+
+/* Tablet and up media queries  ---------------------- */
+@media #{$medium} {
+  
+  .mobile {
+    display: none !important;
+  }  
+  
+  .medium {
+    display: block !important;
+  }
+  
+  #banner-update {
+    height: 45px;
+    background-size: 533px 30px;
+  }
+
+  
+  #button-trailer, 
+  #button-facebook {
+    background-size: 354px 60px;
+    height: 60px;
+    width: 354px;
+  }  
+
+  #hero { 
+    background: $color-purple url('//wac.76ff.edgecastcdn.net/0076FF/hbwebmedia/ct/images/header-bg.jpg') no-repeat top center;
+    background-size: 1680px /$scale-factor-bg 1056px /$scale-factor-bg;
+    height: 1056px /$scale-factor-bg;
+  } 
+  
+  #sections {
+    
+    h3 {
+      font-size: 2.05em;
+      line-height: 1.2;
+    }
+    
+    #updates {
+        background-image: url('//wac.76ff.edgecastcdn.net/0076FF/hbwebmedia/ct/images/updates-bg.jpg');
+        background-size: 1680px /$scale-factor-bg 877px /$scale-factor-bg;
+        height: 877px;
+        text-align: left;
+
+        .row {
+          height: 877px /$scale-factor-bg;
+        } 
+        
+        .description {
+          position: relative;
+          
+          p {
+            margin: 0;
+            padding: $base-padding;
+            border-radius: $base-padding;
+            background: #fff;            
+          }
+          
+          .speech-mark {
+            background: url('//wac.76ff.edgecastcdn.net/0076FF/hbwebmedia/ct/images/speech-mark.png') no-repeat 0 0;
+            width: 47px;
+            height: 96px;
+            display: block;
+            position: absolute;
+            bottom: -96px;
+            right: 50%;  
+          }
+        }      
+         
+        #rick {
+          background: url('//wac.76ff.edgecastcdn.net/0076FF/hbwebmedia/ct/images/rick.png') no-repeat;
+          background-size: 336px /$scale-factor 404px /$scale-factor;
+          width: 336px /$scale-factor;
+          height: 404px /$scale-factor;
+          bottom: 50px;
+          display: block;
+          position: absolute;
+          bottom: 57px;
+          left: -60px;
+          z-index: 999;
+        }
+
+    }
+    
+    .screenshots {
+
+      li {
+        padding: 0 10px 10px; 
+      }
+
+    } 
+
+  } 
+  
+  #footer {
+    background-image: url('//wac.76ff.edgecastcdn.net/0076FF/hbwebmedia/ct/images/footer-bg.jpg');
+    padding-top: 100px /$scale-factor; 
+    background-size: 1680px /$scale-factor 535px /$scale-factor;
+    height: 535px /$scale-factor;  
+    
+    h2 {
+      font-size: 3em /$scale-factor;
+      margin-bottom: 20px;
+    }
+    
+    #icon {
+      height: 156px /$scale-factor-med;
+      width: 156px /$scale-factor-med;
+    } 
+    p {
+      width: 100%;
+    } 
+     
+  }  
+
+    
+  .button-apple,  
+  .button-android,
+  .button-amazon {
+    margin-bottom: 20px;
+  } 
+   
+  .button-apple img,  
+  .button-android img,
+  .button-amazon img {
+    width: auto;
+    height: 60px;
+  }      
+ 
+
+} 
+
+/* Desktop and up media queries  ---------------------- */
+@media #{$desktop} {
+  
+  #hero { 
+    background-size: 1680px 1056px;
+    height: 1056px;
+  }  
+  
+  #sections {
+    
+     #updates {
+        background-size: 1680px 877px;
+        height: 877px;
+        
+        
+        .row {
+          height: 877px;
+        }          
+        
+        #rick {
+          background-size: 336px 404px;
+          width: 336px;
+          height: 404px;
+          bottom: 50px;
+          left: -80px;
+        }   
+        
+        .button-more {
+          bottom: 40px;
+        }   
+    }  
+       
+  }
+  
+  .social-icons {
+   
+    li {
+      line-height: 44px;
+    }  
+    
+    a {
+      background-size: 215px 44px;
+      width: 44px;
+      height: 44px;   
+      
+       &.icon-twitter {
+        background-position: -50px 0;
+      }
+                
+      &.icon-google {
+        background-position: -100px 0;
+      }           
+    }
+    
+    .text-share {
+      background-position: -150px 0;
+      background-size: 215px 44px;
+      width: 70px;
+      height: 44px;
+    } 
+ 
+  }  
+  
+  
+  #footer {
+    padding-top: 90px; 
+    background-size: 1680px 535px;
+    height: 535px; 
+    
+    h2 {
+      font-size: 3em;
+    }   
+    
+    #icon {
+      height: 156px;
+      width: 156px;
+    }  
+  }  
+
+} 
+
+@media only screen and (max-height: 640px) {
+  #hero { 
+     .button-more {
+      position: relative;
+    } 
+  }
+ 
+} 
+
+/* iPad Portrait */
+@media only screen and (max-width: 768px) {
+  #updates .description .speech-mark {
+    background-size: 36px 74px;
+    width: 36px;
+    height: 74px;
+  }
+}  
+  
+@media only screen and (max-device-width : 768px) and (orientation : portrait) {
+
+  html {
+    background: $color-dark-blue;
+  }
+  
+  #about {
+    .button-more {
+      display: none !important;
+    }    
+    
+  }  
+
+} 
+
+/* iPad Landscape */
+@media only screen and (device-width: 768px) and (device-height: 1024px) and (orientation:landscape) {
+  
+  #hero { 
+     .button-more {
+      position: absolute !important;
+      bottom: 60px !important;
+    } 
+  } 
+    
+  #logo {
+    padding-top: 20px !important;
+   
+    img {
+      width: 70%;
+    }
+  }  
+  
+  #about {
+    .row {
+      padding-bottom: 130px; 
+    }
+   
+    .button-more {
+      display: block;
+    }    
+    
+  }
+  
+}
+
+
+@media only screen and (min-height: 980px) {
+  #sections {  
+    #updates {
+      height: 980px;  
+      
+      .button-more {
+        bottom: 0;
+      }    
+    
+    }
+  }
+ 
+}  
+
+
+
+@-webkit-keyframes pulse {
+  from {
+    -webkit-transform: scale(1.0);
+  }
+  60% {
+    -webkit-transform: scale(1.05);
+  }
+  to { 
+    -webkit-transform: scale(1.0);
+  }
+}
+
+@-webkit-keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {-webkit-transform: translateY(0);}
+  40% {-webkit-transform: translateY(-8px);}
+  60% {-webkit-transform: translateY(-3px);}
+}
+
+
+.bounce {
+  -webkit-animation: bounce 1s infinite; 
+}
+
+
+.pulse { 
+  -webkit-animation: pulse 3s infinite ease-in-out; 
+}
+
+.pulse:hover {
+  -webkit-animation-play-state: paused;
+}

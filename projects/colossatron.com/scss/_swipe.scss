@@ -1,0 +1,214 @@
+
+/* Swipe 2 required styles */
+.swipe {
+	overflow: hidden;
+	overflow: visible;
+	visibility: hidden;
+	position: relative;
+}
+
+.swipe-wrap {
+	overflow: hidden;
+	overflow: visible;
+	position: relative;
+	div {
+		float:left;
+		width:100%;
+		position: relative;  
+	}
+}
+
+/* END required styles */
+
+
+#slider-wrap {
+	height: auto;
+	width: 100%;	
+	overflow: hidden;
+	margin-bottom: $base-padding;
+
+	#slider {
+		position:relative;
+		height: auto;
+		margin: 0 auto;
+		clear: both;
+	
+		.swipe-wrap div {		
+			z-index: 997;
+
+			&.active {
+				z-index: 998;	
+			}	
+			
+		}
+
+	}
+}
+
+
+.swipe-nav {
+	padding: 0;
+	text-align: center;
+	
+	li {
+		display: inline-block; 
+	}
+	
+	a {
+		background: transparent;
+		border: none;
+		padding: 0;
+		display: inline-block;
+		text-align: center;
+		text-decoration: none;
+		cursor: pointer;
+		color: #fff;		
+        text-shadow:
+        -2px -2px 0 #000,  
+         2px -2px 0 #000,
+        -2px 2px 0 #000,
+         2px 2px 0 #000; 
+   		text-transform: uppercase;
+   		font-size: 1.8em;
+   		font-family: $base-font-family;
+		background: $color-red url('//wac.76ff.edgecastcdn.net/0076FF/hbwebmedia/ct/images/buttons-update@2x.png') no-repeat 0 0;
+		background-size: 756px /$scale-factor-iphone 156px /$scale-factor-iphone;
+		
+	    -webkit-tap-highlight-color: rgba(0,0,0,0);
+	    -webkit-user-select: none;
+
+	    font-size: 1.8em /$scale-factor-iphone;
+		width: 252px /$scale-factor-iphone;
+		height: 78px /$scale-factor-iphone;
+		line-height: 78px /$scale-factor-iphone;
+		text-indent: -9999px;
+		
+		&:focus {
+			outline: none; 
+		}		
+		
+		&:hover {
+			text-decoration: none;
+			box-shadow: 0 0 10px #fff; 
+		}
+		
+		  
+		&:active {
+		-webkit-transform: scale(0.9);
+		}			
+
+		&.active {
+			background-position: 0 -79px /$scale-factor-iphone;
+			background-color: $color-light-grey;	
+		}	
+		
+		&#update-2 {
+			background-position: -252px /$scale-factor-iphone 0;
+				
+			&.active {
+				background-position: -252px /$scale-factor-iphone -79px /$scale-factor-iphone;
+			}			
+		}		
+		
+		&#update-3 {
+			background-position: -504px /$scale-factor-iphone 0;
+				
+			&.active {
+				background-position: -504px /$scale-factor-iphone -79px /$scale-factor-iphone;
+			}			
+		}
+		
+		button::-moz-focus-inner {
+		  border: 0;
+		}
+	}
+	
+}	
+
+@media #{$medium} {
+
+	.swipe-nav {
+		margin-top: 40px;
+		
+		li {
+			padding: 0;
+			margin: 0 auto;
+		}
+
+		a {
+			margin: 0 3px;			
+			text-shadow:
+	       -2px -2px 0 #000,  
+	        2px -2px 0 #000,
+	        -2px 2px 0 #000,
+	         2px 2px 0 #000; 
+			font-size: 1.8em /$scale-factor-buttons;
+			background-size: 756px /$scale-factor-buttons 156px /$scale-factor-buttons;
+			width: 252px /$scale-factor-buttons;
+			height: 78px /$scale-factor-buttons;
+			line-height: 78px /$scale-factor-buttons;
+				
+			&.active {
+				background-position: 0 -79px /$scale-factor-buttons;	
+			}			
+			
+			&#update-2 {
+				background-position: -252px /$scale-factor-buttons 0;
+				
+				&.active {
+					background-position: -252px /$scale-factor-buttons -79px /$scale-factor-buttons;
+				}					
+			}		
+			
+			&#update-3 {
+				background-position: -504px /$scale-factor-buttons 0;
+				
+				&.active {
+					background-position: -252px /$scale-factor-buttons -79px /$scale-factor-buttons;
+				}					
+			}			
+
+		}
+	}
+
+
+}	
+
+@media #{$desktop} {
+
+	.swipe-nav {
+		
+		a {
+			font-size: 1.8em;
+			background-size: 756px /$scale-factor-med 156px /$scale-factor-med;
+			width: 180px;
+			height: 56px;
+			line-height: 56px;
+			
+			&.active {
+				background-position: 0 -56px;
+			}			
+			
+			&#update-2 {
+				background-position: -252px /$scale-factor-med 0;
+				
+				&.active {
+					background-position: -252px /$scale-factor-med -56px;
+				}	
+			}		
+			
+			&#update-3 {
+				background-position: -504px /$scale-factor-med 0;
+				
+				&.active {
+					background-position: -504px /$scale-factor-med -56px;
+				}					
+			}			
+							
+			
+			
+
+		}
+	}
+
+}	

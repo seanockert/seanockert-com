@@ -1,0 +1,33 @@
+$kanji-scale: 1.4;
+$kanji-height: -80px;
+
+.kanji {
+  background: url(#{$asset-path}/fruit-kanji.png) 0 0 no-repeat;
+  background-size: 60px/$kanji-scale 479px/$kanji-scale;
+  height: 80px/$kanji-scale;
+  width: 60px/$kanji-scale;
+  display: inline-block;
+  margin-bottom: -$base-padding;
+  
+  &.b { background-position: 0 $kanji-height/$kanji-scale; }
+  &.c { background-position: 0 $kanji-height/$kanji-scale*2; }
+  &.d { background-position: 0 $kanji-height/$kanji-scale*3; }
+  &.e { background-position: 0 $kanji-height/$kanji-scale*4; }
+}
+
+@media #{$medium-up} {
+ 
+
+ .kanji {
+    height: 80px;
+    width: 60px;
+    background-size: 60px 479px;
+    
+    &.b { background-position: 0 $kanji-height; }
+    &.c { background-position: 0 $kanji-height*2; }
+    &.d { background-position: 0 $kanji-height*3; }
+    &.e { background-position: 0 $kanji-height*4; }
+  }
+
+  
+}

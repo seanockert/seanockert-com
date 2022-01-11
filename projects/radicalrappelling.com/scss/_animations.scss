@@ -1,0 +1,100 @@
+
+/* Animations */
+
+.remix-mode {
+  background: url(../images/bg-remix.jpg) no-repeat top center;
+  background-size: cover;
+}
+
+a.button { 
+  
+  &:active {
+    @include vendor-prefix(transform, scale(0.95, 0.95));
+  }
+    
+  @include vendor-prefix(transition, all 0.2s);
+  @include vendor-prefix(fill-mode, forwards !important);
+
+}
+
+// Slide in
+@include keyframes(slideDown)
+{
+    0% { @include transform(translate3d(0,-200px,0)); }
+    60% { @include transform(translate3d(0,-200px,0)); }
+    100% { @include transform(translate3d(0,0,0)); }
+} 
+
+@include keyframes(bounceIn)
+{
+    0% { opacity: 1; @include transform(scale(0,0)); }
+    20% { opacity: 1; @include transform(scale(0,0)); }
+    70% { opacity: 1; @include transform(scale(1.1,0.9)); }
+    100% { opacity: 1; @include transform(scale(1,1)); }
+}  
+
+
+.canAnim #rappellers h2,
+.canAnim #reel h2,
+.canAnim #race h2,
+.canAnim #remix h2,
+.canAnim #rappellers h3,
+.canAnim #reel h3,
+.canAnim #race h3,
+.canAnim #remix h3 {
+  @include vendor-prefix(transition, all 0.25s cubic-bezier(0.5, -0.5, 0.5, 1.5));
+  @include vendor-prefix(transform, translate3d(-300%,0,0) scale(3,0.5));
+}
+
+.regalia {
+  @include transform(scale(0,0));
+}
+
+.canAnim .regalia {
+  opacity: 1;  
+  @include animation(bounceIn 0.6s cubic-bezier(0.5, -0.5, 0.5, 1.5)); 
+  @include vendor-prefix(fill-mode, forwards);
+  @include transform(scale(1,1));
+}
+
+#button-download, .social {
+  @include transform(translate3d(0,-200px,0));
+}
+
+.canAnim #button-download, .canAnim .social {
+  @include vendor-prefix(fill-mode, forwards);
+  @include animation(slideDown 0.8s cubic-bezier(0.5, -0.5, 0.5, 1.5)); 
+  @include transform(translate3d(0,0,0));
+}
+
+
+#rappellers h3,
+#reel h3,
+#race h3,
+#remix h3 {
+  @include vendor-prefix(transition-delay, 0.2s);  
+}
+
+#rappellers.anim h2,
+#reel.anim h2,
+#race.anim h2,
+#remix.anim h2 {
+  @include vendor-prefix(transform, rotate(-1deg) translateX(0) scale(1,1));  
+}
+
+#rappellers.anim h3,
+#reel.anim h3,
+#race.anim h3,
+#remix.anim h3 {
+  @include vendor-prefix(transform, rotate(-2deg) scale(1,1));  
+}
+/*
+.canAnim #rip-roxy {
+  @include vendor-prefix(transition, all 0.25s cubic-bezier(0.5, -0.5, 0.5, 1.5));
+  @include vendor-prefix(transform, rotate(10deg));
+}
+
+#rappellers.anim #rip-roxy {
+  @include vendor-prefix(transform, rotate(0deg) scale(1,1));  
+}
+*/

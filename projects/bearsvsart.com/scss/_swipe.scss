@@ -1,0 +1,178 @@
+
+/* Swipe 2 required styles */
+.swipe {
+	overflow: hidden;
+	overflow: visible;
+	visibility: hidden;
+	position: relative;
+}
+
+.swipe-wrap {
+	overflow: hidden;
+	overflow: visible;
+	position: relative;
+	div {
+		float:left;
+		width:100%;
+		position: relative;  
+	}
+}
+
+/* END required styles */
+
+
+.no-padding {
+	padding: 0 !important;
+}
+
+#screenshots {
+	width: 100%;
+	line-height: 0;
+	margin: 0;
+	margin-top: 48px;
+	padding: 0;
+	padding-top: 21px;
+	background: url(#{$asset-path}/screenshot-frame-top.png) repeat-x top center;
+	background-size: 1px 21px; 
+	position: relative;
+}
+
+#frame-left,
+#frame-right {
+	position: absolute;
+	top: 0;
+	height: 100%;
+	width: 18px;
+	z-index: 1000;
+	background-size: 24px 1000px; 
+	background-repeat: no-repeat;
+	
+}
+
+#frame-left {
+	background-image: url(#{$asset-path}/screenshot-frame-left.png);
+	background-position:top right;
+	left: 0;
+}
+
+#frame-bottom-left,
+#frame-bottom-right {
+	position: absolute;	
+	background-size: 24px 1000px;	
+	height: 29px;
+	width: 18px;
+	z-index: 1002;
+	bottom: -21px;
+
+}
+
+#frame-bottom-left { 
+	background-image: url(#{$asset-path}/screenshot-frame-left.png); 
+	background-position: bottom right; 
+	left: 0; 
+}
+#frame-bottom-right { 
+	background-image: url(#{$asset-path}/screenshot-frame-right.png); 
+	background-position: bottom left; 
+	right: 0; 
+}
+
+#frame-right {
+	background-image: url(#{$asset-path}/screenshot-frame-right.png);
+	background-position:top left;
+	right: 0;
+}
+
+#frame-bottom {
+	height: 25px;
+	width: 100%;
+	background: url(#{$asset-path}/screenshot-frame-bottom.png) repeat-x top center;
+	background-size: 1px 25px; 
+	z-index: 1001;
+	position: absolute;
+	bottom: -25px;
+}
+
+#slider {
+	position:relative;
+	height: auto;
+	width: 100%;
+	margin: 0 auto;
+	
+	clear: both;
+	overflow: hidden;
+	background: #000;
+
+	.swipe-wrap div {
+		text-align: center;
+		width: 100%;
+		
+		img {
+			max-width: 100%;
+			height: auto;
+			cursor: pointer;
+		}
+		
+		z-index: 997;
+		cursor: pointer;	
+
+		&.active {
+			z-index: 999;
+			cursor: default;	
+		}	
+		
+	}
+	
+}
+
+.arrow-next { 
+	display: block; 
+	position: absolute;
+	right: 24px;
+	top: 50%;
+	margin-top: -20px;
+	z-index: 1000;
+	cursor: pointer;
+	height: 40px;
+	width: 40px;
+}
+
+	
+@media #{$small-up} {
+
+}
+
+@media #{$medium-up} {
+	.no-padding {
+		padding: auto !important;
+		margin: auto !important;
+	}
+	
+	#screenshots {
+		width: 360px;
+		height: 562px;
+		margin: 0;
+		padding-top: 42px;	
+		background-image: url(#{$asset-path}/spritesheet.png);
+		background-repeat: no-repeat;
+		background-size: $spritesheetX $spritesheetY; 
+		background-position: -990px -5px;
+		box-shadow: 2px 2px 3px rgba(0,0,0,0.6);
+	} 
+	
+	#frame-left,
+	#frame-right,
+	#frame-bottom,
+	#frame-bottom-left,
+	#frame-bottom-right {
+		display: none;
+	}
+	
+	#slider {
+		width: 274px;
+	}
+	
+	.arrow-next {
+		right: 44px;
+	}		
+}		

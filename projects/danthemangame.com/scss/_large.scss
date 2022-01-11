@@ -1,0 +1,107 @@
+@media #{$large-up} {
+  
+  .vertical-center {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 9;
+    width: 100%;
+  }
+  
+  #header {
+    min-height: 600px;
+  }
+
+  h2 {
+    font-size: $font-size-xlarge;
+    line-height: 0.9;
+  }
+  
+  .sign {
+    background: url(../images/heading-backing.png) no-repeat; //$color-light-brown 
+    max-width: 389px;
+    height: 98px;
+    background-size: 389px 98px;
+    padding: $base-padding/1.5 $base-padding;
+  }
+
+
+  #logo img, 
+  #logo-noscript img {
+    width: 500px;
+  }
+  
+  #description p.hero {
+    font-size: 21px;
+  }
+
+  #episode-list {
+    li:nth-child(7), li:nth-child(8) {
+      display: inline-block;
+      float: none;
+    }
+  }
+  
+#video, 
+#episode-list li {
+  a:hover {
+    @include vendor-prefix(transform, scale(1.03,1.03));
+
+    img {
+      @include vendor-prefix(transform, scale(1.09,1.09));
+        
+      
+      &.button-play {
+        @include vendor-prefix(transform, scale(1.12,1.12));
+      }
+    }
+  }
+
+} 
+
+#battle {
+  br {
+    display: block;
+  }
+} 
+    
+
+}		
+
+
+@media #{$xlarge-up} {
+  #header {
+    min-height: 780px;
+    
+    .social-buttons img {
+      height: 50px;
+      margin: 6px;
+    }
+  }
+  
+  #logo {
+    width: 600px;
+  }
+  
+  .badge img {
+    height: 70px;
+  }
+
+  .section {
+    padding: $base-padding*4 0;
+    
+    &#video {
+      margin-top: -80px;
+      padding-bottom: $base-padding*2;
+    }
+  }
+  
+  #battle {
+   min-height: 780px; 
+   padding-top: 320px;
+   
+   p {
+    font-size: 1.4em;
+   }
+  }
+}

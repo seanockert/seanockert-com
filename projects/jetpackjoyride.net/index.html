@@ -1,0 +1,307 @@
+<!DOCTYPE HTML>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+<head>
+  <title>Jetback Joyride</title>
+
+  <link rel="icon" type="image/png" href="//assets.halfbrick.com/jj/images/cloud/favicon.png">
+  <link rel="stylesheet" href="css/style.css?v=3" type="text/css">
+
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="title" content="Jetback Joyride" />
+  <meta name="description" content="Fly the coolest jetpacks ever with Barry Steakfries in a fun-filled adventure!" />
+  <meta name="keywords" content="mobile, android, ios, game, halfbrick, jetpack joyride, fruit ninja" />
+  <meta name="apple-itunes-app" content="app-id=457446957">
+
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.6.2/html5shiv.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/respond.js/1.1.0/respond.min.js"></script>
+    <link rel="stylesheet" href="css/ie.css">
+  <![endif]-->
+
+  <meta content="Jetpack Joyride" property="og:title" />
+  <meta content="Fly the coolest jetpacks ever with Barry Steakfries in a fun-filled adventure!" property="og:description" />
+  <meta content="http://jetpackjoyride.net/images/share_img.jpg" property="og:image" />
+  <meta content="600" property="og:image:width" />
+  <meta content="315" property="og:image:height" />
+  <meta content="http://jetpackjoyride.net" property="og:url" />
+
+  <meta content="Jetpack Joyride" property="twitter:title" />
+  <meta content="Fly the coolest jetpacks ever with Barry Steakfries in a fun-filled adventure! #jetpackjoyride via @jetpackjoyride" property="twitter:description" />
+  <meta content="http://jetpackjoyride.net/images/share_img.jpg" property="twitter:image:src" />
+  <meta content="600" property="twitter:image:width" />
+  <meta content="315" property="twitter:image:height" />
+
+  <script>document.createElement( "picture" );</script>
+  <script src="js/plugins/picture-fill.min.js"></script>
+
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-36155512-12', 'auto'); //UA-36155512-12 - jetpackjoyride.net
+    ga('send', 'pageview');
+
+    var obLink = function(sku, store, url) {
+       ga('send', 'event', sku, store, url, {'hitCallback': function () { document.location = url; }}); return;
+    }  
+    
+    document.documentElement.className = 'js';
+    detectDevice();
+    var device = 'pc';
+    function detectDevice() { if (/Android|iPhone|iPad|iPod|Silk|Kindle|KFTT|KFOT|BlackBerry|BB|PlayBook/i.test(navigator.userAgent)) { if ((/iPhone|iPod|iPad/).test(navigator.userAgent)) { device = 'ios'; } if ((/Android/).test(navigator.userAgent)) { device = 'android'; } if (/Silk|Kindle|KFTT|KFOT|BlackBerry|BB|PlayBook/i.test(navigator.userAgent)) { device = 'amazon'; } } document.documentElement.className += ' ' + device; }
+    
+    
+    window.fbAsyncInit = function() {
+      FB.init({ appId: '1398750203707545', xfbml: true, version: 'v2.2'});
+    };
+
+    (function(d, s, id){
+       var js, fjs = d.getElementsByTagName(s)[0];
+       if (d.getElementById(id)) {return;}
+       js = d.createElement(s); js.id = id;
+       js.src = "//connect.facebook.net/en_US/sdk.js";
+       fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));    
+  </script>
+</head>
+
+<body>
+
+  <div id="header">
+    
+      <div class="header-topbar">
+        <div class="row">
+          <div class="header-topbar-cta left">
+
+            <img src="//assets.halfbrick.com/jj/v2/images/jj-logo-inline.png" class="header-topbar-logo">
+
+            <!--<a href="http://play.halfbrick.com?g=jetpack-joyride" class="button"><img src="//assets.halfbrick.com/jj/images/icon-jj.png" title="Jetpack Joyride icon"> Get Jetpack<b class="hidden-medium">!</b> <b class="hidden-small">Joyride</b></a>-->
+          </div>
+          <div class="header-topbar-social right">
+            <img src="//assets.halfbrick.com/jj/v2/images/text-follow-us.png" class="social-text hidden-small">
+            <a href="https://www.facebook.com/jetpackjoyride"><img src="//assets.halfbrick.com/jj/v2/images/icon-facebook.png" title="Facebook"></a>
+            <a href="https://twitter.com/jetpackjoyride"><img src="//assets.halfbrick.com/jj/v2/images/icon-twitter.png" title="Twitter"></a>
+            <a href="https://www.youtube.com/user/HalfbrickStudios"><img src="//assets.halfbrick.com/jj/v2/images/icon-youtube.png" title="Youtube"></a>
+            <a href="https://instagram.com/jetpackjoyride/"><img src="//assets.halfbrick.com/jj/v2/images/icon-instagram.png" title="Instagram"></a>
+          </div>
+        </div>
+        <div class="clear"></div>
+      </div> <!-- End header-topbar -->
+      
+      <div class="header-banner">
+        <div class="row" style="position:relative;">
+          <img src="//assets.halfbrick.com/jj/v2/images/banners/banner-main-large.jpg" sizes="(min-width: 60em) 100vw, 100vw" srcset="//assets.halfbrick.com/jj/v2/images/banners/banner-main-small.jpg 640w, //assets.halfbrick.com/jj/v2/images/banners/banner-main-small.jpg 768w, //assets.halfbrick.com/jj/v2/images/banners/banner-main-large.jpg 840w" alt=""> 
+          <img src="http://assets.halfbrick.com/hb/v2/images/best-underground-apps-2015.png" id="badge-underground">
+        </div>
+      </div> <!-- End header-banner -->
+
+  </div> <!-- End header -->
+  
+  <div id="content">
+
+    <div class="content-description">
+      <div class="row"> 
+        <div class="columns large-10 large-centered medium-10 medium-centered">
+
+          <h1>Strap on a Bullet-powered Jetpack!</h1>
+
+          <p>Join Barry, a struggling gramophone salesman, as he breaks into a secret laboratory and commandeers experimental jetpacks. Strap on a bullet-powered jetpack to dodge lasers, electric fields and all the missiles that come your way.</p>
+        </div>      
+
+          <!--<div class="notice"> 
+            <div class="nail nail-tl"></div>
+            <div class="nail nail-tr"></div>
+            <p>You can now play Jetpack Joyride in high definition on Apple TV</p>
+            <div class="nail nail-bl"></div>
+            <div class="nail nail-br"></div>            
+          </div>-->
+        <div class="clear"></div>
+        
+        <div class="columns large-10 large-centered content-download">
+          <a href="https://app.appsflyer.com/id457446957?pid=website&c=jjwebsite" onclick="return obLink('Jetpack Joyride', 'Apple App Store', 'https://app.appsflyer.com/id457446957?pid=website&c=jjwebsite');" class="download-apple"><img src="//assets.halfbrick.com/jj/v2/images/badge-apple.png"></a>
+          <a href="http://app.appsflyer.com/com.halfbrick.jetpackjoyride?pid=website&c=jjwebsite" onclick="return obLink('Jetpack Joyride', 'Google Play Store', 'http://app.appsflyer.com/com.halfbrick.jetpackjoyride?pid=website&c=jjwebsite')" class="download-google"><img src="//assets.halfbrick.com/jj/v2/images/badge-google.png"></a>
+          <a href="http://www.amazon.com/Halfbrick-Studios-Pty-Ltd-Jetpack/dp/B0069G5Z9K" onclick="return obLink('Jetpack Joyride', 'Amazon Play Store', 'http://www.amazon.com/Halfbrick-Studios-Pty-Ltd-Jetpack/dp/B0069G5Z9K')" class="download-amazon"><img src="//assets.halfbrick.com/jj/v2/images/badge-amazon.png"></a>
+          <!--<a href="https://apps.facebook.com/jetpackjoyride" class="download-facebook"><img src="//assets.halfbrick.com/jj/v2/images/badge-facebook.png"></a>-->
+          <div class="clear"></div>
+          <div class="facepile">
+            <div class="fb-like" data-href="http://facebook.com/jetpackjoyride" data-share="true" data-width="300" data-show-faces="true"></div>
+          </div>
+          
+          <div class="unsupported">Also available for 
+              <a href="http://www.windowsphone.com/en-us/store/app/jetpack-joyride/d5969251-fef6-451d-a224-0613686188a6" onclick="return obLink('Jetpack Joyride', 'Windows Phone', 'http://www.windowsphone.com/en-us/store/app/jetpack-joyride/d5969251-fef6-451d-a224-0613686188a6')">Windows Phone</a>, 
+              <a href="http://apps.microsoft.com/windows/en-us/app/jetpack-joyride/05f4e887-b558-4a95-a74a-4ffe587d2d83" onclick="return obLink('Jetpack Joyride', 'Windows 8 PC', 'http://apps.microsoft.com/windows/en-us/app/jetpack-joyride/05f4e887-b558-4a95-a74a-4ffe587d2d83')">Windows 8</a>, 
+              <a href="https://store.sonyentertainmentnetwork.com/#!/en-us/games/jetpack-joyride-free/cid=UP4249-PCSE00213_00-JETPACKJOYRIDE00" onclick="return obLink('Jetpack Joyride', 'Playstation Vita', 'https://store.sonyentertainmentnetwork.com/#!/en-us/games/jetpack-joyride-free/cid=UP4249-PCSE00213_00-JETPACKJOYRIDE00')">PlayStation Vita</a> and 
+              <a href="https://store.sonyentertainmentnetwork.com/#!/en-us/games/jetpack-joyride-free/cid=UP4249-NPUB31097_00-JETPACKJOYRIDE00" onclick="return obLink('Jetpack Joyride', 'Playstation 3', 'https://store.sonyentertainmentnetwork.com/#!/en-us/games/jetpack-joyride-free/cid=UP4249-NPUB31097_00-JETPACKJOYRIDE00')">PlayStation 3</a>
+          </div>
+          
+          
+          
+        </div>
+      
+      </div>
+    </div> <!-- End content-description -->   
+
+    <div class="row">    
+
+
+      <div class="columns large-12">
+
+        <div class="box content-events">
+          <div class="intro">
+            <h2 class="ir"><img src="//assets.halfbrick.com/jj/v2/images/text/text-events.png" alt="Special Events"></h2> 
+            <p>Jetpack Joyride is packed with special events. Check them out in-game!</p>
+          </div> 
+          
+          <div class="clear"></div>
+          
+          <div class="slick">
+            <div class="event-zappy">
+              <img src="//assets.halfbrick.com/jj/v2/images/events/jj-event-zappy-bird.png" title="Zappy Bird">
+              <h5>Take flight in the Profit Bird and avoid zappers for as long as you can.</h5>
+            </div>                    
+            <div class="event-bttf">
+              <!--<img src="//assets.halfbrick.com/jj/v2/images/icon-now-live.png" id="icon-now-live" title="Play this event in Jetpack Joyride right now">-->
+              <img src="//assets.halfbrick.com/jj/v2/images/events/jj-event-bttf.png" title="Back to the Future">
+              <h5>Let loose with the DeLorean Time Machine &amp; hoverboard</h5>
+            </div>            
+            <div class="event-cut">
+              <img src="//assets.halfbrick.com/jj/v2/images/events/jj-event-cut-n-run.png" title="Cut 'n' Run">
+              <h5>The lab is filled with fruit. Slash your way through to earn juicy bonuses!</h5>
+            </div>          
+            <div class="event-bling">
+              <img src="//assets.halfbrick.com/jj/v2/images/events/jj-event-bling-it-on.png" title="Bling it On">
+              <h5>Gold coins everywhere! Get rich or die flying.</h5>
+            </div>  
+          </div>
+
+          <div class="clear"></div>
+        </div> <!-- End content-events -->
+
+        <div class="box content-video">
+          <div class="intro">
+            <h2 class="ir"><img src="//assets.halfbrick.com/jj/v2/images/text/text-video.png" alt="Barry Rock Opera"></h2> 
+            <p>Watch Barry sing about monsters, shirt sleeves, and money!</p>
+          </div>
+          
+          <div class="clear"></div>
+          
+          <div class="slick">
+            <div>
+              <div class="flex-video">
+                <iframe width="420" height="315" src="//www.youtube.com/embed/C8hn4oGFIm4?wmode=opaque&autohide=1&showinfo=0&iv_load_policy=3" frameborder="0" allowfullscreen></iframe>
+              </div>
+            </div>
+            <div>
+              <div class="flex-video">
+                <iframe width="420" height="315" src="//www.youtube.com/embed/pmIM-6BAAFQ?wmode=opaque&autohide=1&showinfo=0&iv_load_policy=3" frameborder="0" allowfullscreen></iframe>
+              </div>
+            </div>
+            <div>
+              <div class="flex-video">
+                <iframe width="420" height="315" src="//www.youtube.com/embed/5KKMmxx9QoA?wmode=opaque&autohide=1&showinfo=0&iv_load_policy=3" frameborder="0" allowfullscreen></iframe>
+              </div>
+            </div>
+            <div>
+              <div class="flex-video">
+                <iframe width="420" height="315" src="//www.youtube.com/embed/IcBVey9QMCk?wmode=opaque&autohide=1&showinfo=0&iv_load_policy=3" frameborder="0" allowfullscreen></iframe>
+              </div>
+            </div>          
+            <div>
+              <div class="flex-video">
+                <iframe width="420" height="315" src="//www.youtube.com/embed/3DvLmaU1DQg?wmode=opaque&autohide=1&showinfo=0&iv_load_policy=3" frameborder="0" allowfullscreen></iframe>
+              </div>
+            </div>
+          </div>
+          
+          <div class="clear"></div>
+        </div> <!-- End content-video -->  
+                
+
+      </div> <!-- End columns -->  
+      <div class="clear"></div>
+      <div class="content-jetpacks">
+
+        <div class="columns large-4 medium-4 small-6">  
+          <a href="jetpacks" class="content-box-jetpacks yellow shadow">
+            <h2 class="ir"><img src="//assets.halfbrick.com/jj/v2/images/text/text-jetpacks.png" alt="Jetpacks"></h2>
+            <img src="//assets.halfbrick.com/jj/v2/images/jetpacks/jetpack-23-small.png" class="scale">
+          </a>
+        </div>      
+        <div class="columns large-4 medium-4 small-6">         
+          <a href="gadgets" class="content-box-vehicles red shadow">
+            <h2 class="ir"><img src="//assets.halfbrick.com/jj/v2/images/text/text-gadgets.png" alt="Gadgets"></h2>
+            <img src="//assets.halfbrick.com/jj/v2/images/gadgets/flash-small.png" class="scale">
+          </a>
+        </div>      
+        <div class="columns large-4 medium-4 small-6">        
+          <a href="clothing" class="content-box-costumes blue shadow">
+            <h2 class="ir"><img src="//assets.halfbrick.com/jj/v2/images/text/text-clothing.png" alt="Clothing"></h2>                     
+            <img src="//assets.halfbrick.com/jj/v2/images/costumes/king.png" class="scale">
+          </a>
+        </div>      
+        <div class="columns large-4 medium-4 small-6 hidden-medium">        
+          <a href="gallery" class="content-box-wallpapers purple shadow">
+            <h2 class="ir"><img src="//assets.halfbrick.com/jj/v2/images/text/text-wallpapers.png" alt="Wallpapers"></h2>                 
+            <img src="//assets.halfbrick.com/jj/v2/images/gallery/thumbs/wallpaper-square.jpg" class="scale">
+          </a>
+          <div class="clear"></div>
+        </div>
+        
+        <div class="clear"></div>
+
+      </div> <!-- End content-accessories -->        
+     
+      <div class="content-social">   
+          <div class="columns large-6 medium-6 content-social-tweets">
+            <div class="box">
+              <h2><img src="//assets.halfbrick.com/jj/v2/images/icon-twitter-purple.png" class="header-icon"> Barry's Tweets</h2>
+              <span id="tweet"></span>
+            </div>
+          </div>
+          
+          <div class="columns large-6 medium-6 content-social-extras">
+            <div class="shadow hidden-small">
+              <a href="gallery"><img src="//assets.halfbrick.com/jj/v2/images/wallpapers.jpg"></a>
+            </div> 
+            <div class="shadow"> 
+              <a href="http://halfbrick.com/contact"><img src="//assets.halfbrick.com/jj/v2/images/support.jpg"></a>
+            </div>  
+          </div>   
+          
+          <div class="clear"></div>
+      </div> <!-- End content-social -->  
+    </div> <!-- End row -->  
+    
+  </div> <!-- End content -->
+   
+  <div id="footer">
+    <a href="http://halfbrick.com"><img src="http://assets.halfbrick.com/hb/v2/images/halfbrick-logo@2x.png"></a>
+    <p>&copy; 2016 <a href="http://halfbrick.com">Halfbrick Studios</a>. All rights reserved.<br>
+    Jetpack Joyride and Barry Steakfries are registered trademarks of Halfbrick Studios.</p>
+    
+    <p class="footer-links">
+      <a href="http://play.halfbrick.com/?g=jetpack-joyride">Download Game</a> | <a href="http://halfbrick.com/wp-content/uploads/asset-pack-jetpack-joyride.zip" title="Game logo, app icon, banners, screenshots">Press Assets (5MB)</a> | <a href="http://docs.halfbrick.com/PrivacyPolicy.htm">Privacy Policy</a> | <a href="http://docs.halfbrick.com/TermsOfService.htm">Terms of Service</a>
+    </p>
+  </div> <!-- End footer -->
+
+  
+  <div id="scientists"><img src="//assets.halfbrick.com/jj/v2/images/scientists.png"></div>
+
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>      
+  <script src="js/plugins/slick.min.js"></script>   
+  <script src="js/scripts.js?v=2.1"></script>  
+  
+  <script type="text/javascript">
+  setTimeout(function(){var a=document.createElement("script");
+  var b=document.getElementsByTagName("script")[0];
+  a.src=document.location.protocol+"//script.crazyegg.com/pages/scripts/0046/7560.js?"+Math.floor(new Date().getTime()/3600000);
+  a.async=true;a.type="text/javascript";b.parentNode.insertBefore(a,b)}, 1);
+  </script> 
+  
+</body>
+
+</html>

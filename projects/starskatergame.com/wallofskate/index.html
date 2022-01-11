@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Wall of Skate - Star Skater</title>
+  <meta name="title" content="Star Skater" /> 
+  <meta name="description" content="Don't just cross the road, own it in this new skating game from Halfbrick" /> 
+  <meta name="keywords" content="Star Sk8r, star skater, mobile, game, halfbrick, jetpack joyride, fruit ninja, skating, sk8" /> 
+  <link rel="icon" type="image/png" href="images/favicon.png">
+  <link rel="stylesheet" href="../css/style.css" type="text/css" />
+	<link rel="stylesheet" href="../css/wallofsk8.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.6.2/html5shiv.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/respond.js/1.1.0/respond.min.js"></script>
+  <![endif]--> 
+  
+  <meta content="Star Skater" property="og:title" />
+  <meta content="Don't just cross the road, own it in Star Skater!" property="og:description" />
+  <meta content="http://starskatergame.com/images/share_img.jpg" property="og:image" />
+  <meta content="600" property="og:image:width" />
+  <meta content="315" property="og:image:height" />
+  <meta content="http://starskatergame.com" property="og:url" />
+  
+  <meta content="Star Skater" property="twitter:title" />
+  <meta content="Don't just cross the road, own it in Star Skater! http://starsk8r.com #starsk8r via @halfbrick" property="twitter:description" />  
+  <meta content="http://starskatergame.com/images/share_img.jpg" property="twitter:image:src" />
+  <meta content="600" property="twitter:image:width" />
+  <meta content="315" property="twitter:image:height" />  
+    
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-36155512-27', 'auto'); // Starsk8r.com
+    ga('send', 'pageview');
+    var obLink = function(sku, store, url) {
+      ga('send', 'event', sku, store, url, {'hitCallback': function () { document.location = url; }}); 
+      return false;
+    }
+    
+    document.documentElement.className = 'js';
+    detectDevice();
+    var device = 'pc';
+    function detectDevice() { if (/Android|iPhone|iPad|iPod|Silk|Kindle|KFTT|KFOT|BlackBerry|BB|PlayBook/i.test(navigator.userAgent)) { if ((/iPhone|iPod|iPad/).test(navigator.userAgent)) { device = 'ios'; } if ((/Android/).test(navigator.userAgent)) { device = 'android'; } if (/Silk|Kindle|KFTT|KFOT|BlackBerry|BB|PlayBook/i.test(navigator.userAgent)) { device = 'amazon'; } } document.documentElement.className += ' ' + device; }
+  </script>  
+
+</head>
+
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="head">
+      <div class="row-wide">
+        <noscript><h1 id="logo-noscript"><a href="/"><img src="http://assets.halfbrick.com/ss/holding/logo-star-sk8r.png" alt="Star Skater"></a></h1></noscript>
+        <h1 id="logo" style="z-index:99999"><a href="../"><img src="http://assets.halfbrick.com/ss/holding/logo-star-sk8r.png" alt="Star Skater"></a></h1>
+      
+        <h2 id="tagline">Wall of Skate</h2>
+        
+        <div id="head-download"><a href="https://app.appsflyer.com/id1040671838?pid=website" class="badge link-apple" onclick="return obLink('Star Skater', 'App Store', 'https://app.appsflyer.com/id1040671838?pid=website')" title="Download for iPhone and iPad"><img src="//assets.halfbrick.com/ss/images/badge-apple.png" alt="App Store"></a> <a href="http://app.appsflyer.com/com.halfbrick.crazysk8r?pid=website" class="badge link-google" onclick="return obLink('Star Skater', 'Google Play', 'http://app.appsflyer.com/com.halfbrick.crazysk8r?pid=website')" title="Download for Android"><img src="//assets.halfbrick.com/ss/images/badge-google.png" alt="Google PLay"></a></div>
+        
+      </div>
+    </div>
+
+    <div class="clear"></div>
+
+    <div id="everyplay" class="row-wide">
+    <div id="everyplay-videos">
+      <img src="../images/ajax-loader.gif">   
+    </div>
+    <div class="clear"></div>
+    </div> 
+  
+    <div id="footer">
+      <p>&copy; 2016 <a href="http://halfbrick.com">Halfbrick studios</a>. All rights reserved. 
+      <br><a href="/press">Media Kit</a> | <a href="http://halfbrick.com/pp">Privacy Policy</a>  | <a href="http://halfbrick.com/tos">Terms of Use</a></p>      
+    </div>  <!-- End Footer -->
+    
+    <div class="clear"></div>
+
+  </div>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <script src="../js/jquery.magnific-popup.min.js"></script>  
+  <script>
+    var device = "";
+    
+    $.get('https://api.everyplay.com/games/current/videos?client_id=c9122bdadf544047b632b2429119223634299086&offset=0&limit=15&order=-created_at', function( data ) {
+        latestVideos = '';
+        for (var i = 0; i < data.length; i++) {
+            var video = data[i];
+            latestVideos += '<div class="columns large-4 medium-4">';
+            latestVideos += '<a href="https://everyplay.com/videos/' + video.id + '" title="Watch this video on Everyplay" class="video-everyplay box">';
+            latestVideos += '<img src="' + video.base_url + 'thumbnail.jpg"><b></b><div class="inner">';
+            latestVideos += '<h5>' + video.title + '</h5><author>' + video.user.username + '</author>';
+            latestVideos += '</div></a></div>';
+        } 
+      
+        $('#everyplay-videos').html(latestVideos);
+        
+        // Load here because of dynamic content
+        $('.video-everyplay').magnificPopup({
+            type: 'iframe',
+            disableOn:568,
+            iframe: {
+            patterns: {
+              everyplay: {
+                index: 'everyplay.com',         
+                id: function(url) {        
+                    var m = url.match(/^.+everyplay.com\/videos\/([^_]+)[^#]*(([^_&]+))?/);
+                    if (m !== null) {
+                        if(m[2] !== undefined) {
+                            return m[2];
+                        }
+                        return m[1];
+                    }
+                    return null;
+                },
+                src: ' https://everyplay.com/player?id=%id%'    
+              }
+            }
+            },
+            callbacks: {
+              open: function(){
+                  $("#container").addClass('blur');
+              },
+              close: function(){
+                  $("#container").removeClass('blur');
+              }
+          }  
+        });
+    });    
+  </script>
+</body>
+</html>

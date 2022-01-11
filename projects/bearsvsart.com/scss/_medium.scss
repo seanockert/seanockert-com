@@ -1,0 +1,220 @@
+
+/* Tablet and up media queries  ---------------------- */
+@media #{$medium-up} {
+
+	html {
+		background-size: 256px 256px;		
+	}
+	
+	#preloader img {
+		width: 141px;
+	}
+
+	#container {
+		padding-top: 75px/$medium-scale;
+	}
+
+	#header {
+		padding-top: 98px/$medium-scale;
+		padding-right: 8px/$medium-scale;
+		height: $frameY/$medium-scale;
+		background: url(#{$asset-path}/frame.png) no-repeat top center;		
+		background-size: $frameX/$medium-scale $frameY/$medium-scale;
+	}
+	
+	#halfbrick {
+		width: 269px/$medium-scale;
+	}	
+
+	#scene {
+		height: $sceneY/$medium-scale;
+		width: $sceneX/$medium-scale;		
+		background-size: $sceneX/$medium-scale $sceneY/$medium-scale;		
+	}	
+	
+	#trees,
+	#shadow,
+	#gallery,
+	#smoke {
+		left: 50%;
+	}
+	
+	#trees,
+	#shadow,
+	#gallery,
+	#sign,
+	#smoke,
+	#bearface,
+	#ear,
+	#paw,
+	#shine,
+	#play .button,
+	#art .button {
+		background-size: $spritesheetX/$medium-scale $spritesheetY/$medium-scale;		
+	}	
+	
+	#trees {
+		height: $treesY/$medium-scale;
+		width: $treesX/$medium-scale;	
+		bottom: 45px/$medium-scale;
+		margin-left: -240px/$medium-scale;	
+		background-position: -5px/$medium-scale -665px/$medium-scale;
+	}
+
+	#shadow {
+		height: $shadowY/$medium-scale;
+		width: $shadowX/$medium-scale;
+		bottom: -11px/$medium-scale;
+		margin-left: -195px/$medium-scale;
+		background-position: -281px/$medium-scale -527px/$medium-scale;			
+	}		
+	
+	#gallery {
+		height: $galleryXY/$medium-scale;
+		width: $galleryXY/$medium-scale;	
+		margin-left: -180px/$medium-scale;
+		background-position: -370px/$medium-scale -5px/$medium-scale;			
+	}		
+
+	#sign {
+		height: $signY/$medium-scale;
+		width: $signX/$medium-scale;	
+		right: 70px/$medium-scale;		
+		bottom: 40px/$medium-scale;		
+		display: block;
+		background-position: -180px/$medium-scale -280px/$medium-scale;	
+	}	
+	
+	
+		#sign-light {
+			z-index: 1000;
+			height: $signY/$medium-scale;
+			width: $signX/$medium-scale;
+			background: url(#{$asset-path}/sign-light.png) no-repeat 50% 0;	
+			background-size: $signX/$medium-scale ($signY/$medium-scale)*4;
+			@include animation(signLightMedium 3s steps(4) 0.5s infinite normal);		
+		}		
+	
+
+	#smoke {
+		height: $smokeY/$medium-scale;
+		width: $smokeX/$medium-scale;	
+		background-position: -803px/$medium-scale -577px/$medium-scale;		
+	}		
+	
+	#bear {
+		height: $bearY/$medium-scale;
+		width: $bearX/$medium-scale;			
+		left: 10%;	
+	}
+	
+		#bearface {
+			height: $bearY/$medium-scale;
+			width: $bearX/$medium-scale;			
+		}	
+		
+		#eyes {
+			height: $eyesY/$medium-scale;
+			width: $eyesX/$medium-scale;	
+			margin-top: 52px/$medium-scale;	
+			background-size: $eyesX/$medium-scale $eyesY/$medium-scale*4;	
+			@include animation(blinkMedium 4s steps(3) 0.5s infinite normal);	
+		}	
+		
+		#ear {
+			height: $earsY/$medium-scale;
+			width: $earsX/$medium-scale;	
+			margin-left: 10px/$medium-scale;
+			background-position: -286px/$medium-scale -5px/$medium-scale;	
+		}
+		
+		#paw {
+			height: $pawY/$medium-scale;
+			width: $pawX/$medium-scale;
+			background-position: 0 -273px/$medium-scale;		
+			left: 0;			
+		}	
+		
+		#shine {
+			height: $shineY/$medium-scale;
+			width: $shineX/$medium-scale;
+			bottom: 45px/$medium-scale;
+			right: 14px/$medium-scale;
+			background-position: -296px/$medium-scale -79px/$medium-scale;			
+		}	
+		
+	#cloud-big {
+		width: $cloudX/$medium-scale;
+		height: $cloudY/$medium-scale;	
+		background-size: $cloudX/$medium-scale $cloudY/$medium-scale;	
+	}
+	
+	#cloud-xsmall { top: 50px;}
+	
+	#logo {
+		top: -40px;
+		margin-left: -$logoX/1.3/2;
+		width: $logoX/1.3;
+	}	
+
+	#play, #art {
+		top: 0;
+		bottom: auto;
+		width: 140px/$medium-scale;
+		font-size: $font-size-med/$medium-scale;
+		text-shadow: none;
+		
+		span { display: block;}
+		
+		.button {
+			height: 94px/$medium-scale;
+			width: 128px/$medium-scale;	
+		}	
+		
+		span { display: block; }
+	}
+	
+	#art {
+		.button {	
+			background-position: -5px/$medium-scale -527px/$medium-scale;			
+		}
+	}	
+
+	#play {
+		right: 10px;
+		
+		.button {
+			background-position: -143px/$medium-scale -527px/$medium-scale;
+		}	
+	}	
+	
+	#play-now, #coming {
+		top: 30px;
+		width: 180px/$medium-scale;
+		font-size: $font-size-med/$medium-scale;
+		text-shadow: none;
+				
+		a {
+			height: 70px/$medium-scale;
+			width: 180px/$medium-scale;	
+		}	
+	}
+	
+	#out-now {
+		a {
+			width: 200px;
+		}
+		
+		font-size: 1.5em;
+	}
+		
+	#footer {
+		background: #E3D6BD;
+		font-size: 18px;		
+	
+		a {
+			padding: 7px;
+		}
+	}
+		
+}	

@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fruit Ninja Kinect 2 for XBOX ONE Kinect</title>
+  <meta name="title" content="Fruit Ninja Kinect 2" />
+  <meta name="description" content="The follow-up to one of the most popular Kinect games EVER is now on Xbox One. Bigger, better, juicier!" />
+  <meta name="keywords" content="game, xbox, halfbrick, jetpack joyride, fruit ninja" />
+  <link rel="icon" type="image/png" href="http://assets.halfbrick.com/fn/fnk2/images/favicon.png">
+  <link rel="stylesheet" href="css/style.css?rev=688e9a7332a0518fff090792415a0207" type="text/css" />
+
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.6.2/html5shiv.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/respond.js/1.1.0/respond.min.js"></script>
+  <![endif]-->
+
+  <meta content="Fruit Ninja Kinect 2" property="og:title" />
+  <meta content="The follow-up to one of the most popular Kinect games EVER is now on Xbox One. Bigger, better, juicier!" property="og:description" />
+  <meta content="http://fruitninja.com/kinect/images/share_img.jpg" property="og:image" />
+  <meta content="600" property="og:image:width" />
+  <meta content="315" property="og:image:height" />
+  <meta content="315" property="og:type:website" />
+  <meta content="http://fruitninja.com/kinect/" property="og:url" />
+
+  <meta content="Fruit Ninja Kinect 2" property="twitter:title" />
+  <meta content="Fruit Ninja Kinect 2, the follow-up to one of the most popular Kinect games EVER, now on Xbox One! http://fruitninja/kinect #fnk2 @Halfbrick" property="twitter:description" />
+  <meta content="http://fruitninja.com/kinect/images/share_img.jpg" property="twitter:image:src" />
+  <meta content="600" property="twitter:image:width" />
+  <meta content="315" property="twitter:image:height" />
+
+  <script type="text/javascript">
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-36155512-2', 'auto'); //
+      ga('send', 'pageview');
+
+      var obLink = function(sku, store, url) {
+         ga('send', 'event', sku, store, url, {'hitCallback': function () { document.location = url; } });
+         return false;
+      }
+  </script>
+
+</head>
+
+<body>
+
+  <!--[if lt IE 8]>
+      <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+  <![endif]-->
+
+  <a href="https://store.xbox.com/en-US/Xbox-One/Games/Fruit-Ninja-Kinect-2/866f0a16-3a62-4e82-a72b-62e8e655761d" class="xbox-banner2"><img src="http://assets.halfbrick.com/fn/fnk2/images/logo-xbox-one.png" alt="XBOX ONE"></a>
+
+  <div id="header" data-vide-bg="video/fnk-bamboo">
+    <h1 id="logo"><img src="http://assets.halfbrick.com/fn/fnk2/images/fnk2-logo-full.png" alt="Fruit Ninja Kinect 2" title="Fruit Ninja Kinect 2"></h1>
+    <div class="character katsuro">
+      <div class="modal"><h3><a href="https://www.youtube.com/watch?v=Zyek3eYoLdo&list=PLO_wju5aLLvdcXk4dmDjUhkUYUSiX2YCJ" title="Watch Katsuro's Training Day video">Katsuro <img src="http://assets.halfbrick.com/fn/fnk2/images/youtube-white.png"></a></h3>Convinced he's awesome at everything, Katsuro's irrepressible overconfidence always gets him into trouble.</div>
+    </div>
+    <div class="character mari">
+      <div class="modal"><h3><a href="https://www.youtube.com/watch?v=6ZdcPE0n58E&list=PLO_wju5aLLvdcXk4dmDjUhkUYUSiX2YCJ" title="Watch Fruit Fight video">Mari <img src="http://assets.halfbrick.com/fn/fnk2/images/youtube-white.png"></a></h3>Life's too short to be bored for the bright, energetic Mari who enjoys playing tricks on her friends even more than on her foes. </div>
+    </div>
+    <div class="character nobu">
+      <div class="modal"><h3><a href="https://www.youtube.com/watch?v=rPIaL1eup1g&list=PLO_wju5aLLvdcXk4dmDjUhkUYUSiX2YCJ" title="Watch Crouching Nobu, Hidden Mari video">Nobu <img src="http://assets.halfbrick.com/fn/fnk2/images/youtube-white.png"></a></h3>Gentle Nobu would rather talk his way out of trouble than fight. But he's always quick to apologise to anyone he knocks down.</div>
+    </div>
+    <div class="character han">
+      <div class="modal"><h3><a href="https://www.youtube.com/watch?v=6ZdcPE0n58E&list=PLO_wju5aLLvdcXk4dmDjUhkUYUSiX2YCJ" title="Watch Fruit Fight video">Han  <img src="http://assets.halfbrick.com/fn/fnk2/images/youtube-white.png"></a></h3>The self-styled 'Sensei of Cool', Han is calm in any situation. But constant one-upping with Katsuro is a headache for Sensei.</div>
+    </div>
+
+    <div id="streak"></div>
+  </div>
+
+  <div id="main">
+
+    <div class="section" id="download">
+      <div class="row">
+        <div class="columns medium-9 medium-centered large-9 xlarge-9 large-centered">
+
+          <h2>Bigger. Better. Juicier! <br>Only on <strong>XBOX ONE</strong><sup>&trade;</sup></h2>
+
+          <p class="intro">Your arms are weapons. Use your body to slice fruit as it flies across the screen. Dodge spotlights, throw shurikens and strike ninja poses.</p>
+          <p class="intro">Fruit Ninja Kinect 2 is the sequel to one of the <strong>most popular Kinect games ever</strong> and the ultimate party game to play with your friends!</p>
+
+          <p><a href="https://store.xbox.com/en-US/Xbox-One/Games/Fruit-Ninja-Kinect-2/866f0a16-3a62-4e82-a72b-62e8e655761d" class="button download" onclick="return obLink('Fruit Ninja Kinect 2', 'Kinect Store', 'Main Button'"><b></b> Download <span class="hidden-small">Fruit Ninja Kinect 2</span><span class="hidden-large">Game</span></a></p>
+
+          <img src="http://assets.halfbrick.com/fn/fnk2/images/rating-fnk2.png" class="rating">
+
+          <ul class="no-list social-media">
+            <li><a href="https://www.facebook.com/fruitninja" title="Become a Fruit Ninja fan on Facebook"><img src="http://assets.halfbrick.com/fn/fnk2/images/facebook.png" alt="Facebook"></a></li>
+            <li><a href="http://twitter.com/fruitninja" title="Follow Us on Twitter"><img src="http://assets.halfbrick.com/fn/fnk2/images/twitter.png" alt="Twitter"></a></li>
+            <li><a href="https://youtube.com/fruitninja" title="Subscribe for great videos on the Fruit Ninja YouTube channel"><img src="http://assets.halfbrick.com/fn/fnk2/images/youtube.png" alt="Youtube"></a></li>
+          </ul>
+
+
+          <br><div class="kanji d"></div>
+        </div>
+      </div>
+
+    </div>
+    <div class="section video" id="watch">
+       <div class="row">
+         <div class="columns large-8 xlarge-12 large-centered">
+           <div class="flex-video">
+             <iframe width="430" height="350" src="http://www.youtube.com/embed/UTVIERT-JF8?wmode=opaque&amp;rel=0&amp;showinfo=0&amp;modestbranding=1&amp;autohide=1&amp;iv_load_policy=3" wmode="transparent" frameborder="0" allowfullscreen=""></iframe>
+           </div>
+         </div>
+       </div>
+    </div>
+
+    <div class="section description">
+
+
+      <div class="row">
+        <div class="columns medium-9 medium-centered large-9 xlarge-9 large-centered">
+          <h2>Take a Slice at Juicy <strong>New Game Modes!</strong></h2>
+
+          <p class="intro">Join the fun at the Blueberry Moon Festival and meet the Fruit Ninjas, who have a bunch of new games for you to play.</p>
+          <p class="intro">Millions of kids and adults alike have enjoyed the fruit-slicing phenomenon of <strong>Fruit Ninja Kinect</strong>. Now it's your turn!</p>
+
+          <h4>Game Modes</h4>
+          <div class="clear"></div>
+
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="columns large-6 medium-6">
+
+          <ul class="no-list">
+            <li>
+              <img src="http://assets.halfbrick.com/fn/fnk2/images/icon-shuriken.png" class="left">
+              <h3>Katsuro's Ninja Dodge <small>New</small></h3>
+              <p>Dodge dangerous shurikens being thrown at you while slicing as much fruit as you can. Perfect your defence and offence.</p>
+              <div class="clear"></div>
+            </li>
+            <li>
+              <img src="http://assets.halfbrick.com/fn/fnk2/images/icon-spotlight.png" class="left">
+              <h3>Mari's Strawberry Stealth <small>New</small></h3>
+              <p>Ninja skills are put to the test by slicing fruit while avoiding moving spotlights. Being spotted sounds the alarm and costs precious points.</p>
+              <div class="clear"></div>
+            </li>
+            <li>
+              <img src="http://assets.halfbrick.com/fn/fnk2/images/icon-bamboo.png" class="left">
+              <h3>Nobu's Bamboo Strike <small>New</small></h3>
+              <p>Slice the bamboo seeds before they hit the ground. Miss one and bamboo will grow to block you from slicing fruit!</p>
+              <div class="clear"></div>
+            </li>
+          </ul>
+
+        </div>
+
+        <div class="columns large-6 medium-6">
+          <ul class="no-list">
+            <li>
+              <img src="http://assets.halfbrick.com/fn/fnk2/images/icon-target.png" class="left">
+              <h3>Han's Apple Range <small>New</small></h3>
+              <p>Throw knives to pin the flying fruit against wooden boards for points. You'll need good aim for this one!</p>
+              <div class="clear"></div>
+            </li>
+            <li>
+              <img src="http://assets.halfbrick.com/fn/fnk2/images/icon-propeller.png" class="left">
+              <h3>Multiplayer - Party Mode <small>New</small></h3>
+              <p>Two players compete to slice the most fruit. Mini-games occur during gameplay including striking ninja poses, propeller fruit, popping balloons and more.</p>
+              <div class="clear"></div>
+            </li>
+            <li>
+              <img src="http://assets.halfbrick.com/fn/fnk2/images/icon-banana.png" class="left">
+              <h3>Multiplayer - Battle Mode</h3>
+              <p>Battle mode has a new twist. Slice bananas to impact your opponent's score and gain the advantage. It's a tasty tug-of-war.</p>
+              <div class="clear"></div>
+            </li>
+          </ul>
+        </div>
+        <div class="clear"></div>
+        <div class="columns large-7 large-centered medium-10 medium-centered last">
+          <ul class="no-list">
+            <li>
+              <img src="http://assets.halfbrick.com/fn/fnk2/images/icon-watermelon.png" class="left">
+              <h3>Plus: Classic Arcade &amp; Zen Mode</h3>
+              <p>The original, frenetic party favourite from the original game is back. And we've super-sized the fruit! Other modes too frantic? Unwind in Zen mode.</p>
+              <div class="clear"></div>
+            </li>
+          </ul>
+        </div>
+
+        <div class="clear"></div>
+        <div class="kanji e"></div>
+      </div>
+
+      <div class="clear"></div>
+
+    </div>
+
+
+    <div class="section screens" id="extras">
+      <div class="row">
+      <h2>Download Wallpapers</h2>
+       <div id="slider">
+          <a href="#" class="arrow-left" onclick="slider.prev();return false;"><img src="http://assets.halfbrick.com/fn/fnk2/images/icon-arrow-left.png"></a>
+          <a href="#" class="arrow-right" onclick="slider.next();return false;"><img src="http://assets.halfbrick.com/fn/fnk2/images/icon-arrow-right.png"></a>
+          <div id="swipe" class="swipe">
+            <div class="swipe-wrap">
+              <div><a href="images/extras/fnk2-wallpaper-whole-gang-pose-1920x1080.jpg" download="images/extras/fnk2-wallpaper-whole-gang-pose-1920x1080.jpg"><img src="images/extras/thumbs/fnk2-wallpaper-whole-gang-pose.jpg"></a></div>
+              <div><a href="images/extras/fnk2-wallpaper-katsuro-1920x1080.jpg" download="images/extras/fnk2-wallpaper-katsuro-1920x1080.jpg"><img src="images/extras/thumbs/fnk2-wallpaper-katsuro.jpg"></a></div>
+              <div><a href="images/extras/fnk2-wallpaper-nobu-1920x1080.jpg" download="images/extras/fnk2-wallpaper-nobu-1920x1080.jpg"><img src="images/extras/thumbs/fnk2-wallpaper-nobu.jpg"></a></div>
+              <div><a href="images/extras/fnk2-wallpaper-mari-1920x1080.jpg" download="images/extras/fnk2-wallpaper-mari-1920x1080.jpg"><img src="images/extras/thumbs/fnk2-wallpaper-mari.jpg"></a></div>
+              <div><a href="images/extras/fnk2-wallpaper-han-1920x1080.jpg" download="images/extras/fnk2-wallpaper-han-1920x1080.jpg"><img src="images/extras/thumbs/fnk2-wallpaper-han.jpg"></a></div>
+              <div><a href="images/extras/fnk2-wallpaper-fruit-splash-1920x1080.jpg" download="images/extras/fnk2-wallpaper-fruit-splash-1920x1080.jpg"><img src="images/extras/thumbs/fnk2-wallpaper-fruit-splash.jpg"></a></div>
+            </div>
+          </div>
+        </div>
+        <div class="clear"></div>
+        <h3>Facebook Profile Photos</h3>
+        <ul class="no-list fb-photos">
+          <li><a href="images/extras/profile-pic-mari.jpg" download="images/extras/profile-pic-mari.jpg"><img src="images/extras/profile-pic-mari.jpg"></a><strong>Mari</strong></li>
+          <li><a href="images/extras/profile-pic-katsuro.jpg" download="images/extras/profile-pic-katsuro.jpg"><img src="images/extras/profile-pic-katsuro.jpg"></a><strong>Katsuro</strong></li>
+          <li><a href="images/extras/profile-pic-nobu.jpg" download="images/extras/profile-pic-nobu.jpg"><img src="images/extras/profile-pic-nobu.jpg"></a><strong>Nobu</strong></li>
+          <li><a href="images/extras/profile-pic-han.jpg" download="images/extras/profile-pic-han.jpg"><img src="images/extras/profile-pic-han.jpg"></a><strong>Han</strong></li>
+          <li><a href="images/extras/profile-pic-truffles.jpg" download="images/extras/profile-pic-truffles.jpg"><img src="images/extras/profile-pic-truffles.jpg"></a><strong>Truffles</strong></li>
+        </ul>
+        <div class="clear"></div>
+      </div>
+    </div>
+
+
+    <div class="section social" id="social">
+      <div class="columns medium-8 medium-centered large-6 xlarge-5 large-centered">
+        <h2 style="margin: 0">Join our mailing list</h2>
+        Get exclusive Fruit Ninja updates!
+
+        <div class="subscribe" id="subscribe">
+          <form action="http://halfbrickstudios.createsend.com/t/t/s/kjvkr/" method="post">
+              <input id="fieldEmail" name="cm-kjvkr-kjvkr" type="email" required placeholder="Your email address...">
+              <input id="fielddrjtur" name="cm-f-drjtur" type="hidden" value="">
+              <button type="submit">Join Us!</button>
+          </form>
+        </div>
+      </div>
+      <div class="clear"></div>
+      <hr>
+
+      <div class="more">
+         <h2>More Fruit Ninja Games:</h2>
+         <ul class="no-list more-games">
+           <li class="hidden-small"><a href="http://fruitninja.com"><img src="http://assets.halfbrick.com/fn/fnk2/images/icon-fn.png"><br>Fruit Ninja</a></li>
+           <li><a href="http://marketplace.xbox.com/en-US/Product/Fruit-Ninja-Kinect/66acd000-77fe-1000-9115-d80258410b79"><img src="http://assets.halfbrick.com/fn/fnk2/images/icon-fnk.png"><br>Fruit Ninja Kinect</a></li>
+           <li><a href="http://fruitninja.com/academy"><img src="http://assets.halfbrick.com/fn/fnk2/images/icon-fnamm.png"><br>FN: Math Master</a></li>
+         </ul>
+      </div>
+    </div>
+
+    <div class="section footer">
+      <a href="http://halfbrick.com" title="Halfbrick Studios"><img src="http://assets.halfbrick.com/fn/fnk2/images/logo-halfbrick.png" alt="Halfbrick"></a>
+      <a href="http://hibernum.com" title="Hibernum Créations"><img src="http://assets.halfbrick.com/fn/fnk2/images/logo-hibernum.png" alt="Hibernum"></a>
+
+      <p>&copy; 2016 <a href="http://halfbrick.com">Halfbrick Studios</a>. All rights reserved.<br> <a href="http://halfbrick.com/pp">Privacy Policy</a>  | <a href="http://halfbrick.com/tos">Terms of Use</a> | <a href="http://halfbrick.com/wp-content/uploads/asset-pack-fruit-ninja-kinect-2.zip">Download Media Pack (26MB)</a></p>
+
+      <div class="kanji b"></div>
+
+    </div>
+
+  </div>
+
+  <script src="dist/scripts.min.js?rev=d097542c0d8b50775ea983d33d24fe3f"></script>
+  <!-- Facebook Pixel Code -->
+  <script>
+  !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+  n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+  document,'script','https://connect.facebook.net/en_US/fbevents.js');
+
+  fbq('init', '227656277617581');
+  fbq('track', "PageView");</script>
+  <noscript><img height="1" width="1" style="display:none"
+  src="https://www.facebook.com/tr?id=227656277617581&ev=PageView&noscript=1"
+  /></noscript>
+  <!-- End Facebook Pixel Code -->
+  <script type="text/javascript">
+      var _mfq = _mfq || [];
+      (function () {
+      var mf = document.createElement("script"); mf.type = "text/javascript"; mf.async = true;
+      mf.src = "//cdn.mouseflow.com/projects/71189166-52f8-4cb5-9aad-6e17520e4497.js";
+      document.getElementsByTagName("head")[0].appendChild(mf);
+    })();
+  </script>  
+</body>
+</html>

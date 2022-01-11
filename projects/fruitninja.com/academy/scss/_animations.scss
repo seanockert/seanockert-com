@@ -1,0 +1,12 @@
+ 
+@include keyframes(example)
+{
+    0% { @include transform(rotate(0deg) scale(1,1)); }
+    100% { @include transform(rotate(0deg) scale(1,1)); }
+}  
+
+.example-animation {
+    @include animation(example 1.2s linear infinite); 
+}
+
+

@@ -1,0 +1,35 @@
+/*!
+Site Name:      Jetpack Joyride
+Site URI:     	http://jetpackjoyride.net
+Description:    New Jetpack Joyride homepage featuring high res assets
+Author:         Sean Ockert (@seanockert), Halfbrick Studios 
+Author URI:     http://halfbrick.com
+Version:        3.0
+*/
+
+// Base Config
+@import "reset"; /* Browser resets - no need to edit */
+@import "settings"; /* Mixins and Media queries - no need to edit */
+@import "variables"; /* Set the base colours and fonts here */
+
+@import "grid/grid"; /* Zurb Foundation grid */
+//@import "grid/block-grid"; /* Zurb Foundation block grid */
+@import "grid/flex-video"; /* Embed responsive videos */
+
+// Styling
+@import "global"; /* Replace code in here with your own */
+@import "slanted";
+
+// Media Queries
+@import "small";
+@import "medium";
+@import "large";
+
+// Plugins
+@import "plugins/social-buttons";
+@import "plugins/lightbox";
+@import "plugins/slick";
+
+// Animations
+@import "animation-mixins.scss";
+@import "animations";

@@ -1,0 +1,311 @@
+#leaderboard {
+  padding: $base-padding*2 0;
+  padding-top: $base-padding;
+
+  #first {
+    width: 100%;
+    background: $color-yellow;
+    margin-bottom: $base-padding;
+    margin-top: $base-padding*2;
+    font-size: $font-size-yt-med;
+    text-align: center;
+    box-shadow: 6px 6px 0 rgba(0,0,0,0.2);
+    
+    h3, h4, h5 {
+      padding: 0;
+      margin: 0;
+      font-weight: normal;
+    }
+    
+    h4 {
+      font-size: $font-size-yt-large;
+      line-height: 1;
+      padding-bottom: $base-padding/2;
+    }
+    
+    h5 {
+      font-size: $font-size-yt/1.3;
+      
+      color: $color-brown-dark;
+    }
+    
+    .star {
+      height: 80px;
+      margin-top: -80px;
+    }
+    
+    div {
+      background: $color-yellow-light;
+      padding: $base-padding/2;
+      color: $color-red;
+    }
+  }
+  
+  table {
+    background: $color-yellow;
+    font-size: $font-size-yt-med;
+    border-collapse: collapse;
+    width: 100%;
+    box-shadow: 6px 6px 0 rgba(0,0,0,0.2);
+    
+    tr {
+       position: relative;
+    }
+    
+    td, th {
+      padding: $base-padding/2;
+      text-align: left;
+      vertical-align: middle;
+
+      img {
+        height: 50px;
+        margin-bottom: -19px;
+      }
+    
+      &.rank {
+        width: 3%;
+        text-align: center;
+        font-size: 1.3em;
+      }  
+          
+      &.name {
+        width: 65%;  
+        padding-left: 0; 
+        white-space: nowrap;
+        line-height: 50px;
+      }  
+              
+      &.items {
+        width: 30%;
+        text-align: right;
+      }       
+             
+      &.stacks {
+        width: 10%;
+        display: none;
+      }
+    }
+    
+    th {
+      padding-bottom: 0;
+      font-weight: normal;
+      font-size: $font-size-yt;
+      color: $color-brown-dark;
+      line-height: 1.1;
+    }
+    
+    tr {
+      display: block;
+    }
+
+
+
+    tbody {
+      tr {
+        margin: $base-padding/4;
+        margin-top: 0;
+        @include vendor-prefix(transition, all 0.1s ease-out);
+
+        &:nth-child(1) td.rank {
+          background: $color-red;
+          background: #e6db82;
+          background: -moz-linear-gradient(top,  #e6db82 0%, #d4c667 54%, #e4df96 54%, #a7823e 100%);
+          background: -webkit-linear-gradient(top,  #e6db82 0%,#d4c667 54%,#e4df96 54%,#a7823e 100%);
+          background: linear-gradient(to bottom,  #e6db82 0%,#d4c667 54%,#e4df96 54%,#a7823e 100%);
+          color: #fff;
+        }        
+
+        &:nth-child(2) td.rank {
+          background: tint($color-red,30%);
+          background: #c5dae9;
+          background: -moz-linear-gradient(top,  #c5dae9 0%, #a3abbe 54%, #bdc4d4 54%, #727c97 100%);
+          background: -webkit-linear-gradient(top,  #c5dae9 0%,#a3abbe 54%,#bdc4d4 54%,#727c97 100%);
+          background: linear-gradient(to bottom,  #c5dae9 0%,#a3abbe 54%,#bdc4d4 54%,#727c97 100%);
+          color: #fff;
+
+        }
+
+        &:nth-child(3) td.rank {
+          background: tint($color-red,60%);
+          background: #A96E4E;
+          background: -moz-linear-gradient(top,  #ae7b5b 0%, #a45f3e 54%, #b9754b 54%, #983c17 100%);
+          background: -webkit-linear-gradient(top,  #ae7b5b 0%,#a45f3e 54%,#b9754b 54%,#983c17 100%);
+          background: linear-gradient(to bottom,  #ae7b5b 0%,#a45f3e 54%,#b9754b 54%,#983c17 100%);
+          color: #fff;
+        }
+
+        &:nth-child(1) td.rank,
+        &:nth-child(2) td.rank,
+        &:nth-child(3) td.rank {
+          text-shadow: 0 0 3px rgba(0,0,0,0.5);
+        }
+
+        .button {
+          @include vendor-prefix(transition, all 0.1s ease-out);
+          @include vendor-prefix(transform, scale(0));
+          display: none;
+        }
+
+        &:hover {
+          @include vendor-prefix(transform, scale(1.03, 1.03));
+          box-shadow: 3px 3px 0 rgba(0,0,0,0.3);
+        }
+      }
+    }
+    
+    td {
+      background: $color-yellow-light;
+
+      &.name {
+        font-size: 0.9em;
+      }
+    }
+    
+  }
+
+}
+
+
+.leaderboard-locked {
+  background: $color-yellow;
+  padding: 200px $base-padding;
+  text-align: center;
+  font-size: $font-size-yt-med;
+  line-height: 1.1;
+  box-shadow: 6px 6px 0 rgba(0,0,0,0.2);
+
+  h4, h5 {
+    font-weight: normal;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+  }
+
+  h5 {
+    color: $color-brown-light;
+  }
+
+  h4 {
+    color: $color-brown-dark;
+  }
+}
+
+.icon-timer {
+  height: 28px;
+  margin-bottom: -6px;
+}
+
+
+@media screen and (min-width: 520px) {   
+
+  #leaderboard {
+    
+    table {
+      td {
+        padding: $base-padding; 
+        position: relative;
+
+        img {
+          display: inline-block;
+          height: 80px;
+          top: 10px;
+          left: 0;
+          position: absolute;
+        }
+
+        &.name {
+          padding-left: 90px;
+          font-size: 1em;
+        }  
+
+        &.items {
+          width: 30%;
+        } 
+
+        &.stacks {
+          width: 10%;
+          display: none;
+        }
+      }
+      
+      tr {
+        margin: $base-padding/2;
+        margin-top: 0;
+      }
+
+      tbody {
+        tr {
+          &:hover {
+          @include vendor-prefix(transform, scale(1.03, 1.03));
+          box-shadow: 3px 3px 0 rgba(0,0,0,0.3);
+
+          .button {
+            @include vendor-prefix(transform, scale(1));
+            display: inline-block;
+          }
+        }
+        }
+      }
+    }
+  }
+
+  .leaderboard-locked {
+    font-size: $font-size-yt-large;
+  }
+
+
+  .icon-timer {
+    height: 36px;
+    margin-bottom: -8px;
+  }
+
+}
+
+
+@media screen and (min-width: 768px) {   
+  
+  #leaderboard {
+    #first {
+      width: 50%;      
+      margin-top: $base-padding*3; 
+      margin-left: auto;
+      margin-right: auto;
+
+      .star {
+        height: 140px;
+      }
+
+      h5 {
+        font-size: $font-size-yt;
+      }
+
+
+      h4 {
+        font-size: $font-size-yt-large*1.3;
+      }
+    }
+    
+    table {
+      font-size: $font-size-yt-med*1.3;
+
+      tbody {
+        tr {
+          .button {
+            display: inline-block;
+          }
+        }
+      }
+    } 
+  }
+
+}
+
+@media screen and (min-width: 64em) {
+  #leaderboard {
+    #first {
+      margin-top: 0; 
+      width: 100%;
+    }
+  }  
+
+}   

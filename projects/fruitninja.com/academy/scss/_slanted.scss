@@ -1,0 +1,44 @@
+/* Slanted box layout  ---------------------- */
+
+.slanted-box {
+  background: transparent;
+  padding-bottom: 60px;
+  position: relative;
+  width: 100%;
+  text-align: center;
+  overflow: hidden;
+  
+  &:before, &:after {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    content: '';
+    background-color: $color-yellow;
+    display: block;
+    z-index: 0;
+    line-height: 0;
+  }
+  
+  &:before {
+    height: 30px;
+
+  } 
+   
+  &:after {
+    height: 100%;
+    color: $color-yellow;
+    @include vendor-prefix(transform, rotate(-2deg) scale(1.04));
+    z-index: 0;
+    margin-top: -50px;
+    margin-left: -8px;
+  }
+  
+  .slanted-box_content {
+    position: relative;
+    z-index: 100;
+    margin: 0 auto;
+    padding-bottom: 0;
+  }
+  
+}

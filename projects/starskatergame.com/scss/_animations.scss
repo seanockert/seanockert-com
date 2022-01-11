@@ -1,0 +1,74 @@
+
+/* Button Animations */
+
+@include keyframes(bounce)
+{
+    0% { @include transform(scale(1,1)); }
+    50% { @include transform(scale(1.05,0.95)); }
+    100% { @include transform(scale(1,1)); }
+} 
+
+@include keyframes(press)
+{
+    0% { @include transform(scale(1,1)); }
+    50% { @include transform(scale(0.8,0.85)); }
+    100% { @include transform(scale(0.9,0.9)); }
+} 
+/* Button Animations */
+
+
+@include keyframes(bounceIn)
+{
+    0% { opacity: 1; @include transform(scale(0,0)); }
+    20% { @include transform(scale(0,0)); }
+    70% { @include transform(scale(1.1,0.9)); }
+    100% { @include transform(scale(1,1)); }
+} 
+
+/*
+@include keyframes(slideLeft)
+{
+    0% { @include transform(translate3d(-300%,0,0)); }
+    60% { @include transform(scale(2,1) translate3d(-300%,0,0)); }
+    100% { @include transform(scale(1,1) translate3d(0,0,0)); }
+} 
+*/
+
+@include keyframes(logo) {
+    0%    { @include transform(scale(1,1)); } 
+    30%, 55%   { @include transform(scale(1.08,0.9)); }
+    70%   { @include transform(scale(1,1.05)); }
+    85%   { @include transform(scale(1.05,0.95)); }
+    100%  { @include transform(scale(1,1)); }
+}
+
+.logo {
+    @include vendor-prefix(transform-origin, 50% 100%);   
+    @include animation(logo 0.5s);         
+} 
+
+#social-bar a:hover, 
+#social-bar a:focus, 
+a.arrow-left:hover, 
+a.arrow-left:focus, 
+a.arrow-right:hover, 
+a.arrow-right:focus, 
+a.yellow-link:hover, 
+a.yellow-link:focus, 
+.badge:hover,
+.badge:focus {
+    @include animation(bounce 0.2s ease-in-out);    
+}
+    
+#social-bar a:focus, 
+a.arrow-left:focus, 
+a.arrow-right:focus, 
+a.yellow-link:focus, 
+.badge:focus,
+#social-bar a:active, 
+a.arrow-left:active, 
+a.arrow-right:active, 
+a.yellow-link:active, 
+.badge:active {
+    @include animation(press 0.2s ease-in-out); 
+}

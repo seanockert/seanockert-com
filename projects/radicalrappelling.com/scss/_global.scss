@@ -1,0 +1,466 @@
+$resize-ridge: 1.4;
+
+*,
+*:before,
+*:after {
+  @include box-sizing(border-box);
+}
+
+html,
+body { font-size: $font-size-base; }
+
+html { 
+  background: #3D83FF;
+  background: -moz-linear-gradient(top,  #3263e4 0%, #3d83ff 60%); /* FF3.6+ */
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#3263e4), color-stop(60%,#3d83ff)); /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(top,  #3263e4 0%,#3d83ff 60%); /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(top,  #3263e4 0%,#3d83ff 60%); /* Opera 11.10+ */
+  background: -ms-linear-gradient(top,  #3263e4 0%,#3d83ff 60%); /* IE10+ */
+  background: linear-gradient(to bottom,  #3263e4 0%,#3d83ff 60%); /* W3C */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#3263e4', endColorstr='#3d83ff',GradientType=0 ); /* IE6-9 */
+
+}
+
+$background-resize: 2;
+body {
+  padding: 0;
+  margin: 0;
+  font-family: $typeface-primary;
+  line-height: 1;
+  position: relative;
+  color: $color-text;
+  margin: 0 auto;  
+  overflow-x: hidden;
+  -webkit-overflow-scrolling: touch;
+  background: url(../images/bg-clouds-only.png) repeat top center;
+  background-size: 1440px/$background-resize 2560px/$background-resize;
+  overflow-x: hidden;
+}
+
+body, html {
+  background-size: 100% auto;
+}
+
+a { 
+  color: $color-orange;
+  text-decoration: underline;
+  
+  &:hover {
+    color: darken($color-orange, 20%);
+  }
+}
+
+.hidden-large { display: block; }
+.hidden-small { display: none; }
+
+.left { float: left; }
+.right { float: right; }
+
+
+/* Headings  ---------------------- */
+
+h1, h2, h3, h4 {
+  font-family: $typeface-header;
+  font-weight: normal;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+}
+
+
+h1 {
+  font-size: 66px;
+  color: #fff;
+  text-transform: uppercase;
+  text-align: center;
+  margin: 0;
+  line-height: 1;
+  color: #ffe613;
+}
+
+h2 {
+  font-size: 36px;
+  margin: 0;
+}
+
+h1, h2 {
+  color: #F9DE4B;
+  -webkit-text-stroke: 1px black;
+  text-shadow:
+  3px 3px 0 #000,
+  -1px -1px 0 #000,  
+  1px -1px 0 #000,
+  -1px 1px 0 #000,
+  1px 1px 0 #000;  
+}
+
+#rappellers h2,
+#reel h2,
+#race h2,
+#remix h2 {
+  font-size: 40px;
+  line-height: 1.2;
+  max-width: 700px;
+  margin: 0 auto;
+
+}
+
+h3 {
+  margin-top: 0;
+  line-height: 1.2;
+  color: #fff;
+  font-size: 20px;
+  letter-spacing: 0.03em;
+  text-shadow:
+  2px 2px 0 #000,
+  -1px -1px 0 #000,  
+  1px -1px 0 #000,
+  -1px 1px 0 #000,
+  1px 1px 0 #000;   
+  filter: progid:DXImageTransform.Microsoft.Shadow(color=#000000,direction=135,strength=3);
+  @include vendor-prefix(transform, rotate(-3deg));  
+  /*
+  -webkit-mask-image: -webkit-gradient(linear, left top, left bottom, color-stop(67%,#ffffff), color-stop(100%,rgba(198,237,255,0.5)));
+  -webkit-mask-image: -webkit-gradient(linear, left 90%, left bottom, from(rgba(0,0,0,1)), to(rgba(0,0,0,0)));
+  */
+}
+
+
+$cloud-resize: 2;
+#clouds {
+  background: none;
+  background: url(../images/clouds-foreground.png) repeat-y 0% 20%;
+  background-size: 1300px/$cloud-resize 1100px/$cloud-resize;
+  @include vendor-prefix(transform, translate3d(1, 1, 0)); 
+  overflow:hidden;
+}
+
+
+/* Reusable layouts  ---------------------- */
+
+.rapper {
+  width: 96%;
+  max-width: 780px;
+  padding: $base-padding*4 0; 
+  margin: 0 auto;
+  position: relative;
+  /*padding-left: 100px;*/
+  @include clearfix();
+  text-align: center;
+  
+  &:first-child {
+    margin-top: 0 !important;
+  }
+ 
+}
+
+.columns {
+  float: left;
+  width: 100%;
+  
+  &.large-2 {
+    padding: $base-padding/2;
+  }
+}  
+
+.badge img {
+  height: 80px;
+  width: auto;
+}
+
+/* Sections  ---------------------- */
+
+.top-bar {
+  padding: $base-padding/4;
+  width: 100%;
+  top: 0;
+}
+
+  .hb-logo {
+    text-align: left;
+    padding-right: 0 !important;
+    
+    
+    img {
+      width: 100%;
+      height: auto;
+      margin-top: 5px;
+    }
+  }
+  
+  $remix-resize: 1.8;
+
+  .remix-bar {
+    text-align: center;
+    margin-top: 8px;
+    display: none;
+    
+    &.fixed {
+      position: fixed;
+      left: 50%;
+      top: 12px/$remix-resize;
+      margin-left: -53px/$remix-resize;
+      z-index: 999;
+      backface-visibility: hidden;
+    }
+
+    .bar, 
+    .fill,
+    .can {
+      background: url(../images/sprite-remix-bar.png) no-repeat 0 0;
+      background-size: 177px/$remix-resize 100px/$remix-resize;
+    }
+    
+    .bar, .fill {
+      position: relative;
+      background-position: 0 0;
+      width: 136px/$remix-resize;
+      height: 50px/$remix-resize;
+      margin: 0 auto;
+    }
+    
+    .fill,
+    .can {
+      position: absolute;
+    }
+    
+    .can {
+      background-position: top right;
+      width: 41px/$remix-resize;
+      height: 50px/$remix-resize;
+      top: 0;
+      right: -15px/$remix-resize;
+      z-index: 10;
+    }
+    
+    .fill {
+      z-index: 9;
+      background-position: bottom left;
+      width: 30%;
+      left: 0;
+      top: 0;
+    }  
+  }
+
+  #button-download {
+    float: left;
+    
+    img {
+      width: auto;
+      height: 40px;   
+    }    
+  }
+
+  .social {
+    text-align: right; 
+    float: right;
+    
+    img {
+      width: auto;
+      height: 40px;   
+    }
+  }
+
+
+#scroll {
+  display: block;
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  margin-left: -100px;
+  width: 200px;
+  height: auto;
+  color: #fff;
+  font-family: $typeface-header;
+}
+
+.arrow {
+  display: inline-block;
+  margin-top: 5px;
+  
+  img {
+    height: 40px;
+    width: auto;
+  }
+}
+
+#radical {
+  padding-top: 0;
+}
+
+.regalia {
+  padding-top: $base-padding*2;
+  
+  h1 {
+    img {
+      width: 94%;
+      max-width: 600px;
+      height: auto;
+    }
+    
+    margin: 0 auto;
+    margin-top: $base-padding*1.5;
+  }
+}
+
+  
+  .flex-video {
+    background: #FBFFCC;
+    background: #000;
+    border-radius: 4px;
+    
+    iframe {
+      border-radius: 6px;
+      border: 2px solid #FBFFCC;
+      border: 2px solid #000;
+    }
+  }
+
+  .screenshots {
+    margin: 0 -0.625rem;
+    margin: 0 0rem;
+    margin-top: $base-padding/2;
+    
+    li {
+      padding: 0 $base-padding/4 $base-padding/4;
+    }
+    
+    img {
+      border-radius: 6px;
+      border: 2px solid #FAFECB;
+      border: 2px solid #000;
+    }
+  }
+
+
+#remix-bg {
+  background-image: url(../images/bg-remix-grad.jpg);
+  background-position: bottom center;
+  background-repeat: no-repeat;
+  background-size: 100% 0%;
+}
+
+.mobile #remix-bg {
+  background-size: 140% auto;
+}
+
+#remix {
+  height: 300px;
+  
+  .badge img {
+    height: 60px;
+    width: auto;
+    margin: 0 $base-padding/4;
+  }
+
+}
+
+
+.no-js #remix {
+  background: url(../images/bg-remix-grad.jpg) no-repeat bottom center;
+  background-size: cover; 
+}
+
+
+.icon img {
+  border-radius: 10px;
+}
+
+.rights {
+  font-family: $typeface-header;
+  font-weight: normal;
+  color: #000;
+  opacity: 0.8;
+  /*position: absolute;
+  bottom: 20px;
+  left: 0;
+  width: 100%;*/
+  margin-top: $base-padding;
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 12px;
+  line-height: 1.4;
+  
+  a {
+    color: #000;
+    
+    &:hover, &:focus {
+      text-shadow: 0 0 5px #fff;
+    }
+  }
+}
+
+
+#ridge {
+  background: url(../images/ridge-full.png?v=2) no-repeat 0 0;
+  width: 100%;
+  height: 100%;
+}
+
+
+#bottom-bar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  background: #EBC22C;
+  box-shadow: -1px -1px 10px rgba(0,0,0,0.6);
+  padding: $base-padding/4;
+  padding-top: 8px;
+  z-index: 9999;
+
+  
+  img {
+    height: 40px;
+    width: auto;
+  }
+}
+
+
+/* This parent can be any width and height */
+.block {
+  display: table !important;
+  width: 100%;
+  margin: 0 !important;
+  padding: 0 !important;
+  text-align: center;
+}
+   
+
+/* The element to be centered, can also be of any width and height */ 
+.centered {
+  display: table-cell;
+  vertical-align: middle;
+  height: 100%;
+  
+  .inner {
+    width: 98%;
+    margin: 0 2%;
+  }
+} 
+
+
+// ------------------ Hide/show download icons -------------- //
+
+.download-google,
+.download-apple 
+{
+  display: none;
+}
+
+.google .badge-apple,
+.ios .badge-google,
+.google .download-apple,
+.ios .download-google,
+.google .download-generic,
+.ios .download-generic
+{
+  display: none !important;
+}
+
+.ios .download-apple,
+.google .download-google
+{
+  display: block !important;
+}

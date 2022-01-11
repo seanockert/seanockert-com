@@ -1,0 +1,137 @@
+
+/* Tablet and up media queries  ---------------------- */
+@media #{$medium-up} {
+
+  .hidden-large { display: none !important; }
+  .hidden-small { display: inline-block !important; }
+
+  h2 {
+    font-size: $font-size-xlarge;
+  }
+
+  h3 {
+    font-size: $font-size-med;
+  }
+
+  .xbox-banner {
+    text-align: center;
+    
+    img {
+      height: 30px;
+      height: 60px;
+      margin-bottom: -34px;
+      margin-top: -3px;
+    }
+  }
+  
+  .xbox-banner2 {
+    img {
+      height: 30px;
+    }
+  }
+
+  #header {
+    height: 500px;
+    background-attachment: fixed;
+  }
+
+  #main {
+    .trailer {
+      margin-top: $base-padding;
+    }
+  }
+
+  .section {
+    padding: $base-padding*2 auto;
+
+    &.description {
+
+      h3 {
+        font-size: $font-size-large;
+      }
+
+      li {
+        text-align: left;
+      }
+
+      img.left {
+        margin-right: $base-padding/2;
+        width: 100px;
+        float: left;
+      }
+
+      .last {
+        margin-top: $base-padding;
+      }
+    }
+
+    &.video,
+    &.screens {
+      background-size: cover;
+      background-attachment: fixed;
+    }
+
+    &.campaign {
+    }
+    
+    &.screens {
+      
+      .fb-photos {
+        img {
+          width: 120px;
+          padding: 4px;
+          margin: 6px;
+        }
+      }
+    }
+    
+    &.social {
+      .more-games {
+        li {
+          a {   
+           img {
+            width: 180px;
+            margin: $base-padding/4; 
+           }
+          }
+        }
+      }
+    }
+ 
+    .social-media {
+      padding-bottom: $base-padding;
+      
+      li {
+        &:first-child {
+          &:before {
+            left: -108px;
+            top: 10px;
+            @include vendor-prefix(transform, rotate(0deg));
+          }
+        }    
+          
+        a {
+          width: 80px;
+          padding: 0;
+        }
+      }
+    } 
+ 
+    
+    &.footer {
+      img {
+        height: 40px;
+      }
+    }
+    
+  }
+
+  #footer {
+    font-size: $font-size-small;
+  }
+
+  img.rating {
+    margin-bottom: $base-padding;
+  }
+
+}	

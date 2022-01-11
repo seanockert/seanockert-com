@@ -1,0 +1,291 @@
+$character-scale-small: 3;
+$character-scale-med: 1.4;
+
+.character {
+    background: url(#{$asset-path}/characters-small.png) no-repeat 0 0;
+    background-size: 1818px/$character-scale-small 767px/$character-scale-small;
+    position: absolute;
+    @include vendor-prefix(transform-origin, 50% 100%);
+   
+    
+    .modal { display: none; }
+
+    &.mari {
+        top: -200px/$character-scale-small;
+        left: -10px;
+        width: 334px/$character-scale-small;
+        height: 743px/$character-scale-small;
+        background-position: 0 0;
+        z-index: 6;
+        @include vendor-prefix(transform-origin, 50% 0%); 
+        
+    } 
+       
+    &.nobu {
+        bottom: -300px/$character-scale-small;
+        left: 20px/$character-scale-small;
+        width: 440px/$character-scale-small;
+        height: 608px/$character-scale-small;
+        background-position: -334px/$character-scale-small 0;
+        z-index: 9;          
+    } 
+            
+    &.han {
+        bottom: -300px/$character-scale-small;
+        right: 20px/$character-scale-small;
+        width: 276px/$character-scale-small;
+        height: 768px/$character-scale-small;
+        background-position: -774px/$character-scale-small 0;
+        z-index: 10;   
+    }    
+          
+    &.katsuro {
+        top: -100px/$character-scale-small;
+        right: 30px/$character-scale-small;
+        width: 764px/$character-scale-small;
+        height: 702px/$character-scale-small;
+        background-position: -1050px/$character-scale-small 0;
+        z-index: 7;
+    }
+}
+
+#streak {
+    background: url(#{$asset-path}/streaks-shorter.png) center left repeat;
+    background-size: 13592px 512px; 
+    height: 700px;
+    z-index: 2;
+    opacity: 0.15;
+}
+
+#header h1 {
+    width: 700px/$character-scale-small;
+    height: auto;
+    z-index: 11;
+    position: absolute;
+    left: 50%;
+    top: 0;
+    margin-top: 100px/$character-scale-small;
+    margin-left: -350px/$character-scale-small;
+}
+
+
+@media #{$small-only} {
+
+  #header {
+    h1 {
+      width: 80%;
+      margin-left: -40%;
+      margin-top: 33px;
+    }
+  }  
+
+}
+
+@media #{$small-medium} {
+
+  #header {
+    h1 {
+      width: 60%;
+      margin-left: -30%;
+      margin-top: 10px;
+    }
+  }  
+
+}  
+
+
+@media #{$medium-up} {
+        
+    .character {
+        background: url(#{$asset-path}/characters.png) no-repeat 0 0;
+        background-size: 1818px/$character-scale-med 767px/$character-scale-med;
+        
+        .modal {
+            position: absolute;
+            bottom: 50%;
+            left: 20px;
+            background: #742c14 url(//wac.76ff.edgecastcdn.net/0076FF/hbwebmedia/fn/v3/images/wood-texture.png) top center;
+            color: #fff;
+            font-size: 16px;
+            width: 330px;
+            z-index: 1000;
+            border-radius: 6px;
+            padding: $base-padding/2;
+            line-height: 1.4;
+            box-shadow: 1px 1px 5px rgba(0,0,0,0.5);
+            opacity: 0;
+            display: block;
+            @include vendor-prefix(transform, rotate(-10deg));
+            @include vendor-prefix(transition, all 0.2s);
+                   
+            h3 {
+                font-size: 40px;
+                line-height: 1.2;
+                margin: 0;
+                text-transform: uppercase;
+                
+                a {
+                    text-decoration: none;
+                }
+                
+                img {
+                    height: 30px;
+                    width: auto;
+                }
+            }
+            
+            a { color: #fff; }            
+ 
+        }
+        
+        &.mari {
+            top: -200px/$character-scale-med;
+            left: 20px/$character-scale-med;
+            width: 334px/$character-scale-med;
+            height: 743px/$character-scale-med;
+            background-position: 0 0;
+          
+            &:hover, &:focus {
+                z-index: 8;
+            }                 
+            
+            .modal {
+                bottom: 20%;
+                right: -320px;
+                left: auto;
+            }            
+        } 
+           
+        &.nobu {
+            bottom: -300px/$character-scale-med;
+            left: 20px/$character-scale-med;
+            width: 440px/$character-scale-med;
+            height: 608px/$character-scale-med;
+            background-position: -334px/$character-scale-med 0;
+        
+            .modal {
+                bottom: 85%;
+                right: -220px;
+                left: auto;
+            }              
+        } 
+                
+        &.han {
+            bottom: -300px/$character-scale-med;
+            right: 20px/$character-scale-med;
+            width: 276px/$character-scale-med;
+            height: 768px/$character-scale-med;
+            background-position: -774px/$character-scale-med 0;
+            
+            .modal {
+                bottom: 65%;
+                left: -280px;
+            }                 
+        }    
+              
+        &.katsuro {
+            top: -100px/$character-scale-med;
+            right: 30px/$character-scale-med;
+            width: 764px/$character-scale-med;
+            height: 702px/$character-scale-med;
+            background-position: -1050px/$character-scale-med 0;
+        
+            &:hover, &:focus {
+                z-index: 8;
+            }            
+        }
+        
+        &:hover, &:focus {
+            .modal {
+                opacity: 1;
+                @include vendor-prefix(transform, rotate(0deg));
+            }
+        }   
+    }
+        
+    #header h1 {
+        width: 700px/$character-scale-med;
+        margin-top: 50px/$character-scale-med;
+        margin-left: -350px/$character-scale-med;
+        z-index: 8;
+    }
+
+    
+}
+
+@media #{$large-up} {
+      
+        
+    .character {
+        background-size: 1818px 767px;
+        
+        .modal { 
+            font-size: 18px;
+            line-height: 1.4;
+            padding: $base-padding/2;
+        }
+        
+        &.mari {
+            top: -200px;
+            left: 20px;
+            width: 334px;
+            height: 743px;
+            background-position: 0 0;
+            
+            .modal { right: -200px; }            
+        } 
+           
+        &.nobu {
+            bottom: -300px;
+            left: 20px;
+            width: 440px;
+            height: 608px;
+            background-position: -334px 0;
+        
+            .modal { right: -180px; }              
+        } 
+                
+        &.han {
+            bottom: -300px;
+            right: 20px;
+            width: 276px;
+            height: 768px;
+            background-position: -774px 0;           
+        }    
+              
+        &.katsuro {
+            top: -100px;
+            right: 30px;
+            width: 764px;
+            height: 702px;
+            background-position: -1050px 0;
+        }
+    }    
+   
+    #header h1 {
+        width: 600px;
+        margin-top: 65px;
+        margin-left: -350px;
+    }   
+    
+}
+
+
+@media #{$xlarge-up} {
+    
+    #header h1 {
+        width: 800px;
+        margin-left: -400px;
+        img { padding: 0; }
+    }
+    
+    .character {
+              
+        &.mari { left: 150px; }         
+        &.nobu { left: 150px; }              
+        &.han { right: 150px; }          
+        &.katsuro { right: 160px; }        
+        
+    }
+    
+}

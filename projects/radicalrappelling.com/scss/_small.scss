@@ -1,0 +1,41 @@
+$resize-ridge: 1.5;
+
+/* Mobile media queries  ---------------------- */
+@media #{$small-only} {
+	
+	#ridge {
+    background-position: 0 30px;
+    background-size: 392px/$resize-ridge 5000px/$resize-ridge;
+	}	
+  
+  #race {
+    width: 100%;
+    margin: 0;
+  }
+  
+  h2 {
+    padding: 0 2%;
+  }
+	
+}  
+
+/* iPhone landscape */
+@media only screen 
+and (min-device-width : 320px) 
+and (max-device-width : 667px) 
+and (orientation : landscape) { 
+  .rapper {
+    max-width: 70%;
+    margin: 0 auto;
+  }
+  
+  #ridge {
+    background-position: 0 0;
+    background-size: 392px/$resize-ridge 5000px/$resize-ridge;
+  } 
+  
+  #bottom-bar {
+    display: none;
+  }
+
+}

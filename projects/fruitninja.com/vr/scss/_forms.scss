@@ -1,0 +1,84 @@
+
+/* --------- Forms ---------- */
+
+form {
+  background: rgba(255,255,255,0.2);
+  background: #fdfbe2 url(#{$asset-path}/fruit-symbols-brown.png);
+  background-size: 100% auto;
+  padding: 12px;
+  margin: 0 auto;
+  margin-top: 24px;
+  margin-bottom: 24px;
+  color: #2d1b13;
+  box-shadow: 2px 2px 5px rgba(0,0,0,0.3);
+
+}
+
+  form h2, 
+  form p {
+    text-shadow: none;
+  }
+
+  form h2 {
+    color: #ea1b1b;
+  }
+
+  form p {
+    font-size: 14px;
+  }
+
+  form br {
+    display: none;
+  }
+
+  form strong {
+    color: #000;
+
+  }
+
+input, button {
+  padding: 10px;
+  font-size: 16px;
+  font-family: 'bronicregular', sans-serif;
+  border: none;
+  border: 5px solid #fec434;
+  box-shadow: none;
+  outline: none !important;
+  -webkit-tap-highlight-color: rgba(0,0,0,0); 
+}
+
+input {
+  width: 64%;
+  border-radius: 10px 0 0 10px;
+  border-right: 0;
+  background: #f9f9f9;
+}
+
+input:focus, input:active {
+  background: #fff;
+}
+
+button {
+  width: 36%;
+  white-space: nowrap;
+  cursor: pointer;
+  font-family: 'bronicregular', sans-serif;
+  text-transform: uppercase;
+  color: #1d2a08;
+  border-radius: 0 10px 10px 0;
+  margin-left: -6px;
+  border-left: none;
+  color: #fff;
+  background: #d11818;
+  background: -moz-linear-gradient(top,  #fb1d1d 0%, #d11818 100%);
+  background: -webkit-linear-gradient(top,  #fb1d1d 0%,#d11818 100%);
+  background: linear-gradient(to bottom,  #fb1d1d 0%,#d11818 100%);
+}
+
+button:focus, button:active {
+  background: #b21414;
+  background: -moz-linear-gradient(top,  #d11818 0%, #fc3737 20%, #fb1d1d 100%);
+  background: -webkit-linear-gradient(top,  #d11818 0%,#fc3737 20%,#fb1d1d 100%);
+  background: linear-gradient(to bottom,  #d11818 0%,#fc3737 20%,#fb1d1d 100%);
+}
+

@@ -1,0 +1,46 @@
+#countdown {
+    color: #fff;
+    display: inline-block;
+    font-weight: 100;
+    text-align: center;
+    font-size: 50px;
+    color: #2E4256;
+    line-height: 1;
+    margin-top: -10px;
+    margin-bottom: $base-padding;
+    
+    > div{
+      padding: 6px;
+      background: $color-yellow;
+      background: #D8ECFF;
+      display: inline-block;
+      
+      > span{
+        padding: 3px 12px;
+        border-radius: 3px;
+        background: #FFF8E4;
+        background: #739DC6;
+        display: inline-block;
+        color: #fff;
+      }
+      
+      .smalltext {
+          padding-top: 5px;
+          font-size: 16px;
+      }
+
+    }
+}
+
+
+@media screen and (min-width: 768px) {    
+  #countdown {
+    font-size: 34px;
+  }
+}
+
+@media screen and (min-width: 1000px) {    
+  #countdown {
+    font-size: 50px;
+  }
+}

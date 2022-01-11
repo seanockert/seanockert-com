@@ -1,0 +1,157 @@
+
+/* Tablet and up media queries  ---------------------- */
+@media #{$medium-up} {
+
+  .hidden-large { display: none !important; }
+  .hidden-small { display: inline-block !important; }
+
+  h2 {
+    font-size: $font-size-xxlarge;
+  }
+
+  .header-nav {
+    background: #7B3016 url(#{$asset-path}/nav-bg.png) no-repeat center left;
+    box-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+    background-size: 378px 69px;
+    padding: 6px $base-padding/2;
+    
+    li {    
+      a {
+        font-size: 26px;
+        line-height: 1.45;
+        padding: $base-padding/2.5;
+        padding-bottom: $base-padding/2;    
+        
+        &.social {
+          height: 50px;
+          width: 50px; 
+        }
+        
+        b {
+          border-radius: 6px;
+          font-size: 11px;
+          padding: 3px 4px;
+        }   
+      }
+    }
+
+  } 
+  
+  .header {
+    
+    .logo { background: url(#{$asset-path}/header-logo-cake.png) no-repeat 50% 50%; }        
+    
+    .streamers { background: url(#{$asset-path}/header-streamers.png) no-repeat 50% 50%; }     
+          
+    .fruit { background: url(#{$asset-path}/header-fruit-glow.png) no-repeat 50% 50%; }
+    
+    .logo, .streamers, .fruit {
+      background-size: 100% auto;
+    }
+      
+    #hb-logo {
+      top: 16px;
+      left: 10px;
+      width: 96px; 
+    }
+    
+    #back-link {
+      top: 12px;    
+      img { width: 124px; }  
+    }
+        
+    .merch {
+      bottom: -10px;
+      left: 25px;  
+      width: 200px;
+    }  
+  
+  }
+  
+  .content-section {
+    padding: $base-padding*4 0;
+  }
+  
+  #games {
+    &:before { margin-bottom: $base-padding; }  
+    &:after { margin-top: $base-padding; }  
+    
+    a {
+      span {
+        font-size: 14px;
+        line-height: 1.1;
+        margin-top: -4px;
+      }
+    }
+    ul {
+      text-align: center;
+      
+      li {
+        display: inline-block;
+        float: none;
+        width: 18%;
+        vertical-align: top;
+      }
+    }
+  }
+  
+  #documentary {
+    padding: $base-padding*4 0;   
+  }
+  
+  #history {
+    .arrow-down, 
+    .arrow-down-inner {
+      width: 100px;
+      height: 86px;
+      background-size: 100px 172px;
+    }
+    
+    .arrow-down {
+      left: 50%;
+      margin-left: -50px; 
+    }
+  }
+  
+  #you {
+    .inner {
+      background: url(#{$asset-path}/footer-characters.png) no-repeat bottom center;
+      
+    }
+    
+    a.hashtag {
+      font-size: 4em;
+      padding: $base-padding/2 $base-padding;
+    }
+    
+    .row {
+      padding-bottom: $base-padding*4;
+    }
+  }
+  
+  .row.you-social { 
+    a {
+      min-height: 140px;
+      font-size: $font-size-base;
+      font-weight: bold;
+      line-height: 1.2;
+      
+      img { height: 80px; }
+    } 
+
+  }
+  
+  #games, #documentary, #you {
+    p {
+      font-size: 20px;
+      line-height: 1.4;
+    }
+  }
+  
+  #documentary {
+    .flex-video {
+      box-shadow: 0 0 40px rgba(255,240,200,0.3);
+    }
+  }
+
+}	

@@ -1,0 +1,188 @@
+
+/* Button Animations */
+
+@include keyframes(bounce)
+{
+    0% { @include transform(scale(1,1)); }
+    50% { @include transform(scale(1.05,0.95)); }
+    100% { @include transform(scale(1,1)); }
+} 
+
+@include keyframes(press)
+{
+    0% { @include transform(scale(1,1)); }
+    50% { @include transform(scale(0.85,0.9)); }
+    100% { @include transform(scale(0.95,0.95)); }
+} 
+
+@include keyframes(slide-in)
+{
+    0% { opacity: 0; @include transform(translate3d(80px, 0, 0)); }
+    90% { opacity: 1; @include transform(translate3d(-5px, 0, 0)); }
+    100% { opacity: 1; @include transform(translate3d(0, 0, 0)); }
+}
+
+@include keyframes(slide-up)
+{
+    0% { opacity: 0; @include transform(translate3d(0, 40px, 0)); }
+    100% { opacity: 1; @include transform(translate3d(0, 0, 0)); }
+}
+
+@include keyframes(pop-in)
+{
+  0%    { opacity: 0; @include transform(translate3d(-130px, 0, 0) scale(0.8)); }
+  50%   { opacity: 1; @include transform(scale(1.08)); }
+  75%   { opacity: 1; @include transform(translate3d(0, 0, 0) scale(0.93)); }
+  100%  { opacity: 1; @include transform(scale(1)); }
+} 
+
+@include keyframes(bounce-in)
+{
+    0% { opacity: 1; @include transform(scale(0,0)); }
+    20% { opacity: 1; @include transform(scale(0,0)); }
+    70% { opacity: 1; @include transform(scale(1.1,0.9)); }
+    100% { opacity: 1; @include transform(scale(1,1)); }
+}  
+
+
+
+@include keyframes(anim-dan) { 100% { background-position: -256px 0; } } 
+@include keyframes(anim-ninja) { 100% { background-position: -256px -64px; } } 
+@include keyframes(anim-king) { 100% { background-position: -256px -128px; } } 
+@include keyframes(anim-geezer1) { 100% { background-position: -256px -192px; } } 
+@include keyframes(anim-geezer2) { 100% { background-position: -256px -256px; } } 
+@include keyframes(anim-lawyer) { 100% { background-position: -128px -320px; } } 
+@include keyframes(anim-josie) { 100% { background-position: -320px -384px; } } 
+@include keyframes(anim-guard) { 100% { background-position: -256px -448px; } } 
+
+@include keyframes(fire) { 100% { background-position: -288px; } } 
+@include keyframes(run-together) { 100% { background-position: -296px; } } 
+
+.arrow-left:hover, 
+.arrow-right:hover, 
+.button:hover, 
+.social:hover, 
+.badge img:hover, 
+#video li a:hover {
+    @include animation(bounce 0.2s ease-in-out);    
+}
+    
+.arrow-right:active, 
+.arrow-left:active, 
+.button:active, 
+.social:active, 
+.badge img:active, 
+#video li a:active {
+    @include animation(press 0.2s ease-in-out); 
+}
+
+.dan-walk, 
+.king-walk, 
+.ninja-run, 
+.guard-run, 
+.lawyer-talk, 
+.geezer-root, 
+.geezer-root2, 
+.josie-look,
+.guard-run {
+  height: 64px;
+  width: 64px; 
+  display: inline-block;
+  margin-bottom: -3px;
+  background-repeat: no-repeat;
+  background-position: 0 0;   
+}
+
+.dan-walk,
+.king-walk,
+.ninja-run,
+.geezer-root,
+.geezer-root2,
+.lawyer-talk,
+.josie-look,
+.guard-run {
+  background-image: url(../images/animations.png);  
+}
+
+.dan-walk { 
+  background-position: 0 0;
+  @include vendor-prefix(animation, anim-dan .8s steps(4) infinite); 
+} 
+
+.king-walk {
+  background-position: 0 -128px;
+  @include vendor-prefix(animation,anim-king .8s steps(4) infinite);   
+}
+
+.ninja-run {
+  background-position: 0 -64px;
+  @include vendor-prefix(animation,anim-ninja .8s steps(4) infinite); 
+}
+
+.geezer-root {
+  background-position: 0 -192px;
+  @include vendor-prefix(animation,anim-geezer1 .8s steps(4) infinite);   
+}
+
+.geezer-root2 {
+  background-position: 0 -256px;
+  @include vendor-prefix(animation,anim-geezer2 .8s steps(4) infinite);   
+  margin-left: -34px;
+}
+
+.lawyer-talk {
+  background-position: 0 -320px;
+  @include vendor-prefix(animation, anim-lawyer .4s steps(2) infinite); 
+  margin: 0 auto;
+  display: block;
+  margin-top: -16px;
+}
+ 
+.josie-look {
+  background-position: 0 -384px;
+  @include vendor-prefix(animation, anim-josie 1s steps(5) infinite); 
+}  
+
+.guard-run {
+  background-position: 0 -448px;
+  height: 68px;
+  margin-bottom: -7px;
+  @include vendor-prefix(animation, anim-guard .8s steps(4) infinite);
+} 
+
+.dan-fire {
+  background: url(../images/dan-fire.png) no-repeat 0 0;
+  height: 72px;
+  width: 72px;
+  @include vendor-prefix(animation, fire .8s steps(4) infinite); 
+  margin: 0 auto;
+  margin-top: -22px;
+  margin-bottom: -3px;
+} 
+
+.run-together {
+  background: url(../images/run-together.png) no-repeat 0 0;
+  height: 74px;
+  width: 74px;
+  @include vendor-prefix(animation, run-together .8s steps(4) infinite); 
+  display: inline-block;
+  margin-bottom: -3px;
+} 
+
+
+#logo,  
+#header p {
+  @include vendor-prefix(transform, scale(0,0));
+}
+
+
+.canAnim #logo {
+  opacity: 1;  
+  @include animation(bounce-in 0.5s cubic-bezier(0.5, -0.5, 0.5, 1.5) forwards); 
+}
+
+.canAnim #header p {
+  opacity: 1;  
+  @include animation(slide-up 0.3s 0.3s cubic-bezier(0.5, -0.5, 0.5, 1.5) forwards); 
+}
+

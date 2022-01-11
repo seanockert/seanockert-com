@@ -1,0 +1,220 @@
+/* Slider */
+
+.slick-slider {
+    position: relative;
+    display: block;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    -ms-touch-action: pan-y;
+    touch-action: pan-y;
+    -webkit-tap-highlight-color: transparent;
+    cursor: -webkit-grab; cursor: -moz-grab;
+    
+    &:focus, &:active {
+        cursor: -webkit-grabbing; cursor: -moz-grabbing;
+    }
+    
+    .flex-video {
+        box-shadow: 0 0 4px rgba(0,0,0,0.4);
+        background: #000;
+        line-height: 0;
+        margin-bottom: -1px;
+    }
+    
+    h3 {
+        font-size: $font-size-medium;
+        margin-top: $base-padding/2;
+    }
+}
+
+.slick-list {
+    position: relative;
+    overflow: hidden;
+    display: block;
+    margin: 0;
+    padding: 0;
+
+    &:focus {
+        outline: none;
+    }
+
+    &.dragging {
+        cursor: pointer;
+        cursor: hand;
+        cursor: -webkit-grabbing; cursor: -moz-grabbing;
+    }
+}
+.slick-slider .slick-track,
+.slick-slider .slick-list {
+    -webkit-transform: translate3d(0, 0, 0);
+    -moz-transform: translate3d(0, 0, 0);
+    -ms-transform: translate3d(0, 0, 0);
+    -o-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+}
+
+.slick-track {
+    position: relative;
+    left: 0;
+    top: 0;
+    display: block;
+
+    &:before,
+    &:after {
+        content: "";
+        display: table;
+    }
+
+    &:after {
+        clear: both;
+    }
+
+    .slick-loading & {
+        visibility: hidden;
+    }
+}
+.slick-slide {
+    float: left;
+    height: 100%;
+    min-height: 1px;
+    [dir="rtl"] & {
+        float: right;
+    }
+    img {
+        display: block;
+    }
+    &.slick-loading img {
+        display: none;
+    }
+
+    display: none;
+
+    &.dragging img {
+        pointer-events: none;
+    }
+
+    .slick-initialized & {
+        display: block;
+    }
+
+    .slick-loading & {
+        visibility: hidden;
+    }
+
+    .slick-vertical & {
+        display: block;
+        height: auto;
+        border: 1px solid transparent;
+    }
+}
+.slick-arrow.slick-hidden {
+    display: none;
+}
+
+
+.slick-slide {
+    @include vendor-prefix(transition, all 0.2s ease-out);
+    @include vendor-prefix(transform, scale(0.8,0.8));
+    /*padding: $base-padding*2 0;
+    padding-bottom: $base-padding;*/
+    outline: none !important;
+    
+    &.slick-center {
+       @include vendor-prefix(transform, scale(1,1)); 
+       img {
+        /*box-shadow: 1px 1px 3px rgba(0,0,0,0.5);*/
+       }
+    }
+}
+
+.slick {
+    div {
+        position: relative;
+    }
+}
+
+.content-events .slick {
+    .slick-slide {
+        padding-bottom: 0;
+    }
+}
+
+
+.slick-arrow {
+    position: absolute;
+    height: 100%;
+    width: 20%;
+    top: 0;
+    background: transparent;
+    color: transparent;
+    border: none;
+    z-index: 999;
+    outline: none !important;
+    
+    &.slick-prev {
+       left: 0; 
+    }
+        
+    &.slick-next {
+       right: 0; 
+    }
+}
+
+.slick-arrow.slick-prev {
+    background: url(#{$asset-path}/arrow-left.png) no-repeat 0 54%;
+    left: -14px;
+}
+
+.slick-arrow.slick-next {
+    background: url(#{$asset-path}/arrow-right.png) no-repeat 100% 54%;
+    right: -14px;
+}
+
+.slick-arrow.slick-prev, 
+.slick-arrow.slick-next {
+    background-size: 11px 20px;
+    opacity: 0.4; 
+}
+
+.slick-arrow {
+    -webkit-transition: opacity 0.1s ease-out; 
+    transition: opacity 0.1s ease-out; 
+    
+    &:hover { opacity: 0.7; }
+    &:active { opacity: 1; }
+}
+
+
+@media #{$large-up} {
+    .slick-arrow.slick-prev { left: -50px; background-position: 0 50%; }
+    .slick-arrow.slick-next { right: -50px; background-position: 100% 50%; }  
+    
+    .slick-arrow.slick-prev, 
+    .slick-arrow.slick-next {
+        background-size: 22px 40px;
+    }
+      
+}
+
+@media #{$small-only} {
+    
+    .slick-arrow.slick-prev, .slick-arrow.slick-next {
+        background: none;
+    }
+    
+    .slick-slide {
+        padding-bottom: $base-padding;
+        @include vendor-prefix(transform, scale(0.9,0.9));
+        
+        &.slick-center {
+           @include vendor-prefix(transform, scale(1,1)); 
+        }
+    }
+
+}  

@@ -1,0 +1,51 @@
+
+@media #{$large-up} {
+
+  #logo img, 
+  #logo-noscript img {
+
+  }
+
+  #content {
+    
+    h3 {
+      font-size: $font-size-xxlarge;
+      line-height: 1;
+      
+      img {
+        height: 38px;
+      }
+    }
+    
+    p, li {
+      font-size: $font-size-med;
+      line-height: 1.2;
+    }
+    
+    .padding-top {
+      padding-top: $base-padding;
+    }
+  }
+  
+  #screenshots {
+    h3 {
+      font-size: $font-size-med;
+      margin: $base-padding/2;
+    }
+  }
+  
+  #download {
+    h3 {
+      font-size: $font-size-xlarge;
+    } 
+  }
+
+
+}		
+
+@media #{$xlarge-up} {
+  #logo img, 
+  #logo-noscript img {
+    width: 500px;
+  }
+}

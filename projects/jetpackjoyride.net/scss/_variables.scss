@@ -1,0 +1,65 @@
+/* Colours ---------------------- */
+
+$color-off-white: #f2f2f2;
+$color-off-black: #111;
+$color-mid-grey: #404040;
+$color-light-grey: #666;
+$color-mute: #777;
+$color-grey-highlight: #F0F0F0;
+
+$color-blue: #5A95C6;
+$color-dark-blue: #1F2947;
+$color-purple: #4C4774;
+$color-purple: #363256;
+$color-yellow: #FEAD46;
+$color-red: #F2483E;
+
+$social-facebook-blue: #3b5997;
+$social-twitter-blue: #32ccfe;
+$social-googleplus-red: #f23c26;
+$social-pinterest-red: #CC2229;
+
+
+/* Fonts  ---------------------- */
+
+@font-face {
+    font-family: 'jetpackia';
+    src: url('../fonts/jetpackia3-webfont.eot');
+    src: url('../fonts/jetpackia3-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/jetpackia3-webfont.woff') format('woff'),
+         url('../fonts/jetpackia3-webfont.ttf') format('truetype'),
+         url('../fonts/jetpackia3-webfont.svg#molotregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+$typeface-primary: 'Open Sans', sans-serif;
+$typeface-header: 'jetpackia', 'Open Sans', sans-serif;
+
+$font-size-base: 1em !default;
+$font-size-small: 0.875em;
+$font-size-medium: 1.25em;
+$font-size-large: 2em;
+$font-size-xlarge: 2.8em;
+$font-size-xxlarge: 3.625em;
+
+$normal: 400;
+$strong: 700;
+
+
+//$asset-path: '../images';
+$asset-path: '//assets.halfbrick.com/jj/v2/images';
+
+
+/* Mixins ---------------------- */
+
+.no-list { @include blank-list; }
+
+.inline-list {
+  @include blank-list;
+
+  li {
+    display: inline-block;
+  }
+}
+

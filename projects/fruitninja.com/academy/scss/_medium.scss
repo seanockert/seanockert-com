@@ -1,0 +1,118 @@
+
+/* Tablet and up media queries  ---------------------- */
+@media #{$medium-up} {
+
+  .hidden-large { display: none !important; }
+  .hidden-small { display: inline-block !important; }
+
+  h2 {
+    font-size: 38px;
+  }
+
+  h3 {
+    font-size: 24px;
+  }
+  
+  .notice {
+    font-size: 16px;
+  }
+  
+  .stickers {
+    width: 330px;
+  }
+    
+
+  .header {
+    h1 {
+      max-width: 450px;
+      height: auto;
+      margin: 0 auto;
+    }
+    
+    .header-intro {
+      font-size: $font-size-med;
+    }    
+  }
+  
+  .content {
+    p {
+      font-size: $font-size-med;
+    }
+  }
+
+    .content-section {
+      padding: $base-padding*3 0;
+    }
+    
+    
+      .content-section-modes,
+      .content-section-extra { 
+        p {
+          font-size: $font-size-base;
+        }
+
+      }    
+      
+    .content-section-modes-description {
+      font-weight: bold;
+    }
+
+  
+  
+    
+  .character {
+    position: absolute;
+    top: 170px;
+    height: 250px;
+    display: block;
+    
+    &.left {
+      left: 4px;
+    } 
+     
+    &.right {
+      right: 0;
+    }
+  }
+  
+  
+  .download-game-icon { height: 156px; }
+  
+  .download-pamphlet-button { 
+    width: 360px; 
+    font-size: $font-size-med;
+ 
+    img {
+      top: -20px;
+    }
+ 
+    &:hover, &:focus {
+      @include vendor-prefix(transform, scale(1.05, 1.05));
+      color: #fff;
+    }  
+        
+    &:active {
+      @include vendor-prefix(transform, scale(0.95, 0.95));
+    } 
+
+  }
+
+  .footer {
+    .footer-logos {
+      img {
+        height: 50px;
+      }
+    }
+  }
+  
+  .fruit {
+    width: 160px; 
+  }
+
+  .modal {
+    h3 {
+      font-size: 36px;
+    }    
+  }
+
+}	

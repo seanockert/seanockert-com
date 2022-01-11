@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Star Skater - Own the road in this new skating game from Halfbrick</title>
+  <meta name="title" content="Star Skater" /> 
+  <meta name="description" content="Don't just cross the road, own it in the new skating game from Halfbrick" /> 
+  <meta name="keywords" content="Star Sk8r, star skater, mobile, game, halfbrick, jetpack joyride, fruit ninja, skating, sk8" /> 
+  <link rel="icon" type="image/png" href="//assets.halfbrick.com/ss/images/favicon.png">
+	<link rel="stylesheet" href="css/style.css?rev=f7788aa8221d9c52396a5501e8d14592" type="text/css" />
+  <meta name="apple-itunes-app" content="app-id=1040671838">
+  
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.6.2/html5shiv.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/respond.js/1.1.0/respond.min.js"></script>
+  <![endif]--> 
+  
+  <meta content="Star Skater" property="og:title" />
+  <meta content='Skate down mountain roads and busy city streets, fearlessly dodging cars and trucks at high speed. Just try not to crash! "Super addictive Perfect for when you have a spare two minutes!" - George Andreolas' property="og:description" />
+  <meta content="http://starskatergame.com/images/share_img.jpg" property="og:image" />
+  <meta content="600" property="og:image:width" />
+  <meta content="315" property="og:image:height" />
+  <meta content="http://starskatergame.com" property="og:url" />
+  
+  <meta content="Star Skater" property="twitter:title" />
+  <meta content="Don't just cross the road, own it in Star Skater! http://starskatergame.com #StarSkater via @halfbrick" property="twitter:description" />  
+  <meta content="http://starskatergame.com/images/share_img.jpg" property="twitter:image:src" />
+  <meta content="600" property="twitter:image:width" />
+  <meta content="315" property="twitter:image:height" />  
+    
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-36155512-27', 'auto'); // StarSkater.com
+    ga('send', 'pageview');
+
+    var obLink = function(sku, store, url) {
+       ga('send', 'event', sku, store, url, {'hitCallback': function () { document.location = url; }}); setTimeout(function() {return;}, 250);
+    }  
+    
+    document.documentElement.className = 'js canAnim';
+    detectDevice();
+    
+    window.onload = function() {
+      //alert(document.documentElement.className) 
+      logo = document.getElementById("logo");
+      function shake() {
+          logo.classList.remove('logo');
+          logo.offsetWidth = logo.offsetWidth;
+          logo.classList.add('logo');      
+      }
+
+      (function loop() {
+          var rand = Math.round(Math.random() * 2000) + 2000;
+          setTimeout(function() {
+            shake();
+            loop();  
+          }, rand);
+      }());
+    };
+    
+    var device = 'pc';
+    function detectDevice() { if (/Android|iPhone|iPad|iPod|Silk|Kindle|KFTT|KFOT|BlackBerry|BB|PlayBook/i.test(navigator.userAgent)) { if ((/iPhone|iPod|iPad/).test(navigator.userAgent)) { device = 'ios'; } if ((/Android/).test(navigator.userAgent)) { device = 'android'; } if (/Silk|Kindle|KFTT|KFOT|BlackBerry|BB|PlayBook/i.test(navigator.userAgent)) { device = 'amazon'; } } document.documentElement.className += ' ' + device; }
+  </script>  
+</head>
+
+<body>
+  <div id="container">
+  <div id="clouds">
+  <div id="hill">
+    
+    <div id="header">
+      
+      <div class="row">
+        <div id="social-bar">
+          <a href="#modal-news" class="popup-modal yellow-link" title="Latest news and updates" onclick="return obLink('Star Skater', 'Opened News', '#modal-news')">News</a>
+          <a href="https://www.facebook.com/starskatergame"><img src="//assets.halfbrick.com/ss/images/social-facebook.png" alt="Facebook"></a>
+          <a href="https://twitter.com/halfbrick"><img src="//assets.halfbrick.com/ss/images/social-twitter.png" alt="Twitter"></a>
+        </div>
+        
+        <a href="http://play.halfbrick.com/?g=star-skater&pid=website" onclick="return obLink('Star Skater', 'Logo', 'http://play.halfbrick.com/?g=star-skater&pid=website')">
+        <noscript><h1 id="logo-noscript"><img src="//assets.halfbrick.com/ss/images/logo-star-sk8r.png" alt="Star Skater"></h1></noscript>
+        <h1 id="logo"><img src="//assets.halfbrick.com/ss/images/logo-star-sk8r.png" alt="Star Skater"></h1></a>
+        
+        <p><a href="https://app.appsflyer.com/id1040671838?pid=website" class="badge link-apple" onclick="return obLink('Star Skater', 'App Store', 'https://app.appsflyer.com/id1040671838?pid=website')" title="Download for iPhone and iPad"><img src="//assets.halfbrick.com/ss/images/badge-apple.png" alt="App Store"></a> <a href="http://app.appsflyer.com/com.halfbrick.crazysk8r?pid=website" class="badge link-google" onclick="return obLink('Star Skater', 'Google Play', 'http://app.appsflyer.com/com.halfbrick.crazysk8r?pid=website')" title="Download for Android"><img src="//assets.halfbrick.com/ss/images/badge-google.png" alt="Google Play"></a></p>
+
+        <div class="clear"></div>
+        
+      </div>
+    </div> <!-- End Header -->
+
+    <div id="content">
+      
+      <div class="facepile">
+        <div class="fb-like" data-href="https://www.facebook.com/starskatergame" data-share="true" data-width="300" data-show-faces="true"></div>
+      </div>
+      
+      <a href="#modal-news" class="popup-modal" title="Latest news and updates" onclick="return obLink('Star Skater', 'Opened News', '#modal-news')"><h2 id="tagline">Don't just cross the road, own it!</h2></a>
+    
+      <div id="video">
+        <div class="row">
+          <div class="columns large-10 large-centered">
+            <div class="columns large-6 medium-6 a">      
+              <a href="https://www.youtube.com/watch?v=64kNC1ikqCI" class="video video-modal tilt-left">     
+                <div class="inner flex-video">
+                  <video poster="video/trailer.png" autoplay loop>
+                      <source src="video/trailer.mp4" type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"' />
+                      <source src="videos/trailer.webm" type='video/webm; codecs="vp8, vorbis"' />
+                      <img src="video/trailer.png" title="Your browser does not support video">
+                  </video>
+                  <b><img src="//assets.halfbrick.com/ss/images/button-play.png"></b>
+                </div>
+              </a>
+              
+              <p class="video-caption"><a href="https://www.youtube.com/watch?v=OZUoxYCh6vM" class="video-modal">Watch the Trailer</a></p>
+              
+            </div>
+            <div class="columns large-6 medium-6 b" >
+              
+              <a href="https://www.youtube.com/watch?v=8bOE2PV9EAw" class="video video-modal tilt-right">
+                <div class="inner flex-video">
+                  <video poster="video/game-loop.png" autoplay loop>
+                      <source src="video/game-loop.mp4" type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"' />
+                      <source src="videos/game-loop.webm" type='video/webm; codecs="vp8, vorbis"' />
+                      <img src="video/game-loop.png" title="Your browser does not support video">
+                  </video>
+                  <b><img src="//assets.halfbrick.com/ss/images/button-play.png"></b>
+                </div>
+              </a>
+              
+              <p class="video-caption"><a href="https://everyplay.com/videos/23333830" class="video-everyplay">See the Game in Action</a></p>
+              
+            </div>
+          </div>
+        </div>
+      </div> <!-- End Video -->
+      
+      <div id="screenshots">
+        <div class="row">
+          <h3>Screenshots</h3>
+          <div class="columns large-10 large-centered">
+            <div class="columns large-4 medium-4 small-6">
+              <a href="//assets.halfbrick.com/ss/images/screenshots/1.jpg" class="image-modal"><img src="//assets.halfbrick.com/ss/images/screenshots/thumbs/1.jpg"></a>
+            </div>
+            <div class="columns large-4 medium-4 small-6">
+              <a href="//assets.halfbrick.com/ss/images/screenshots/2.jpg" class="image-modal"><img src="//assets.halfbrick.com/ss/images/screenshots/thumbs/2.jpg"></a>
+            </div>
+            <div class="columns large-4 medium-4 small-6">
+              <a href="//assets.halfbrick.com/ss/images/screenshots/3b.jpg" class="image-modal"><img src="//assets.halfbrick.com/ss/images/screenshots/thumbs/3b.jpg"></a>
+            </div>            
+            <div class="columns large-4 medium-4 small-6 hidden-large">
+              <a href="//assets.halfbrick.com/ss/images/screenshots/4.jpg" class="image-modal"><img src="//assets.halfbrick.com/ss/images/screenshots/thumbs/4.jpg"></a>
+            </div>
+          </div>
+        </div>
+      </div> <!-- End Screenshots -->
+      
+      <div id="reviews">
+        <div class="row">
+          <div class="columns large-11 large-centered medium-10 medium-centered">
+            <div class="container">
+              <div id="slider" class="swipe">      
+                <div class="swipe-wrap clearfix">
+                  
+                  <div id="slide_0" data-slide="0">
+                    <span class="stars"><img src="//assets.halfbrick.com/ss/images/star.png"><img src="//assets.halfbrick.com/ss/images/star.png"><img src="//assets.halfbrick.com/ss/images/star.png"><img src="//assets.halfbrick.com/ss/images/star.png"><img src="//assets.halfbrick.com/ss/images/star.png"></span>
+                    <blockquote>"Super addictive Perfect for when you have a spare two minutes!"</blockquote>
+                    <author>George Andreolas</author>
+                  </div>  
+                        
+                  <div id="slide_1" data-slide="1">
+                    <span class="stars"><img src="//assets.halfbrick.com/ss/images/star.png"><img src="//assets.halfbrick.com/ss/images/star.png"><img src="//assets.halfbrick.com/ss/images/star.png"><img src="//assets.halfbrick.com/ss/images/star.png"><img src="//assets.halfbrick.com/ss/images/star.png"></span>
+                    <blockquote>"This game is the definition of fun and awesome like I love this game."</blockquote>
+                    <author>Brady Austin</author>
+                  </div>  
+                         
+                  <div id="slide_2" data-slide="2">
+                    <span class="stars"><img src="//assets.halfbrick.com/ss/images/star.png"><img src="//assets.halfbrick.com/ss/images/star.png"><img src="//assets.halfbrick.com/ss/images/star.png"><img src="//assets.halfbrick.com/ss/images/star.png"><img src="//assets.halfbrick.com/ss/images/star.png"><img src="//assets.halfbrick.com/ss/images/star.png"><img src="//assets.halfbrick.com/ss/images/star.png"><img src="//assets.halfbrick.com/ss/images/star.png"><img src="//assets.halfbrick.com/ss/images/star.png"><img src="//assets.halfbrick.com/ss/images/star.png"><img src="//assets.halfbrick.com/ss/images/star.png"></span>
+                    <blockquote>"On a scale of 1 to 10 it's not a 10 <span>it's an 11!"</span></blockquote>
+                    <author>Chase Sitarski</author>
+                  </div>                  
+                </div>
+              </div>
+              <div class="clear"></div>
+              
+              <a href="#" class="arrow-left"><img src="//assets.halfbrick.com/ss/images/arrow-left.png"></a>
+              <a href="#" class="arrow-right"><img src="//assets.halfbrick.com/ss/images/arrow-right.png"></a>
+                        
+              <ul class="no-list swipe-nav">
+                <li><a href="#slide-0" data-slide="0" class="active"></a></li>
+                <li><a href="#slide-1" data-slide="1"></a></li>
+                <li><a href="#slide-2" data-slide="2"></a></li>
+              </ul>
+            </div>
+            <div class="clear"></div>
+          </div>
+        </div>
+      </div> <!-- End Reviews -->      
+      
+      <div id="features">
+        <div class="row">
+          <div class="columns large-11 large-centered medium-10 medium-centered">
+            <div class="section rotate-left">
+              <div class="columns large-5 medium-5">
+                <img src="//assets.halfbrick.com/ss/images/skateboarder.png" class="img">
+              </div>
+              <div class="columns large-7 medium-7 padding-top">
+                <h3>Crazy Downhill Skating Action</h3>
+                <p>Skate down mountain roads and busy city streets, fearlessly dodging cars and trucks at high speed. Try not to crash!</p>
+              </div>
+              <div class="clear"></div>
+            </div>            
+            
+            <div class="section rotate-right">
+              <div class="columns large-6 large-push-6 medium-push-6 medium-6" style="margin-top:-30px;">
+                <img src="//assets.halfbrick.com/ss/images/characters.png" class="img">
+              </div>
+              <div class="columns large-6 large-pull-6 medium-6 medium-pull-6 padding-top">
+                <h3>Quirky Skaters</h3>
+                <p>Unlock cool characters like Giggles the Clown, Fluffy, and Whomper, then deck them out with new boards.</p>
+                <a href="#modal-skaters" class="popup-modal yellow-link">Meet the Skaters <b></b></a>
+              </div>
+              <div class="clear"></div>
+            </div>
+           
+            <div class="section rotate-left">
+              <div class="columns large-5 medium-5">
+                <img src="//assets.halfbrick.com/ss/images/steez-rhonda.png" class="img">
+              </div>
+              <div class="columns large-7 medium-7 padding-top">
+                <h3>Do Tricks with Steez</h3>
+                <p>Gain speed and flip out. Pull off power-slides, switch-foots and jumps with style and ease...steez! Now with 3D Touch support on iPhone 6 &amp; 6S.</p>
+                <a href="http://www.levelwinner.com/star-skater-tips-tricks-guide-to-complete-more-levels/" class="yellow-link">Learn Tips and Tricks <b></b></a>
+              </div>
+              <div class="clear"></div>
+            </div>   
+                    
+            <div class="section">
+              <div id="everyplay">
+                <h3>Share your best stacks &amp; runs <!--<a href="https://everyplay.com/star-skater/videos"><img src="//assets.halfbrick.com/ss/images/icon-everyplay.png">Every<span>play</span></a>--></h3>
+                <p>Had a flawless run? A crazy near-miss? An epic fail? Share it with the world!</p>
+                <div id="everyplay-videos">
+                  <div class="columns large-4 medium-4">
+                    <a href="https://everyplay.com/videos/23355548" title="Watch this video on Everyplay" class="video-everyplay box"><div class="img-frame"><img src="https://static.everyplay.com/everyplay/videos/30961472/23476581/thumbnail.jpg">
+                    <b></b></div>
+                    <div class="inner">
+                      <h5>Star Skater Level 6</h5>
+                      <author>by MooseMouseGames</author>
+                    </div>
+                    </a>
+                  </div>              
+                  <div class="columns large-4 medium-4">
+                    <a href="https://everyplay.com/videos/23361796" title="Watch this video on Everyplay" class="video-everyplay box"><div class="img-frame"><img src="https://static.everyplay.com/everyplay/videos/30965383/23361796/thumbnail.jpg">
+                    <b></b></div>
+                    <div class="inner">
+                      <h5>Downtown Traffic!</h5>
+                      <author>by Mikzor</author>
+                    </div>
+                    </a>
+                  </div>              
+                  <div class="columns large-4 medium-4">
+                    <a href="https://everyplay.com/videos/23333883" title="Watch this video on Everyplay" class="video-everyplay box"><div class="img-frame"><img src="https://static.everyplay.com/everyplay/videos/30965399/23333883/thumbnail.jpg">
+                    <b></b></div>
+                    <div class="inner">
+                      <h5>Death of an undead!</h5>
+                      <author>by staninja_</author>
+                    </div>
+                    </a>
+                  </div>
+                </div>
+                <div class="clear"></div>
+                <a href="../wallofskate/" class="yellow-link">Watch more cool clips here <b></b></a>
+              </div>
+            </div>             
+          </div>
+        </div>
+        
+      </div> <!-- End Features -->
+      
+      <div id="download">
+        <div class="row">
+          <div class="columns large-8 large-centered medium-8 medium-centered">
+            <a href="http://play.halfbrick.com/?g=star-skater&pid=website" onclick="return obLink('Star Skater', 'Game Icon', 'http://play.halfbrick.com/?g=star-skater&pid=website')"><img src="//assets.halfbrick.com/ss/images/star-sk8r-icon.png" class="icon"></a>
+            <h3>Play Star Skater for Free!</h3>
+            <div class="clear"></div>
+            <p><a href="https://app.appsflyer.com/id1040671838?pid=website" class="badge link-apple" onclick="return obLink('Star Skater', 'App Store', 'https://app.appsflyer.com/id1040671838?pid=website')" title="Download for iPhone and iPad"><img src="//assets.halfbrick.com/ss/images/badge-apple.png" alt="App Store"></a> <a href="http://app.appsflyer.com/com.halfbrick.crazysk8r?pid=website" class="badge link-google" onclick="return obLink('Star Skater', 'Google Play', 'http://app.appsflyer.com/com.halfbrick.crazysk8r?pid=website')" title="Download for Android"><img src="//assets.halfbrick.com/ss/images/badge-google.png" alt="Google PLay"></a></p>
+          </div>
+        </div>
+      </div>  <!-- End Download -->
+      
+    </div>  <!-- End Content -->
+    
+    <div id="footer">
+      <img src="//assets.halfbrick.com/ss/images/logo-moosemouse.png">
+      <img src="//assets.halfbrick.com/ss/images/logo-halfbrick.png">
+      <p>&copy; 2016 <a href="http://halfbrick.com">Halfbrick studios</a>. All rights reserved. 
+      <br><a href="/press">Media Kit</a> | <a href="http://halfbrick.com/pp">Privacy Policy</a>  | <a href="http://halfbrick.com/tos">Terms of Use</a></p>      
+      <p><br>Need tech support? <a href="http://halfbrick.com/contact">Contact us here</a>
+    </div>  <!-- End Footer -->
+    
+  </div> <!-- End Hill -->
+  </div> <!-- End Clouds -->
+
+  <div id="modal-news" class="modal mfp-hide">
+    <h3>Sk8ing News</h3>
+    
+    <div class="news-item">
+      <small>15th Jul</small>
+      <h4>YouTube Star Skater-Off</h4>
+      <div class="columns large-5 large-push-7 medium-push-6 medium-6">
+        <img src="//assets.halfbrick.com/ss/images/trophy.png" class="img">
+      </div>
+      <div class="columns large-7 large-pull-5 medium-6 medium-pull-6">
+        <p>Your favourite YouTube Stars are competing for Star Skater glory! Pick a crew, collect trophies, and help your team achieve victory!</p>
+        <p><a href="http://play.halfbrick.com/?g=star-skater&pid=website&c=youtube-stars" onclick="return obLink('Star Skater', 'Smart Link', 'http://play.halfbrick.com/?g=star-skater&pid=website&c=youtube-stars')">Unlock them today</a>.</p> 
+      </div>
+      <div class="clear"></div>
+    </div>       
+
+    <div class="news-item">
+      <small>25th May</small>
+      <h4>Go on. Touch it</h4>
+      <div class="columns large-12 medium-12">
+        <p>This update brings 3D Touch support to Star Skater. If you own an iPhone 6 or 6S, you'll be able to turn sharper just by pressing harder. You've got no excuse for smashing into traffic now!</p>
+        <p><a href="http://play.halfbrick.com/?g=star-skater&pid=website" onclick="return obLink('Star Skater', 'Smart Link', 'http://play.halfbrick.com/?g=star-skater&pid=website')">Just push this button</a>.</p> 
+      </div>
+      <div class="clear"></div>
+    </div> 
+
+    <div class="news-item">
+      <small>16th Apr</small>
+      <h4>Get decked out</h4>
+      <div class="columns large-5 large-push-7 medium-push-6 medium-6">
+        <img src="//assets.halfbrick.com/ss/images/new-decks.png" class="img">
+      </div>
+      <div class="columns large-7 large-pull-5 medium-6 medium-pull-6">
+        <p>8 brand spaking new decks are available, including the Guitar deck, Ice-cream, Watermelon, Potion and more!</p>
+        <p><a href="http://play.halfbrick.com/?g=star-skater&pid=website" onclick="return obLink('Star Skater', 'Smart Link', 'http://play.halfbrick.com/?g=star-skater&pid=website')">Unlock them today</a>.</p> 
+      </div>
+      <div class="clear"></div>
+    </div>     
+
+    <div class="news-item">
+      <small>10th Mar</small>
+      <h4>New Characters &amp; Levels</h4>
+      <div class="columns large-5 large-push-7 medium-push-6 medium-6">
+        <img src="//assets.halfbrick.com/ss/images/angry-cat.png" class="img">
+      </div>
+      <div class="columns large-7 large-pull-5 medium-6 medium-pull-6">
+        <p>5 more crazy characters have joined the game including Captain Mary Bloodbeard the Pirate, a rhino named Dozer, and a Zombie T-Rex!</p>
+        <p>There's also 10 new levels with even more jumps to get insane air. <a href="http://play.halfbrick.com/?g=star-skater&pid=website" onclick="return obLink('Star Skater', 'Smart Link', 'http://play.halfbrick.com/?g=star-skater&pid=website')">Shred them now</a>.</p> 
+      </div>
+      <div class="clear"></div>
+    </div>   
+     
+    <div class="news-item">
+      <small>4th Feb</small>
+      <h4>Happy Chinese New Year!</h4>
+      <div class="columns large-5 large-push-7 medium-push-6 medium-6">
+        <img src="//assets.halfbrick.com/ss/images/monkey.png" class="img">
+      </div>
+      <div class="columns large-7 large-pull-5 medium-6 medium-pull-6">
+        <p>Gain health and happiness this year with a special bundle that includes Baby Sun the monkey, a valuable Money Deck, and some lucky Magic Burritos.</p>
+        <p>Gong Xi Fa Cai!</p> 
+      </div>
+      <div class="clear"></div>
+    </div>    
+      
+    <div class="news-item">
+      <small>9th Jan</small>
+      <h4>9 Brand New Characters</h4>
+      <div class="columns large-5 large-push-7 medium-push-6 medium-6">
+        <img src="//assets.halfbrick.com/ss/images/football.png" class="img">
+      </div>
+      <div class="columns large-7 large-pull-5 medium-6 medium-pull-6">
+        <p>Make way with 9 more weird and wonderful characters to collect including a Football Star, Pop Diva and a man so awesome he can sk8 to infinity…. Twice!</p> 
+        <p><a href="http://play.halfbrick.com/?g=star-skater&pid=website" onclick="return obLink('Star Skater', 'Smart Link', 'http://play.halfbrick.com/?g=star-skater&pid=website')">Unlock them all!</a></p> 
+      </div>
+      <div class="clear"></div>
+    </div>    
+        
+    <div class="news-item">
+      <small>17th Dec</small>
+      <h4>10 Cool Sk8rs</h4>
+      <div class="columns large-5 large-push-7 medium-push-6 medium-6">
+        <img src="//assets.halfbrick.com/ss/images/punk-2.png" class="img">
+      </div>
+      <div class="columns large-7 large-pull-5 medium-6 medium-pull-6">
+        <p>Downhill skating sure is popular. Punks, astronauts, robots and even Santa have come to see what all the fuss is about.</p> 
+        <p><a href="http://play.halfbrick.com/?g=star-skater&pid=website" onclick="return obLink('Star Skater', 'Smart Link', 'http://play.halfbrick.com/?g=star-skater&pid=website')">Unlock them all!</a></p> 
+      </div>
+      <div class="clear"></div>
+    </div>    
+    
+    <div class="news-item">
+      <small>17th Dec</small>
+      <h4>Strap on your helmet, Star Skater is out now.</h4>
+      <div class="columns large-5 large-push-7 medium-push-6 medium-6">
+        <img src="//assets.halfbrick.com/ss/images/star-sk8r-icon.png" class="img">
+      </div>
+      <div class="columns large-7 large-pull-5 medium-6 medium-pull-6">
+        <p>Star Skater is now available for free on <a href="http://app.appsflyer.com/com.halfbrick.crazysk8r?pid=website" onclick="return obLink('Star Skater', 'Google Play', 'http://app.appsflyer.com/com.halfbrick.crazysk8r?pid=website')" title="Download for Android">Android</a> and <a href="https://app.appsflyer.com/id1040671838?pid=website" onclick="return obLink('Star Skater', 'App Store', 'https://app.appsflyer.com/id1040671838?pid=website')" title="Download for iPhone and iPad">iPad/iPhone</a>.</p> 
+        <p>Thank you to everyone who took part in the soft launch, and to all our new fans: welcome! We've added lots of new content and are already working on some cool features for the next update. Stay tuned and keep skating!</p>
+      </div>
+      <div class="clear"></div>
+    </div>
+
+    <p class="text-center"><a href="https://www.facebook.com/sharer/sharer.php?u=http://starskatergame.com" class="social facebook" target="_blank"><span>Share <b class="hidden-small">on Facebook</b></span></a>
+    <a href="https://twitter.com/intent/tweet?hashtags=StarSkater&via=halfbrick&text=Don't%20just%20cross%20the%20road,%20own%20it%20in%20Star%20Skater!%20http://starskatergame.com" class="social twitter" target="_blank"><span><b class="hidden-small">Share on Twitter</b> <b class="hidden-large">Tweet</b></span></a>
+    </p> 
+      
+    <div class="clear"></div>
+  </div> <!-- End News -->  
+
+  <div id="modal-skaters" class="modal mfp-hide">
+    <h3>Quirky Skaters</h3>
+    
+    <div class="columns large-6 large-push-6 medium-push-6 medium-6 ">
+      <img src="//assets.halfbrick.com/ss/images/fluffy.png" class="img">
+    </div>
+    <div class="columns large-6 large-pull-6 medium-6 medium-pull-6 padding-top">
+      <h4>Fluffy</h4>
+      <p>Once rail-grinded the entire Great Wall of China. True story!</p>
+    </div> 
+    <div class="clear"></div>
+ 
+    <div class="columns large-6 medium-6">
+      <img src="//assets.halfbrick.com/ss/images/whomper.png" class="img">
+    </div>  
+    <div class="columns large-6 medium-6 padding-top">
+      <h4>Whomper</h4>
+      <p>Tarzan can't skate half as good as this ollie-popping primate!</p>
+    </div>      
+    <div class="clear"></div>
+    
+    <div class="columns large-6 large-push-6 medium-push-6 medium-6">
+      <img src="//assets.halfbrick.com/ss/images/giggles.png" class="img">
+    </div>
+    <div class="columns large-6 large-pull-6 medium-6 medium-pull-6 padding-top">
+      <h4>Giggles</h4>
+      <p>Unable to pass his clown car license, Giggles must skate to birthday parties.</p>
+    </div>     
+    <div class="clear"></div>
+    
+    <div class="columns large-6 medium-6">
+     
+      <img src="//assets.halfbrick.com/ss/images/steez-rhonda.png" class="img">
+    </div>  
+    <div class="columns large-6 medium-6 padding-top">
+      <h4>Rhonda Roadrash</h4>
+      <p>Ricky's twin sister.</p>
+    </div>     
+    <div class="clear"></div>    
+ 
+    <div class="columns large-6 large-push-6 medium-push-6 medium-6">
+      <img src="//assets.halfbrick.com/ss/images/new-character.png" class="img">
+    </div>
+    <div class="columns large-6 large-pull-6 medium-6 medium-pull-6 padding-top">
+      <h4>???</h4>
+      <p>Plus tons more cool characters to discover. <a href="http://play.halfbrick.com/?g=star-skater&pid=website" onclick="return obLink('Star Skater', 'Smart Link', 'http://play.halfbrick.com/?g=star-skater&pid=website')">Unlock them in the game!</a></p>
+    </div>     
+    <div class="clear"></div>        
+        
+    <br><br>
+    <p class="text-center"></p>
+    
+    <p class="text-center"><a href="https://www.facebook.com/sharer/sharer.php?u=http://starskatergame.com" class="social facebook" target="_blank"><span>Share <b class="hidden-small">on Facebook</b></span></a>
+    <a href="https://twitter.com/intent/tweet?hashtags=StarSkater&via=halfbrick&text=Skate%20down%20crazy%20hills%20and%20own%20the%20road%20in%20Star%20Skater!%20http://starskatergame.com" class="social twitter" target="_blank"><span><b class="hidden-small">Share on Twitter</b> <b class="hidden-large">Tweet</b></span></a>
+    </p> 
+      
+    <div class="clear"></div>
+  </div> <!-- End modal-skaters -->  
+   
+  </div> <!-- End Container --> 
+   
+  <noscript>
+  <img height="1" width="1" style="display:none;" alt="" src="https://analytics.twitter.com/i/adsct?txn_id=ntjbo&p_id=Twitter&tw_sale_amount=0&tw_order_quantity=0" />
+  <img height="1" width="1" style="display:none;" alt="" src="//t.co/i/adsct?txn_id=ntjbo&p_id=Twitter&tw_sale_amount=0&tw_order_quantity=0" />
+  </noscript>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <script src="dist/scripts.min.js?rev=38354c57518209c68b49f3c695be8b92"></script>
+
+  <script src="//platform.twitter.com/oct.js"></script>
+  <script type="text/javascript">twttr.conversion.trackPid('ntjbo', { tw_sale_amount: 0, tw_order_quantity: 0 });</script>  
+  
+  <!-- Facebook Pixel Code -->
+  <script>
+  !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+  n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+  document,'script','https://connect.facebook.net/en_US/fbevents.js');
+
+  fbq('init', '154280974997879');
+  fbq('track', "PageView");</script>
+  <noscript><img height="1" width="1" style="display:none"
+  src="https://www.facebook.com/tr?id=154280974997879&ev=PageView&noscript=1"
+  /></noscript>
+  <!-- End Facebook Pixel Code -->
+
+</body>
+</html>

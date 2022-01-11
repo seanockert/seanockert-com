@@ -1,0 +1,119 @@
+﻿/* Swipe 2 required styles */
+
+.swipe {
+  overflow: hidden;
+  visibility: hidden;
+  position: relative;
+}
+.swipe-wrap {
+  overflow: hidden;
+  position: relative;
+
+  > div {
+    float:left;
+    width:100%;
+    position: relative;
+  }
+}
+
+/* END required styles */
+
+
+
+/* START styles */
+
+#slider {
+  position: relative;
+  margin: 0 auto;
+  max-width: 100%;
+  margin-bottom: $base-padding;
+}
+
+.arrow-left,
+.arrow-right {
+  position: absolute;
+  top: 50%;
+  margin-top: -30px;
+  z-index: 999;
+  @include vendor-prefix(transform-origin, 50% 50%);
+  
+  img {
+    height: 60px;
+    width: auto;
+  }
+  
+  &:active {
+    @include vendor-prefix(transform, scale(0.85));
+  }
+}
+
+
+.arrow-left {
+  left: 0;
+}
+.arrow-right {
+  right: 0;
+}
+
+
+@media #{$medium-up} {
+ 
+  #slider {
+    max-width: 640px;
+
+    div img {
+      padding: 4px;
+      border: 2px solid #AE7647;        
+    }
+    
+    div a:hover {
+      img {
+        background: $color-yellow;
+        border-color: $color-yellow;
+      }
+    }
+    
+    &:before {
+      display: block;
+      position: absolute;
+      height: 56px;
+      width: 155px;
+      left: -155px;
+      bottom: 0px;
+      content: ' ';
+      background: url(#{$asset-path}/download-arrow.png) no-repeat;
+    }  
+  } 
+  
+  .arrow-left,
+  .arrow-right {
+    margin-top: -45px;
+    
+    img {
+      height: 90px;
+    }
+  }
+
+  .arrow-left {
+    left: -10px;
+  }
+  .arrow-right {
+    right: -10px;
+  }
+  
+  
+}
+
+@media #{$large-up} {
+  
+  .arrow-left {
+    left: -50px;
+  }
+  .arrow-right {
+    right: -50px;
+  }
+  
+}
+
+
+/* END styles */

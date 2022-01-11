@@ -1,0 +1,581 @@
+$resize-ridge: 1.4;
+
+*,
+*:before,
+*:after {
+  @include box-sizing(border-box);
+}
+
+html,
+body { font-size: $font-size-base; }
+
+html { 
+  background: #94cafe;
+  background: -webkit-linear-gradient(#94cafe,#d1e9ff);
+  background: linear-gradient(#94cafe,#d1e9ff);
+}
+
+// Default body styles
+body {
+  font-family: $typeface-primary;
+  line-height: 1;
+  position: relative;
+  color: $color-purple;
+  text-align: center;
+  margin: 0 auto;  
+  padding: 0;
+  overflow-x: hidden;
+  -webkit-overflow-scrolling: touch; 
+}
+
+
+a { 
+  color: $color-purple;
+  text-decoration: underline;
+  outline: none;
+  
+  &:hover, &:focus {
+    color: $color-orange;
+  }  
+  
+  &:active {
+    color: darken($color-orange, 20%);
+  }
+  
+  &.yellow-link {
+    color: $color-yellow;
+    text-decoration: none;
+    text-transform: uppercase;
+    text-shadow:
+     -1px -1px 0 $color-red,  
+      1px -1px 0 $color-red,
+      -1px 1px 0 $color-red,
+       1px 1px 0 $color-red;
+       
+    b {
+      background: url(#{$asset-path}/yellow-link-arrow.png) no-repeat 50% 50%;
+      background-size: 26px 20px;
+      height: 20px;
+      width: 26px;
+      margin-bottom: -4px;
+      display: inline-block;
+    }   
+       
+    &:hover, &:focus {
+      margin-top: -1px;
+    }
+    
+    &:active {
+      margin-top: 1px;
+    }
+  }
+}
+
+p {
+  line-height: 1.3;
+}
+
+.hidden-large { display: block !important; }
+.hidden-small { display: none !important; }
+
+.left { float: left; }
+.right { float: right; }
+
+
+/* Headings  ---------------------- */
+
+h2, h3, h4 {
+  margin-top: 0;
+  font-family: $typeface-header;
+  color: $color-red;
+  text-transform: uppercase;
+  font-weight: normal;
+}
+
+h2 {
+  font-size: $font-size-xlarge;
+  line-height: 1;
+  text-transform: uppercase;
+  margin-bottom: 0;
+}
+
+h3 {
+  font-size: $font-size-large;
+  line-height: 0.9;
+  
+  img {
+    height: 27px;
+  }  
+}
+
+.badge img {
+  height: 54px;
+  width: auto;
+}
+
+.facepile {
+  height: 74px;
+}
+
+
+#header {
+  z-index: 1;
+  background: url('#{$asset-path}/tricks.png') no-repeat 50% 38%;
+  background-size: auto 67%;  
+}
+
+#social-bar {
+  position: absolute;
+  top: $base-padding/2;
+  right: $base-padding/2;
+  z-index: 99;
+  
+  img {
+    height: 36px;
+  }
+  
+  a {
+    display: inline-block;
+    vertical-align: middle;
+    line-height: 36px;
+    margin: 0;
+    
+    &.yellow-link {
+      font-size: 20px;
+      margin-top: -10px;
+      position: relative;
+
+      &:active {
+        margin-top: -9px;
+      }
+    }
+  }
+}
+
+#container {
+  background: url('#{$asset-path}/clouds.png') no-repeat top center fixed;
+  background: url('#{$asset-path}/bg-dots.png') repeat top center fixed;
+}
+
+#clouds {
+  background: url('#{$asset-path}/clouds.png') no-repeat top center fixed;
+  background-size: 100% auto;
+}
+
+#hill {
+  background: url('#{$asset-path}/hill.png') no-repeat bottom left;
+  background-size: 100% auto;
+}
+
+#logo, 
+#logo-noscript {
+  text-align: center;
+  margin: 0;
+  margin-top: $base-padding;
+  padding: 0 $base-padding*2;
+  position: relative;
+  z-index: 999;
+  pointer-events: none;
+  
+  img {
+    width: 380px;
+    max-width: 100%;
+    height: auto;
+  }
+}
+
+#tagline, #download .columns {
+  background: $color-orange url(#{$asset-path}/orange-bg.png) repeat-x top left;
+  padding: $base-padding/2;
+  display: inline-block;
+  @include vendor-prefix(transform, rotate(1deg));
+  margin: 0 auto;
+  color: #fff;
+  box-shadow: 6px 6px 0px rgba(163,184,204,0.4);
+  box-shadow: 6px 6px 0px rgba(99,148,195,0.3);
+  text-shadow:
+   -2px -2px 0 #972424,  
+    2px -2px 0 #972424,
+    -2px 2px 0 #972424,
+     2px 2px 0 #972424;
+}
+
+#tagline, #download, .facepile {
+  margin: 0 $base-padding/2;
+}
+
+#tagline {
+  font-size: $font-size-large;
+  line-height: 0.9;
+}
+
+#download .columns {
+  background-color: #FD723D;
+}
+
+.facepile {
+  padding-bottom: $base-padding/2;
+}
+
+#video {
+  p {
+    margin: 0;
+    text-transform: uppercase;
+    font-size: $font-size-base;
+
+  }
+  
+  a {
+    color: $color-purple;
+    text-decoration: none;
+  }
+}
+
+#screenshots {
+  margin-bottom: $base-padding;
+  
+  h3 {
+    font-size: $font-size-med;
+    margin: $base-padding/2;
+    margin-top: 0;
+  }
+
+  .columns > .columns {
+    padding: 3px;
+  }
+  
+  img {
+    border: 2px solid #fff;
+    @include vendor-prefix(transition, all 0.15s ease-out);
+    box-shadow: 3px 3px 0px rgba(99,148,195,0.3);
+    
+    &:hover {
+      box-shadow: 4px 4px 0px rgba(99,148,195,0.5);
+      @include vendor-prefix(transform, rotate(2deg));
+    }
+    
+    &:active {
+      margin-top: 2px;
+      margin-bottom: -2px;
+      box-shadow: 1px 1px 0px rgba(99,148,195,0.7);
+    }
+  }
+}
+
+#reviews {
+  margin-bottom: $base-padding*2;
+  text-transform: uppercase;
+  text-align: center;
+  
+  .container {
+    background: #fff;
+    box-shadow: 6px 6px 0px rgba(99,148,195,0.3);
+    padding: $base-padding;
+    position: relative;
+  }
+  
+  .stars img {
+    height: 30px;
+    margin: 0 $base-padding/6;
+    display: inline-block;
+  }
+  
+  blockquote {
+    color: $color-red;
+    font-size: $font-size-med;
+    line-height: 1;
+    margin: $base-padding/2 0;
+    
+    span {
+      white-space: nowrap;
+    }
+  }
+  
+  author {
+    color: $color-purple;
+    font-size: $font-size-base;
+    
+    &:before {
+      content: ' ';
+      background: url(#{$asset-path}/social-twitter-purple.png) no-repeat 50% 50%;
+      background: url(#{$asset-path}/social-google-play.png) no-repeat 50% 50%;
+      background-size: 26px 26px;
+      display: inline-block;
+      margin-right: 6px;
+      margin-bottom: -5px;
+      height: 26px;
+      width: 26px;
+    }
+  }
+  
+  .arrow-left,
+  .arrow-right {
+    position: absolute;
+    bottom: -20px;
+    
+    img {
+      height: 38px;
+    }
+  }
+    
+    .arrow-left { left: 20px; }
+    .arrow-right { right: 20px; }
+    
+  .swipe-nav {
+    margin-top: $base-padding;
+    
+    li {
+      display: inline-block;
+      vertical-align: middle;
+    }
+    
+    a {
+      display: block;
+      text-decoration: none;
+      opacity: 0.7;
+      line-height: 0.5;
+      height: 10px;
+      width: 10px;
+
+      -webkit-appearance:none;
+      -moz-appearance:none;
+      appearance:none; 
+      background: $color-purple;
+ 
+      &.active {
+        height: 15px;
+        width: 15px;
+        opacity: 1;
+      }
+    }
+  }
+}
+
+.section {
+  padding-bottom: $base-padding;
+  text-align: center;
+  vertical-align: middle;
+  
+  h3 { margin: $base-padding/2 0; }
+  
+  p, li {
+    font-size: $font-size-regular;
+    margin-top: 0;
+    line-height: 1.1;
+  }
+  
+  p {
+    margin-bottom: $base-padding/2;
+  }
+  
+  img {
+    max-height: 200px;
+  }
+  
+  a.yellow-link {
+    font-size: $font-size-regular;
+  }
+
+}
+
+#download  {
+  margin-top: $base-padding*2;
+  
+  .columns {
+    position: relative;
+    padding-top: 46px;
+    margin-top: 46px;
+    @include vendor-prefix(transform, rotate(1deg));
+  }
+  
+  .icon {
+    position: absolute;
+    left: 50%;
+    top: -70px;
+    width: 100px;
+    margin-left: -50px;
+    @include vendor-prefix(transform, rotate(-3deg));
+  }
+  
+  h3 {
+    margin: 0;
+    margin-bottom: $base-padding/4;
+    font-size: 30px;
+    color: #fff;
+  }
+  
+  p {
+    margin: 0;
+  }
+}
+
+#everyplay {
+  text-align: center;
+  margin-top: $base-padding/2;
+  
+  small {
+    display: block;
+    font-size: $font-size-base;
+  }
+  
+  h3 {
+    > a {
+      color: #10589B;
+      white-space: nowrap;
+      text-decoration: none;
+      
+      > span {
+        color: #4AC5FF;
+      }
+      
+      img {
+        margin-right: 8px;
+      }
+    }
+  }
+  
+  .box {
+    display: block;
+    background: #fff;
+    position: relative;
+    text-decoration: none;
+    color: $color-purple;
+    margin: 0 auto;
+    margin-bottom: 12px;
+    max-width: 355px;    
+    box-shadow: 3px 3px 0px rgba(99,148,195,0.3);
+    @include vendor-prefix(transition, all 0.15s ease-out);
+    
+    b {
+      position: absolute;
+      height: 50px;
+      width: 50px;
+      left: 50%;
+      margin-left: -25px;
+      top: 38%;
+      background: url(#{$asset-path}/button-play.png);
+      background-size: 50px 50px;
+      @include vendor-prefix(transition, all 0.15s ease-out);
+    }
+    
+    &:hover {
+      box-shadow: 4px 4px 0px rgba(99,148,195,0.5);
+      @include vendor-prefix(transform, rotate(2deg));
+      
+      b {
+        @include vendor-prefix(transform, scale(1.05) );
+      }
+    }
+    
+    &:active {
+      margin-top: 2px;
+      margin-bottom: 10px;
+      box-shadow: 1px 1px 0px rgba(99,148,195,0.7);
+    }
+ 
+    
+    div.img-frame {
+      overflow: hidden;
+      padding-bottom: 56%;
+      width: 100%;
+      position: relative;
+              
+      img {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        left: 0;      
+      }
+    }
+
+    div.inner {
+      padding: $base-padding/4;
+      padding-bottom: $base-padding/3;
+    }
+    
+    h5 {
+      margin: 0;
+      margin-bottom: $base-padding/6;
+      font-size: $font-size-base;
+      font-weight: normal;
+      text-transform: uppercase;
+    }
+    
+    author {
+      color: lighten($color-purple, 20%);
+    }
+  }
+}
+
+#footer {
+  width: 100%;
+  text-align: center;
+  text-transform: uppercase;
+  font-size: $font-size-small;
+  padding-bottom: $base-padding;
+  
+  img {
+    display: inline-block;
+    height: 20px;
+    margin: $base-padding/4;
+  }
+  
+  p {
+    margin: 0;
+  }
+}
+
+#video,
+#reviews,
+#features,
+#download,
+#footer {
+  margin-top: $base-padding;
+}
+
+.news-item {
+  border-bottom: 1px solid #fff;
+  padding: $base-padding/2 0;
+  margin: $base-padding/2 0;
+  text-align: center;
+  
+  .columns {
+    text-align: left;
+  }
+  
+  h4 {
+    font-size: $font-size-med;
+    margin-bottom: 0;
+  }
+  
+  small {
+    font-size: $font-size-base;
+    text-transform: uppercase;
+  }
+  
+  img {
+    padding: $base-padding/2;
+  }
+}
+
+#features {
+  .img {
+    margin-top: $base-padding; 
+  }
+}
+
+/* For hiding the other app store badges on devices */
+.link-google,
+.link-amazon,
+.link-apple {
+  display: inline-block;
+}
+
+.ios .link-google, 
+.ios .link-amazon, 
+.android .link-apple, 
+.android .link-amazon, 
+.amazon .link-apple, 
+.amazon .link-google {
+  display: none !important;
+} 

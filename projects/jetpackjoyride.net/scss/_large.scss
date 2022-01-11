@@ -1,0 +1,123 @@
+
+/* Desktop and up media queries  ---------------------- */
+@media #{$large-up} {
+  
+  body {
+    max-width: 1920px;
+    background-position: 50% 0;
+  }
+  
+  h1 {
+    br {
+      display: block;
+    }
+  }
+  
+  #header {
+    background: #525365 url(#{$asset-path}/header-bg.jpg) no-repeat top center;
+    background-size: auto 100%;
+    
+    img.header-topbar-logo {
+      margin-top: 0;
+    }
+  }
+  
+  .gallery #header {
+    padding-bottom: 170px;
+  }
+  
+  #page #header {
+    background-size: cover;
+  }
+
+  .header-topbar {
+    padding: $base-padding/2;
+    background: transparent;  
+  } 
+  
+  .header-banner {
+    background: transparent;
+    margin-top: 20px;
+
+    img {
+      margin-top: -20px;
+      box-shadow: 0 0 4px rgba(0,0,0,0.7);
+    }
+  } 
+
+  
+  #page {
+    #content-wrapper {
+      padding: 1.875rem 0;
+    }
+  }
+
+  #content { 
+    .content-video, .content-events {
+      .row {
+        padding: $base-padding 0;
+        padding-bottom: 0;
+        margin-bottom: -$base-padding;
+      }  
+      
+      h2 {
+        font-size: $font-size-xlarge;
+      }
+    }
+    
+    .content-events {
+      h5 {
+        font-size: $font-size-base;
+      }
+    }
+    
+    .content-social-tweets {
+      ul {
+        height: 410px;
+      }
+    }
+    
+      
+    .content-jetpacks {  
+      h2 {
+        top: $base-padding;
+       }
+    }
+  }
+
+    
+  .event-zappy img, 
+  .event-bttf img,
+  .event-cut img,
+  .event-bling img,
+  .content-jetpacks .scale
+  {
+    @include vendor-prefix(transition, all 0.2s ease-out);
+    @include vendor-prefix(transform, scale(0.94,0.94));
+    z-index: 10;
+    &:hover {
+      @include vendor-prefix(transform, scale(1,1) rotate(-1deg));
+    }
+
+  }
+  
+  .content-jetpacks {
+    a {
+      @include vendor-prefix(transition, all 0.2s ease-out);
+      &:hover {
+        background-size: 47px 47px !important;  
+      }
+      
+    }
+  }
+  
+  .content-image-list img {
+    @include vendor-prefix(transition, all 0.2s ease-out);
+    @include vendor-prefix(transform, scale(0.94,0.94));
+    &:hover {
+      @include vendor-prefix(transform, scale(1,1) rotate(-1deg));  
+    }
+  }
+    
+}		
+

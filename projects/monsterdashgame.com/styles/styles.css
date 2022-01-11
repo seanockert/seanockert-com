@@ -1,0 +1,407 @@
+﻿body {
+	background-color: #19082C;
+}
+
+p {
+	font-family: sans-serif;
+	color: white;
+	line-height:1.5;
+	font-size: 16px;
+	padding-bottom: 15px;
+	font-weight: bold;
+}
+
+h2 {
+	text-shadow: #000 3px 3px 0;
+	font-size: 36px;
+	color: #c4c1e3;
+	margin-bottom: 0.5em;
+}
+
+h3 {
+	font-size: 30px;
+	color: #c4c1e3;
+}
+
+#header {
+	background: url(../images/header_background_repeat.jpg) repeat-x;
+	height: 207px;
+	width: 100%;
+}
+
+#motto {
+	float: left;
+	width: 420px;
+	height: 136px;
+	margin-top: 70px;
+}
+
+#MDlogo{
+	float: left;
+	width: 459px;
+	height: 297px;
+	background: url(../images/header_MDlogo.png) no-repeat 0 0;
+	text-shadow: #000000 1px 1px 0px;
+}
+
+.halfbrick_logo {
+	margin-left: 460px;
+	padding-top: 25px;
+	list-style-type: none;
+}
+
+.halfbrick_logo a {
+	background-image: url(../images/header_halfbricklogo.png);
+	width: 150px;
+	height: 38px;
+	display: block;
+}
+
+#container {
+	background-image: url(../images/background_tile_repeat.jpg);
+}
+
+#banner_left {
+	background: transparent url(../images/banner_backgroundimage.jpg) no-repeat left bottom;
+	height: 383px;
+	width: 100%;
+}
+#banner {
+	background: #090531 url(../images/banner_backgroundimage_repeat.jpg) repeat-x left bottom;
+	height: 383px;
+	width: 100%;
+}
+
+#iphone {
+	background: url(../images/iphone_transparent.png);
+	width: 848px;
+	height: 361px;
+	float: left;
+	margin-left: 4%;
+}
+
+#youtube {
+	width: 400px;
+	height: 268px;
+	overflow: hidden;
+	margin-left: 219px;
+	margin-top: 45px;
+}
+
+#content_top {
+	background: url(../images/content_top_repeat.jpg) repeat-x;
+	height: 168px;
+	width: 100%;
+}
+
+#content {
+	margin-top: -5em;
+}
+
+#left_content {
+	float: left;
+	width: 530px;
+}
+
+#right_content {
+	float: right;
+	width: 40%;
+}
+
+#screenshots {
+	width: 290px
+}
+
+#footer {
+	background: url(../images/footer_background_repeat.jpg);
+	height: 91px;
+	width: 100%;
+}
+
+
+#footer_text {
+	text-align: center;
+	padding-top:40px;
+	font-size: 12px;
+}
+
+#footer a {
+	color: #E6B649;
+}
+
+
+#features {
+	margin-bottom: 0px;
+}
+#feature_list li {
+	color: white;
+	line-height:0.7;
+	font-size: 16px;
+	padding-bottom: 10px;
+	font-family: sans-serif;
+	font-weight: bold;
+	padding-left: 35px;
+	height: 33px;
+	padding-top: 8px;
+	background: url(../images/bullet_transparent.png) no-repeat;
+}
+
+#soon {
+	position: relative;
+	left:65px;
+	top: 85px;
+	color: white;
+}
+
+.appstore_button {
+	float: left;
+	margin-top: -430px;
+	margin-left: 460px;
+	list-style-type: none;
+}
+.appstore_button a {
+	width: 186px;
+	height: 61px;
+	display: block;
+	background: url(../images/buttons/appstore.png) 0px 0px no-repeat;
+}
+.appstore_button a:hover {
+	background: url(../images/buttons/appstore.png) 0px -61px no-repeat;
+}
+
+.chromestore_button {
+	float: left;
+	margin-top: -430px;
+	margin-left: 670px;
+	list-style-type: none;
+}
+.chromestore_button a {
+	width: 186px;
+	height: 61px;
+	display: block;
+	background: url(../images/buttons/chromestore.png) 0px 0px no-repeat;
+}
+.chromestore_button a:hover {
+	background: url(../images/buttons/chromestore.png) 0px -61px no-repeat;
+}
+
+
+.twitter_button {
+	float: left;
+	margin-top: -430px;
+	margin-left: 660px;
+	list-style-type: none;
+}
+.twitter_button a {
+	width: 61px;
+	height: 60px;
+	display: block;
+	background: url(../images/buttons/twitter.png) 0px 0px no-repeat;
+}
+.twitter_button a:hover {
+	background: url(../images/buttons/twitter.png) 0px -60px no-repeat;
+}
+
+.link a {
+	color: #E6B649;
+	text-decoration: none;
+	z-index: 9999;
+	
+	-webkit-transition-property: color;
+	-webkit-transition-duration:.5s;
+	-webkit-transition-timing:linear;
+	
+	-moz-transition-property: color;
+	-moz-transition-duration:.8s;
+	-moz-transition-timing:linear;
+	
+	-o-transition-property: color;
+	-o-transition-duration:.8s;
+	-o-transition-timing:linear;
+	
+	transition-property: color;
+	transition-duration:.8s;
+	transition-timing:linear;
+}
+
+.link a:hover {
+	color: #e8d8b5;
+}
+
+.review img {
+	position: absolute;
+	margin-left:-62px;
+	margin-top: -10px;
+}
+
+.article {
+	margin-bottom: 40px;
+}
+
+.review {
+	background: url(../images/reviews_background_repeat.jpg);
+	border: #211D37 1px solid;
+	-moz-border-radius: 8px; 
+	-webkit-border-radius: 8px;
+	border-radius: 8px;
+	margin-bottom: 1em;
+	padding: 15px 15px 15px 75px;
+}
+
+.center {
+	margin: 0 auto;
+	width: 960px;
+	height: auto;
+	overflow: visible;
+}
+
+#whatis {
+	background: url(../images/content_decal_shadow.png) no-repeat bottom right;
+}
+
+#background_monster {
+	height: 267px;
+	margin-top: 0;
+	margin-left: 60px;
+	padding-bottom: 40px;
+}
+
+.white {
+	color: white;
+}
+
+ul#screenshots { 
+	float: left;
+	list-style: none; 
+	margin-left: 0px;
+	margin-top: 0px; 
+	margin-bottom: 74px;
+}
+
+ul#thumbnails li { 
+	position: relative;
+	float: left; 
+	margin-right: 5px;
+	padding-bottom: 10px;
+}
+
+ul#thumbnails a { 
+	display: block; 
+	width: 110px; 
+	height: 90px;  
+}
+
+ul#thumbnails a:hover { 
+	display: block; 
+}
+
+img.a {
+	position: absolute;
+	left: 0;
+	top: 0;
+	z-index: 10;
+}
+ 
+img.b {
+	position: absolute;
+	left: 0;
+	top: 0;
+}
+
+.monster_cycle1 {
+	background: url(../images/background_monster.png) no-repeat bottom;
+	width: 200px;
+	height: 267px;
+}
+.monster_cycle2 {
+	background: url(../images/background_monster2.png) no-repeat 0 center;
+	width: 200px;
+	height: 267px;
+}
+.monster_cycle3 {
+	background: url(../images/background_monster3.png) no-repeat bottom;
+	width: 200px;
+	height: 267px;
+}
+.monster_cycle4  {
+	background: url(../images/background_monster4.png) no-repeat bottom;
+	width: 200px;
+	height: 267px;
+}
+.monster_cycle5  {
+	background: url(../images/background_monster5.png) no-repeat bottom;
+	width: 200px;
+	height: 267px;
+}
+.monster_cycle6  {
+	background: url(../images/background_monster6.png) no-repeat bottom;
+	width: 200px;
+	height: 267px;
+}
+.monster_cycle7  {
+	background: url(../images/background_monster7.png) no-repeat bottom;
+	width: 200px;
+	height: 267px;
+}
+.monster_cycle8  {
+	background: url(../images/background_monster8.png) no-repeat bottom;
+	width: 200px;
+	height: 267px;
+}
+
+/* @group ALSO */
+
+ul#gamelist li { 
+	position: relative;
+	float: left; 
+	margin-right: 25px;
+	padding-bottom: 25px;
+}
+
+li#fruitninja a {
+	background: url(../images/FruitNinja_logo.png) center center no-repeat;
+}
+
+li#monsterdash a {
+	background: url(../images/ageofzombies.png) center center no-repeat;
+}
+
+li#monsterdash a:hover {
+	background: url(../images/ageofzombies_link.png) center center no-repeat;
+}
+
+.also_button {
+	list-style-type: none;
+}
+.also_button a {
+	width: 300px;
+	height: 128px;
+	display: block;
+	float: left;
+	padding: 10px;
+	border: 2px solid #3B3658;
+	-moz-border-radius: 8px; 
+	-webkit-border-radius: 8px;
+	border-radius: 8px;
+	
+	-webkit-transition-property: background;
+	-webkit-transition-duration:.5s;
+	-webkit-transition-timing:linear;
+	
+	-moz-transition-property: background;
+	-moz-transition-duration:.8s;
+	-moz-transition-timing:linear;
+	
+	-o-transition-property: background;
+	-o-transition-duration:.8s;
+	-o-transition-timing:linear;
+	
+	transition-property: background;
+	transition-duration:.8s;
+	transition-timing:linear;
+}
+.also_button a:hover {
+	background-color: #534c7c !important;
+}
+/* @end */
+

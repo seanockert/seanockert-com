@@ -1,0 +1,122 @@
+/*! 
+Site Name:      Star Sk8r
+Site URI:     	http://starsk8r.com/wallofsk8 
+Description:    Star Sk8r coming soon page
+Author:         Sean Ockert, Halfbrick Studios
+Author URI:     http://halfbrick.com
+Version:        0.1
+*/
+
+
+html {
+  background: #94cafe;
+  background: -webkit-linear-gradient(#94cafe,#d1e9ff);
+  background: linear-gradient(#94cafe,#d1e9ff);
+}
+  
+#head {
+  text-align: left;
+  vertical-align: middle; 
+  padding-top: 12px;
+  z-index: 999;
+  position: relative;
+  
+  h2 {
+    margin-top: 12px;
+  }
+}
+
+#logo, h2 {
+  float: left;
+  pointer-events: all;
+}
+
+#logo img {
+  width: 80px;
+}
+
+.row-wide {
+  max-width:1440px;
+  margin:0 auto;
+}
+
+#head-download {
+  display: none;
+  float: right;
+  margin-right: 12px;
+  padding-top: 30px;
+  img {
+    height: 40px;
+  }
+}
+
+#everyplay {
+  border: 5px solid #fff;
+  margin-top: 0;
+  
+  .columns {
+    padding: 0;
+  }
+  
+  .inner {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: rgba(0,0,0,0.6);
+    pointer-events: none;
+    
+    h5, author {
+      color: #fff;
+    }
+  }
+  
+  .box {
+    max-width: 100%;
+    box-shadow: none;
+    margin: 0;
+    overflow: hidden;
+    padding-bottom: 56%;
+
+    img {
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      left: 0;      
+      -webkit-transition: 0.15s all ease-out;
+      -moz-transition: 0.15s all ease-out;
+      transition: 0.15s all ease-out;
+    }    
+    
+    b {
+      top: 33%;
+    }     
+    
+    &:hover {
+      -webkit-transform: none;
+      -moz-transform: none;
+      transform: none;
+      
+      img {
+        -webkit-transform: scale(1.1);
+        -moz-transform: scale(1.1);
+        transform: scale(1.1);
+      }
+    }
+    
+    &:active {
+      margin: 0;
+    }
+  }
+  
+}
+
+#download {
+  margin-top: 48px;
+}
+    
+@media screen and (min-width: 768px) {   
+  #head-download {
+    display: block;
+  }
+}

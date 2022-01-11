@@ -1,0 +1,31 @@
+
+/* Mobile media queries  ---------------------- */
+@media #{$small-only} {
+
+#head {
+  
+   #logo {
+    padding: 0 12px;
+    margin-top: 0;
+   }
+   
+   h2#tagline {
+    float: right;
+    margin-right: 24px;
+    font-size: 26px;
+   }
+   
+   #head-download {
+    padding-top: 12px;
+    margin-right: 24px;
+    img {
+      height: 36px;
+    }
+   }
+}
+
+#everyplay {
+  margin-top: 12px !important; 
+}
+
+}  

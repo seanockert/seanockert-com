@@ -1,0 +1,966 @@
+/* 
+Site Name:     Fish Out Of Water
+Site URI:      http://fruitninja.com
+Description:    Fruit Ninja website by Halfbrick
+Author:         Halfbrick - Sean Ockert @seanockert
+Author URI:     http://balsamade.com  
+Version:        1
+*/
+
+html, body {
+	margin:0;
+	padding:0;
+}	
+
+html {
+	-webkit-text-size-adjust: 100%;
+	background: #1076BD; 
+	background: -moz-linear-gradient(top,  rgba(16,118,189,1) 40%, rgba(8,66,96,1) 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(40%,rgba(16,118,189,1)), color-stop(100%,rgba(8,66,96,1))); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top,  rgba(16,118,189,1) 40%,rgba(8,66,96,1) 100%); /* Chrome10+,Safari5.1+ */
+	background: -ms-linear-gradient(top,  rgba(16,118,189,1) 40%,rgba(8,66,96,1) 100%); /* IE10+ */
+	background: linear-gradient(to bottom,  rgba(16,118,189,1) 40%,rgba(8,66,96,1) 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1076bd', endColorstr='#084260',GradientType=0 ); /* IE6-9 */
+}
+
+body {			
+	font-family: sans-serif;
+	padding-bottom: 30px;
+	padding-top: 30px;
+	text-align: center;
+	background: url('//assets.halfbrick.com/foow/images/bubbles.png') no-repeat bottom center;
+}
+
+.clear { clear: both; }
+textarea, input { outline: none; }
+
+#hb {
+	display:block;
+	margin: 0 auto;
+	width: 120px;
+	padding: 0;
+	border: 0;
+	
+	img {
+		width: 120px;
+		height: auto;		
+	}
+}
+
+#logo {
+	margin:40px auto;
+
+	width: 	280px;
+	height: 163px;
+	top: 0;
+}
+
+#logo img {
+	width: 	280px;
+	height: 163px;	
+}
+
+img {
+	border: 0;
+	max-width: 100%;
+}
+
+h2 {
+	margin-top:10px;
+	color: #1592d6;
+	text-shadow: 0 0 10px #fff;
+	font-size: 1.5em;
+	text-align: center;
+}
+
+	
+
+
+a {
+	color: #444;
+	text-decoration: none;
+	-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+
+a.download {
+	background: url('//assets.halfbrick.com/foow/images/app-icons@2x.png') no-repeat 0 0;
+	height: 45px;
+	width: 153px;
+	background-size: 436px 45px;
+	margin-right: 10px;
+	display: inline-block; 
+	text-indent: -9999px;
+	font-size: 0;
+  
+	-webkit-transform-origin: 50% 50%;
+	-moz-transform-origin: 50% 50%;
+	-ms-transform-origin: 50% 50%;
+	transform-origin: 50% 50%; 
+}
+
+a.download.apple {
+	background-position: 0 0; 
+}
+a.download.google {
+	width: 152px;
+	background-position: -152px 0; 
+}
+a.download.amazon {
+	width: 133px;
+	background-position: -304px 0; 
+}
+
+/* Hide the download links for non-relavent devices */
+.ios a.download.google, .ios a.download.amazon { display: none; }
+.android a.download.apple, .android a.download.amazon { display: none; }
+
+.table {
+	display: table; 
+	margin: 0 auto;
+	clear: both;
+}
+
+#download-label {
+	height: 70px;
+	width: 89px;
+	background: url('//assets.halfbrick.com/foow/images/labels.png') no-repeat left bottom;
+	position: absolute;
+	right: -75px;
+	bottom: 5px;
+	display: none;
+}				
+		
+.screenshots {
+	text-align: center;
+	margin: 0;
+	padding: 0;
+	padding-top: 20px;
+	position: relative;
+}
+
+.screenshots li {
+	display: inline-block;
+	padding: 0;
+	margin: 0;
+	list-style: none;
+}
+
+.screenshots li a {
+	display: block;
+	margin: 5px;
+}
+
+.screenshots li a img {
+	border-radius: 5px;
+}
+
+.screenshots li a:hover img {
+	box-shadow: 0 0 3px #222;
+}
+
+.icons { position: relative; }
+
+#footer {
+	font-size:14px;
+	padding-top: 30px;
+	color:#fff;
+	font-size: 0.875em;
+	text-align: center;
+}
+
+	#footer a { color: #fff; }		
+		#footer a:hover { color: #fff; }
+	
+	#footer br {
+		clear: both;
+		display: block;
+	}
+	
+	#footer a.facebook, #footer a.twitter, #footer a.youtube {
+		color: #fff;
+		display: inline-block;
+		padding: 6px 12px;
+		line-height: 1;
+		border-radius: 3px;	
+		margin-left: 6px;
+		margin-top: 20px;	
+	}
+	
+	#footer a.facebook { background: #3b5997; }		
+	#footer a.twitter { background: #32ccfe; }	
+	#footer a.youtube { background: #f23c26; }	
+	#footer a.facebook:hover, #footer a.twitter:hover, #footer a.youtube:hover { text-decoration: none; }
+	
+	#footer a.facebook:hover { background: #31497c; }		
+	#footer a.twitter:hover { background: #2cb2de; }				
+	#footer a.youtube:hover { background: #cd3421; }
+
+	
+.content {
+	color: #fff;
+	font-size: 18px;
+	line-height: 1.4;		
+	margin: 0 auto;
+	margin-top: 12px;
+	margin-bottom: 16px;
+	max-width: 600px;
+}			
+
+
+#video-container {
+	max-width: 758px;
+	text-align: center;
+	margin: 48px auto;
+	position:relative;
+}
+
+.flex-video {
+	position: relative;
+	padding-bottom: 51.25%; 
+	padding-top: 25px;
+	height: 0;
+}
+
+.flex-video iframe {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	z-index: 999;
+}
+
+.video-frame { display: none; }
+
+
+.social {
+	margin: 0 auto;
+	padding: 30px 0;
+	list-style: none;
+}
+
+.social li {
+	float: left;
+	margin: 0;
+	padding: 0;
+	padding-top: 8px;
+	width: 100px;
+}
+
+.social li.email {
+	width: 100%;
+	display: block;
+	float: none;
+	height: 60px;
+	margin-right: 0;
+	padding-top: 12px;
+	clear:both;
+	position: relative;
+}
+
+
+.button-wallpaper {
+	width: 215px;
+	height: auto;
+	display: block;
+	margin: 0 auto;
+	-webkit-transform-origin: 50% 50%;
+	-moz-transform-origin: 50% 50%;
+	-ms-transform-origin: 50% 50%;
+	transform-origin: 50% 50%;			
+}
+
+
+/* Not needed */
+
+
+.modal {
+	background: #fff;
+	padding: 12px;
+	padding-bottom: 16px;
+	border-radius: 20px;
+	position: relative;
+	opacity: 0;
+	min-width: 220px;
+	z-index: 999;
+    -moz-transition: opacity .3s ease-out;
+    -webkit-transition: opacity .3s ease-out;
+    transition: opacity .3s ease-out;    
+}
+
+	.modal .arrow {
+		background: url(images/modal-arrow.png) no-repeat 0 0;
+		height: 45px;
+		width: 77px;
+		position: absolute;
+		bottom: -45px;
+		left: 100px;
+	}
+
+	.modal h3 {
+		margin: 0;
+		margin-bottom: 6px;
+		font-size: 1.7em;
+	}
+
+
+.fish:hover .modal { 
+	opacity: 0.85;
+}
+
+
+
+
+@media only screen and (max-width: 587px) {
+	
+	body {
+		padding-bottom: 0;
+		background-size: 946px 313px;
+	}
+	
+	#logo { 
+		margin: 20px auto;	
+		margin-bottom: 10px;
+	}	
+	
+	h2 {
+		margin-top: 0;
+		font-size: 1.3em;
+		padding: 10px;
+	}
+	
+	
+	#download-label {
+		height: 47px;
+		width: 57px;
+		background-size: 63px 85px;
+		right: -50px;
+		top: 4px;
+	}
+	
+	.content {
+		padding: 0 12px;
+	}
+	
+	.modal { display: none;}
+	
+	#video-container {
+		margin: 24px auto;
+	}	
+	
+	#footer {
+		padding-top: 0;
+	}
+	
+	.social {
+		padding-bottom: 6px;
+	}
+				
+}	
+
+@media only screen and (min-width: 587px) {
+	
+	#content { 
+		height: 425px;
+		width: 587px;
+		margin: 0 auto;
+		margin-top: 20px;
+		position: relative;
+	}
+
+	
+	#logo {
+		margin:0;
+		padding: 0;
+		float:left;
+		position: absolute;
+		z-index: 999;
+		top: -10px;
+		z-index: 5;
+		width: 219px;
+		height: 127px;
+	
+	}
+		
+		#logo img {
+			width: 219px;
+			height: 127px;
+		}	
+	
+	.screenshots li a img {
+		width: 300px;
+		height: auto;
+		border-radius: 5px;
+	}
+		
+	#background {
+		height: 424px;
+		width: 573px;
+		padding-top: 0;
+		background: #2997cc url('//assets.halfbrick.com/foow/images/foow-water-free.jpg') no-repeat 50% 50%;
+		background-size: 573px 424px;
+	}
+
+	
+	#mask {
+	  width:100%;
+	  height:100%;
+	  position:absolute;
+	  left:0;
+	  top: 0;
+	  z-index: 2;
+	  background:url('//assets.halfbrick.com/foow/images/mask-splash-circle-blue.png') 100% 100% no-repeat;
+	  background-size: 595px 430px;
+	}
+	
+	a.download {
+		height: 60px;
+		width: 204px;
+		background-size: 581px 60px;
+	}
+	a.download.google {
+		width: 203px;
+		background-position: -202px 0; 
+	}
+	a.download.amazon {
+		width: 176px;
+		background-position: -405px 0; 
+	}	
+		
+	
+
+	.modal { font-size: 0.8em; }
+	.modal .arrow { display: none; }
+	.fish.rocket .modal { margin-left: -70px; margin-top: -50px; }
+	.fish.micro .modal { margin-left: -40px; margin-top: -30px; }
+	.fish.errol .modal { margin-top: -80px; margin-left: -80px; }
+	.fish.brothers .modal { margin-top: -30px; margin-left: -10px; }
+	.fish.dolphin .modal { margin-top: -60px; margin-left: -30px; }
+	
+	.fish {
+		background: url('//assets.halfbrick.com/foow/images/fish-update-1.png') no-repeat 0 0;
+		bottom: 0;
+		position: absolute;
+		background-size: 1236px 382px;
+	}
+	
+	.fish.olympus {
+		left: 168px;
+		bottom: 130px;
+		width: 206px;
+		height: 220px;
+		background-position: 0 0;
+		z-index: 12;
+	}		
+		
+		.fish.olympus-splash {
+			left: 245px;
+			bottom: 35px;
+			width: 125px;
+			height: 85px;
+			background-position: -41px -236px;
+			z-index: 11;
+		}
+		
+	.fish.rocket {
+		left: 38px;
+		width: 199px;
+		height: 141px;			
+		bottom: 53px;
+		background-position: -800px -23px;
+		z-index: 11;
+	}		
+		
+		.fish.rocket-splash {
+			left: 57px;
+			width: 194px;
+			height: 79px;			
+			bottom: 47px;				
+			
+			background-position: -807px -186px;
+			z-index: 10;
+		}				
+
+	
+	.fish.brothers {
+		left: 390px;
+		bottom: 60px;
+		height: 183px;
+		width: 188px;
+		background-position: -1038px -23px;
+		z-index: 9;
+	}	
+			
+		.fish.brothers-splash {
+			left: 390px;
+			width: 172px;
+			height: 151px;			
+			bottom: 60px;
+			background-position: -1025px -230px;
+			z-index: 4;
+		}
+	
+	.fish.dolphin {
+		left: 388px;
+		width: 149px;
+		height: 179px;
+		bottom: 231px;
+		background-position: -436px -14px;
+		z-index: 6;
+	}			
+	
+	.fish.errol {
+		left: 63px;
+		width: 105px;
+		height: 125px;
+		bottom: 178px;
+		background-position: -634px -33px;
+		z-index: 7;
+	}		
+	
+
+	.fish.micro {
+		left: 217px;
+		bottom: 330px;
+		height: 133px;
+		width: 142px;
+		background-position: -215px -7px;
+		z-index: 4;
+	}
+	
+	
+	h2 { margin: 0; }	
+						
+	
+	#trailer-label {
+		display: block;
+	}
+	
+	#download-label {
+		height: 70px;
+		width: 89px;
+		display: block;
+		background-size: 87px 106px;
+		right: -100px;
+		
+	}			
+	
+	#footer br {
+		display: none;
+	}
+	
+	#footer a.facebook, #footer a.twitter, #footer a.youtube {
+		margin-top: 0;	
+		padding: 8px 16px;
+		box-shadow: 1px 1px 0 rgba(0,0,0,0.3);
+	}	
+	
+	.social li {
+		width: 130px;
+	}				
+	
+	.social li.email {
+		width: 270px;				
+		display: inline-block;
+		float: left;
+		height: auto;
+		margin-right: 12px;
+		margin-left: 40px;
+		clear: none;
+		padding-top: 0;
+		
+	}	
+	
+	.social li.email #nlydd-nlydd, .social li.email #submit {
+		font-size: 14px;
+	}			
+	
+	.social li.email #submit {
+		padding-bottom: 8px;
+	}
+	
+	.button-wallpaper {
+		margin-top: -20px;
+	}
+	
+	
+	#lightbox{
+		top:170px;
+		left:5%;
+		width:90%;
+		height:390px;
+		min-height: 390px;
+	}
+	
+	#lightbox iframe { 
+		border-radius: 0;
+		height: 390px; 
+		min-height: 390px; 
+	}								
+		
+}
+
+
+@media only screen and (min-width: 769px) {
+	a.download.apple { margin-left: 0px;}	
+
+	h2 img { max-width: 500px; }	
+	
+	#trailer-label {	
+		height: 57px;
+		bottom: -15px;
+		left: -100px;
+	}
+		
+	#download-label {	
+		bottom: 0;
+		right: -90px;
+		display: block;	
+		background-size: 94px 127px;		
+	}	
+	
+	.flex-video {
+		padding-bottom: 38.25%; 
+		margin: 0 98px;
+	}	
+	
+	.video-frame {
+		position:absolute;
+		top:-33px;
+		width:100%;
+		z-index:10;
+		display: block;
+	}				
+}	
+	
+	
+@media only screen and (min-width: 1024px) {
+	#content { 
+		height: 637px;
+		width: 881px;
+	}
+	
+	#logo, #logo img {
+		width: 	329px;
+		height: 191px;			
+	}
+	
+	#logo {
+		left: 25px;
+	}
+				
+	#background {
+		height: 635px;
+		width: 860px;
+		background-size: 860px 635px;
+	}
+	
+	#mask {
+		background-size: 892px 637px;
+	}
+	
+	.modal { font-size: 1em;}
+	.modal .arrow { display: block; }
+	.fish.olympus .modal { margin-left: 50px; margin-top: 20px;}
+	.fish.rocket .modal { margin-left: 0; }
+	.fish.micro .modal { margin-left: 20px; margin-top: -50px; }
+	.fish.errol .modal { margin-left:0; margin-top: -80px; }
+	.fish.brothers .modal { margin-top: -30px; margin-left: 50px; }
+	.fish.dolphin .modal { margin-top: -80px; margin-left: 50px; }
+	
+	.fish {
+		background: url('//assets.halfbrick.com/foow/images/fish-update-1.2.png') no-repeat 0 0;
+		bottom: 0;
+		position: absolute;
+		background-size: 1854px 573px;
+	}
+	
+	.fish.olympus {
+		left: 260px;
+		bottom: 180px;
+		width: 308px;
+		height: 330px;
+		background-position: 0 0;
+		z-index: 12;
+	}		
+		
+		.fish.olympus-splash {
+			left: 360px;
+			bottom: 57px;
+			width: 188px;
+			height: 134px;
+			background-position: -62px -349px;
+			z-index: 11;
+		}
+		
+	.fish.rocket {
+		left: 62px;
+		width: 181px;
+		height: 212px;			
+		bottom: 70px;
+		background-position: -1199px -34px;
+		z-index: 11;
+	}		
+		
+		.fish.rocket-splash {
+			left: 85px;
+			width: 291px;
+			height: 119px;			
+			bottom: 70px;
+			background-position: -1210px -279px;
+			z-index: 10;
+		}				
+
+	
+	.fish.brothers {
+		left: 580px;
+		bottom: 60px;
+		height: 286px;
+		width: 254px;
+		background-position: -1557px -20px;
+		z-index: 9;
+	}	
+			
+		.fish.brothers-splash {
+			left: 574px;
+			width: 258px;
+			height: 227px;			
+			bottom: 87px;
+			background-position: -1541px -350px;
+			z-index: 4;
+		}
+	
+	.fish.dolphin {
+		left: 567px;
+		width: 224px;
+		height: 268px;
+		bottom: 347px;
+		background-position: -654px -21px;
+		z-index: 6;
+	}			
+	
+	.fish.errol {
+		left: 95px;
+		width: 151px;
+		height: 188px;
+		bottom: 265px;
+		background-position: -950px -46px;
+		z-index: 7;
+	}		
+	
+
+	.fish.micro {
+		left: 358px;
+		bottom: 500px;
+		height: 159px;
+		width: 169px;
+		background-position: -358px -36px;
+		z-index: 4;
+	}
+	
+
+	#screenshots li a img {
+		width: 300px
+	}
+
+	#lightbox {
+		top: 170px;
+		left: 20%;
+		width: 60%;
+		max-width: 60%;
+	}	
+	
+		#lightbox iframe {
+			margin: 0 auto;
+			height: 390px;
+			width: 700px !important;
+			min-width: 700px !important;
+		}			
+					
+				
+}	
+
+/* ------------------------ Lightbox --------------------------- */
+
+#minilightbox {
+	position: fixed; 
+	top: 0;
+	left: 0;
+	width: 100%; 
+	height: 100%;	
+	z-index: 999;
+}
+#minilightbox-background {
+	position: absolute; 
+	top: 0; 
+	left: 0; 
+	width: 100%; 
+	height: 100%; 
+	background: #000 url(../images/spinner.gif) no-repeat center center;
+	color: #fff;
+ 	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=75)";
+	filter: alpha(opacity=75);
+	-moz-opacity: 0.75;
+	-khtml-opacity: 0.75;
+	opacity: 0.75;
+}
+#minilightbox-content {
+	display: none;
+	position: absolute; 
+	top: 50%; 
+	left: 50%;
+	background: transparent; 
+	-moz-box-shadow: 0px 0px 30px #000; 
+	-webkit-box-shadow: 0px 0px 30px #000; 
+	box-shadow: 0px 0px 30px #000;
+	padding: 0;
+	max-width: 100%;
+	transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%); 
+}
+#minilightbox-image {
+	display: block;
+}
+#minilightbox-text {
+	padding: 0;
+}
+#minilightbox-closebutton {
+	position: absolute;
+	top: 0px;
+	right: 0px;
+	line-height: 20px;
+	text-align: center;	
+}
+#minilightbox-closebutton a {
+	text-decoration: none;
+	display: block;
+	font-weight: bold;
+	color: #fff;
+	font-size: 40px;
+	padding: 12px;
+}
+
+
+/* For hiding the other app store badges on devices */
+.ios a.google, 
+.ios a.amazon, 
+.android a.apple, 
+.android a.amazon, 
+.kindle a.apple, 
+.kindle a.google  {
+  display: none !important;
+} 
+
+.ios .apple,
+.kindle .amazon,
+.android .google {
+  display: block !important;
+}
+
+
+
+	
+@keyframes scuttle {
+	  0%   { margin-left: 15%; }  
+ 	 20% { margin-left: 15%; }	 
+ 	 50% { margin-left: 60%; animation-timing-function:ease-out; }
+ 	 80% { margin-left: 60%; }
+     96%  { margin-left: 15%; animation-timing-function:ease-out; }
+     97%  { margin-left:14%; animation-timing-function:ease-in;  } 	 
+ 	 100% { margin-left: 15%; animation-timing-function:ease-out; }
+}
+
+@-webkit-keyframes scuttle {
+	  0%   { margin-left: 15%; }  
+ 	 20% { margin-left: 15%; }	 
+ 	 50% { margin-left: 60%; animation-timing-function:ease-out; }
+ 	 80% { margin-left: 60%; }
+     96%  { margin-left: 15%; animation-timing-function:ease-out; }
+     97%  { margin-left:14%; animation-timing-function:ease-in;  } 	 
+ 	 100% { margin-left: 15%; animation-timing-function:ease-out; }
+}
+
+
+
+
+/* Button Animations */
+	
+a.download:hover, .facebook:hover, .twitter:hover, .button-wallpaper:hover {
+	-webkit-animation: bounce 0.2s ease-in-out;
+	-moz-animation: bounce 0.2s ease-in-out;
+	-ms-animation: bounce 0.2s ease-in-out;
+	animation: bounce 0.2s ease-in-out;
+}  
+
+a.download:active, .facebook:active, .twitter:active, .button-wallpaper:active {
+	-webkit-animation: press 0.2s ease-in-out;
+	-moz-animation: press 0.2s ease-in-out;
+	-ms-animation: press 0.2s ease-in-out;
+	animation: press 0.2s ease-in-out;    
+} 	
+
+
+
+@-keyframes bounce
+{
+    0%   { transform: scale(1,1); }
+    50%   { transform: scale(1.1,0.9); }
+    100%   { transform: scale(1,1); }
+} 
+
+@-webkit-keyframes bounce
+{
+    0%   { -webkit-transform: scale(1,1); }
+    50%   { -webkit-transform: scale(1.1,0.9); }
+    100%   { -webkit-transform: scale(1,1); }
+} 
+
+@-moz-keyframes bounce
+{
+    0%   { -moz-transform: scale(1,1); }
+    50%   { -moz-transform: scale(1.1,0.9); }
+    100%   { -moz-transform: scale(1,1); }
+}
+
+@-ms-keyframes bounce
+{
+    0%   { -ms-transform: scale(1,1); }
+    50%   { -ms-transform: scale(1.1,0.9); }
+    100%   { -ms-transform: scale(1,1); }
+} 
+
+@-keyframes press
+{
+    0%   { transform: scale(1,1); }
+    50%   { transform: scale(0.7,0.85); }
+    100%   { transform: scale(0.9,0.9); }
+}
+ 
+@-webkit-keyframes press
+{
+    0%   { -webkit-transform: scale(1,1); }
+    50%   { -webkit-transform: scale(0.7,0.85); }
+    100%   { -webkit-transform: scale(0.9,0.9); }
+} 
+
+@-moz-keyframes press
+{
+    0%   { -moz-transform: scale(1,1); }
+    50%   { -moz-transform: scale(0.7,0.85); }
+    100%   { -moz-transform: scale(0.9,0.9); }
+} 
+
+@-ms-keyframes press
+{
+    0%   { -ms-transform: scale(1,1); }
+    50%   { -ms-transform: scale(0.7,0.85); }
+    100%   { -ms-transform: scale(0.9,0.9); }
+} 
+

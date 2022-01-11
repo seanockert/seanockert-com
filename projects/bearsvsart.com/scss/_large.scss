@@ -1,0 +1,242 @@
+
+@media #{$large-up} {
+
+	#container { padding-top: 75px; }
+	
+	.impact-1, 
+	.impact-2,
+	.impact-3 {
+		background-size: 256px 256px;
+	}
+	
+	#header {
+		padding-top: 93px;
+		padding-right: 8px;
+		height: $frameY;
+		margin: 0 auto;
+		margin-bottom: 3em;	
+		background-size: $frameX $frameY;	
+	}
+	
+	#halfbrick { width: 269px; max-height: 45px; }		
+		
+	#scene {
+		top: 5px;
+		left: 0;
+		height: $sceneY;
+		width: $sceneX;		
+		background-size: $sceneX $sceneY;	
+	}
+	
+
+	#trees,
+	#shadow,
+	#gallery,
+	#sign,
+	#smoke,
+	#ear,
+	#bearface,
+	#paw,
+	#shine,
+	#play .button,
+	#art .button {
+		background-size: $spritesheetX $spritesheetY;		
+	}
+	
+	#trees {
+		height: $treesY;
+		width: $treesX;	
+		bottom: 45px;
+		margin-left: -240px;	
+		background-position:-5px -665px;	
+	}
+	
+		#shadow {
+		height: $shadowY;
+		width: $shadowX;
+		bottom: -11px;
+		margin-left: -195px;
+		background-position: -281px -527px;					
+	}		
+	
+	#gallery {
+		height: $galleryXY;
+		width: $galleryXY;	
+		margin-left: -180px;
+    	background-position: -370px -5px;					
+	}		
+
+	#sign {
+		height: $signY;
+		width: $signX;	
+    	background-position: -180px -280px;				
+	}	
+	
+		#sign-light {
+			height: $signY;
+			width: $signX;
+			background-size: $signX ($signY)*4;
+			@include animation(signLight 3s steps(4) 1s infinite normal);		
+		}		
+		
+	
+	#smoke {
+		height: $smokeY;
+		width: $smokeX;		
+    	background-position: -803px -577px;
+	}		
+	
+	#bear {
+		height: $bearY;
+		width: $bearX;				
+	}
+	
+		#bearface {
+			height: $bearY;
+			width: $bearX;			
+			background-position: -5px -5px;		
+		}	
+		
+		#eyes {
+			height: $eyesY;
+			width: $eyesX;	
+			margin-top: 52px;	
+			background-size: $eyesX $eyesY*4;
+			@include animation(blink 4s steps(3) 0.2s infinite normal);	
+		}	
+		
+
+		#ear {
+			height: $earsY;
+			width: $earsX;	
+			margin-left: 10px;			
+			background-position: -286px -5px;
+		}
+		
+		#paw {
+			height: $pawY;
+			width: $pawX;
+			bottom: 0;
+			left: 0;
+			background-position: -0px -273px;				
+		}	
+		
+		#shine {
+			height: $shineY;
+			width: $shineX;
+			top: 5px;
+			right: -15px;
+			background-position: -296px -79px;			
+		}			
+		
+	
+	#logo {
+		top: -60px;
+		margin-left: -210px !important;
+		width: 420px;
+	}
+	
+	#cloud-big {
+		width: $cloudX;
+		height: $cloudY;	
+		background-size: $cloudX $cloudY;	
+	}
+	
+	#cloud-xsmall { top: 200px;}		
+	
+	#download {
+		width: $downloadX;
+	}
+
+	#play, #art {
+		width: 140px;
+		font-size: $font-size-med;
+		
+		.button {
+			height: 94px;
+			width: 128px;	
+		}
+	}
+	
+	#art {
+		.button {	
+			background-position: -5px -527px;			
+		}
+	}	
+
+	#play {
+		.button {
+			background-position: -143px -527px;
+		}	
+	}
+	
+	#play-now, #coming {
+		width: 180px;
+		font-size: $font-size-med;
+		text-shadow: none;
+				
+		a {
+			background-size: 180px 70px;			
+			height: 70px;
+			width: 180px;
+
+		}	
+	}			
+	
+	#content {
+		
+		h2 {
+			font-size: 46px;			
+		}
+	}
+	
+	#icon img {
+		width: 180px
+	}	
+
+	#wall-ribbon, #wall-bare {
+		background-size: 2200px 960px;
+		padding-top: 59px;
+		margin-top: 50px;		
+		
+	}
+
+	
+	#out-now {
+		padding-top: 20px;
+		
+		a {
+			width: 237px;
+		}
+	}	
+	
+	#coming-soon {
+		padding-top: 10px;
+		margin-top: 10px;
+		margin-bottom: 300px;
+
+		h2 {
+			font-size: 60px;
+			margin-top: 30px;
+		}
+		
+		p {
+			font-size: $font-size-regular
+		}
+		
+		input, button {
+			font-size: 20px;
+		
+			&#email {
+				width: 300px;
+			}
+			
+			&#submit {
+				margin-left: -64px;
+			}
+		}
+
+	}
+	
+
+}	

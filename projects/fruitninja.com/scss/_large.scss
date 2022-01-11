@@ -1,0 +1,70 @@
+
+/* Desktop and up media queries  ---------------------- */
+@media #{$large-up} {
+	
+	#content {
+		
+		
+		.columns {
+			padding-bottom: $base-padding*2;
+		}
+		
+		img.left { 
+			margin-top: -30px;
+			margin-right: 40px;
+			height: 110px;
+		}		 	
+		
+		
+		.green {
+			a {
+				img {
+					max-width: 300px;
+				}
+			}
+		}	
+	}
+	
+	.nation img {
+		margin-top:-25px;
+		max-width:320px;
+	}
+
+	.subscribe {
+	  padding: $base-padding*1.5;
+	  background: url(#{$asset-path}/splatter.png) no-repeat -10px center;  
+	  max-width: 800px;
+	}
+	
+	#subscribe-form {
+		margin-top: 0;
+	}
+		
+
+	#footer {
+		padding-top: 0;
+		
+		.logo-hb { width: 150px; }		
+	
+		li {
+			a {
+				font-size: 16px;
+				padding: $base-padding/2;
+			}
+		}
+		
+	}
+
+	#fruit-left,
+	#fruit-right {
+		width: auto;
+	}	
+	
+}		
+
+@media #{$xlarge-up} {
+
+	.paper-top {
+		background-size: cover;
+	}
+}

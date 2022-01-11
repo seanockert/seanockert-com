@@ -1,0 +1,29 @@
+/* Button Animations */
+
+@include keyframes(bounce)
+{
+    0% { @include transform(scale(1,1)); }
+    50% { @include transform(scale(1.05,0.95)); }
+    100% { @include transform(scale(1,1)); }
+} 
+
+@include keyframes(press)
+{
+    0% { @include transform(scale(1,1)); }
+    50% { @include transform(scale(0.8,0.85)); }
+    100% { @include transform(scale(0.9,0.9)); }
+} 
+/* Button Animations */
+
+
+.button:hover, 
+.button:focus,
+.bounce:hover img, 
+.bounce:focus img {
+    @include animation(bounce 0.2s ease-in-out);    
+}
+    
+.button:active,
+.bounce:active img {
+    @include animation(press 0.2s ease-in-out); 
+}

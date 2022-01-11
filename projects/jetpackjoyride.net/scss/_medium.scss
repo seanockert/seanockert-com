@@ -1,0 +1,257 @@
+
+/* Tablet and up media queries  ---------------------- */
+@media #{$medium-up} {
+
+  .hidden-small { display: inline-block !important; }
+  .hidden-medium { display: none !important; }
+ 
+  .button {
+    font-size: $font-size-base;
+  }
+ 
+  .header-topbar {
+    
+    img { height: 46px; }
+    
+    img.header-topbar-logo {
+      height: 46px;
+      margin-top: 3px;
+    }
+    
+    .right {
+      margin-top: 3px;
+    }
+  } 
+  
+  .header-logo {
+    img {
+      height: 40px; 
+      margin-top: 5px; 
+    }
+  }  
+  
+  #badge-underground {
+    width:160px;
+  }  
+  
+  .content-intro p {
+    font-size: $font-size-medium;
+  }
+  
+  #content {
+    .row {
+      padding: $base-padding 0;
+    }
+    
+    .notice {
+      padding: $base-padding/4 $base-padding;
+    }
+    
+    .box {
+      margin-bottom: $base-padding/2;
+      background: #fff;
+      /*box-shadow: 1px 1px 3px rgba(0,0,0,0.4);*/
+      border: 1px solid #ddd;
+      border-radius: 3px;
+    }  
+    
+    .shadow {
+      border-radius: 3px;
+      
+      img {
+        border-radius: 3px;
+      }
+      
+      &:hover {
+        box-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+      }
+      &:active {
+        box-shadow: 1px 1px 1px rgba(0,0,0,0.5);
+      }
+    }      
+
+    h2 {
+      margin-bottom: $base-padding;
+      font-size: $font-size-large;
+    }
+    
+    .content-description {
+      text-align: center;
+      
+      h1 {
+        line-height: 1.1;
+        font-size: $font-size-xlarge;
+      } 
+      
+      h2 {
+        margin: 0;
+        text-align: left;
+      }
+      
+      p {
+        font-size: $font-size-medium;
+        line-height: 1.4;
+      }
+      
+      b {
+              
+        display: block;
+        float: left;
+        clear: both;
+        margin-top: 5px;
+        height: 70px;
+        line-height: 70px;
+        width: 70px;
+        padding: 0;
+        border-radius: 50%;
+      }
+      
+      blockquote {
+        margin-top: $base-padding/2;
+        
+        p {
+          font-size: $font-size-medium; 
+          line-height: 1.4;   
+        }
+      }
+    } 
+    
+  .content-box-jetpacks,
+  .content-box-vehicles,
+  .content-box-costumes,
+  .content-box-wallpapers {    
+    h2 {
+      top: $base-padding;
+    }
+  }
+    
+  .content-jetpacks {  
+    margin-top: 0;
+
+    h2 {
+      top: $base-padding/2;
+      img {
+        height: 36px;
+      }
+     }
+  }
+    
+  .content-video, 
+  .content-events {
+    h2 {
+       img {
+        height: 44px;
+       }       
+    }    
+  }    
+    
+    .content-events {
+        
+      h5 {
+        margin-top: -$font-size-base*2;
+      } 
+      
+      #icon-now-live { height: 32px; }
+    }
+    
+    .content-video {
+      .slick-track {
+        padding-bottom: $base-padding;
+      }
+        
+      .columns {  
+        &.content-video-main {
+          padding-top: 0;
+        }
+
+      }
+    }  
+    
+    .content-intro {      
+      h1 {
+        font-size: $font-size-xlarge;
+        
+        img {
+          height: 44px;
+        }
+      }
+      
+      img {
+        width: 250px;
+        margin-top: -50px;
+        margin-bottom: $base-padding/2;
+      }
+    }
+    
+    .content-video, 
+    .content-events {
+      .intro {
+        padding-top: $base-padding;
+      }
+    }
+  
+    .content-image-list {
+      h3 {
+        font-size: $font-size-large;
+      }
+    }
+    
+    .content-social {
+      padding-top: 0;
+    }
+    
+    .content-social-tweets {
+      .box {
+        padding: $base-padding/2;
+      }
+      
+      ul {
+        height: 396px;
+        overflow-y: scroll;
+        
+        li {
+          .timePosted {
+            font-size: 12px; 
+            padding-top: 0; 
+          }
+        }
+      }  
+    }
+
+    .content-jetpacks {
+      .columns {
+        padding: 0 $base-padding/4 !important;
+      }
+    }
+    
+    .content-box-jetpacks,
+    .content-box-vehicles,
+    .content-box-costumes,
+    .content-box-wallpapers {
+      padding: $base-padding;
+      padding-bottom: 0;  
+      
+      h2 {
+        font-size: $font-size-large;
+      }  
+    }
+
+  }
+  
+  .gallery {
+    #header {
+      padding-bottom: 265px;
+    }
+  }
+  
+  #footer {
+
+  }
+  
+    .footer-links {
+      a {
+        padding: $base-padding/4;
+      }
+    }  
+
+}

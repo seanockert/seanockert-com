@@ -1,0 +1,31 @@
+/* Mobile media queries  ---------------------- */
+@media #{$small-only} {
+
+  #hero .logo {
+    margin-top: 80px;
+  }
+
+  #hero a.button.button-download {
+    margin-top: -30px;
+  }
+
+  #panels .columns {
+    padding: 0 !important;
+    padding-bottom: 12px !important;
+  }
+  	
+  #slide-wrap {  
+    .swipe-wrap > div {
+      min-height: 280px;
+    }
+  }
+
+  #panels .panel a.button-download {
+    display: none;
+  }
+
+  #footer {
+    padding-bottom: $base-padding;
+  }
+
+}  

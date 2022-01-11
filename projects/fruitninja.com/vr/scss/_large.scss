@@ -1,0 +1,201 @@
+
+/* Desktop and up media queries  ---------------------- */
+  
+@media #{$large-up} {
+
+	html {
+	  background-size: 540px/$large-scale 912px/$large-scale;
+	}
+
+	p, 
+	form {
+	  max-width: 800px;
+	}
+
+	h2 {
+		font-size: 40px;
+	}
+
+	.header {
+		background: #0F1110 url(#{$asset-path}/bg-fruit-ninja-vr.jpg) no-repeat top center fixed;
+  		background-size: auto 120%;
+
+		h2 {
+			font-size: $font-size-xxlarge;
+		}
+
+		.fruit {
+			background: url(#{$asset-path}/fruit-bg.png) no-repeat bottom center ;
+			background-size: 80% auto;
+			height: 100%;
+		}
+
+		.inner  {
+		  max-width: 100%;
+		  padding: $base-padding*2 0;
+		  padding-bottom: $base-padding*6;
+		}
+
+		.video-container {
+			margin-top: $base-padding;
+		}
+
+	}
+
+	.header-logo-vive {
+		display: block
+	}
+
+	.logo-vive {
+		display: block;
+	}
+
+	.button-trailer,
+	.button-download {
+		padding: $base-padding;
+
+		img {
+			height: 240px;
+		}
+	}
+
+	.button-trailer {
+	  left: 10%;
+	}
+
+	.button-download {
+	  right: 10%;
+	}	
+
+	#bgvid {
+		display: block;
+	}
+
+	.video-overlay {
+		display: block;
+	}
+
+	#early-access {
+	  height: 60px;
+	}
+
+
+	.box {
+		padding: $base-padding;
+
+		p {
+			font-size: $font-size-large;
+		}
+	}
+
+
+	.logo-vive {
+		img {
+			height: 165px;
+		}
+	}
+
+	.logos {
+		&.rating {
+			img {
+				height: 50px;
+			}
+		}
+	}
+	
+
+	.logos.soon {
+		img {
+		  height: 40px;
+		  margin-bottom: -12px;
+		  margin-left: 8px;
+		}
+	}   
+
+	.content {
+		p, li {
+			font-size: $font-size-medium;
+			line-height: 1.3;
+		}
+
+		p {
+			margin: $base-padding/1.5;
+		}
+
+		.desc {
+			font-size: $font-size-medium;
+		}
+	}
+
+	#watch {
+		.inner {
+			padding: $base-padding*2 $base-padding/2;
+		}
+	}
+
+	#features {
+		.inner { 
+			padding-bottom: 0;
+
+			li {
+				background-size: 42px 42px;
+				padding-left: 52px;
+				padding-bottom: $base-padding/1.5;
+				padding-top: 8px;
+
+				li {
+					font-size: $font-size-medium;
+					width: 100%;
+					float: none;
+				}
+
+				h5 {
+					font-size: $font-size-medium;
+				}
+			}
+		}
+	}
+
+	#social {
+		padding: $base-padding 0;
+		padding-top: 0;
+
+		.inner {
+			padding-top: $base-padding*3.5;
+		}
+	}
+
+
+	#footer {
+		font-size: 14px;
+	}
+
+}   
+
+@media #{$xlarge-up} {
+	.header {
+		.inner  {
+		  padding: $base-padding*5 0;
+		  padding-bottom: $base-padding*8;
+		}
+
+		.video-container {
+	    	max-width: 750px;
+	    }
+	}
+
+  	
+
+	.button-trailer {
+	  left: 24%;
+	}
+
+	.button-download {
+	  right: 24%;
+	}
+
+	.paper-top, 
+	.paper-bottom {
+		background-size: cover;
+	}
+}

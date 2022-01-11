@@ -1,0 +1,88 @@
+
+/* Desktop and up media queries  ---------------------- */
+@media screen and (min-width: 1043px) and (max-width: 1124px) {
+  /*.header {
+    background-size: 100% 100%;
+  }  */
+}
+  
+@media #{$large-up} {
+
+  .header {
+    background: #7D7B91 url(#{$asset-path}/fnmm-header.jpg) no-repeat top center fixed;
+    background-size: 100% auto;
+    
+    h1 {
+      max-width: 516px;
+    }    
+
+    .header-intro {
+      font-size: $font-size-large;
+    }    
+  }
+  
+  h2 {
+    font-size: 46px;
+  }
+
+  h3 {
+    font-size: 28px;
+  }  
+
+  .character {
+    top: 150px;
+    height: 350px;
+    
+    &.left {
+      left: 20px;
+    } 
+     
+    &.right {
+      right: 20px;
+    }    
+  }
+
+  .content-section {
+    padding: $base-padding*4 0;
+  }
+
+    .content-section-modes,
+    .content-section-extra {
+      h3 {
+        height: 60px;
+        width: 80%;
+        margin: 0 auto;
+      }
+    }    
+    
+      .content-section-modes-description {
+        height: 80px;
+      }
+
+
+  .slanted-box {
+    padding-bottom: 80px; 
+  }
+
+  #testimonials {
+    background: #301305 url(#{$asset-path}/bg-wood.jpg) no-repeat top center fixed;
+    background-size: cover;
+  } 
+
+  .fruit {
+    width: 200px; 
+  }
+
+}   
+
+@media #{$xlarge-up} {
+ .header {
+    padding: 100px 0;
+ } 
+
+ .character {
+    top: 120px;
+    height: 460px;
+ }
+    
+}

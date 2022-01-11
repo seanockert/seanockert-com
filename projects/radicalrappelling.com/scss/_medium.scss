@@ -1,0 +1,181 @@
+
+/* Tablet and up media queries  ---------------------- */
+@media #{$medium-up} {
+
+  body {
+    background-size: 1440px 2560px;
+  }
+
+  .hidden-medium {
+    display: none !important;
+  }
+
+	.columns {  
+	  &.large-2 {
+	    width: 50%;
+	    padding: 0 $base-padding/2;
+	  }
+	}  
+  
+  .rapper {
+    padding: $base-padding*6 auto;
+  }
+  
+ 
+  #rappellers h2,
+  #reel h2,
+  #race h2,
+  #remix h2 {
+  	font-size: 60px;
+  }
+
+  #rappellers h2 img,
+  #reel h2 img,
+  #remix h2 img {
+  	height: 60px;
+  	width: auto;
+  }
+  
+  #race h2 img {
+    height: 120px;
+  }
+  
+  h3 {
+    font-size: 30px;
+  }
+  
+  
+  #clouds {
+    background: url(../images/clouds-foreground.png) repeat-y 50% 0px;
+    background-size: 1200px 1156px;
+  }
+  
+  #bottom-bar {
+    width: 50%;
+    left: 50%;
+    margin-left: -25%;   
+    padding: $base-padding/2;
+    
+    img {
+      height: 50px;
+    } 
+  }
+
+  .top-bar {
+    padding: $base-padding;
+    padding-top: $base-padding/2;
+  }
+    
+    .hb-logo {
+      img {
+        width: auto;
+        height: 50px;
+        margin-top: 0;
+      }
+    } 
+    
+  .remix-bar {
+    margin-top: 0;
+    display: block;
+
+    &.fixed {
+      top: 12px;
+      margin-left: -89px;
+    }
+
+
+    .bar, 
+    .fill,
+    .can {
+      background-size: 177px 100px;
+    }
+    
+    .bar, .fill {
+      width: 136px;
+      height: 50px;
+    }
+    
+    .can {
+      width: 41px;
+      height: 50px;
+      right: -15px;
+    }
+    
+    .fill {
+      width: 30%;
+    }  
+  }   
+  
+  
+  .no-js .remix-bar, 
+  .mobile .remix-bar {
+    display: none;
+  }
+     
+    
+  #button-download {
+    img {
+      height: 50px;  
+    }    
+  }    
+    
+  .social { 
+    img {
+      height: 50px;
+      margin-left: $base-padding/4;      
+    }
+  }
+
+  #scroll {
+    display: none;
+  }
+
+  #radical {
+    margin-top: $base-padding*2;
+  }
+  
+  .regalia {
+    margin-top: $base-padding*1.5;   
+  }
+    
+  #rappellers {
+    margin-top: $base-padding*4;
+  }
+
+  .flex-video {
+
+  }
+
+  .screenshots {
+    margin-top: $base-padding/2;
+      
+    li {
+      padding: 0 0.625rem 1.25rem;
+    }
+    
+  }
+  
+  .rights {
+    font-size: 14px; 
+  }
+  
+    
+
+  /* This parent can be any width and height */
+  .block {
+    display: table !important;
+    width: 100%;
+    margin: 0 !important;
+    padding: 0 !important;
+    text-align: center;
+  }
+     
+
+  /* The element to be centered, can also be of any width and height */ 
+  .centered {
+    display: table-cell;
+    vertical-align: middle;
+  } 
+    
+
+}	

@@ -1,0 +1,81 @@
+/*! Simple Twitter button that displays tweet count */
+
+$social-facebook-blue: #3b5997;
+$social-twitter-blue: #32ccfe;
+$social-googleplus-red: #f23c26;
+
+.social {
+  text-decoration: none;  
+  display: inline-block;  
+  font-size: 0.875em;   
+  font-family: sans-serif;
+  
+  span {
+    background: #333;
+    color: #fff;
+    display: inline-block;
+    border-radius: 0.20em;
+    padding: 0.5em 0.5em 0.5em 0.2em;
+    line-height: 1;
+    @include vendor-prefix(transition, background-color 0.2s ease-in);
+  
+    &:before {
+      background-size: 28px 28px;
+      background-repeat: no-repeat;
+      margin-top: -7px;
+      margin-bottom: -9px;
+      margin-right: 0.1em;
+      height: 28px;
+      width: 28px;
+      content: ' ';
+      display: inline-block;
+    }    
+  }
+  
+  b {
+    color: #999;
+    font-weight: normal;
+    padding-left: 5px;
+    padding-right: 6px;
+  }   
+
+  &.facebook {
+    span {
+      background-color: $social-facebook-blue;
+      
+      &:before {
+        background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAPVJREFUeNpi/P//P8NQBkwMQxyMemDUA6MeGPXA8PWAEhB3APFJIH4FxP+A+D8WTBFgoZHjC4G4FYg5aR0DjDSoibOAeCopbhhMHuAB4odALEQvD1A7D7iT6HiGwZYHdAjIfwDiu4PZAxx45K4CsQ3UE0OyHjhEbcePVmSDAVAjDwgSmQfY0dTCwPuBrgcoMeAjEAsM5ST0YqjngadD3QP3h7oHKK6VqVEKVSCxPYDYAYe6E0C8AU1s62DwQCcSWwCPB86jqR2tyEY9MOqBUQ+MemDUA6MeGPXAqAdGPTDqgYEFjKMT3aMeGPXAqAdGPUAJAAgwAO0ELMJWTmP8AAAAAElFTkSuQmCC');
+      }      
+    }
+    
+    &:hover span,
+    &:focus span {
+      background-color: darken($social-facebook-blue, 10%);
+    }       
+    
+    &:active span {
+      background-color: darken($social-facebook-blue, 20%);
+    }     
+  }
+  
+  &.twitter {
+    span {
+      background-color: $social-twitter-blue;
+      
+      &:before {
+        background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAABtklEQVR42u3YwSuDYQDH8XezKG27TFyUWinFwbaDdmAHU25LXGTKAXdJKW6kJCNzWqnlhH9gLLUpuSCnSSk5zFKUAw4Le30PisMy79v7vNvyfOtzXOvX1t49j6KqalWTA+QAOUAOkAPkADngvw1ohg8dsFfTgCCSeIZKBdxiBS4oXxwIw2X0gADWoegwg9/KYASryGFHxCewBpWWoWgwAC0dw4kW1Bg54ED9Lg4HlBLqcIW/9ogNHGESViMHJPGzCwRKvMYPPW2K+ApFUaw4OqEUMQYtvWNW1K9QT4k33scE2lAHBUPQ0j1sYgYA2yjVG66RRApayqJexAArBuFDCqK6hFXUJ5DGC24gqoTIJ/E0RLckckAjHiCyPnEDgBA+IKIc7GIHAEGcowAji5j1b7QdYSRgVHm0mjUgBKOLmn0e2IJRZdFg9oBaxGBE/eU8kfUihlPoaaoSjpRN2IXW5sp5qLfBhwieoKVXjJt5K2FBNxYRxR4y0FMa3nJcq9gxijPo6QTDsFTCvZAH8zhEFvkiD6U7pLEAfyVfbDnghhdd8MANp7xalAPkADlADpAD5AA5oAp8ApLonD+K3UnKAAAAAElFTkSuQmCC');
+      }
+    } 
+   
+    &:hover span,
+    &:focus span {
+      background-color: darken($social-twitter-blue, 10%);
+    }       
+    
+    &:active span {
+      background-color: darken($social-twitter-blue, 20%);
+    }   
+  } 
+
+
+}

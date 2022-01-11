@@ -1,0 +1,63 @@
+ 
+
+@include keyframes(streak2)
+{
+    0% { opacity: 0.9; background-position: 300% 0; }
+    24% { opacity: 0.9; background-position: -150% 0; }
+    25% { opacity: 0.9; background-position: -150% 200px; }
+    50% { background-position: -300% 200px; }
+    75% { background-position: -450% 0px; }
+    88% { opacity: 0.4; background-position: -600% 0px; }
+    100% { opacity: 0; background-position: -600% 0px; }
+}  
+
+@include keyframes(streak)
+{
+    0% { background-position: 0 0; }
+    100% { background-position: 13592px 0; }
+ 
+}  
+
+
+
+@include keyframes(mari)
+{
+    0% { @include transform(rotate(0deg) scale(1,1)); }
+    40% { @include transform(rotate(-2deg) scale(0.98,0.99)); }
+    100% { @include transform(rotate(0deg) scale(1,1)); }
+}  
+
+@include keyframes(nobu)
+{
+    0% { @include transform(translate3d(0, 0, 0) rotate(0deg) scale(1,1)); }
+    50% { @include transform(translate3d(0, 6px, 0) rotate(1deg) scale(0.98,0.99)); }
+    100% { @include transform(translate3d(0, 0, 0) rotate(0deg) scale(1,1)); }
+}  
+
+@include keyframes(katsuro)
+{
+    0% { @include transform(translate3d(0, 0, 0) scale(1,1)); }
+    50% { @include transform(translate3d(0, 10px, 0) scale(0.98,0.99)); }
+    100% { @include transform(translate3d(0, 0, 0) scale(1,1)); }
+}  
+
+
+#streak {
+    @include animation(streak 1.2s linear infinite); 
+}
+
+.character {
+    &.mari {
+      @include animation(mari 2s ease-in-out infinite);   
+    }    
+    &.nobu {
+      @include animation(nobu 4s ease-in-out infinite);   
+    }    
+    &.han {
+      @include animation(nobu 3s 1s ease-in-out infinite);   
+    }    
+    &.katsuro {
+      @include animation(katsuro 4s ease-in-out infinite);   
+    }
+}
+

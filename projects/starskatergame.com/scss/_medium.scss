@@ -1,0 +1,249 @@
+
+/* Tablet and up media queries  ---------------------- */
+@media #{$medium-up} {
+
+  .hidden-large { display: none !important; }
+  .hidden-small { display: block !important; }
+ 
+  #hill { 
+    background: url('#{$asset-path}/hill.png') no-repeat bottom left fixed;
+    background-size: 30% auto;
+  }
+  
+  #clouds {
+    background-size: auto;
+  }
+  
+  /*html {
+    background: url('#{$asset-path}/bg-wide.png') no-repeat top center fixed;
+    background-size: cover;
+  }
+  
+  #hill, #clouds {
+    background: none;
+  }*/
+  
+  h2 {
+    font-size: $font-size-xlarge;
+    line-height: 0.8;
+  }
+  
+  a {
+    &.yellow-link {
+      font-size: $font-size-med;
+      margin-top: -16px;
+      text-shadow:
+       -2px -2px 0 $color-red,  
+        2px -2px 0 $color-red,
+        -2px 2px 0 $color-red,
+         2px 2px 0 $color-red;
+    }      
+  }
+  
+  #header {
+    background-size: auto 100%;
+    background-position: 50% 6%;
+    padding-top: $base-padding;
+  }
+  
+  #social-bar {
+    img {
+      height: 44px;
+    } 
+    
+    a {
+     line-height: 44px;
+     margin: 0 $base-padding/4; 
+     
+      &.yellow-link {
+        font-size: $font-size-med;
+        margin-top: -16px;
+
+        &:active {
+          margin-top: -15px;
+        }
+      }
+    }
+  }
+  
+  #logo, 
+  #logo-noscript {
+    margin-top: 0;
+    padding: 0 $base-padding;
+  }  
+
+  #tagline {
+    padding: $base-padding/1.5 $base-padding/2;
+    margin: $base-padding 0;
+    margin-top: $base-padding/2;
+    font-size: $font-size-xlarge;
+    line-height: 1;
+  }
+
+  #tagline, #download .columns {
+    text-shadow:
+     -3px -3px 0 #972424,  
+      3px -3px 0 #972424,
+      -3px 3px 0 #972424,
+       3px 3px 0 #972424;
+  }
+
+  #content {
+    
+    h3 {
+      font-size: $font-size-xlarge;
+      line-height: 0.9;
+      
+      img {
+        height: 32px;
+      }
+    }
+    
+    p, li {
+      font-size: $font-size-med;
+      line-height: 1.2;
+    }
+  }
+  
+  .badge img {
+    height: 66px;
+  }  
+  
+
+  .facepile {
+    height: auto;
+  }
+ 
+  #reviews { 
+    blockquote {
+      font-size: $font-size-large;
+    }
+
+    author {
+      font-size: $font-size-med;
+    }
+
+    .arrow-left,
+    .arrow-right {
+      img {
+        height: 46px;
+      }
+    }  
+  }  
+
+  #video {
+    p {
+      font-size: $font-size-med;
+    }
+  }
+      
+    
+  #screenshots {
+    h3 {
+      font-size: $font-size-med;
+      margin: $base-padding/2;
+    }
+    
+    .columns > .columns {
+      padding: 0 $base-padding/3;
+    }
+    
+    img {
+      border: 3px solid #fff;
+    }
+  }  
+  
+  .section {
+    text-align: left; 
+    padding-bottom: $base-padding*2;
+    
+    h3 {
+      margin-top: 0;
+    }
+    
+    img {
+      max-height: 100%;
+    }
+    
+    a.yellow-link {
+      font-size: $font-size-med;
+      
+      b {
+        background-size: 43px 33px;
+        height: 33px;
+        width: 43px;
+        margin-bottom: -6px;
+      } 
+    }
+
+  }
+  
+  #features {
+    .img {
+      margin-top: 0;
+    }
+  }  
+  
+  #everyplay {
+    small {
+      font-size: $font-size-regular;
+    }
+  }
+  
+  #download {
+    .columns {
+      padding-top: 70px;
+      margin-top: 70px;
+    }
+    
+    .icon {
+      top: -100px;
+      width: 150px;
+      margin-left: -75px;
+    }
+    
+    h3 {
+      margin-bottom: $base-padding/2;
+    }
+  }
+
+  #footer {
+    font-size: $font-size-regular;
+    
+    img {
+      height: 35px;
+      margin: $base-padding/2;
+    }
+  }
+  
+  .news-item {
+    h4 {
+      font-size: $font-size-large;
+    }
+    
+    small {
+      font-size: $font-size-med;
+    }    
+  }
+  
+  .rotate-left {
+    @include vendor-prefix(transform, rotate(-2deg));
+  }  
+  
+  .rotate-right {
+    @include vendor-prefix(transform, rotate(2deg));
+  }
+
+}	
+
+/* iPad Portrait */
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: portrait) and (-webkit-min-device-pixel-ratio: 1) {
+
+}
+
+/* Landscape */
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) and (-webkit-min-device-pixel-ratio: 1) {
+  #logo img, #logo-noscript img {
+
+  }
+}
