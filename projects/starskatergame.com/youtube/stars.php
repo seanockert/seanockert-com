@@ -31,7 +31,7 @@
                 . '</p></a><a href="' .
                 $value['link']
                 . '" class="button"><img src="' . $asset_url . 'icon-youtube.png"><span>My Channel</span></a>'
-                . '<a href="http://play.halfbrick.com?g=star-starskater-' . strtolower(str_replace(' ', '', $value['name'])) . '" class="button green" style="">Play</a>';
+                . '<a href="https://play.halfbrick.com?g=star-starskater-' . strtolower(str_replace(' ', '', $value['name'])) . '" class="button green" style="">Play</a>';
         } else {
           $list .= '<li><div class="inner"><img src="' . $asset_url . 'stars/' .  $count . '.png" title="Revealed when unlocked in the game"></div><p>Find in-game to unlock this <span>YouTube star for the race.</span></p>';
         }

@@ -153,19 +153,19 @@ function detectDevice() {
     if (/Android|iPhone|iPad|iPod|Silk|Kindle|KFTT|KFOT|BlackBerry|BB|PlayBook/i.test(navigator.userAgent)) {
         if ((/iPhone|iPod|iPad/).test(navigator.userAgent)) {
             device = 'ios'; 
-            downloadLink = 'http://download.halfbrick.com/?id=bandstars';
+            downloadLink = 'https://download.halfbrick.com/?id=bandstars';
         }                               
         if ((/Android/).test(navigator.userAgent)) {
             downloadLink = 'https://play.google.com/store/apps/details?id=com.halfbrick.bandstars';
             device = 'android';
         }  
         if (/Silk|Kindle|KFTT|KFOT/i.test(navigator.userAgent)) { // Amazon
-            downloadLink = 'http://www.amazon.com/Halfbrick-Studios-Pty-Ltd-Stars/dp/B00MUDYPQK/';
+            downloadLink = 'https://www.amazon.com/Halfbrick-Studios-Pty-Ltd-Stars/dp/B00MUDYPQK/';
             device = 'amazon';
         }          
         
         if (/BlackBerry|BB|PlayBook/i.test(navigator.userAgent)) { // Blackberry
-            downloadLink = 'http://www.amazon.com/Halfbrick-Studios-Pty-Ltd-Stars/dp/B00MUDYPQK/';
+            downloadLink = 'https://www.amazon.com/Halfbrick-Studios-Pty-Ltd-Stars/dp/B00MUDYPQK/';
             device = 'amazon';
         }  
         

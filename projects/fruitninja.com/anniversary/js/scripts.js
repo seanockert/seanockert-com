@@ -103,7 +103,7 @@ function embedVideo() {
     $(this).append($('<div/>', {'class': 'play'}));
  
      // Based on the YouTube ID, we can easily find the thumbnail image
-    $(this).append($('<img/>', {'src': 'http://i.ytimg.com/vi/' + this.id + '/hqdefault.jpg'}));
+    $(this).append($('<img/>', {'src': 'https://i.ytimg.com/vi/' + this.id + '/hqdefault.jpg'}));
  
     $(document).delegate('#'+this.id, 'click', function() {
       // Create an iFrame with autoplay set to true

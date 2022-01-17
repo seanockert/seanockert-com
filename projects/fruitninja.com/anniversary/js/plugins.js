@@ -5,7 +5,7 @@
 
 /**
  * jQuery Unveil
- * http://luis-almeida.github.com/unveil
+ * https://luis-almeida.github.com/unveil
  * Licensed under the MIT license.
  * Copyright 2013 Luís Almeida
  */

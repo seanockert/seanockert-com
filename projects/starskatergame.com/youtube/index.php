@@ -16,7 +16,7 @@ require_once('stats.php');
   <meta name="title" content="YouTube Stars in Star Skater" /> 
   <meta name="description" content="Don't just cross the road, own it in this new skating game from Halfbrick" /> 
   <meta name="keywords" content="Star Sk8r, star skater, mobile, game, halfbrick, jetpack joyride, fruit ninja, skating, sk8" /> 
-  <link rel="icon" type="image/png" href="http://assets.halfbrick.com/ss/images/favicon.png">
+  <link rel="icon" type="image/png" href="images/favicon.png">
 
   <!--[if lt IE 9]>
     <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.6.2/html5shiv.js"></script>
@@ -25,15 +25,15 @@ require_once('stats.php');
   
   <meta content="Star Skater" property="og:title" />
   <meta content="Don't just cross the road, own it in Star Skater!" property="og:description" />
-  <meta content="http://starskatergame.com/images/share_img.jpg" property="og:image" />
+  <meta content="https://starskatergame.com/images/share_img.jpg" property="og:image" />
   <meta content="600" property="og:image:width" />
   <meta content="315" property="og:image:height" />
-  <meta content="http://starskatergame.com" property="og:url" />
+  <meta content="https://starskatergame.com" property="og:url" />
   <link rel="stylesheet" href="../css/youtube.css?v=2" type="text/css" />
   
   <meta content="Star Skater" property="twitter:title" />
-  <meta content="Don't just cross the road, own it in Star Skater! http://starsk8r.com #starsk8r via @halfbrick" property="twitter:description" />  
-  <meta content="http://starskatergame.com/images/share_img.jpg" property="twitter:image:src" />
+  <meta content="Don't just cross the road, own it in Star Skater! https://starsk8r.com #starsk8r via @halfbrick" property="twitter:description" />  
+  <meta content="https://starskatergame.com/images/share_img.jpg" property="twitter:image:src" />
   <meta content="600" property="twitter:image:width" />
   <meta content="315" property="twitter:image:height" />  
     
@@ -68,7 +68,7 @@ require_once('stats.php');
     }
   }
 
-  $asset_url = '//assets.halfbrick.com/ss/images/youtube/';
+  $asset_url = 'images/youtube/';
   $list = '';
   $count = 0;
   $imgURLs = array();
@@ -81,15 +81,15 @@ require_once('stats.php');
  
     <div id="head">
       <div class="inner">
-        <a href="home" id="gohome" title="Visit the main Star Skater website"><img src="//assets.halfbrick.com/ss/images/youtube/button-home.png"></a>
+        <a href="home" id="gohome" title="Visit the main Star Skater website"><img src="images/youtube/button-home.png"></a>
         <div id="social-bar">
-            <a href="https://www.facebook.com/starskatergame"><img src="//assets.halfbrick.com/ss/images/social-facebook.png" alt="Facebook"></a>
-            <a href="https://twitter.com/halfbrick"><img src="//assets.halfbrick.com/ss/images/social-twitter.png" alt="Twitter"></a>
+            <a href="https://www.facebook.com/starskatergame"><img src="images/social-facebook.png" alt="Facebook"></a>
+            <a href="https://twitter.com/halfbrick"><img src="images/social-twitter.png" alt="Twitter"></a>
         </div>
 
         <div class="row">
 
-            <h2 id="logo"><a href="../"><img src="http://assets.halfbrick.com/ss/holding/logo-star-sk8r.png" alt="Star Skater"></a></h2>
+            <h2 id="logo"><a href="../"><img src="holding/logo-star-sk8r.png" alt="Star Skater"></a></h2>
             <div class="clear"></div>
             <h1 id="tagline">YouTube Star Skater <span>Skate-Off</span></h1>
             <div class="content">
@@ -114,8 +114,8 @@ require_once('stats.php');
 
                 <div class="cta">
             <span>Play game <br>for free</span>
-            <a href="https://app.appsflyer.com/id1040671838?pid=website&c=youtube-stars" class="badge link-apple" onclick="return obLink('Star Skater', 'App Store', 'https://app.appsflyer.com/id1040671838?pid=website&c=youtube-stars')" title="Download for iPhone and iPad"><img src="//assets.halfbrick.com/ss/images/badge-apple.png" alt="App Store"></a> <a href="http://app.appsflyer.com/com.halfbrick.crazysk8r?pid=website&c=youtube-stars" class="badge link-google" onclick="return obLink('Star Skater', 'Google Play', 'http://app.appsflyer.com/com.halfbrick.crazysk8r?pid=website&c=youtube-stars')" title="Download for Android"><img src="//assets.halfbrick.com/ss/images/badge-google.png" alt="Google PLay"></a>
-            <a href="http://play.halfbrick.com/?g=star-skater&pid=website&c=youtube-stars" onclick="return obLink('Star Skater', 'Game Icon', 'http://play.halfbrick.com/?g=star-skater&pid=website&c=youtube-stars')"><img src="//assets.halfbrick.com/ss/images/star-sk8r-icon.png" class="icon"></a>
+            <a href="https://app.appsflyer.com/id1040671838?pid=website&c=youtube-stars" class="badge link-apple" onclick="return obLink('Star Skater', 'App Store', 'https://app.appsflyer.com/id1040671838?pid=website&c=youtube-stars')" title="Download for iPhone and iPad"><img src="images/badge-apple.png" alt="App Store"></a> <a href="https://app.appsflyer.com/com.halfbrick.crazysk8r?pid=website&c=youtube-stars" class="badge link-google" onclick="return obLink('Star Skater', 'Google Play', 'https://app.appsflyer.com/com.halfbrick.crazysk8r?pid=website&c=youtube-stars')" title="Download for Android"><img src="images/badge-google.png" alt="Google PLay"></a>
+            <a href="https://play.halfbrick.com/?g=star-skater&pid=website&c=youtube-stars" onclick="return obLink('Star Skater', 'Game Icon', 'https://play.halfbrick.com/?g=star-skater&pid=website&c=youtube-stars')"><img src="images/star-sk8r-icon.png" class="icon"></a>
                 </div>
 
             </div>
@@ -143,10 +143,10 @@ require_once('stats.php');
      <div id="download" class="section">
       <div class="row">
         <div class="columns large-8 large-centered medium-8 medium-centered">
-          <a href="http://play.halfbrick.com/?g=star-skater&pid=website&c=youtube-stars" onclick="return obLink('Star Skater', 'Game Icon', 'http://play.halfbrick.com/?g=star-skater&pid=website&c=youtube-stars')"><img src="//assets.halfbrick.com/ss/images/star-sk8r-icon.png" class="icon"></a>
+          <a href="https://play.halfbrick.com/?g=star-skater&pid=website&c=youtube-stars" onclick="return obLink('Star Skater', 'Game Icon', 'https://play.halfbrick.com/?g=star-skater&pid=website&c=youtube-stars')"><img src="images/star-sk8r-icon.png" class="icon"></a>
           <h3>Play Star Skater for Free!</h3>
           <div class="clear"></div>
-          <p><a href="https://app.appsflyer.com/id1040671838?pid=website" class="badge link-apple" onclick="return obLink('Star Skater', 'App Store', 'https://app.appsflyer.com/id1040671838?pid=website&c=youtube-stars')" title="Download for iPhone and iPad"><img src="//assets.halfbrick.com/ss/images/badge-apple.png" alt="App Store"></a> <a href="http://app.appsflyer.com/com.halfbrick.crazysk8r?pid=website&c=youtube-stars" class="badge link-google" onclick="return obLink('Star Skater', 'Google Play', 'http://app.appsflyer.com/com.halfbrick.crazysk8r?pid=website&c=youtube-stars')" title="Download for Android"><img src="//assets.halfbrick.com/ss/images/badge-google.png" alt="Google PLay"></a></p>
+          <p><a href="https://app.appsflyer.com/id1040671838?pid=website" class="badge link-apple" onclick="return obLink('Star Skater', 'App Store', 'https://app.appsflyer.com/id1040671838?pid=website&c=youtube-stars')" title="Download for iPhone and iPad"><img src="images/badge-apple.png" alt="App Store"></a> <a href="https://app.appsflyer.com/com.halfbrick.crazysk8r?pid=website&c=youtube-stars" class="badge link-google" onclick="return obLink('Star Skater', 'Google Play', 'https://app.appsflyer.com/com.halfbrick.crazysk8r?pid=website&c=youtube-stars')" title="Download for Android"><img src="images/badge-google.png" alt="Google PLay"></a></p>
            <a href="https://www.youtube.com/watch?v=b0PJ4yRAYEI" class="video-modal link">Watch the trailer</a>
         </div>
       </div>
@@ -158,8 +158,8 @@ require_once('stats.php');
     </div>
 
     <div id="footer">
-      <p>&copy; 2016 <a href="http://halfbrick.com">Halfbrick studios</a>. All rights reserved. 
-      <br><a href="../press">Media Kit</a> | <a href="http://halfbrick.com/pp">Privacy Policy</a>  | <a href="http://halfbrick.com/tos">Terms of Use</a></p>      
+      <p>&copy; 2016 <a href="https://halfbrick.com">Halfbrick studios</a>. All rights reserved. 
+      <br><a href="../press">Media Kit</a> | <a href="https://halfbrick.com/pp">Privacy Policy</a>  | <a href="https://halfbrick.com/tos">Terms of Use</a></p>      
     </div> 
       
 
@@ -171,11 +171,11 @@ require_once('stats.php');
   
 
     <h4>How to Play</h4>
-    <p><img src="//assets.halfbrick.com/ss/images/youtube/icon-prize-machine.png" class="left"> 1. unlock your favorite YouTube Star from the Prize Machine in the game to join their team.</p>
-    <p><img src="//assets.halfbrick.com/ss/images/youtube/icon-trophy.png" class="left"> 2. find and collect YouTube trophies scattered in every level. The team that collects the most trophies wins!</p>
+    <p><img src="images/youtube/icon-prize-machine.png" class="left"> 1. unlock your favorite YouTube Star from the Prize Machine in the game to join their team.</p>
+    <p><img src="images/youtube/icon-trophy.png" class="left"> 2. find and collect YouTube trophies scattered in every level. The team that collects the most trophies wins!</p>
     <p><small>Trophies are collectable from 22<sup>nd</sup> July to 12<sup>th</sup> August.</small></p>
 
-    <img src="//assets.halfbrick.com/ss/images/youtube/how-it-works.png">
+    <img src="images/youtube/how-it-works.png">
     
     <hr>
 
@@ -187,7 +187,7 @@ require_once('stats.php');
     <h4>You could star in the game!</h4>
     <p>One lucky player from the winning team will be chosen to have themselves put into the game as a playable skater.</p>
 
-    <p><a href="http://play.halfbrick.com/?g=star-skater&pid=website&c=youtube-stars" onclick="return obLink('Star Skater', 'Game Icon', 'http://play.halfbrick.com/?g=star-skater&pid=website&c=youtube-stars')">Have fun and start collecting Skaters!</a></p>
+    <p><a href="https://play.halfbrick.com/?g=star-skater&pid=website&c=youtube-stars" onclick="return obLink('Star Skater', 'Game Icon', 'https://play.halfbrick.com/?g=star-skater&pid=website&c=youtube-stars')">Have fun and start collecting Skaters!</a></p>
 
 
 </div>   

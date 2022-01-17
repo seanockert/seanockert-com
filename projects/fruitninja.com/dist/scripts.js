@@ -230,17 +230,17 @@ function detectDevice() {
             store = 'Apple App Store';
         }                              
         if ((/Android/).test(navigator.userAgent)) {
-            downloadLink = 'http://app.appsflyer.com/com.halfbrick.fruitninjafree?pid=website&c=gb2016';
+            downloadLink = 'https://app.appsflyer.com/com.halfbrick.fruitninjafree?pid=website&c=gb2016';
             device = 'android';
             store = 'Google Play Store';
         }          
         if ((/Windows Phone|IEMobile/).test(navigator.userAgent)) {
-            downloadLink = 'http://www.windowsphone.com/en-us/store/app/fruit-ninja/49c69a08-60fe-df11-9264-00237de2db9e';
+            downloadLink = 'https://www.windowsphone.com/en-us/store/app/fruit-ninja/49c69a08-60fe-df11-9264-00237de2db9e';
             device = 'windows';
             store = 'Windows Phone';
         }  
         if (/\bSilk\b/.test(navigator.userAgent)) { // Amazon
-            downloadLink = 'http://www.amazon.com/gp/mas/dl/android?p=com.halfbrick.fruitninjafree';
+            downloadLink = 'https://www.amazon.com/gp/mas/dl/android?p=com.halfbrick.fruitninjafree';
             device = 'amazon';
             store = 'Amazon App Store';
         } 

@@ -1,9 +1,9 @@
 /* 
 Site Name:     Fish Out Of Water
-Site URI:      http://fruitninja.com
+Site URI:      https://fruitninja.com
 Description:    Fruit Ninja website by Halfbrick
 Author:         Halfbrick - Sean Ockert @seanockert
-Author URI:     http://balsamade.com  
+Author URI:     https://balsamade.com  
 Version:        1
 */
 
@@ -28,7 +28,7 @@ body {
 	padding-bottom: 30px;
 	padding-top: 30px;
 	text-align: center;
-	background: url('//assets.halfbrick.com/foow/images/bubbles.png') no-repeat bottom center;
+	background: url('images/bubbles.png') no-repeat bottom center;
 }
 
 .clear { clear: both; }
@@ -88,7 +88,7 @@ a:hover {
 
 
 a.download {
-	background: url('//assets.halfbrick.com/foow/images/app-icons@2x.png') no-repeat 0 0;
+	background: url('images/app-icons@2x.png') no-repeat 0 0;
 	height: 45px;
 	width: 153px;
 	background-size: 436px 45px;
@@ -128,7 +128,7 @@ a.download.amazon {
 #download-label {
 	height: 70px;
 	width: 89px;
-	background: url('//assets.halfbrick.com/foow/images/labels.png') no-repeat left bottom;
+	background: url('images/labels.png') no-repeat left bottom;
 	position: absolute;
 	right: -75px;
 	bottom: 5px;
@@ -402,7 +402,7 @@ a.download.amazon {
 		height: 424px;
 		width: 573px;
 		padding-top: 0;
-		background: #2997cc url('//assets.halfbrick.com/foow/images/foow-water-free.jpg') no-repeat 50% 50%;
+		background: #2997cc url('images/foow-water-free.jpg') no-repeat 50% 50%;
 		background-size: 573px 424px;
 	}
 
@@ -414,7 +414,7 @@ a.download.amazon {
 	  left:0;
 	  top: 0;
 	  z-index: 2;
-	  background:url('//assets.halfbrick.com/foow/images/mask-splash-circle-blue.png') 100% 100% no-repeat;
+	  background:url('images/mask-splash-circle-blue.png') 100% 100% no-repeat;
 	  background-size: 595px 430px;
 	}
 	
@@ -443,7 +443,7 @@ a.download.amazon {
 	.fish.dolphin .modal { margin-top: -60px; margin-left: -30px; }
 	
 	.fish {
-		background: url('//assets.halfbrick.com/foow/images/fish-update-1.png') no-repeat 0 0;
+		background: url('images/fish-update-1.png') no-repeat 0 0;
 		bottom: 0;
 		position: absolute;
 		background-size: 1236px 382px;
@@ -674,7 +674,7 @@ a.download.amazon {
 	.fish.dolphin .modal { margin-top: -80px; margin-left: 50px; }
 	
 	.fish {
-		background: url('//assets.halfbrick.com/foow/images/fish-update-1.2.png') no-repeat 0 0;
+		background: url('images/fish-update-1.2.png') no-repeat 0 0;
 		bottom: 0;
 		position: absolute;
 		background-size: 1854px 573px;

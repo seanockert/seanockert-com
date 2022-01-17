@@ -2,7 +2,7 @@
  * Sizzle CSS Selector Engine
  *  Copyright 2011, The Dojo Foundation
  *  Released under the MIT, BSD, and GPL Licenses.
- *  More information: http://sizzlejs.com/
+ *  More information: https://sizzlejs.com/
  */
 (function(){
 
@@ -2355,10 +2355,10 @@ toFloat  = function(obj, def) { if (is.valid(obj)) { var x = parseFloat(obj); if
     
 //=============================================================================
 //
-// Compatibility for older browsers (compatibility: http://kangax.github.com/es5-compat-table/)
+// Compatibility for older browsers (compatibility: https://kangax.github.com/es5-compat-table/)
 //
 //  Function.bind:        https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Function/bind
-//  Object.create:        http://javascript.crockford.com/prototypal.html
+//  Object.create:        https://javascript.crockford.com/prototypal.html
 //  Object.extend:        (defacto standard like jquery $.extend or prototype's Object.extend)
 //  Class.create:         create a simple javascript 'class' (a constructor function with a prototype and optional class methods)
 //
@@ -2406,7 +2406,7 @@ var Class = {
   }
 }
 
-if (!window.requestAnimationFrame) {// http://paulirish.com/2011/requestanimationframe-for-smart-animating/
+if (!window.requestAnimationFrame) {// https://paulirish.com/2011/requestanimationframe-for-smart-animating/
   window.requestAnimationFrame = window.webkitRequestAnimationFrame || 
                                  window.mozRequestAnimationFrame    || 
                                  window.oRequestAnimationFrame      || 
@@ -2523,7 +2523,7 @@ Game = {
     }
   },
 
-  renderToCanvas: function(width, height, render, canvas) { // http://kaioa.com/node/103
+  renderToCanvas: function(width, height, render, canvas) { // https://kaioa.com/node/103
     canvas = canvas || document.createElement('canvas');
     canvas.width  = width;
     canvas.height = height;

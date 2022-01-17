@@ -73,8 +73,8 @@ function checkSize() {
 // Detects the device the visitor is using
 function detectDevice() {
   var storeLinks = [
-  'http://appstore.com/fruitninjaacademy', 
-  'http://play.google.com/store/apps/details?id=com.halfbrick.mathmaster'
+  'https://appstore.com/fruitninjaacademy', 
+  'https://play.google.com/store/apps/details?id=com.halfbrick.mathmaster'
 ]
   
   if (/iPhone|iPod|iPad/i.test(navigator.userAgent)) {

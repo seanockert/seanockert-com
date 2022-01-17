@@ -8,7 +8,7 @@
 
  * Copyright (c) 20010 Janis Skarnelis
 
- * Examples and documentation at: http://fancybox.net
+ * Examples and documentation at: https://fancybox.net
 
  *
 
@@ -20,9 +20,9 @@
 
  * Dual licensed under the MIT and GPL licenses:
 
- *   http://www.opensource.org/licenses/mit-license.php
+ *   https://www.opensource.org/licenses/mit-license.php
 
- *   http://www.gnu.org/licenses/gpl.html
+ *   https://www.gnu.org/licenses/gpl.html
 
  */
 
@@ -81,7 +81,7 @@
 
 	height: 480px;
 
-	background: transparent url(http://wac.76ff.edgecastcdn.net/0076FF/hbwebmedia/md/images/fancybox/fancy_loading.png) no-repeat;
+	background: transparent url(https://wac.76ff.edgecastcdn.net/0076FF/hbwebmedia/md/images/fancybox/fancy_loading.png) no-repeat;
 
 }
 
@@ -222,7 +222,7 @@
 	width: 30px;
 
 	height: 30px;
-	background: url('http://wac.76ff.edgecastcdn.net/0076FF/hbwebmedia/md/images/fancybox/fancy_close.png') no-repeat 0 0;
+	background: url('https://wac.76ff.edgecastcdn.net/0076FF/hbwebmedia/md/images/fancybox/fancy_close.png') no-repeat 0 0;
 
 	cursor: pointer;
 
@@ -351,7 +351,7 @@
 
 	padding: 10px;
 
-	background: url('http://wac.76ff.edgecastcdn.net/0076FF/hbwebmedia/md/images/fancybox/fancy_title_over.png');
+	background: url('https://wac.76ff.edgecastcdn.net/0076FF/hbwebmedia/md/images/fancybox/fancy_title_over.png');
 
 	display: block;
 
@@ -379,7 +379,7 @@
 
 #fancybox-title-left {
 
-	background: url(http://wac.76ff.edgecastcdn.net/0076FF/hbwebmedia/md/images/fancybox/fancy_title_left.png);
+	background: url(https://wac.76ff.edgecastcdn.net/0076FF/hbwebmedia/md/images/fancybox/fancy_title_left.png);
 	width: 28px;	
 
 }
@@ -390,7 +390,7 @@
 
 	line-height: 65px;
 
-	background: url(http://wac.76ff.edgecastcdn.net/0076FF/hbwebmedia/md/images/fancybox/fancy_title_main.png);
+	background: url(https://wac.76ff.edgecastcdn.net/0076FF/hbwebmedia/md/images/fancybox/fancy_title_main.png);
 
 	color: #FFF;
 }
@@ -399,7 +399,7 @@
 
 #fancybox-title-right {
 
-	background: url(http://wac.76ff.edgecastcdn.net/0076FF/hbwebmedia/md/images/fancybox/fancy_title_right.png);
+	background: url(https://wac.76ff.edgecastcdn.net/0076FF/hbwebmedia/md/images/fancybox/fancy_title_right.png);
 	width: 28px;
 }
 
@@ -419,7 +419,7 @@
 
 	outline: none;
 
-	background-image: url('http://wac.76ff.edgecastcdn.net/0076FF/hbwebmedia/md/images/fancybox/blank.gif');
+	background-image: url('https://wac.76ff.edgecastcdn.net/0076FF/hbwebmedia/md/images/fancybox/blank.gif');
 
 	z-index: 1102;
 
@@ -471,7 +471,7 @@
 
 #fancybox-left-ico {
 
-	background: transparent url('http://wac.76ff.edgecastcdn.net/0076FF/hbwebmedia/md/images/fancybox/fancy_nav_left.png') no-repeat;
+	background: transparent url('https://wac.76ff.edgecastcdn.net/0076FF/hbwebmedia/md/images/fancybox/fancy_nav_left.png') no-repeat;
 	margin-left: -40px;
 
 }
@@ -480,7 +480,7 @@
 
 #fancybox-right-ico {
 
-	background: transparent url('http://wac.76ff.edgecastcdn.net/0076FF/hbwebmedia/md/images/fancybox/fancy_nav_right.png') no-repeat;
+	background: transparent url('https://wac.76ff.edgecastcdn.net/0076FF/hbwebmedia/md/images/fancybox/fancy_nav_right.png') no-repeat;
 	margin-right: -40px;
 
 }
@@ -539,7 +539,7 @@ div#fancy-bg-n {
 
 	height: 20px;
 
-	background: transparent url('http://wac.76ff.edgecastcdn.net/0076FF/hbwebmedia/md/images/fancybox/fancy_shadow_n.png') repeat-x;
+	background: transparent url('https://wac.76ff.edgecastcdn.net/0076FF/hbwebmedia/md/images/fancybox/fancy_shadow_n.png') repeat-x;
 
 }
 
@@ -555,7 +555,7 @@ div#fancy-bg-ne {
 
 	height: 20px;
 
-	background: transparent url('http://wac.76ff.edgecastcdn.net/0076FF/hbwebmedia/md/images/fancybox/fancy_shadow_ne.png') no-repeat;
+	background: transparent url('https://wac.76ff.edgecastcdn.net/0076FF/hbwebmedia/md/images/fancybox/fancy_shadow_ne.png') no-repeat;
 
 }
 
@@ -571,7 +571,7 @@ div#fancy-bg-e {
 
 	width: 20px;
 
-	background: transparent url('http://wac.76ff.edgecastcdn.net/0076FF/hbwebmedia/md/images/fancybox/fancy_shadow_e.png') repeat-y;
+	background: transparent url('https://wac.76ff.edgecastcdn.net/0076FF/hbwebmedia/md/images/fancybox/fancy_shadow_e.png') repeat-y;
 
 }
 
@@ -587,7 +587,7 @@ div#fancy-bg-se {
 
 	height: 20px;
 
-	background: transparent url('http://wac.76ff.edgecastcdn.net/0076FF/hbwebmedia/md/images/fancybox/fancy_shadow_se.png') no-repeat;
+	background: transparent url('https://wac.76ff.edgecastcdn.net/0076FF/hbwebmedia/md/images/fancybox/fancy_shadow_se.png') no-repeat;
 
 }
 
@@ -603,7 +603,7 @@ div#fancy-bg-s {
 
 	height: 20px;
 
-	background: transparent url('http://wac.76ff.edgecastcdn.net/0076FF/hbwebmedia/md/images/fancybox/fancy_shadow_s.png') repeat-x;
+	background: transparent url('https://wac.76ff.edgecastcdn.net/0076FF/hbwebmedia/md/images/fancybox/fancy_shadow_s.png') repeat-x;
 
 }
 
@@ -619,7 +619,7 @@ div#fancy-bg-sw {
 
 	height: 20px;
 
-	background: transparent url('http://wac.76ff.edgecastcdn.net/0076FF/hbwebmedia/md/images/fancybox/fancy_shadow_sw.png') no-repeat;
+	background: transparent url('https://wac.76ff.edgecastcdn.net/0076FF/hbwebmedia/md/images/fancybox/fancy_shadow_sw.png') no-repeat;
 
 }
 
@@ -635,7 +635,7 @@ div#fancy-bg-w {
 
 	width: 20px;
 
-	background: transparent url('http://wac.76ff.edgecastcdn.net/0076FF/hbwebmedia/md/images/fancybox/fancy_shadow_w.png') repeat-y;
+	background: transparent url('https://wac.76ff.edgecastcdn.net/0076FF/hbwebmedia/md/images/fancybox/fancy_shadow_w.png') repeat-y;
 
 }
 
@@ -651,7 +651,7 @@ div#fancy-bg-nw {
 
 	height: 20px;
 
-	background: transparent url('http://wac.76ff.edgecastcdn.net/0076FF/hbwebmedia/md/images/fancybox/fancy_shadow_nw.png') no-repeat;
+	background: transparent url('https://wac.76ff.edgecastcdn.net/0076FF/hbwebmedia/md/images/fancybox/fancy_shadow_nw.png') no-repeat;
 
 }
 

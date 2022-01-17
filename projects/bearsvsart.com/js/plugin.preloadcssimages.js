@@ -1,9 +1,9 @@
 /**
  * jQuery-Plugin "preloadCssImages"
  * by Scott Jehl, scott@filamentgroup.com
- * http://www.filamentgroup.com
- * reference article: http://www.filamentgroup.com/lab/update_automatically_preload_images_from_css_with_jquery/
- * demo page: http://www.filamentgroup.com/examples/preloadImages/index_v2.php
+ * https://www.filamentgroup.com
+ * reference article: https://www.filamentgroup.com/lab/update_automatically_preload_images_from_css_with_jquery/
+ * demo page: https://www.filamentgroup.com/examples/preloadImages/index_v2.php
  * 
  * Copyright (c) 2008 Filament Group, Inc
  * Dual licensed under the MIT (filamentgroup.com/examples/mit-license.txt) and GPL (filamentgroup.com/examples/gpl-license.txt) licenses.
@@ -91,7 +91,7 @@
 			}
 			
 			if(sheets[sheetIndex].cssRules || sheets[sheetIndex].rules){
-				thisSheetRules = (sheets[sheetIndex].cssRules) ? //->>> http://www.quirksmode.org/dom/w3c_css.html
+				thisSheetRules = (sheets[sheetIndex].cssRules) ? //->>> https://www.quirksmode.org/dom/w3c_css.html
 					sheets[sheetIndex].cssRules : //w3
 					sheets[sheetIndex].rules; //ie 
 				var ruleIndex = thisSheetRules.length;

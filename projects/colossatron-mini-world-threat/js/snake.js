@@ -286,12 +286,12 @@ MWT = function() {
     },    
     
     tweet: function() {
-      //newwindow = window.open('http://twitter.com/share?url=http://colossatron.com/mini&text=I scored ' + this.score.score + ' in Mini World Threat! - &count=horizontal', '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');
+      //newwindow = window.open('https://twitter.com/share?url=https://colossatron.com/mini&text=I scored ' + this.score.score + ' in Mini World Threat! - &count=horizontal', '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');
       if (window.focus) {newwindow.focus()}
     },    
     
     facebook: function() {
-      //newwindow = window.open('http://www.facebook.com/sharer.php?s=100&p[url]=http://colossatron.com/mini&p[images][0]=http://colossatron.com/img/mwt-logo.png&p[title]=Mini World Threat&p[description]=Colossatron: Mini World Threat&p[summary]=I just scored ' + this.score.score + ' points in Mini World Threat! Can you beat that?', 'facebook-share-dialog','width=626,height=436');
+      //newwindow = window.open('https://www.facebook.com/sharer.php?s=100&p[url]=https://colossatron.com/mini&p[images][0]=https://colossatron.com/img/mwt-logo.png&p[title]=Mini World Threat&p[description]=Colossatron: Mini World Threat&p[summary]=I just scored ' + this.score.score + ' points in Mini World Threat! Can you beat that?', 'facebook-share-dialog','width=626,height=436');
       if (window.focus) {newwindow.focus()}
     },
        
@@ -1262,7 +1262,7 @@ MWT = function() {
         cfg.tileSize
       );   
       
-      // More efficient than calling ctx.save() and ctx.load() - http://stackoverflow.com/questions/3793397/html5-canvas-drawimage-with-at-an-angle
+      // More efficient than calling ctx.save() and ctx.load() - https://stackoverflow.com/questions/3793397/html5-canvas-drawimage-with-at-an-angle
       ctx.rotate(-angle * (Math.PI / 180));  
       ctx.translate(-(pos.x * cfg.tileSize + offsetX), -(pos.y * cfg.tileSize + offsetY));  
       

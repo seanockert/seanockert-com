@@ -9,7 +9,7 @@
 $color-yellow: #FFD02E;
 
 html {
-  background: #248AD5 url(http://assets.halfbrick.com/fn/fnk2/images/ninjastyle/fnk-bg-blue-grad.jpg) no-repeat top center;
+  background: #248AD5 url(../images/ninjastyle/fnk-bg-blue-grad.jpg) no-repeat top center;
   background-size: cover;
   color: #fff;
 }
@@ -48,7 +48,7 @@ strong {
 
 
 #fruit {
-    background: url(http://assets.halfbrick.com/fn/fnk2/images/ninjastyle/fruit-top.png) no-repeat top center;
+    background: url(../images/ninjastyle/fruit-top.png) no-repeat top center;
     background-size: 100% auto;
 }
 
@@ -332,7 +332,7 @@ strong {
   $fruit-scale: 1;
 
   #fruit {
-    background: url(http://assets.halfbrick.com/fn/fnk2/images/ninjastyle/fruit-large.png) no-repeat top center;
+    background: url(../images/ninjastyle/fruit-large.png) no-repeat top center;
     background-size: 1100px auto;
   }
 

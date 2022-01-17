@@ -16,7 +16,7 @@
           </div>
 
           <div class="">
-          <img src="//assets.halfbrick.com/ss/images/youtube/how-it-works.png">
+          <img src="images/youtube/how-it-works.png">
           </div>
 
         </div>    
@@ -43,7 +43,7 @@
 				<h2>Support your team. Start collecting trophies!</h2>
 			<?php } ?>
 			  	<?php if ($leaderboardUnlocked == true) { ?>
-				<p><img src="//assets.halfbrick.com/ss/images/youtube/icon-timer.png" class="icon-timer"> Event ends in <span id="countdown"><span class="days"></span> days</span>. Leaderboard updated daily. </p>
+				<p><img src="images/youtube/icon-timer.png" class="icon-timer"> Event ends in <span id="countdown"><span class="days"></span> days</span>. Leaderboard updated daily. </p>
 			    <?php } ?>
 			</div>
 		</div>

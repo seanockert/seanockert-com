@@ -1,9 +1,9 @@
 /*! 
 Site Name:      Star Sk8r YouTube Stars
-Site URI:     	http://starstakergame.com/youtube 
+Site URI:     	https://starstakergame.com/youtube 
 Description:    Star Skater Promotional Page
 Author:         Sean Ockert, Halfbrick Studios
-Author URI:     http://halfbrick.com
+Author URI:     https://halfbrick.com
 Version:        0.6
 */
 
@@ -71,7 +71,7 @@ html {
 }
 
 body {
-  background: url(//assets.halfbrick.com/ss/images/youtube/bg-dots.png) repeat top center;
+  background: url(../images/youtube/bg-dots.png) repeat top center;
   background: #8FC7FA;
   
 }
@@ -85,7 +85,7 @@ body {
 }
 
 #bg-top {
-  background: url(//assets.halfbrick.com/ss/images/youtube/b-top.jpg) no-repeat bottom center;
+  background: url(../images/youtube/b-top.jpg) no-repeat bottom center;
   background-size: 100% auto;
 }
 
@@ -93,7 +93,7 @@ body {
   box-shadow: inset 1px 3px 32px -10px rgba(0,0,0,0.4);
   background-size: 100% auto;
   border-top: 20px solid #514b6e;
-  background: #3B3C59 url(//assets.halfbrick.com/ss/images/youtube/bg-dots-purple.png) top center;
+  background: #3B3C59 url(../images/youtube/bg-dots-purple.png) top center;
   background-size: 389px 748px;
 }
 
@@ -189,14 +189,14 @@ strong {
   text-align: center;
   padding-top: $base-padding;
   margin-bottom: $base-padding; 
-  background: $color-red url(//assets.halfbrick.com/ss/images/youtube/bg-dots-red.png) top center;
+  background: $color-red url(../images/youtube/bg-dots-red.png) top center;
   background-size: 389px 748px;
   color: #fff;
   position: relative;
   
 
   .inner {
-    background: url(//assets.halfbrick.com/ss/images/youtube/stars.png) no-repeat top center;
+    background: url(../images/youtube/stars.png) no-repeat top center;
     background-size: 120% auto;  
   }
 

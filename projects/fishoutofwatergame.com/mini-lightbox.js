@@ -1,8 +1,8 @@
 ﻿/*
- * Mini LightBox v1.0 - Compact and Lightweight Lightbox. <http://code.google.com/p/mini-lightbox/>
- * By Jorge Moreno <http://moro.es> <http://alterebro.com>
+ * Mini LightBox v1.0 - Compact and Lightweight Lightbox. <https://code.google.com/p/mini-lightbox/>
+ * By Jorge Moreno <https://moro.es> <https://alterebro.com>
  * Copyright (c) 2011 Jorge Moreno
- * Licensed under the MIT License: http://www.opensource.org/licenses/mit-license.php
+ * Licensed under the MIT License: https://www.opensource.org/licenses/mit-license.php
 */
  
 window.onload = resizeWindow;
