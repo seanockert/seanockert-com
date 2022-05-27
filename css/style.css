@@ -643,6 +643,8 @@ h4 {
 .home-content {
   background: #f9f9f9; }
   .home-content .inner {
+    max-width: 50rem;
+    margin: 0 auto;
     padding: 1.875rem 0.9375rem;
     padding-bottom: 0; }
   .home-content ul {

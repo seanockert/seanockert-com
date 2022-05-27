@@ -19,6 +19,8 @@
     background: $color-off-white;
 
     .inner {
+      max-width: 50rem;
+      margin: 0 auto;
       padding: $base-padding*2 $base-padding;
       padding-bottom: 0;
     }
