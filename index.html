@@ -1,235 +1,488 @@
 <!DOCTYPE html>
-<html class="no-js csstransitions" lang="en">
+<html lang="en" data-theme="light" class="no-script">
   <head>
-    <meta charset="utf-8">
-    <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
     <title>Sean Ockert - web developer and designer from sunny Brisbane</title>
-    <meta name="description" content="I am a creative, professional web developer with over 10 years of experience and a passion for usability and front-end development" />
-    <link href="images/icon-sean-bamboo.png" rel="icon" type="image/png">
-    <link href="dist/css/style.css?rev=8" rel="stylesheet" type="text/css">
-    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
+    <meta
+      name="description"
+      content="I am a creative, professional web developer with many years of experience and a passion for usability and front-end development"
+    />
+    <link href="/images/favicon-so.png" rel="icon" type="image/png" />
+    <link href="/assets/style.css" rel="stylesheet" type="text/css" />
 
-    <!-- Facebook Open Graph -->
-    <meta property="og:url" content="https://seanockert.com">
-    <meta property="og:type" content="website">
-    <meta property="og:title" content="Sean Ockert - web developer and designer">
-    <meta property="og:image" content="https://seanockert.com/images/share_img.jpg">
-    <meta property="og:description" content="Web wizard. Coder. Usability evangelist. Good guy from sunny Brisbane. View my skills and work here." property="og:description">
-    <meta property="og:site_name" content="Sean Ockert">
-    <meta property="og:locale" content="en_US">
-    <meta property="article:author" content="">
+    <meta property="og:url" content="https://seanockert.com" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Sean Ockert - web developer and designer" />
+    <meta property="og:image" content="https://seanockert.com/images/share_img.jpg" />
+    <meta
+      property="og:description"
+      content="Web wizard. Usability evangelist. Good guy from sunny Brisbane. View my skills and work here."
+      property="og:description"
+    />
+    <meta property="og:site_name" content="Sean Ockert" />
+    <meta property="og:locale" content="en_US" />
+    <meta property="article:author" content="" />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:site" content="@seanockert" />
+    <meta name="twitter:url" content="https://seanockert.com" />
+    <meta name="twitter:title" content="Sean Ockert - web developer and designer" />
+    <meta name="twitter:description" content="Web wizard. Usability evangelist. Good guy from sunny Brisbane" />
+    <meta name="twitter:image" content="https://seanockert.com/images/share_img.jpg" />
 
-    <!-- Twitter Card -->
-    <meta name="twitter:card" content="summary">
-    <meta name="twitter:site" content="@seanockert">
-    <meta name="twitter:url" content="https://seanockert.com">
-    <meta name="twitter:title" content="Sean Ockert - web developer and designer">
-    <meta name="twitter:description" content="Web wizard. Coder. Usability evangelist. Good guy from sunny Brisbane">
-    <meta name="twitter:image" content="https://seanockert.com/images/share_img.jpg">
-    <script>
-      (function(a,b,c){var d=a.history,e=document,f=navigator||{},g=localStorage,
-      h=encodeURIComponent,i=d.pushState,k=function(){return Math.random().toString(36)},
-      l=function(){return g.cid||(g.cid=k()),g.cid},m=function(r){var s=[];for(var t in r)
-      r.hasOwnProperty(t)&&void 0!==r[t]&&s.push(h(t)+"="+h(r[t]));return s.join("&")},
-      n=function(r,s,t,u,v,w,x){var z="https://www.google-analytics.com/collect",
-      A=m({v:"1",ds:"web",aip:c.anonymizeIp?1:void 0,tid:b,cid:l(),t:r||"pageview",
-      sd:c.colorDepth&&screen.colorDepth?screen.colorDepth+"-bits":void 0,dr:e.referrer||
-      void 0,dt:e.title,dl:e.location.origin+e.location.pathname+e.location.search,ul:c.language?
-      (f.language||"").toLowerCase():void 0,de:c.characterSet?e.characterSet:void 0,
-      sr:c.screenSize?(a.screen||{}).width+"x"+(a.screen||{}).height:void 0,vp:c.screenSize&&
-      a.visualViewport?(a.visualViewport||{}).width+"x"+(a.visualViewport||{}).height:void 0,
-      ec:s||void 0,ea:t||void 0,el:u||void 0,ev:v||void 0,exd:w||void 0,exf:"undefined"!=typeof x&&
-      !1==!!x?0:void 0});if(f.sendBeacon)f.sendBeacon(z,A);else{var y=new XMLHttpRequest;
-      y.open("POST",z,!0),y.send(A)}};d.pushState=function(r){return"function"==typeof d.onpushstate&&
-      d.onpushstate({state:r}),setTimeout(n,c.delay||10),i.apply(d,arguments)},n(),
-      a.ma={trackEvent:function o(r,s,t,u){return n("event",r,s,t,u)},
-      trackException:function q(r,s){return n("exception",null,null,null,null,r,s)}}})
-      (window,"UA-9144816-10",{anonymizeIp:true,colorDepth:true,characterSet:true,screenSize:true,language:true});
-    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;900&display=swap" rel="stylesheet" />
   </head>
-
   <body>
-    <div id="barba-wrapper"><div class="barba-container"> <!-- Start barba -->
-      <div id="home">
-        <div class="home-header">
-            <div class="row header-inner">
-              <h1>Sean Ockert<span>.</span></h1>
-              <div class="column">
-                <h2>Web Developer &amp; Designer</h2>
-                <div class="contacts">
-                  <h3><a href="mailto:hello@seanockert.com" title="Get in touch">hello@seanockert.com</a></h3>
-                  <ul class="nolist ">
-                    <li><a href="https://www.linkedin.com/in/sean-ockert-b2294230" title="Connect with Sean on LinkedIn">LinkedIn</a></li>
-                    <li><a href="https://github.com/seanockert" title="View Sean's GitHub repos">GitHub</a></li>
-                    <li><a href="sean-ockert-resume-2023.pdf" title="Download Sean's resume" class="no-barba">View Resume</a></li>
-                  </ul>
-                </div>
-              </div>
-              <div class="clear"></div>
-            </div>
-        </div>
-
-        <div class="home-content">
-          <div class="inner">
-            <div class="column" id="projects">
-            <header class="intro">
-              <h4>Hi there!</h4>
-              <p>I'm Sean, a veteran web developer from sunny Brisbane, with a knack for clarity, blazing performance, and usability.</p>
-              <p>Currently a UX Design Engineer at intelliHR. Need a skilled designer/developer? <a href="mailto:hello@seanockert.com" title="Email Sean Ockert">Let's get in touch</a>.</p>
-            </header>
-
-            <h2><span>Selected work</span></h2>
-            <ul class="no-list">
-              <li>
-                <a href="https://intellihr.gitlab.io/engineering/blueberry/storybook/" title="Visit the Blueberry Design System storybook">
-                  <figure><img src="images/thumb-blueberry.png" alt="Blueberry Design System"></figure>
-                  <div>
-                    <h3>Blueberry Design System</h3>
-                    <p>A library of 60+ React UI components&mdash;plus associated documentation and guidelines&mdash; for building applications <span>at intelliHR.</span></p>
-                    <div class="link">Visit site <svg width="14" height="14" viewBox="0 -1 24 24"><path fill="rgb(46,25,136)" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"/></svg></div>
-                  </div>
-                </a>
-              </li>
-              <li>
-                <a href="https://www.teachstarter.com" title="Visit the Teach Starter website">
-                  <figure><img src="images/thumb-teach-starter.jpg" alt="Teach Starter website"></figure>
-                  <div>
-                    <h3>Teach Starter</h3>
-                    <p>Online marketplace for primary school teaching resources. Lead front-end developer for re-building the core product on Nuxt.js including UI and pattern library, API schemas, <span>cross-domain auth, SEO.</span></p>
-                    <div class="link">Visit site <svg width="14" height="14" viewBox="0 -1 24 24"><path fill="rgb(46,25,136)" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"/></svg></div>
-                  </div>
-                </a>
-              </li>
-              <li>
-                <a href="/assess" title="Read more about Teach Starter Assess">
-                  <figure><img src="images/thumb-assess.jpg" alt="Teach Starter Assess app"></figure>
-                  <div>
-                    <h3>Assess</h3>
-                    <p>Online assessment builder and student learning tool. Lead developer on web app including customer research, Vue.js frontend, UI, copywriting, building API schemas and endpoints.</p>
-                    <div class="link">Read more &rarr;</div>
-                  </div>
-                </a>
-              </li>
-              <li>
-                <a href="/neto" title="Read Neto Ecommerce case study">
-                  <figure><img src="images/thumb-neto.jpg" alt="Neto homepage"></figure>
-                  <div>
-                    <h3>Neto Ecommerce</h3>
-                    <p>All-in-one ecommerce SaaS product. Re-built website in CraftCMS, re-built support hub in Salesforce, optimised sales funnels and user onboarding, improved product usability, <span>marketing campaigns.</span></p>
-                    <div class="link">Read more &rarr;</div>
-                  </div>
-                </a>
-              </li>
-              <li>
-                <a href="https://www.qut.edu.au/" title="Visit QUT Student Directory">
-                  <figure><img src="images/thumb-qut-course.jpg" alt="QUT Student site"></figure>
-                  <div>
-                    <h3>Queensland University of Technology</h3>
-                    <p>Re-development of the university's Student Directory and <span>HiQ website</span>.</p>
-                    <div class="link">Visit site <svg width="14" height="14" viewBox="0 -1 24 24"><path fill="rgb(46,25,136)" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"/></svg></div>
-                  </div>
-                </a>
-              </li>
-              <li>
-                <a href="/halfbrick" title="Read Halfbrick case study">
-                  <figure><img src="images/thumb-halfbrick.jpg" alt="Halfbrick website"></figure>
-                  <div>
-                    <h3>Halfbrick Studios</h3>
-                    <p>Created gaming websites, interactive web apps, promos, &amp; online marketing for millions of monthly <span>active users.</span></p>
-                    <div class="link">Read more &rarr;</div>
-                  </div>
-                </a>
-              </li>
-              <li>
-                <a href="/fruit-ninja" title="Read Fruit Ninja case study">
-                  <figure><img src="images/thumb-fruit-ninja-homepage.jpg" alt="Fruit Ninja homepage"></figure>
-                  <div>
-                    <h3>Fruit Ninja</h3>
-                    <p>Websites &amp; marketing campaigns for one of the most popular mobile <span>games ever.</span></p>
-                    <div class="link">Read more &rarr;</div>
-                  </div>
-                </a>
-              </li>
-              <li>
-                <a href="https://thesteepery.com.au" title="Visit The Steepery website">
-                  <figure><img src="images/thumb-the-steepery.jpg" alt="The Steepery online store"></figure>
-                  <div>
-                    <h3>The Steepery</h3>
-                    <p>Bespoke Shopify store selling boutique <span>tea products.</span></p>
-                    <div class="link">Visit site <svg width="14" height="14" viewBox="0 -1 24 24"><path fill="rgb(46,25,136)" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"/></svg></div>
-                  </div>
-                </a>
-              </li>
-            </ul>
-
-            <h2><span>Side projects</span></h2>
-            <ul class="no-list">
-              <li>
-                <a href="https://so-tinysums.surge.sh/" title="View TinySums project">
-                  <h3>Tiny Sums</h3>
-                  <p>Do back-of-the-envelope calculations using everyday words. A fun test of regex skills to build a <span>language parser in JS.</span></p>
-                  <div class="link">View demo <svg width="14" height="14" viewBox="0 -1 24 24"><path fill="rgb(46,25,136)" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"/></svg></div>
-                </a>
-              </li>
-              <li>
-                <a href="https://mycorona.surge.sh/" title="View Covid-19 Stats dashboard">
-                  <h3>Covid-19 Stats</h3>
-                  <p>A dashboard for viewing coronavirus cases around the world. Filter and compare countries.</p>
-                  <div class="link">View demo <svg width="14" height="14" viewBox="0 -1 24 24"><path fill="rgb(46,25,136)" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"/></svg></div>
-                </a>
-              </li>
-              <li>
-                <a href="https://so-neto-email.surge.sh/" title="View Neto Email Content Generator project">
-                  <h3>Email Content Generator</h3>
-                  <p>Construct emails from pre-witten content. Simple internal tool for <span>Neto sales staff.</span></p>
-                  <div class="link">View demo <svg width="14" height="14" viewBox="0 -1 24 24"><path fill="rgb(46,25,136)" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"/></svg></div>
-                </a>
-              </li>
-            </ul>
-          </div>
-          <div class="clear"></div>
-
-          <div class="column" id="skills">
-            <h2><span>Web skills</span></h2>
-            <ul class="no-list skills">
-              <li><strong>HTML &amp; CSS</strong> &middot; SASS, styled components, atomic design, SEO, WCAG accessibility</li>
-              <li><strong>JavaScript</strong> &middot; Vue, React, TypeScript, EsLint, Webpack, Vite</li>
-              <li><strong>Design</strong> &middot; Sketch, Figma, Photoshop, Illustrator</li>
-              <li><strong>Testing</strong> &middot; Jest, Cypress, A/B testing, CI/CD tools</li>
-              <li><strong>PHP</strong> &middot; Laravel, CraftCMS, WordPress</li>
-              <li><strong>Server-side</strong> &middot; NodeJS, Nginx/Apache, AWS, Serverless</li>
-              <li><strong>Ecommerce</strong> &middot; Shopify, Amazon</li>
-              <li><strong>Web Graphics</strong> &middot; SVG, Canvas</li>
-              <li><strong>Analytics</strong> &middot; Segment, Amplitude, Google Analytics</li>
-            </ul>
+    <button id="theme-switcher" aria-label="Switch light/dark mode">
+      <svg fill="none" viewBox="0 0 286 283">
+        <g class="sun-rays" fill="currentColor">
+          <path d="M160 68c-14-3-2-53 11-51 17 3 2 54-11 51Z" />
+          <path d="M217 119c-4-13 44-29 49-16 6 15-44 30-49 16Z" />
+          <path d="M200 195c9-10 47 24 39 34-11 14-48-24-39-34Z" />
+          <path d="M123 214c18 3 5 53-9 51-17-2-9-54 9-51Z" />
+          <path d="M61 163c3 11-40 23-44 12-5-14 41-24 44-12Z" />
+          <path d="M84 83c-14 9-45-25-36-33 12-11 53 22 36 33Z" />
+        </g>
+        <g class="sun-rays-small" fill="currentColor">
+          <path d="M121 62c-19 5-31-56-17-62 13-5 34 56 17 62Z" />
+          <path d="M202 83c-14-14 31-56 44-46 11 8-30 58-44 46Z" />
+          <path d="M221 160c5-19 64 0 62 15-1 14-66 3-62-15Z" />
+          <path d="M164 221c19-7 34 53 20 60-13 6-37-55-20-60Z" />
+          <path d="M84 199c15 13-28 55-43 44-12-8 29-56 43-44Z" />
+          <path d="M67 118c-5 24-64 3-63-13 0-14 66-5 63 13Z" />
+        </g>
+        <path class="sun" fill="currentColor" d="M201 119c-19-56-109-43-115 5-7 48 21 73 55 76s78-29 60-81Z" />
+        <path
+          class="moon"
+          fill="currentColor"
+          d="M138 66c-42 0-72 33-72 73s30 72 72 72c21 0 40-9 53-22 2-1 2-4 1-6s-3-3-5-2h-11c-29 0-45-8-56-35-11-28 11-61 27-70 2-1 3-3 2-6 0-2-2-4-5-4h-6Z"
+        />
+      </svg>
+    </button>
+    <main>
+      <section class="intro flex">
+        <header class="stack">
+          <div class="face-wrapper">
+            <svg class="face" fill="none" height="192" width="192" viewBox="0 0 909 909">
+              <g class="face-shadow" fill="#83B58E" fill-opacity=".4">
+                <path
+                  d="M429.4 583.6c-75.6-6.1-82.8-21.8-103.2-43.3-57.1-29.7-94.2 6.9-62.7 18.5 74.5 6.9 145 38 145 38l21 9.4c8.4-3 21-9.5 0-22.6Z"
+                />
+                <path
+                  d="M626.8 324.2c-29.3-77.1-87.4-163.8-87.4-163.8s-61.6-10.7-174.7-11.7c-113-1-111.7 139.7-104.9 154.1 27.7 14.9-27.2 69.3 31.9 38.3 66.7-8.5 68.5 43.7 66.5 24.7 13.6-39-41.7-72.8-41.7-72.8s-4.4-42.3 33.9-33.8c38.2 8.5 81.5 22.7 75.6-7.8-6-30.5-34-19-39.1-32.5-5.1-13.6 23.8-34.6 88.6-9.1 99.7 24.7 37.9 50.7 53.5 85.8 2.5 15.4 78.1 75.2 88.7 94.8 10.5 19.7 38.3 10.8 9-66.2Z"
+                />
+                <path
+                  d="M195 398.6c-25.5 43.8-34 59.9-31 64.7l-5.4.4s-18.8 152.7 19.6 217.4c38.3 64.8 87.6-34.6 95-53.3 7.3-18.7-46.9-75.5-46.9-75.5l48.1-37.8 23.5-43 16.9-14.3s-70.2 19.3-100.2 2.6l-18.2 1.3c5.3-29.7 36-49.1 48.1-65 35.6-27 79.4 27.3 79.4 27.3 1.4-6.7 0-5 2.6-24.8 1.4-7 .2-33-11.7-39-16.2-8-46.6 4.7-65 0-16.3-1.3-29.3 4-54.7 39Z"
+                />
+                <path d="M684.5 495c-6-3.6-27.7 2.7-19.5 21.1 0 0 15.9-5.7 32.5 11.9 5 14.7 43.4-13.6-13-33Z" />
+                <path
+                  d="M564.5 461.8s21.8-29.4-35.3-83.2c-57-53.8-112.1-21.8-112.1-18.2 0 0-40.1 103.3 95.2 100.1 0 0 6-8.1-36.5-23.4 36.2-15.6 88.7 24.7 88.7 24.7Z"
+                />
+                <path
+                  d="M428.8 494c-15.2 7.3 22.4 89 27.2 93.9 4.7 5-.1 43.6-4 73-3.7 29.4 15.6 5.2 15.6 5.2 107.6-104.5-38.8-172-38.8-172Z"
+                />
+                <path
+                  d="M378.3 517.7c-32.5-3-49.7-39-49.7-39-22.6-23.2-42 5.3-42 5.3s13.2 14.3 35.4 42.7c22.3 28.5 88.9-6 56.3-9Z"
+                />
+                <path
+                  d="M685.5 553.1c-4.6-9-26 10.4-21.3-1.3 4.7-11.7-5.3-20.7-5.3-20.7a386.8 386.8 0 0 0-28 29.8s13 2.6 18.3 3.3c5.2.7-12.4 39 6.5 39 11.6 0 36.3-37.3 29.8-50Z"
+                />
+              </g>
+              <g class="face-main" fill="#2E4031">
+                <path
+                  d="M466.6 382.2c-12.4 2.4-33.9 11.6-26.1 34 7.8 22.2 41 18.4 51.2 19.5 7.4 0 4.7-15.9-.7-28 14.5 14.4 14.7 27.4 17 28 10.3 2.6 14.1 1.7 22.3 6.4 9.6 6.3 42 19.2 9.3-15.5-42.9-35.2-60.7-47-73-44.4Z"
+                />
+                <path
+                  d="M449.4 340.8c-11.3-.7-31.2-10.4-33.8 10.5-2.7 20.8 35.1 13 57.3 14.3 22.1 1.3 57 31.2 58.6 9.1 1.6-22-56-32.2-82-33.9Z"
+                />
+                <path
+                  d="M423.2 484.4C409 499 417 540 404.2 541c3.3 21.7 19.7 39.2 36 53-1 18-26.1 5.3-26.1 5.3s7.6 19-6.5 20.8c-35.5.3-100-39.4-131.5-36.5-11.8-7-2.2-22.1-19.6-28.7-9.3-8.1-2.9-23.3 20.9-22.1 23.7 1.2-2.5 3.6 53.4 9 59 0 68.6-11 58.6-24.7-19-8.5-24 3.3-36.5 5.2-12.5 2-57.6-31.3-54.7-39 2.9-7.8 14.4-3.6 30-4C332 460.2 358 371 358 371s-2.7-19.6-27.3-27.4c-24.7-7.8-34.6-7.2-57.3 0-21.9 8.2-26.5 15.2-11.8 23.5 19.7 10 36.2 12.6 47.6 15.8 1.6.5 6.3-13.6 6.3-23.2 3.4 8.2 6 19 2.4 19-1 0-6.3 0-5.4-2.3l-3.3 6.5c10.5 5.3 15.6 30.1 12.3 40.2-6.3 33-36.6 45.4-37.7 57.4-1.1 12-17.5 32.1-40.4 37.8-23.7 8-38.6 13.5-37.8 32.6 13.4 28.1 22.9 5.2 27.4 18.3 13 37.5 41.7 59.2 70.1 60 85.8-2.6 70.5 16.4 100.5 15.6 30-.9 55-16.4 39 1.3-8.6 25.3-3.9 35.2 5.3 35.2 9 0 47.4-50.4 46.8-77-24.6-18.2-34.2-67-38.1-74.5-4-7.6-23.2-18.4-33.5-45.4Zm308.7 7.8c1.7 32.5-6.6 67.4-27.4 90-43.4 34.6-41.4 55.5-65.1 71.7-25.5 23.2-35.7-21.4-61.2 20.9-8.7 18 43 0 71.6-15.7 30.3-16.5 96-102.4 91.2-167.2-2.8-2-10.4-3.1-9.1.3Z"
+                />
+                <path
+                  d="M351.5 322.4c-22.6-35.8-82.5-40.5-89.3-31.5-12.7 16.8 13.5 25.4 44 25.6 23.9 4.4 60.2 50.5 45.3 5.9Z"
+                />
+                <path
+                  d="M756.8 351.8c10-20.4 14.1-44.5 10.4-57.3-3.7-12.7-44.7-20-36.5-39 8.2-19 32.6-9.5 9.1-36.4-37.3-42.4-9.7-37.3-22.1-61.2C705.3 134.1 612.6 27.8 540.6 20c-72-7.7-180.7 5.8-218.8 52-38.1 46.4-23.7 33-43 30-19.2-3-18 18.1-19.5 26-1.6 8-41.3-17.7-53.4 4-12.1 21.5 16.5 58-5.2 54.6-21.7-3.4-36.7-19.3-27.4 37.7 9.4 57-19.4 63-1.3 100.2 18.2 37.1-27 149.3-10.4 149.6 1.8.1 2.7.6 3 1-1.5-4.3-4.4-41 114.2-258.6 27.8-44.4 34.4-25.7 70.4-24.7 21.6.6 22 5 24.7-7.8 8.5-11.4 108.8-19 123.7 2.6 15 21.5 47.3 40.7 46.9 59.8-.4 19.1-7.9 56.3 6.5 58.6 14.4 2.2 26-9.5 30 9-1.3 32 38.7 16.7 27.3 106.7 4.4 23.8 14.4 11.7 26 28.7 3.1 22.8-12.4 104.4-3.9 111.9 19.1 3 54.2-93 74.3-83.3 20 9.7 27.2 3.2 27.2 14.2 7.5.5 31 6 24.9-71.5-4.6-32.2-10-48.5 0-69ZM164.7 475c.5.5.3.8 0 0Z"
+                />
+                <path
+                  d="M403.7 760.3c-46.3 6.4-114.4-24.5-142.5-42.7-28-18.1-26.3-19.4-1.3-30 25-10.4 137.8 22.4 77-15.6-60.8-37.9-31.7-42.4-31.7-42.4C86 550.9 220.8 668.8 192 668.1c-28.7-.6-24.4-31.2-30-31.2-3.5 0-24.2 28.4 52.1 101.6C298 805.7 450 754 403.7 760.3Z"
+                />
+                <path
+                  d="M295 863.5s-6.4-39.4-34-39.2c-27.7.2-53.1-23.3-63-46.4-10-23-10.2-43.4-12.7-70.2 0 0-9.3-27.4-9.3-7.3.7 32 1.4 95.7 22 115.7L312 892c12.1-12-17-28.5-17-28.5Z"
+                />
+              </g>
+            </svg>
           </div>
 
-          <h2><span>Other skills</span></h2>
-          <div class="column">
-          <ul class="no-list skills">
-            <li><strong>Marketing</strong> &middot; Social media, email campaigns</li>
-            <li><strong>Game Development</strong> &middot; Unity3D, Phaser</li>
-            <li><strong>English Teaching</strong> &middot; CELTA certified</li>
-            <li><strong>Foundry Casting</strong> &middot; Mg &amp; Al alloy casting</li>
-            <li><strong>Cool Tech</strong> &middot; Scanning Electron Microscopy</li>
-            <li><strong>Burritos</strong> &middot; I make a mean bean burrito</li>
+          <h1>
+            <b>S</b><b>e</b><b>a</b><b>n</b> <b>s</b><b>o</b><b>l</b><b>v</b><b>e</b><b>s</b>
+            <span>
+              <svg class="prickly" fill="none" viewBox="0 0 107 24">
+                <g class="letter">
+                  <path
+                    fill="#14AB71"
+                    d="M5.7732 20.7957c-1.5897 0-2.3845-.1746-2.3845-.5237V3.3062c0-.5934.2708-.8902.8123-.8902h4.612c2.5854 0 4.4459.5324 5.5814 1.5971 1.153 1.0647 1.7295 2.6095 1.7295 4.6342 0 1.6756-.5416 3.2116-1.6247 4.608-.5415.6982-1.3364 1.2567-2.3846 1.6756-1.0481.4189-2.271.6284-3.6685.6284v4.6865c0 .2095-.332.3579-.9958.4451-.6464.0698-1.2054.1048-1.677.1048Zm2.6729-13.824v4.1367h.3406c.6114 0 1.1268-.192 1.5461-.576.4192-.384.6289-.9251.6289-1.6233 0-.6982-.1485-1.1956-.4455-1.4924-.2795-.2967-.7861-.445-1.5199-.445h-.5502Z"
+                  />
+                  <g class="spike" fill="#133E15">
+                    <path
+                      d="M5.726 5.0247c-1.0247 1.4446-2.9617-2.459-2.791-2.6998.1709-.2408 3.3034 1.9774 2.791 2.6998Z"
+                    />
+                    <path
+                      d="M14.5758 10.0731c-1.4394-1.033 2.4798-2.9436 2.7197-2.7714.24.1722-2.0001 3.2879-2.7197 2.7714Z"
+                    />
+                    <path
+                      d="M4.6227 12.076c-.3112 1.7432-2.264-.7032-2.2122-.9937.052-.2907 2.3678.1221 2.2122.9937Z"
+                    />
+                  </g>
+                </g>
+                <g class="letter">
+                  <path
+                    fill="#14AB71"
+                    d="M22.4747 20.3767c0 .2793-.8298.419-2.4894.419-1.677 0-2.5156-.131-2.5156-.3928V3.3324c0-.611.3232-.9164.9696-.9164h5.005c4.5944 0 6.8916 1.7891 6.8916 5.3673 0 1.0822-.2096 2.0683-.6289 2.9585-.4192.8728-1.0132 1.5709-1.7818 2.0946l3.3017 5.4982c-.1398.4189-.594.8989-1.3626 1.44-1.0482.7505-1.9129 1.1258-2.5942 1.1258-.6814 0-1.188-.2444-1.5199-.7331l-2.4632-5.7338h-.8123v5.9432Zm0-13.3265v3.9273h.131c1.6596 0 2.4894-.6895 2.4894-2.0684 0-.6284-.1659-1.0909-.4979-1.3876-.3144-.3142-.8385-.4713-1.5722-.4713h-.5503Z"
+                  />
+                  <g class="spike" fill="#133E15">
+                    <path
+                      d="M20.143 3.9245c-1.5145.9195-1.2842-2.68-1.0319-2.8332.2525-.1533 1.7892 2.3735 1.0319 2.8333Z"
+                    />
+                    <path
+                      d="M18.4391 18.1678c-.3112 1.7432-2.264-.7032-2.2121-.9937.0518-.2907 2.3677.1221 2.2121.9937Z"
+                    />
+                    <path
+                      d="M29.6138 8.39c-1.5345-.8857 1.4325-1.8876 1.6882-1.74.2559.1476-.9209 2.1829-1.6882 1.74Z"
+                    />
+                  </g>
+                </g>
+                <g class="letter">
+                  <path
+                    fill="#14AB71"
+                    d="M35.3229 16.24V6.9193h-1.8605c-.297 0-.5066-.3753-.6289-1.1258a7.9465 7.9465 0 0 1-.0786-1.1258c0-.384.0262-.7593.0786-1.1259.1223-.7505.3319-1.1258.6289-1.1258h8.8046c.2969 0 .4978.3753.6027 1.1258.0698.3666.1048.7418.1048 1.1259 0 .384-.035.7592-.1048 1.1258-.1049.7505-.3058 1.1258-.6027 1.1258h-1.7557V16.24h1.8343c.297 0 .5066.3753.6289 1.1258.0699.3666.1048.7419.1048 1.1259 0 .384-.0349.7592-.1048 1.1258-.1223.7505-.3319 1.1258-.6289 1.1258h-8.8308c-.297 0-.4979-.3753-.6027-1.1258a5.9971 5.9971 0 0 1-.1048-1.1258c0-.384.0349-.7593.1048-1.1259.1048-.7505.3057-1.1258.6027-1.1258h1.8081Z"
+                  />
+                  <g class="spike" fill="#133E15">
+                    <path
+                      d="M37.1731 4.2983c-1.2776 1.2271-2.448-2.97-2.2351-3.1746.213-.2046 2.8739 2.561 2.2351 3.1746Z"
+                    />
+                    <path
+                      d="M39.5885 13.0785c-1.4686-.8857 1.8901-2.5759 2.1348-2.4283.2449.1477-1.4005 2.8712-2.1348 2.4283Z"
+                    />
+                    <path
+                      d="M34.4391 17.1678c-.3112 1.7432-2.264-.7032-2.2121-.9937.0518-.2907 2.3677.1221 2.2121.9937Z"
+                    />
+                  </g>
+                </g>
+                <g class="letter">
+                  <path
+                    fill="#14AB71"
+                    d="M51.6923 2.1816c1.2752 0 2.3933.1833 3.3541.5499.9783.349 1.4674.829 1.4674 1.44 0 .6109-.2358 1.3701-.7075 2.2778-.4542.8902-.8385 1.3353-1.153 1.3353-.0873 0-.1921-.0437-.3144-.131-.1048-.1047-.3669-.2094-.7861-.3141-.4018-.1222-.7512-.1833-1.0482-.1833-1.0132 0-1.8343.3578-2.4632 1.0734-.6114.7157-.9171 1.8153-.9171 3.299 0 1.4661.3144 2.557.9433 3.2727.6464.7156 1.4587 1.0734 2.437 1.0734.4018 0 .8473-.0523 1.3364-.1571.5066-.1221.8647-.288 1.0744-.4974.0349-.0349.1048-.0524.2096-.0524s.297.2008.5765.6022c.297.384.5678.8989.8123 1.5447.2446.6284.3669 1.1171.3669 1.4662 0 .6807-.5241 1.2218-1.5723 1.6233-1.0481.4014-2.2884.6022-3.7209.6022-2.306 0-4.2014-.8117-5.6863-2.4349-1.4849-1.6233-2.2274-3.9099-2.2274-6.8597 0-2.9672.7599-5.2974 2.2798-6.9905 1.5373-1.6931 3.4502-2.5397 5.7387-2.5397Z"
+                  />
+                  <g class="spike" fill="#133E15">
+                    <path
+                      d="M52.5315 3.4673c-1.6459.6568-.5984-2.2922-.3241-2.4017.2744-.1095 1.147 2.0733.3241 2.4017Z"
+                    />
+                    <path
+                      d="M54.6185 18.6935c-1.546-.8656 2.1346-3.2024 2.3922-3.0581.2577.1443-1.6192 3.4909-2.3922 3.0581Z"
+                    />
+                    <path
+                      d="M46.0014 9.9746c-.7615 1.5988-2.5707-1.549-2.4438-1.8155.127-.2666 2.8246 1.016 2.4438 1.8155Z"
+                    />
+                  </g>
+                </g>
+                <g class="letter">
+                  <path
+                    fill="#14AB71"
+                    d="M64.1998 20.377c0 .2618-.8211.3927-2.4632.3927l-1.4674-.0785c-.8735-.0699-1.3102-.192-1.3102-.3666V2.7566c0-.2967.8735-.445 2.6204-.445 1.7469 0 2.6204.1483 2.6204.445v6.7026l3.1969-6.7026c.1223-.2444.8211-.3665 2.0963-.3665 2.3235 0 3.5463.2007 3.6686.6021a.2318.2318 0 0 1-.0262.1048l-4.5595 8.2211 5.2932 7.3047c0 .0349-.166.1833-.4979.4451-.8036.6982-1.7469 1.248-2.83 1.6494-.3319.1222-.6638.1833-.9958.1833l-.6289-.0523c-.559-.1397-.9957-.4975-1.3102-1.0735l-2.9872-5.7076h-.4193v6.3098Z"
+                  />
+                  <g class="spike" fill="#133E15">
+                    <path
+                      d="M70.1806 4.3265c-1.5717.818-1.2885-3.11-1.0266-3.2462.2621-.1364 1.8124 2.8372 1.0266 3.2462Z"
+                    />
+                    <path
+                      d="M68.5818 14.1539c-1.4519-1.0153 2.1662-2.5777 2.4081-2.4085.2421.1693-1.6822 2.9162-2.4081 2.4085Z"
+                    />
+                    <path
+                      d="M60.6028 4.3757c-1.134 1.3606-1.9594-2.0143-1.7704-2.241.1891-.227 2.3375 1.5607 1.7704 2.241Z"
+                    />
+                  </g>
+                </g>
+                <g class="letter">
+                  <path
+                    fill="#14AB71"
+                    d="M76.4287 19.2001V2.9151c0-.3666.8822-.5499 2.6466-.5499 1.7819 0 2.6728.1833 2.6728.5498v12.8291h4.0355c.3144 0 .5328.4102.6551 1.2306.0524.4014.0786.8116.0786 1.2305 0 .4189-.0262.8466-.0786 1.2829-.1398.8379-.3669 1.2568-.6813 1.2568h-8.0709c-.3843 0-.69-.1571-.9171-.4713-.2271-.3142-.3407-.672-.3407-1.0735Z"
+                  />
+                  <g class="spike" fill="#133E15">
+                    <path
+                      d="M77.5446 10.3495c-1.1934 1.309-1.868-2.0992-1.6691-2.3173.1989-.2183 2.2658 1.6628 1.6691 2.3173Z"
+                    />
+                    <path d="M79.7282 4.8553c-1.7637.1734.02-2.8088.3139-2.8377.2941-.029.5679 2.751-.3139 2.8377Z" />
+                    <path
+                      d="M80.4856 12.889c-1.3946-1.0926 2.4857-2.6892 2.7181-2.5071.2325.1821-2.0209 3.0534-2.7181 2.5071Z"
+                    />
+                  </g>
+                </g>
+                <g class="letter">
+                  <path
+                    fill="#14AB71"
+                    d="M98.0727 3.2814c.2271-.6109 1.3451-.9163 3.3543-.9163.506 0 1.1.0349 1.782.1047.698.0698 1.022.157.969.2618l-5.4502 10.944v6.3884c0 .2967-.4804.5061-1.4412.6283a10.1957 10.1957 0 0 1-1.4412.1047c-.4717 0-.9434-.0261-1.4151-.0785-.9608-.1222-1.4412-.3404-1.4412-.6545v-6.2313L87.3552 2.784c-.0698-.1048.2883-.2008 1.0744-.288.7861-.1048 1.45-.1571 1.9915-.1571 2.1487 0 3.3279.3141 3.5376.9425l1.9129 5.3411 2.2011-5.341Z"
+                  />
+                  <g class="spike" fill="#133E15">
+                    <path d="M101.601 4.4954c-1.5-.944 2.216-2.961 2.466-2.8037.25.1574-1.717 3.2756-2.466 2.8037Z" />
+                    <path
+                      d="M91.7604 7.972c-.3086 1.744-3.5805-.9303-3.5291-1.221.0514-.2907 3.6834.349 3.5291 1.221Z"
+                    />
+                  </g>
+                </g>
+                <title>Prickly</title>
+              </svg>
+            </span>
+            <b>p</b><b>r</b><b>o</b><b>b</b><b>l</b><b>e</b><b>m</b><b>s</b><b>.</b>
+          </h1>
+          <p class="p1">Product design problems, <span>that is.</span></p>
+          <p class="p2">
+            Web developer and UX designer from sunny Brisbane with a knack for clarity, blazing performance,
+            <span>and usability.</span>
+          </p>
+        </header>
+      </section>
+
+      <section class="section portfolio stack">
+        <h2>Selected Works</h2>
+        <ul class="grid-half">
+          <li class="stack project">
+            <figure>
+              <a
+                href="https://intellihr.gitlab.io/engineering/blueberry/storybook/"
+                title="Visit the Blueberry Design System storybook"
+              >
+                <img src="images/thumb-blueberry.webp" alt="Blueberry Design System" />
+              </a>
+            </figure>
+
+            <h3>
+              <a
+                href="https://intellihr.gitlab.io/engineering/blueberry/storybook/"
+                title="Visit the Blueberry Design System storybook"
+                >Blueberry Design System</a
+              >
+            </h3>
+            <p>
+              A library of 60+ React &amp; Figma UI components for building applications
+              <span>at intelliHR.</span>
+            </p>
+          </li>
+          <li class="stack project">
+            <figure>
+              <a href="https://www.teachstarter.com" title="Visit the Teach Starter website">
+                <img src="images/thumb-teach-starter.webp" alt="Teach Starter website" />
+              </a>
+            </figure>
+
+            <h3>
+              <a href="https://www.teachstarter.com" title="Visit the Teach Starter website">Teach Starter</a>
+            </h3>
+            <p>
+              Online marketplace for primary school teaching resources. Lead front-end developer for re-building the
+              core product on Nuxt.js including UI and pattern library, API schemas,
+              <span>cross-domain auth, SEO.</span>
+            </p>
+          </li>
+          <li class="stack project">
+            <figure>
+              <a href="/assess" title="Read more about Teach Starter Assess">
+                <img src="images/thumb-assess.webp" alt="Teach Starter Assess app"
+              /></a>
+            </figure>
+
+            <h3>
+              <a href="/assess" title="Read more about Teach Starter Assess">Assess</a>
+            </h3>
+            <p>
+              Online assessment builder and student learning tool. Lead developer on web app including customer
+              research, Vue.js frontend, UI, copywriting, building API schemas and endpoints.
+            </p>
+          </li>
+          <li class="stack project">
+            <figure>
+              <a href="/neto" title="Read Neto Ecommerce case study"
+                ><img src="images/thumb-neto.webp" alt="Neto homepage"
+              /></a>
+            </figure>
+
+            <h3>
+              <a href="/neto" title="Read Neto Ecommerce case study">Neto Ecommerce</a>
+            </h3>
+            <p>
+              All-in-one ecommerce SaaS product. Re-built website in CraftCMS, re-built support hub in Salesforce,
+              optimised sales funnels and user onboarding, improved product usability,
+              <span>marketing campaigns.</span>
+            </p>
+          </li>
+          <li class="stack project">
+            <figure>
+              <a href="/halfbrick" title="Read Halfbrick case study">
+                <img src="images/thumb-halfbrick.webp" alt="Halfbrick website"
+              /></a>
+            </figure>
+
+            <h3>
+              <a href="/halfbrick" title="Read Halfbrick case study">Halfbrick Studios</a>
+            </h3>
+            <p>
+              Created gaming websites, interactive web apps, promos, &amp; online marketing for millions of monthly
+              <span>active users.</span>
+            </p>
+          </li>
+          <li class="stack project">
+            <figure>
+              <a href="/fruit-ninja" title="Read Fruit Ninja case study"
+                ><img src="images/thumb-fruit-ninja-homepage.webp" alt="Fruit Ninja homepage"
+              /></a>
+            </figure>
+
+            <h3>
+              <a href="/fruit-ninja" title="Read Fruit Ninja case study">Fruit Ninja</a>
+            </h3>
+            <p>Websites &amp; marketing campaigns for one of the most popular mobile <span>games ever.</span></p>
+          </li>
+          <li class="stack project">
+            <figure>
+              <a href="https://thesteepery.com.au" title="Visit The Steepery website"
+                ><img src="images/thumb-the-steepery.webp" alt="The Steepery online store"
+              /></a>
+            </figure>
+
+            <h3>
+              <a href="https://thesteepery.com.au" title="Visit The Steepery website">The Steepery</a>
+            </h3>
+            <p>
+              Bespoke Shopify store selling boutique
+              <span>tea products.</span>
+            </p>
+          </li>
+        </ul>
+      </section>
+      <section class="section portfolio stack">
+        <h2>Side Projects</h2>
+        <ul class="grid-half">
+          <li class="stack project">
+            <h3>
+              <a href="https://so-tinysums.surge.sh/" title="View TinySums project">Tiny Sums</a>
+            </h3>
+            <p>
+              Do back-of-the-envelope calculations using everyday words. A fun test of regex skills to build a
+              <span>language parser in JS.</span>
+            </p>
+          </li>
+          <li class="stack project">
+            <h3>
+              <a href="https://so-learning-widgets-demo.surge.sh/" title="View learning widgets"
+                >Classroom Learning Widgets</a
+              >
+            </h3>
+            <p>
+              Small widgets for teachers to use in their classroom: Countdown Timer, Hundreds Number Grid, Analog Clock.
+              Made with PetiteVue.
+            </p>
+          </li>
+
+          <li class="stack project">
+            <h3>
+              <a href="https://mycorona.surge.sh/" title="View Covid-19 Stats dashboard">Covid-19 Stats</a>
+            </h3>
+            <p>A dashboard for viewing coronavirus cases around the world. Filter and compare countries.</p>
+          </li>
+          <li class="stack project">
+            <h3>
+              <a href="https://so-neto-email.surge.sh/" title="View Neto Email Content Generator project"
+                >Email Content Generator</a
+              >
+            </h3>
+            <p>
+              Construct emails from pre-witten content. Simple internal tool for
+              <span>Neto sales staff.</span>
+            </p>
+          </li>
+        </ul>
+      </section>
+      <section class="stack">
+        <h2>Skills</h2>
+        <div class="grid-half">
+          <ul class="skills">
+            <li><strong>HTML &amp; CSS</strong> · SASS, styled components, atomic design, SEO, WCAG accessibility</li>
+            <li><strong>JavaScript</strong> · Vue, React, TypeScript, EsLint, Webpack, Vite</li>
+            <li><strong>Design</strong> · Sketch, Figma, Photoshop, Illustrator</li>
+            <li><strong>Testing</strong> · Jest, Cypress, A/B testing, CI/CD tools</li>
+            <li><strong>PHP</strong> · Laravel, CraftCMS, WordPress</li>
+            <li><strong>Server-side</strong> · NodeJS, Nginx/Apache, AWS, Serverless</li>
+            <li><strong>Ecommerce</strong> · Shopify, Amazon</li>
+            <li><strong>Web Graphics</strong> · SVG, Canvas</li>
+            <li><strong>Analytics</strong> · Segment, Amplitude, Google Analytics</li>
           </ul>
-          </div>
+
+          <ul class="skills">
+            <li><strong>Marketing</strong> · Social media, email campaigns</li>
+            <li><strong>Game Development</strong> · Unity3D, Phaser</li>
+            <li><strong>English Teaching</strong> · CELTA certified</li>
+            <li><strong>Foundry Casting</strong> · Mg &amp; Al alloy casting</li>
+            <li><strong>Cool Tech</strong> · Scanning Electron Microscopy</li>
+            <li><strong>Burritos</strong> · I make a mean bean burrito</li>
+          </ul>
         </div>
-
-        <a href="mailto:hello@seanockert.com" class="cta" title="Send me an email to hello@seanockert.com">
-          <img src="images/face.png" alt="Sean's face" height="70" width="60">
-          Like what you see? Let's work together<span>.</span>
-        </a>
-
-        <footer id="footer">&copy; 2023 Sean Ockert. And all that jazz</footer>
-        </div>
-      </div>
-
-    </div></div> <!-- End barba -->
-    <div class="transition-in transition-out"></div>
-    <script src="/dist/js/scripts.min.js" defer></script>
+      </section>
+      <section>
+        <h2>Need a web professional?<br /><a href="mailto:hello@seanockert.com" title="Email me">Get in touch!</a></h2>
+      </section>
+      <section class="section contact">
+        <ul class="grid-third">
+          <li>
+            <a href="https://github.com/seanockert" title="View Github projects">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 97 93">
+                <path
+                  fill="currentColor"
+                  fill-rule="evenodd"
+                  d="M57.8 0C31.3 0-1 7.5 1 46.4A48 48 0 0 0 33.8 92c2.4.4 3.3-1 3.3-2.3v-9c-12.1 2.3-15.2-3-16.2-5.6-.5-1.4-2.9-5.6-4.9-6.8-1.7-.9-4-3.1 0-3.2 3.7 0 6.4 3.5 7.3 5 4.3 7.2 11.2 5.2 14 4 .4-3.2 1.7-5.3 3-6.5-10.6-1.2-21.8-5.3-21.8-23.7 0-5.2 1.9-9.5 5-13-.5-1.1-2.2-6 .4-12.6 0 0 4-1.3 13.2 4.9a44.5 44.5 0 0 1 24 0c9.2-6.2 13.2-5 13.2-5 2.7 6.7 1 11.6.5 12.8 3 3.4 3.4 8.9 3.4 14.1 0 18.5-11.8 21.3-22.5 22.5C57.4 69 61 72 61 76.5L61 89.7c0 1.2.9 2.7 3.3 2.3A48 48 0 0 0 97 46.4C97 20 84.3 0 57.8 0Z"
+                  clip-rule="evenodd"
+                />
+              </svg>
+              <div>Github</div>
+            </a>
+          </li>
+          <li>
+            <a href="https://www.linkedin.com/in/sean-ockert-b2294230" title="View LinkedIn profile">
+              <svg fill="none" viewBox="0 0 96 96">
+                <path
+                  fill="currentColor"
+                  fill-rule="evenodd"
+                  d="m85.3 96-71.6-2C7.7 94 3 89.2 3 83.3L0 10.7C0 4.7 4.8 0 10.7 0h70.8C87.4 0 96 9.1 96 15v70.3c0 6-4.8 10.7-10.7 10.7ZM68.4 82.7h14.3V53.4c0-12.4-7-18.4-16.9-18.4C56 35 52 42.7 52 42.7v-6.3H38.2l1.3 45.1 12.4 1.2V58.4c0-6.5 3-10.4 8.7-10.4 5.3 0 7.8 3.8 7.8 10.4v24.3Zm-55-60.8c0 4.7 3.7 8.5 8.4 8.5s8.5-3.8 8.5-8.5-3.8-8.6-8.5-8.6a8.5 8.5 0 0 0-8.5 8.6Zm14.1 59.6-12.8 1.2V36.4H29l-1.5 45.1Z"
+                  clip-rule="evenodd"
+                />
+              </svg>
+              <div>LinkedIn</div>
+            </a>
+          </li>
+          <li>
+            <a href="/sean-ockert-resume-2023.pdf" title="Download Resume">
+              <svg fill="none" viewBox="0 0 96 96">
+                <path
+                  fill="currentColor"
+                  d="M24 0c-6.6 0-12 2.4-12 9v75c0 6.6 8.4 10.5 15 10.5L72 96a12 12 0 0 0 12-12V31.5L60 30c-3.3 0-6-1.2-6-4.5V0H24Zm36 0v24h24L60 0ZM36 48a12 12 0 1 1 24 0 12 12 0 0 1-24 0Zm-9 33c0-8.3 5.7-14 14-14l13-1a15 15 0 0 1 15 15c0 1.7-3.3 3-5 3H30a3 3 0 0 1-3-3Z"
+                />
+              </svg>
+              <div>Download Resume</div>
+            </a>
+          </li>
+        </ul>
+      </section>
+    </main>
+    <footer class="flex">
+      <div>Building cool web things since 2009.&nbsp; <span>&copy; Sean Ockert</span></div>
+    </footer>
+    <script src="/assets/scripts.js" defer></script>
+    <script>
+      ;(function () {
+        document.documentElement.classList.remove('no-script')
+        document.documentElement.classList.add('anim')
+      })()
+    </script>
   </body>
 </html>
-

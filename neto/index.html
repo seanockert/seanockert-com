@@ -1,331 +1,599 @@
 <!DOCTYPE html>
-<html class="no-js csstransitions" lang="en">
-
+<html lang="en" data-theme="light" class="no-script">
   <head>
-    <meta charset="utf-8">
-    <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
     <title>Neto Ecommerce - Sean Ockert</title>
-    <meta name="description" content="Neto ecommerce provides a SaaS platform for retailers selling online or in-store" />
-    <link href="../images/icon-sean-bamboo.png" rel="icon" type="image/png">
-    <link href="../dist/css/style.css?rev=8" rel="stylesheet" type="text/css">
+    <meta
+      name="description"
+      content="Neto ecommerce provides a SaaS platform for retailers selling online or in-store"
+    />
 
-    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
-    <script>
-      (function(a,b,c){var d=a.history,e=document,f=navigator||{},g=localStorage,
-      h=encodeURIComponent,i=d.pushState,k=function(){return Math.random().toString(36)},
-      l=function(){return g.cid||(g.cid=k()),g.cid},m=function(r){var s=[];for(var t in r)
-      r.hasOwnProperty(t)&&void 0!==r[t]&&s.push(h(t)+"="+h(r[t]));return s.join("&")},
-      n=function(r,s,t,u,v,w,x){var z="https://www.google-analytics.com/collect",
-      A=m({v:"1",ds:"web",aip:c.anonymizeIp?1:void 0,tid:b,cid:l(),t:r||"pageview",
-      sd:c.colorDepth&&screen.colorDepth?screen.colorDepth+"-bits":void 0,dr:e.referrer||
-      void 0,dt:e.title,dl:e.location.origin+e.location.pathname+e.location.search,ul:c.language?
-      (f.language||"").toLowerCase():void 0,de:c.characterSet?e.characterSet:void 0,
-      sr:c.screenSize?(a.screen||{}).width+"x"+(a.screen||{}).height:void 0,vp:c.screenSize&&
-      a.visualViewport?(a.visualViewport||{}).width+"x"+(a.visualViewport||{}).height:void 0,
-      ec:s||void 0,ea:t||void 0,el:u||void 0,ev:v||void 0,exd:w||void 0,exf:"undefined"!=typeof x&&
-      !1==!!x?0:void 0});if(f.sendBeacon)f.sendBeacon(z,A);else{var y=new XMLHttpRequest;
-      y.open("POST",z,!0),y.send(A)}};d.pushState=function(r){return"function"==typeof d.onpushstate&&
-      d.onpushstate({state:r}),setTimeout(n,c.delay||10),i.apply(d,arguments)},n(),
-      a.ma={trackEvent:function o(r,s,t,u){return n("event",r,s,t,u)},
-      trackException:function q(r,s){return n("exception",null,null,null,null,r,s)}}})
-      (window,"UA-9144816-10",{anonymizeIp:true,colorDepth:true,characterSet:true,screenSize:true,language:true});
-    </script>
+    <link href="/images/favicon-so.png" rel="icon" type="image/png" />
+    <link href="/assets/style.css" rel="stylesheet" type="text/css" />
+
+    <meta property="og:url" content="https://seanockert.com" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Sean Ockert - web developer and designer" />
+    <meta property="og:image" content="/images/share_img.jpg" />
+    <meta
+      property="og:description"
+      content="Web wizard. Usability evangelist. Good guy from sunny Brisbane. View my skills and work here."
+      property="og:description"
+    />
+    <meta property="og:site_name" content="Sean Ockert" />
+    <meta property="og:locale" content="en_US" />
+    <meta property="article:author" content="" />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:site" content="@seanockert" />
+    <meta name="twitter:url" content="https://seanockert.com" />
+    <meta name="twitter:title" content="Sean Ockert - web developer and designer" />
+    <meta name="twitter:description" content="Web wizard. Usability evangelist. Good guy from sunny Brisbane" />
+    <meta name="twitter:image" content="/images/share_img.jpg" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;900&display=swap" rel="stylesheet" />
   </head>
-
-  <body>
-    <div id="barba-wrapper"><div class="barba-container"> <!-- Start barba -->
-      <div id="page">
-        <header class="page-header neto">
-          <div class="row">
-            <h1>Neto Ecommerce</h1>
-            <hr>
-            <p>Web developer responsible for the public face of a <span>SaaS company.</span></p>
-            <a href="https://www.netohq.com" class="button" title="Visit the Neto website">Visit the website</a>
-          </div>
+  <body class="page">
+    <button id="theme-switcher" aria-label="Switch light/dark mode">
+      <svg fill="none" viewBox="0 0 286 283">
+        <g class="sun-rays" fill="currentColor">
+          <path d="M160 68c-14-3-2-53 11-51 17 3 2 54-11 51Z" />
+          <path d="M217 119c-4-13 44-29 49-16 6 15-44 30-49 16Z" />
+          <path d="M200 195c9-10 47 24 39 34-11 14-48-24-39-34Z" />
+          <path d="M123 214c18 3 5 53-9 51-17-2-9-54 9-51Z" />
+          <path d="M61 163c3 11-40 23-44 12-5-14 41-24 44-12Z" />
+          <path d="M84 83c-14 9-45-25-36-33 12-11 53 22 36 33Z" />
+        </g>
+        <g class="sun-rays-small" fill="currentColor">
+          <path d="M121 62c-19 5-31-56-17-62 13-5 34 56 17 62Z" />
+          <path d="M202 83c-14-14 31-56 44-46 11 8-30 58-44 46Z" />
+          <path d="M221 160c5-19 64 0 62 15-1 14-66 3-62-15Z" />
+          <path d="M164 221c19-7 34 53 20 60-13 6-37-55-20-60Z" />
+          <path d="M84 199c15 13-28 55-43 44-12-8 29-56 43-44Z" />
+          <path d="M67 118c-5 24-64 3-63-13 0-14 66-5 63 13Z" />
+        </g>
+        <path class="sun" fill="currentColor" d="M201 119c-19-56-109-43-115 5-7 48 21 73 55 76s78-29 60-81Z" />
+        <path
+          class="moon"
+          fill="currentColor"
+          d="M138 66c-42 0-72 33-72 73s30 72 72 72c21 0 40-9 53-22 2-1 2-4 1-6s-3-3-5-2h-11c-29 0-45-8-56-35-11-28 11-61 27-70 2-1 3-3 2-6 0-2-2-4-5-4h-6Z"
+        />
+      </svg>
+    </button>
+    <main>
+      <div class="intro">
+        <header class="stack">
+          <a href="/" title="Back to homepage" class="face-wrapper">
+            <svg class="face" fill="none" height="192" width="192" viewBox="0 0 909 909">
+              <g class="face-shadow" fill="#83B58E" fill-opacity=".4">
+                <path
+                  d="M429.4 583.6c-75.6-6.1-82.8-21.8-103.2-43.3-57.1-29.7-94.2 6.9-62.7 18.5 74.5 6.9 145 38 145 38l21 9.4c8.4-3 21-9.5 0-22.6Z"
+                />
+                <path
+                  d="M626.8 324.2c-29.3-77.1-87.4-163.8-87.4-163.8s-61.6-10.7-174.7-11.7c-113-1-111.7 139.7-104.9 154.1 27.7 14.9-27.2 69.3 31.9 38.3 66.7-8.5 68.5 43.7 66.5 24.7 13.6-39-41.7-72.8-41.7-72.8s-4.4-42.3 33.9-33.8c38.2 8.5 81.5 22.7 75.6-7.8-6-30.5-34-19-39.1-32.5-5.1-13.6 23.8-34.6 88.6-9.1 99.7 24.7 37.9 50.7 53.5 85.8 2.5 15.4 78.1 75.2 88.7 94.8 10.5 19.7 38.3 10.8 9-66.2Z"
+                />
+                <path
+                  d="M195 398.6c-25.5 43.8-34 59.9-31 64.7l-5.4.4s-18.8 152.7 19.6 217.4c38.3 64.8 87.6-34.6 95-53.3 7.3-18.7-46.9-75.5-46.9-75.5l48.1-37.8 23.5-43 16.9-14.3s-70.2 19.3-100.2 2.6l-18.2 1.3c5.3-29.7 36-49.1 48.1-65 35.6-27 79.4 27.3 79.4 27.3 1.4-6.7 0-5 2.6-24.8 1.4-7 .2-33-11.7-39-16.2-8-46.6 4.7-65 0-16.3-1.3-29.3 4-54.7 39Z"
+                />
+                <path d="M684.5 495c-6-3.6-27.7 2.7-19.5 21.1 0 0 15.9-5.7 32.5 11.9 5 14.7 43.4-13.6-13-33Z" />
+                <path
+                  d="M564.5 461.8s21.8-29.4-35.3-83.2c-57-53.8-112.1-21.8-112.1-18.2 0 0-40.1 103.3 95.2 100.1 0 0 6-8.1-36.5-23.4 36.2-15.6 88.7 24.7 88.7 24.7Z"
+                />
+                <path
+                  d="M428.8 494c-15.2 7.3 22.4 89 27.2 93.9 4.7 5-.1 43.6-4 73-3.7 29.4 15.6 5.2 15.6 5.2 107.6-104.5-38.8-172-38.8-172Z"
+                />
+                <path
+                  d="M378.3 517.7c-32.5-3-49.7-39-49.7-39-22.6-23.2-42 5.3-42 5.3s13.2 14.3 35.4 42.7c22.3 28.5 88.9-6 56.3-9Z"
+                />
+                <path
+                  d="M685.5 553.1c-4.6-9-26 10.4-21.3-1.3 4.7-11.7-5.3-20.7-5.3-20.7a386.8 386.8 0 0 0-28 29.8s13 2.6 18.3 3.3c5.2.7-12.4 39 6.5 39 11.6 0 36.3-37.3 29.8-50Z"
+                />
+              </g>
+              <g class="face-main" fill="#2E4031">
+                <path
+                  d="M466.6 382.2c-12.4 2.4-33.9 11.6-26.1 34 7.8 22.2 41 18.4 51.2 19.5 7.4 0 4.7-15.9-.7-28 14.5 14.4 14.7 27.4 17 28 10.3 2.6 14.1 1.7 22.3 6.4 9.6 6.3 42 19.2 9.3-15.5-42.9-35.2-60.7-47-73-44.4Z"
+                />
+                <path
+                  d="M449.4 340.8c-11.3-.7-31.2-10.4-33.8 10.5-2.7 20.8 35.1 13 57.3 14.3 22.1 1.3 57 31.2 58.6 9.1 1.6-22-56-32.2-82-33.9Z"
+                />
+                <path
+                  d="M423.2 484.4C409 499 417 540 404.2 541c3.3 21.7 19.7 39.2 36 53-1 18-26.1 5.3-26.1 5.3s7.6 19-6.5 20.8c-35.5.3-100-39.4-131.5-36.5-11.8-7-2.2-22.1-19.6-28.7-9.3-8.1-2.9-23.3 20.9-22.1 23.7 1.2-2.5 3.6 53.4 9 59 0 68.6-11 58.6-24.7-19-8.5-24 3.3-36.5 5.2-12.5 2-57.6-31.3-54.7-39 2.9-7.8 14.4-3.6 30-4C332 460.2 358 371 358 371s-2.7-19.6-27.3-27.4c-24.7-7.8-34.6-7.2-57.3 0-21.9 8.2-26.5 15.2-11.8 23.5 19.7 10 36.2 12.6 47.6 15.8 1.6.5 6.3-13.6 6.3-23.2 3.4 8.2 6 19 2.4 19-1 0-6.3 0-5.4-2.3l-3.3 6.5c10.5 5.3 15.6 30.1 12.3 40.2-6.3 33-36.6 45.4-37.7 57.4-1.1 12-17.5 32.1-40.4 37.8-23.7 8-38.6 13.5-37.8 32.6 13.4 28.1 22.9 5.2 27.4 18.3 13 37.5 41.7 59.2 70.1 60 85.8-2.6 70.5 16.4 100.5 15.6 30-.9 55-16.4 39 1.3-8.6 25.3-3.9 35.2 5.3 35.2 9 0 47.4-50.4 46.8-77-24.6-18.2-34.2-67-38.1-74.5-4-7.6-23.2-18.4-33.5-45.4Zm308.7 7.8c1.7 32.5-6.6 67.4-27.4 90-43.4 34.6-41.4 55.5-65.1 71.7-25.5 23.2-35.7-21.4-61.2 20.9-8.7 18 43 0 71.6-15.7 30.3-16.5 96-102.4 91.2-167.2-2.8-2-10.4-3.1-9.1.3Z"
+                />
+                <path
+                  d="M351.5 322.4c-22.6-35.8-82.5-40.5-89.3-31.5-12.7 16.8 13.5 25.4 44 25.6 23.9 4.4 60.2 50.5 45.3 5.9Z"
+                />
+                <path
+                  d="M756.8 351.8c10-20.4 14.1-44.5 10.4-57.3-3.7-12.7-44.7-20-36.5-39 8.2-19 32.6-9.5 9.1-36.4-37.3-42.4-9.7-37.3-22.1-61.2C705.3 134.1 612.6 27.8 540.6 20c-72-7.7-180.7 5.8-218.8 52-38.1 46.4-23.7 33-43 30-19.2-3-18 18.1-19.5 26-1.6 8-41.3-17.7-53.4 4-12.1 21.5 16.5 58-5.2 54.6-21.7-3.4-36.7-19.3-27.4 37.7 9.4 57-19.4 63-1.3 100.2 18.2 37.1-27 149.3-10.4 149.6 1.8.1 2.7.6 3 1-1.5-4.3-4.4-41 114.2-258.6 27.8-44.4 34.4-25.7 70.4-24.7 21.6.6 22 5 24.7-7.8 8.5-11.4 108.8-19 123.7 2.6 15 21.5 47.3 40.7 46.9 59.8-.4 19.1-7.9 56.3 6.5 58.6 14.4 2.2 26-9.5 30 9-1.3 32 38.7 16.7 27.3 106.7 4.4 23.8 14.4 11.7 26 28.7 3.1 22.8-12.4 104.4-3.9 111.9 19.1 3 54.2-93 74.3-83.3 20 9.7 27.2 3.2 27.2 14.2 7.5.5 31 6 24.9-71.5-4.6-32.2-10-48.5 0-69ZM164.7 475c.5.5.3.8 0 0Z"
+                />
+                <path
+                  d="M403.7 760.3c-46.3 6.4-114.4-24.5-142.5-42.7-28-18.1-26.3-19.4-1.3-30 25-10.4 137.8 22.4 77-15.6-60.8-37.9-31.7-42.4-31.7-42.4C86 550.9 220.8 668.8 192 668.1c-28.7-.6-24.4-31.2-30-31.2-3.5 0-24.2 28.4 52.1 101.6C298 805.7 450 754 403.7 760.3Z"
+                />
+                <path
+                  d="M295 863.5s-6.4-39.4-34-39.2c-27.7.2-53.1-23.3-63-46.4-10-23-10.2-43.4-12.7-70.2 0 0-9.3-27.4-9.3-7.3.7 32 1.4 95.7 22 115.7L312 892c12.1-12-17-28.5-17-28.5Z"
+                />
+              </g>
+            </svg>
+          </a>
+          <h1>Neto Ecommerce</h1>
+          <p>Marketing website, sales funnel, SEO, product UI development.</p>
         </header>
-
-        <div class="wave">
-          <svg viewBox="0 0 1440 100" width="100%" height="100%">
-            <path fill="rgb(249,249,249)" d="M1440,21.2101911 L1440,120 L0,120 L0,21.2101911 C120,35.0700637 240,42 360,42 C480,42 600,35.0700637 720,21.2101911 C808.32779,12.416393 874.573633,6.87702029 918.737528,4.59207306 C972.491685,1.8109458 1026.24584,0.420382166 1080,0.420382166 C1200,0.420382166 1320,7.35031847 1440,21.2101911 Z"></path>
-          </svg>
-        </div>
-
+      </div>
+      <section class="section">
         <article class="page-section">
+          <h2>Sell online</h2>
 
-          <div class="row">
-            <p>Neto offers a SaaS platform for businesses to run their ecommerce store and point-of-sale on, as well as tools to manage their stock management and warehouses. They also do in-house website development for clients who use the ecommerce platform.</p>
+          <p>
+            Neto (now Maropost) offers a SaaS platform for businesses to run their ecommerce store and point-of-sale on,
+            as well as tools to manage their stock management and warehouses. They also do in-house website development
+            for clients who use the ecommerce platform.
+          </p>
 
-            <figure>
-              <a href="https://www.netohq.com" title="Visit the Neto website"><img src="../images/page/screen-neto-homepage.jpg" alt="Screenshot of the Neto homepage" height="768" width="1024"></a>
-            </figure>
+          <figure>
+            <a href="https://www.netohq.com" title="Visit the Neto website"
+              ><img
+                src="/images/page/screen-neto-homepage.jpg"
+                alt="Screenshot of the Neto homepage"
+                height="768"
+                width="1024"
+            /></a>
+          </figure>
 
-            <p>I joined Neto in 2017 to take ownership of the Neto public website.</p>
+          <p>I joined Neto in 2017 to take ownership of the Neto public website.</p>
 
-            <p>Along with building out our web capabilities, my role also encompassed:</p>
-            <ul>
-              <li>user acquisition</li>
-              <li>marketing campaigns</li>
-              <li>print asset design</li>
-              <li>analytics</li>
-              <li>copywriting</li>
-              <li>user testing</li>
-              <li>user interface design</li>
-              <li>product development</li>
-            </ul>
+          <p>Along with building out our web capabilities, my role also encompassed:</p>
+          <ul>
+            <li>user acquisition</li>
+            <li>marketing campaigns</li>
+            <li>print asset design</li>
+            <li>analytics</li>
+            <li>copywriting</li>
+            <li>user testing</li>
+            <li>user interface design</li>
+            <li>product development</li>
+          </ul>
 
-            <h3>What? We have no landing pages?</h3>
+          <h3>What? We have no landing pages?</h3>
 
-            <p>Before I joined Neto, the marketing team had no way to create dedicated landing pages for campaigns. Most paid acquisition were directed to the homepage or the free trial page, which were low relevance to the actual campaigns and therefore gave us junk quality scores.</p>
+          <p>
+            Before I joined Neto, the marketing team had no way to create dedicated landing pages for campaigns. Most
+            paid acquisition were directed to the homepage or the free trial page, which were low relevance to the
+            actual campaigns and therefore gave us junk quality scores.
+          </p>
 
-            <p>The first win for the new CMS was to give marketing staff the ability to build landing pages from a set of pre-defined components.</p>
+          <p>
+            The first win for the new CMS was to give marketing staff the ability to build landing pages from a set of
+            pre-defined components.
+          </p>
 
-           <figure>
-              <img src="../images/page/screen-neto-landing-page.jpg" alt="Example of a Neto landing page" height="543" width="990">
-              <figcaption>A landing page hero section</figcaption>
-            </figure>
+          <figure>
+            <img
+              src="/images/page/screen-neto-landing-page.jpg"
+              alt="Example of a Neto landing page"
+              height="543"
+              width="990"
+            />
+            <figcaption>A landing page hero section</figcaption>
+          </figure>
 
-            <p>We established a list of components (eg. hero banner, feature list, call-to-action, etc.) and every possible permutations they might have. From this, I built flexible templates and data structures using Craft’s matrix to accommodate different messaging and layouts.</p>
+          <p>
+            We established a list of components (eg. hero banner, feature list, call-to-action, etc.) and every possible
+            permutations they might have. From this, I built flexible templates and data structures using Craft’s matrix
+            to accommodate different messaging and layouts.
+          </p>
 
-            <p>I worked closely with everyone who needed to build a landing page we went through a few iterations, both for the visual layouts which were A/B tested for best click-through rate and how the content could be edited. From this, I wrote up guidelines on how to create a landing page and best practices.</p>
+          <p>
+            I worked closely with everyone who needed to build a landing page we went through a few iterations, both for
+            the visual layouts which were A/B tested for best click-through rate and how the content could be edited.
+            From this, I wrote up guidelines on how to create a landing page and best practices.
+          </p>
 
-            <h4>Wins</h4>
+          <h4>Wins</h4>
 
-            <p>Using targeted landing pages, we were able to:</p>
+          <p>Using targeted landing pages, we were able to:</p>
 
-            <ul>
-              <li>Reduce our ad spending</li>
-              <li>Match the messaging with content</li>
-              <li>Better attribute conversions to their campaign</li>
-            </ul>
+          <ul>
+            <li>Reduce our ad spending</li>
+            <li>Match the messaging with content</li>
+            <li>Better attribute conversions to their campaign</li>
+          </ul>
 
-            <h4>Pain points</h4>
+          <h4>Pain points</h4>
 
-            <p>Issues encountered were mainly on the content creation end:</p>
+          <p>Issues encountered were mainly on the content creation end:</p>
 
-            <ul>
-              <li>Achieving a balance between too much editing freedom, and not enough. Eg. allowing authors to add their own HTML proved a nightmare to maintain and unclosed tags could break the page.</li>
-              <li>Authors do not understand responsive design; that their content needs to adapt to mobile. Eg. insistence on “above the fold” and using too large images.</li>
-            </ul>
+          <ul>
+            <li>
+              Achieving a balance between too much editing freedom, and not enough. Eg. allowing authors to add their
+              own HTML proved a nightmare to maintain and unclosed tags could break the page.
+            </li>
+            <li>
+              Authors do not understand responsive design; that their content needs to adapt to mobile. Eg. insistence
+              on “above the fold” and using too large images.
+            </li>
+          </ul>
 
-            <h3>Migrating the Neto website</h3>
+          <h3>Migrating the Neto website</h3>
 
-            <p>The website is key for acquiring new customers, as Neto’s acquisition (and our target metrics) focused on converting prospects to a free trial of the ecommerce product; followed by a sales call.</p>
+          <p>
+            The website is key for acquiring new customers, as Neto’s acquisition (and our target metrics) focused on
+            converting prospects to a free trial of the ecommerce product; followed by a sales call.
+          </p>
 
-            <p>Neto had built up its customer-base from Australian retailers, but was looking to expand to an international market. This involved not only updates to the product, but also migrating the established, public website from an Australian domain: <em>neto.com.au</em>, to a global domain: <em>netohq.com</em>.
+          <p>
+            Neto had built up its customer-base from Australian retailers, but was looking to expand to an international
+            market. This involved not only updates to the product, but also migrating the established, public website
+            from an Australian domain: <em>neto.com.au</em>, to a global domain: <em>netohq.com</em>.
+          </p>
 
-            <p>With multiple stakeholders, stale content, and poor accessibility, migrating the website presented some technical and logistical challenges.</p>
+          <p>
+            With multiple stakeholders, stale content, and poor accessibility, migrating the website presented some
+            technical and logistical challenges.
+          </p>
 
-            <h4>Setting up a new shop</h4>
+          <h4>Setting up a new shop</h4>
 
-            <p>The website on the <em>neto.com.au</em> domain was built on Neto’s own SaaS platform, which&mdash;although applicable for ecommerce&mdash;lacked the capability required to be the content management system that we needed. I took this opportunity to completely rebuild the site with a dedicated CMS and modern web standards. This would help achieve our migration goals, which were:</p>
+          <p>
+            The website on the <em>neto.com.au</em> domain was built on Neto’s own SaaS platform, which&mdash;although
+            applicable for ecommerce&mdash;lacked the capability required to be the content management system that we
+            needed. I took this opportunity to completely rebuild the site with a dedicated CMS and modern web
+            standards. This would help achieve our migration goals, which were:
+          </p>
 
-            <ol>
-              <li>Market to customers outside of Australia</li>
-              <li>Allow anyone to create campaign landing pages</li>
-              <li>Easy-to-use CMS for non-technical staff</li>
-              <li>Faster blog publishing</li>
-              <li>Assets managed from one place</li>
-              <li>Document history for legal pages</li>
-              <li>Faster development and iteration of the website</li>
-              <li>Improved on-site SEO</li>
-              <li>Improved all-round visitor experience</li>
-            </ol>
+          <ol>
+            <li>Market to customers outside of Australia</li>
+            <li>Allow anyone to create campaign landing pages</li>
+            <li>Easy-to-use CMS for non-technical staff</li>
+            <li>Faster blog publishing</li>
+            <li>Assets managed from one place</li>
+            <li>Document history for legal pages</li>
+            <li>Faster development and iteration of the website</li>
+            <li>Improved on-site SEO</li>
+            <li>Improved all-round visitor experience</li>
+          </ol>
 
-            <p>I evaluated several content management systems and settled on <strong>Craft CMS</strong> for its ease of development, flexible template model and community support.</p>
+          <p>
+            I evaluated several content management systems and settled on <strong>Craft CMS</strong> for its ease of
+            development, flexible template model and community support.
+          </p>
 
-            <p>A dozen non-technical people in the company have since used the new CMS to publish content and all have found it much more intuitive and easy to use than the previous system.</p>
+          <p>
+            A dozen non-technical people in the company have since used the new CMS to publish content and all have
+            found it much more intuitive and easy to use than the previous system.
+          </p>
 
-            <p>As the sole developer, building on Craft CMS has been a very good experience, and allowed me to address feature requests and implement changes rapidly.</p>
+          <p>
+            As the sole developer, building on Craft CMS has been a very good experience, and allowed me to address
+            feature requests and implement changes rapidly.
+          </p>
 
-            <h4>Migration pain points</h4>
+          <h4>Migration pain points</h4>
 
-            <p>There are delicate SEO issues in migrating existing content to a new domain. It’s a chicken and egg problem of attempting to build up domain authority on the new <em>netohq.com</em> domain without negatively impacting organic traffic on the existing domain.</p>
+          <p>
+            There are delicate SEO issues in migrating existing content to a new domain. It’s a chicken and egg problem
+            of attempting to build up domain authority on the new <em>netohq.com</em> domain without negatively
+            impacting organic traffic on the existing domain.
+          </p>
 
-            <p>We settled on a hybrid approach of migrating one section of the website at a time (eg. blog posts), implementing the appropriate <em>hreflang</em> tags and measuring the impact. After a few weeks, we would then 301 redirect that section.</p>
+          <p>
+            We settled on a hybrid approach of migrating one section of the website at a time (eg. blog posts),
+            implementing the appropriate <em>hreflang</em> tags and measuring the impact. After a few weeks, we would
+            then 301 redirect that section.
+          </p>
 
-            <p>For some sections, especially documentation, we saw an initial drop-off in traffic, which slowly started to recover after the new pages were indexed by Google and <em>netohq.com</em> domain authority improved.</p>
+          <p>
+            For some sections, especially documentation, we saw an initial drop-off in traffic, which slowly started to
+            recover after the new pages were indexed by Google and <em>netohq.com</em> domain authority improved.
+          </p>
 
-            <p>Neto had invested a lot in SEO for <em>neto.com.au</em>, especially link building. So our CEO was very adamant that we not impact any progress made. Thankfully, most of our acquisition was through paid channels, so the initial reduction in organic traffic was mitigated. The move was necessary for our business roadmap. Sometimes you have to ignore sunk costs to move forwards.</p>
+          <p>
+            Neto had invested a lot in SEO for <em>neto.com.au</em>, especially link building. So our CEO was very
+            adamant that we not impact any progress made. Thankfully, most of our acquisition was through paid channels,
+            so the initial reduction in organic traffic was mitigated. The move was necessary for our business roadmap.
+            Sometimes you have to ignore sunk costs to move forwards.
+          </p>
 
-            <!--<figure>
-              <img src="../images/page/screen-neto-roadmap.jpg" alt="Screenshot of a Neto roadmap" height="404" width="877">
+          <!--<figure>
+              <img src="/images/page/screen-neto-roadmap.jpg" alt="Screenshot of a Neto roadmap" height="404" width="877">
               <figcaption>Neto product roadmap page. <a href="https://www.netohq.com/roadmap" title="View roadmap page">Source</a></figcaption>
             </figure> -->
 
+          <h3>Finding experts and add-ons for your store</h3>
 
-            <h3>Finding experts and add-ons for your store</h3>
+          <p>As well as earning revenue through recurring monthly plans, Neto derives some of its revenue from:</p>
 
-            <p>As well as earning revenue through recurring monthly plans, Neto derives some of its revenue from:</p>
+          <ol>
+            <li>Design and setup services</li>
+            <li>
+              Integrations with third-party software (eg. customers using a particular shipping or payment service).
+            </li>
+          </ol>
 
-            <ol>
-              <li>Design and setup services</li>
-              <li>Integrations with third-party software (eg. customers using a particular shipping or payment service).</li>
-            </ol>
+          <p>
+            Neto has relationships with design studios around Australia who build ecommerce websites for clients and we
+            advertise their services on the website as Neto Experts.
+          </p>
 
-            <p>Neto has relationships with design studios around Australia who build ecommerce websites for clients and we advertise their services on the website as Neto Experts.</p>
+          <p>
+            Likewise, Neto partners with companies who offer integrations with the Neto platform. These are advertised
+            through the public Add-ons directory.
+          </p>
 
-            <p>Likewise, Neto partners with companies who offer integrations with the Neto platform. These are advertised through the public Add-ons directory.</p>
+          <p>Our Experts directory and Add-ons directory:</p>
 
+          <ul>
+            <li>Contained out-of-date content which was hard to update</li>
+            <li>Were difficult to navigate and to find relevant information</li>
+            <li>Did not meet accessibility and coding standards</li>
+          </ul>
 
-            <p>Our Experts directory and Add-ons directory:</p>
+          <p>Though similar in some respects, the user intent differed between the directories.</p>
 
-            <ul>
-              <li>Contained out-of-date content which was hard to update</li>
-              <li>Were difficult to navigate and to find relevant information</li>
-              <li>Did not meet accessibility and coding standards</li>
-            </ul>
+          <h4>Third-party integrations with Neto</h4>
 
-            <p>Though similar in some respects, the user intent differed between the directories.</p>
+          <p>For add-ons, we want to answer:</p>
+          <ol>
+            <li>
+              For a new user: <em>“does Neto integrate with the software I already use?”</em> (looking for something
+              specific)
+            </li>
+            <li>
+              For an existing user: <em>“how can I improve my store?”</em> (looking for inspiration and future
+              capabilities; general browsing)
+            </li>
+          </ol>
 
-            <h4>Third-party integrations with Neto</h4>
+          <figure>
+            <img
+              src="/images/page/screen-neto-add-ons-listing.jpg"
+              alt="Screenshot of the Neto add-ons listing"
+              height="380"
+              width="1202"
+            />
+            <figcaption>Add-ons listing</figcaption>
+          </figure>
 
-            <p>For add-ons, we want to answer:</p>
-            <ol>
-              <li>For a new user: <em>“does Neto integrate with the software I already use?”</em> (looking for something specific)</li>
-              <li>For an existing user: <em>“how can I improve my store?”</em> (looking for inspiration and future capabilities; general browsing)</li>
-            </ol>
+          <p>
+            Showcasing our third-party integrations is most important for customers switching from another platform (eg.
+            Shopify). It’s often a deal breaker if Neto cannot integrate with all the software that their previous
+            platform integrated with.
+          </p>
 
-            <figure>
-              <img src="../images/page/screen-neto-add-ons-listing.jpg" alt="Screenshot of the Neto add-ons listing" height="380" width="1202">
-              <figcaption>Add-ons listing</figcaption>
-            </figure>
+          <p>
+            I audited the add-on content and rewrote most of the descriptions to focus more on each one’s benefits to a
+            Neto user, rather than features and marketing spiel.
+          </p>
 
-            <p>Showcasing our third-party integrations is most important for customers switching from another platform (eg. Shopify). It’s often a deal breaker if Neto cannot integrate with all the software that their previous platform integrated with.
+          <p>To allow users to browse faster, I added:</p>
+          <ul>
+            <li>A quick-search to filter the listing page by keyword as you type</li>
+            <li>A quick-view to show add-on in a popup instead of loading a new page</li>
+          </ul>
 
-            <p>I audited the add-on content and rewrote most of the descriptions to focus more on each one’s benefits to a Neto user, rather than features and marketing spiel.
+          <figure>
+            <img
+              src="/images/page/screen-neto-add-ons-quickview.jpg"
+              alt="Screenshot of a Neto add-ons quick-view"
+              height="677"
+              width="959"
+            />
+            <figcaption>Add-ons listing quick-view loads via AJAX in a modal</figcaption>
+          </figure>
 
-            <p>To allow users to browse faster, I added:</p>
-            <ul>
-              <li>A quick-search to filter the listing page by keyword as you type</li>
-              <li>A quick-view to show add-on in a popup instead of loading a new page</li>
-            </ul>
+          <h4>Need a Neto expert?</h4>
 
-            <figure>
-              <img src="../images/page/screen-neto-add-ons-quickview.jpg" alt="Screenshot of a Neto add-ons quick-view" height="677" width="959">
-              <figcaption>Add-ons listing quick-view loads via AJAX in a modal</figcaption>
-            </figure>
+          <p>
+            The Experts directory was more involved, as users needed to be able to refine the list of experts by the
+            type of services they offered, location and budget.
+          </p>
 
+          <p>I experimented with a few designs and settled on putting the filters directly in a sentence:</p>
 
-            <h4>Need a Neto expert?</h4>
+          <p><em>“I'm looking for help with X services in Y location for Z budget”</em></p>
 
-            <p>The Experts directory was more involved, as users needed to be able to refine the list of experts by the type of services they offered, location and budget.</p>
+          <figure>
+            <img
+              src="/images/page/screen-neto-experts-filter.jpg"
+              alt="Screenshot of a Neto experts listing filters"
+              height="511"
+              width="1210"
+            />
+            <figcaption>Experts can be filtered by service, location or budget; and saved for later.</figcaption>
+          </figure>
 
-            <p>I experimented with a few designs and settled on putting the filters directly in a sentence:</p>
+          <p>This allows users to compose their query more naturally than with separated dropdown fields.</p>
 
-            <p><em>“I'm looking for help with X services in Y location for Z budget”</em></p>
+          <p>
+            We added event tracking to these directories to monitor and measure click-throughs, engagement, if experts
+            were contact, and if add-ons were installed. We have seen an increase in visits but did not have historical
+            data to compare events from the previous version.
+          </p>
 
-            <figure>
-              <img src="../images/page/screen-neto-experts-filter.jpg" alt="Screenshot of a Neto experts listing filters" height="511" width="1210">
-              <figcaption>Experts can be filtered by service, location or budget; and saved for later.</figcaption>
-            </figure>
+          <h3>Improving our pricing</h3>
+          <p>
+            The <strong>pricing page</strong> is a vital conversion point that simply wasn’t pulling its weight on
+            <em>neto.com.au</em>. Neto pricing is a bit more complicated than its competitors, as there’s a fair amount
+            of room to customise your subscription plan. Our goals were:
+          </p>
 
-            <p>This allows users to compose their query more naturally than with separated dropdown fields.</p>
+          <ol>
+            <li>Improve conversion rate</li>
+            <li>Clearer value proposition</li>
+            <li>Better explain terminology, and plan differentiation</li>
+            <li>Add new plans and sales channels</li>
+            <li>Allow authors to manage the page through the CMS (and rollback changes)</li>
+            <li>Allow user to calculate total plan cost</li>
+            <li>Sell more large plans</li>
+            <li>Improve metrics on visitor behavior</li>
+          </ol>
 
-            <p>We added event tracking to these directories to monitor and measure click-throughs, engagement, if experts were contact, and if add-ons were installed. We have seen an increase in visits but did not have historical data to compare events from the previous version.</p>
+          <p>
+            I worked closely with the sales team and used their feedback and knowledge of our customer needs to build a
+            new pricing page.
+          </p>
 
+          <figure>
+            <img
+              src="/images/page/screen-neto-pricing-plans.jpg"
+              alt="Screenshot of the Neto pricing plans"
+              height="715"
+              width="1183"
+            />
+            <figcaption>
+              New pricing plans. <a href="https://www.netohq.com/pricing" title="Visit pricing page">Source</a>
+            </figcaption>
+          </figure>
 
-            <h3>Improving our pricing</h3>
-            <p>The <strong>pricing page</strong> is a vital conversion point that simply wasn’t pulling its weight on <em>neto.com.au</em>. Neto pricing is a bit more complicated than its competitors, as there’s a fair amount of room to customise your subscription plan. Our goals were:</p>
+          <p>
+            Some improvements made to the
+            <a href="https://www.netohq.com/pricing" title="Visit pricing page">new version</a> were:
+          </p>
+          <ul>
+            <li>Split out the complete feature list to give the key comparison points more focus</li>
+            <li>Clearer call-to-actions and next steps</li>
+            <li>Improved explanation of Sales Channels</li>
+            <li>More than halved the page load time</li>
+            <li>Made the page easier to use on mobile</li>
+          </ul>
 
-            <ol>
-              <li>Improve conversion rate</li>
-              <li>Clearer value proposition</li>
-              <li>Better explain terminology, and plan differentiation</li>
-              <li>Add new plans and sales channels</li>
-              <li>Allow authors to manage the page through the CMS (and rollback changes)</li>
-              <li>Allow user to calculate total plan cost</li>
-              <li>Sell more large plans</li>
-              <li>Improve metrics on visitor behavior</li>
-            </ol>
+          <p>When the new pricing page went live, we saw:</p>
 
-            <p>I worked closely with the sales team and used their feedback and knowledge of our customer needs to build a new pricing page.</p>
+          <ul>
+            <li>An immediate increase in the clickthoughs from this page to start a free trial</li>
+            <li>Lower bounce-rate</li>
+            <li>Prospects using the pricing calculator to generate quotes</li>
+          </ul>
 
-            <figure>
-              <img src="../images/page/screen-neto-pricing-plans.jpg" alt="Screenshot of the Neto pricing plans" height="715" width="1183">
-              <figcaption>New pricing plans. <a href="https://www.netohq.com/pricing" title="Visit pricing page">Source</a></figcaption>
-            </figure>
+          <p>The sales team were also happier as they rely on this page often when talking to prospects.</p>
 
-            <p>Some improvements made to the <a href="https://www.netohq.com/pricing" title="Visit pricing page">new version</a> were:</p>
-            <ul>
-              <li>Split out the complete feature list to give the key comparison points more focus</li>
-              <li>Clearer call-to-actions and next steps</li>
-              <li>Improved explanation of Sales Channels</li>
-              <li>More than halved the page load time</li>
-              <li>Made the page easier to use on mobile</li>
-            </ul>
+          <h4>Calculate plan pricing</h4>
 
+          <p>
+            One recurring complaint we had from prospects was they had difficulty calculating the true cost of using
+            Neto. To address this, I built
+            <a href="https://www.netohq.com/pricing/calculator" title="View Neto pricing calculator"
+              >a pricing calculator</a
+            >
+            which allowed prospects to:
+          </p>
 
-            <p>When the new pricing page went live, we saw:</p>
+          <ul>
+            <li>Select requirements for their business</li>
+            <li>Give them a price estimate</li>
+            <li>Recommend the best plan</li>
+            <li>Email them a quote</li>
+          </ul>
 
-            <ul>
-              <li>An immediate increase in the clickthoughs from this page to start a free trial</li>
-              <li>Lower bounce-rate</li>
-              <li>Prospects using the pricing calculator to generate quotes</li>
-            </ul>
+          <figure class="img-three">
+            <img
+              src="/images/page/screen-neto-calculator-1.jpg"
+              alt="Screenshot of a Neto pricing calculator on mobile 1"
+              height="750"
+              width="1250"
+            />
+            <img
+              src="/images/page/screen-neto-calculator-2.jpg"
+              alt="Screenshot of a Neto pricing calculator on mobile 2"
+              height="750"
+              width="1250"
+            />
+            <img
+              src="/images/page/screen-neto-calculator-3.jpg"
+              alt="Screenshot of a Neto pricing calculator on mobile 3"
+              height="750"
+              width="1250"
+            />
+            <figcaption>Pricing calculator on mobile</figcaption>
+          </figure>
 
-            <p>The sales team were also happier as they rely on this page often when talking to prospects.</p>
-
-
-            <h4>Calculate plan pricing</h4>
-
-            <p>One recurring complaint we had from prospects was they had difficulty calculating the true cost of using Neto. To address this, I built <a href="https://www.netohq.com/pricing/calculator" title="View Neto pricing calculator">a pricing calculator</a> which allowed prospects to:</p>
-
-            <ul>
-              <li>Select requirements for their business</li>
-              <li>Give them a price estimate</li>
-              <li>Recommend the best plan</li>
-              <li>Email them a quote</li>
-            </ul>
-
-            <figure class="img-three">
-              <img src="../images/page/screen-neto-calculator-1.jpg" alt="Screenshot of a Neto pricing calculator on mobile 1" height="750" width="1250">
-              <img src="../images/page/screen-neto-calculator-2.jpg" alt="Screenshot of a Neto pricing calculator on mobile 2" height="750" width="1250">
-              <img src="../images/page/screen-neto-calculator-3.jpg" alt="Screenshot of a Neto pricing calculator on mobile 3" height="750" width="1250">
-              <figcaption>Pricing calculator on mobile</figcaption>
-            </figure>
-
-           <!-- <figure class="inline">
-              <img src="../images/page/screen-neto-pricing-calculator-results.jpg" alt="Screenshot of the Neto pricing calculator results" height="548" width="388">
+          <!-- <figure class="inline">
+              <img src="/images/page/screen-neto-pricing-calculator-results.jpg" alt="Screenshot of the Neto pricing calculator results" height="548" width="388">
               <figcaption>New pricing plans</figcaption>
             </figure> -->
 
-            <p><!--<img src="../images/page/screen-neto-pricing-calculator-results.jpg" alt="Screenshot of the Neto pricing calculator results" height="548" width="388">--> The calculator was built quickly using VueJS. The reactive data-binding allowed the price estimate to change immediately based on their selection.</p>
+          <p>
+            <!--<img src="/images/page/screen-neto-pricing-calculator-results.jpg" alt="Screenshot of the Neto pricing calculator results" height="548" width="388">-->
+            The calculator was built quickly using VueJS. The reactive data-binding allowed the price estimate to change
+            immediately based on their selection.
+          </p>
 
-            <p>I planned to take this further so users could estimate their setup and store design costs, but we can’t accurately quantify these prices yet. However, the calculator is flexible to allow this in future. It also supports multiple currencies and tax rates, for New Zealand users.</p>
+          <p>
+            I planned to take this further so users could estimate their setup and store design costs, but we can’t
+            accurately quantify these prices yet. However, the calculator is flexible to allow this in future. It also
+            supports multiple currencies and tax rates, for New Zealand users.
+          </p>
 
-            <p>This has been helpful for Neto's design partners as well, as they're able to better quote their own clients.</p>
+          <p>
+            This has been helpful for Neto's design partners as well, as they're able to better quote their own clients.
+          </p>
 
-            <figure>
-              <img src="../images/page/screen-neto-case-study-listing.jpg" alt="Case studies" height="467" width="803">
-              <figcaption>Case studies</figcaption>
-            </figure>
+          <figure>
+            <img src="/images/page/screen-neto-case-study-listing.jpg" alt="Case studies" height="467" width="803" />
+            <figcaption>Case studies</figcaption>
+          </figure>
 
-            <figure class="img-two">
-              <img src="../images/page/screen-neto-xl.jpg" alt="XL plan microsite on mobile" height="668" width="377">
-              <img src="../images/page/screen-neto-manage.jpg" alt="XL plan microsite on mobile" height="668" width="377">
-              <figcaption>XL page and Manage overview on mobile</figcaption>
-            </figure>
-
-          </div>
+          <figure class="img-two">
+            <img src="/images/page/screen-neto-xl.jpg" alt="XL plan microsite on mobile" height="668" width="377" />
+            <img src="/images/page/screen-neto-manage.jpg" alt="XL plan microsite on mobile" height="668" width="377" />
+            <figcaption>XL page and Manage overview on mobile</figcaption>
+          </figure>
         </article>
-
-        <footer class="page-cta">
-          <h4><a href="mailto:hello@seanockert.com" title="Send me an email">
-            <img src="../images/face.png" alt="Sean's face" height="70" width="60">
-            Like what you see? Let's work together<span>.</span></a>
-          </h4>
-          <ul class="nolist">
-            <li><a href="https://www.linkedin.com/in/sean-ockert-b2294230" title="Connect with me on LinkedIn">LinkedIn</a></li>
-            <li><a href="https://github.com/seanockert" title="View my GitHub profile">GitHub</a></li>
-            <li><a href="../sean-ockert-resume-2022.pdf" title="Download my resume" class="no-barba">Resume</a></li>
-          </ul>
-        </footer>
-
-      </div>
-    </div></div> <!-- End barba -->
-    <script src="../dist/js/scripts.min.js" defer></script>
-
+      </section>
+      <section>
+        <h2>Need a web professional?<br /><a href="mailto:hello@seanockert.com" title="Email me">Get in touch!</a></h2>
+      </section>
+      <section class="section contact">
+        <ul class="grid-third">
+          <li>
+            <a href="https://github.com/seanockert" title="View Github projects">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 97 93">
+                <path
+                  fill="currentColor"
+                  fill-rule="evenodd"
+                  d="M57.8 0C31.3 0-1 7.5 1 46.4A48 48 0 0 0 33.8 92c2.4.4 3.3-1 3.3-2.3v-9c-12.1 2.3-15.2-3-16.2-5.6-.5-1.4-2.9-5.6-4.9-6.8-1.7-.9-4-3.1 0-3.2 3.7 0 6.4 3.5 7.3 5 4.3 7.2 11.2 5.2 14 4 .4-3.2 1.7-5.3 3-6.5-10.6-1.2-21.8-5.3-21.8-23.7 0-5.2 1.9-9.5 5-13-.5-1.1-2.2-6 .4-12.6 0 0 4-1.3 13.2 4.9a44.5 44.5 0 0 1 24 0c9.2-6.2 13.2-5 13.2-5 2.7 6.7 1 11.6.5 12.8 3 3.4 3.4 8.9 3.4 14.1 0 18.5-11.8 21.3-22.5 22.5C57.4 69 61 72 61 76.5L61 89.7c0 1.2.9 2.7 3.3 2.3A48 48 0 0 0 97 46.4C97 20 84.3 0 57.8 0Z"
+                  clip-rule="evenodd"
+                />
+              </svg>
+              <div>Github</div>
+            </a>
+          </li>
+          <li>
+            <a href="https://www.linkedin.com/in/sean-ockert-b2294230" title="View LinkedIn profile">
+              <svg fill="none" viewBox="0 0 96 96">
+                <path
+                  fill="currentColor"
+                  fill-rule="evenodd"
+                  d="m85.3 96-71.6-2C7.7 94 3 89.2 3 83.3L0 10.7C0 4.7 4.8 0 10.7 0h70.8C87.4 0 96 9.1 96 15v70.3c0 6-4.8 10.7-10.7 10.7ZM68.4 82.7h14.3V53.4c0-12.4-7-18.4-16.9-18.4C56 35 52 42.7 52 42.7v-6.3H38.2l1.3 45.1 12.4 1.2V58.4c0-6.5 3-10.4 8.7-10.4 5.3 0 7.8 3.8 7.8 10.4v24.3Zm-55-60.8c0 4.7 3.7 8.5 8.4 8.5s8.5-3.8 8.5-8.5-3.8-8.6-8.5-8.6a8.5 8.5 0 0 0-8.5 8.6Zm14.1 59.6-12.8 1.2V36.4H29l-1.5 45.1Z"
+                  clip-rule="evenodd"
+                />
+              </svg>
+              <div>LinkedIn</div>
+            </a>
+          </li>
+          <li>
+            <a href="/sean-ockert-resume-2023.pdf" title="Download Resume">
+              <svg fill="none" viewBox="0 0 96 96">
+                <path
+                  fill="currentColor"
+                  d="M24 0c-6.6 0-12 2.4-12 9v75c0 6.6 8.4 10.5 15 10.5L72 96a12 12 0 0 0 12-12V31.5L60 30c-3.3 0-6-1.2-6-4.5V0H24Zm36 0v24h24L60 0ZM36 48a12 12 0 1 1 24 0 12 12 0 0 1-24 0Zm-9 33c0-8.3 5.7-14 14-14l13-1a15 15 0 0 1 15 15c0 1.7-3.3 3-5 3H30a3 3 0 0 1-3-3Z"
+                />
+              </svg>
+              <div>Download Resume</div>
+            </a>
+          </li>
+        </ul>
+      </section>
+    </main>
+    <footer class="flex">
+      <div>Building cool web things since 2009.&nbsp; <span>&copy; Sean Ockert</span></div>
+    </footer>
+    <script src="/assets/scripts.js" defer></script>
+    <script>
+      ;(function () {
+        document.documentElement.classList.remove('no-script')
+        document.documentElement.classList.add('anim')
+      })()
+    </script>
   </body>
 </html>
-
