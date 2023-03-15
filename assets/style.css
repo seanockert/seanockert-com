@@ -177,7 +177,9 @@ hr {
 /* Styles */
 
 body {
-  background: var(--color-background) url('../images/bg.svg');
+  background: var(--color-background) url('../images/bg-dots.svg');
+  background-size: 800px 800px;
+  background-position: center center;
   color: var(--color-base);
   font-family: 'Montserrat', sans-serif;
   line-height: 1.5;
@@ -428,6 +430,7 @@ section h2 {
 .project:hover img,
 .project:focus img {
   box-shadow: 0 0 30px var(--color-background-contrast);
+  transform: scale(1.05);
 }
 
 .project:active img {
@@ -653,6 +656,10 @@ figcaption {
   --color-base: #eee;
   --color-switch: #635f9b;
   --color-brand-dark: #18c07f;
+}
+
+[data-theme='dark'] body {
+  background-image: url('../images/bg-dots-dark.svg');
 }
 
 [data-theme='dark'] [class^='sun'] {
