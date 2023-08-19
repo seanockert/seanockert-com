@@ -416,11 +416,11 @@ section h2 {
 }
 
 .contact a {
-  justify-content: center;
+  color: var(--color-base);
   display: flex;
   flex-direction: column;
   gap: var(--padding-base);
-  color: var(--color-base);
+  justify-content: center;
 }
 
 .contact li a:hover,
@@ -430,8 +430,9 @@ section h2 {
 }
 
 .portfolio ul {
-  row-gap: var(--padding-4x);
   column-gap: var(--padding-2x);
+  justify-content: center;
+  row-gap: var(--padding-4x);
 }
 
 .portfolio img {
@@ -458,8 +459,8 @@ section h2 {
   content: '';
   height: 100%;
   opacity: 0;
-  position: absolute;
   pointer-events: none;
+  position: absolute;
   transition: opacity 0.2s ease-out;
   width: 100%;
 }
@@ -501,9 +502,9 @@ section h2 {
 }
 
 .anim .face {
-  transform: scale(1, 0);
-  transform-origin: center center;
   animation: scaleIn 0.3s forwards var(--easing-base);
+  transform-origin: center center;
+  transform: scale(1, 0);
 }
 
 .face-wrapper {
@@ -513,17 +514,17 @@ section h2 {
 
 .face-wrapper:after {
   --size: 14rem;
-  content: '';
-  display: block;
-  position: absolute;
-  transform: translate3d(-50%, -50%, 0);
-  width: var(--size);
-  height: var(--size);
-  left: 50%;
-  top: 50%;
-  filter: blur(calc(var(--size) / 5));
   background-image: linear-gradient(var(--color-switch), var(--color-background-contrast-lighter));
   border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+  content: '';
+  display: block;
+  filter: blur(calc(var(--size) / 5));
+  height: var(--size);
+  left: 50%;
+  position: absolute;
+  top: 50%;
+  transform: translate3d(-50%, -50%, 0);
+  width: var(--size);
   z-index: -1;
 }
 
