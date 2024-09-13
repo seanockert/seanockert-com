@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width; initial-scale=1; viewport-fit=cover" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <title>Parroty Phrasebook</title>
+    <link rel="apple-touch-icon" href="icon.png" />
+    <link rel="shortcut icon" href="icon.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Asap:wght@100..900&display=swap" rel="stylesheet" />
+    <link rel="manifest" href="/manifest.json" />
+    <link rel="stylesheet" href="assets/style.css" type="text/css" />
+    <script src="assets/localforage.min.js" type="module"></script>
+    <script src="assets/script.js" type="module"></script>
+  </head>
+  <body>
+    <div class="gradient"></div>
+
+    <svg id="parrot" class="parrot" viewBox="0 0 128 128">
+      <path
+        class="beak-bottom"
+        fill="#D23B1A"
+        d="M115 51.5C110.4 67.9 79.8 76.9 74.5 74c-1-2.5-5.5-11 6.5-30 8-5.5 14 12.5 34 7.5Z"
+      />
+      <g class="beak-top">
+        <path fill="#F56A4C" d="M119 65.5C127 33.8 96.7 16 88 16c3.5 15.6-1.1 28-11 37 25.9-7.2 32.5 2 42 12.5Z" />
+
+        <path stroke="#fff" stroke-linecap="round" stroke-width="3" d="M94 22.6c5.6 2 9.6 5 13 9.4m3.3 4 1 1.2" />
+      </g>
+      <path
+        fill="#AEC65E"
+        d="M42.1 84.6C25.3 79.4 11.4 60.6 6 52c1 19 16.5 32.5 26.5 47 6 8.7 4 24.6 12 28 8 3.4 25.5-6.5 27.5-16s-3.5-20-5.5-21.5c.2 0-7.6.3-24.4-4.9Z"
+      />
+      <path
+        fill="#5E6DBE"
+        d="M45 .5C5 2.1 3.5 34 6 52c17.5 36.5 59 40.2 60.5 37.5 2-3.5 6-13 8-15.5-2.5-11-2-16 7-25.5C94 35.3 89 20 88 16S85-1.1 45 .5Z"
+      />
+      <path fill="#FEE14E" d="M40 123a56 56 0 0 1-5-19c13.9-9 33.4-16.1 31 7.5-1.8 17.8-22 20-26 11.5Z" />
+      <path
+        class="eye-closed"
+        stroke="#2C3772"
+        stroke-linecap="round"
+        stroke-width="6"
+        d="M48.3 47c3-8.4 8.8-13.2 18.1-15.2M46.2 28c5.4 4.5 11.8 5.6 20.2 3.8"
+      />
+      <g class="eye-open">
+        <path
+          fill="#fff"
+          d="M68 26.5c2.6 6.9 2.9 12.9 1 17-5.8 0-15.4 5.4-18.6 9.3-5-3.4-9.4-9.7-11.4-16.4-1.9-6.7-2.4-17.9 9.2-21.3 11.6-3.3 17.2 4.5 19.8 11.4Z"
+        />
+        <path
+          class="eyeball"
+          fill="#333"
+          d="m61.8 31-.1-.1c-1.5-4.1-4.2-8.7-10-7-1 .3-1.8.7-2.5 1.3l.2.2 3.5 3.3a3 3 0 1 1-4.1 4.4l-1.9-1.8a20.2 20.2 0 0 0 6.9 14.6c2-2.2 7.6-4.7 10.7-4.9 0-2.5-1.3-6-2.7-10Z"
+        />
+      </g>
+    </svg>
+
+    <div v-scope="Parroty()" @vue:mounted="mounted" v-cloak class="stack-2x">
+      <header v-if="user && !user.isNew" class="header inline-between">
+        <h1 class="inline-half">
+          <div :class="{ 'parrot-container' : true, 'leave': isTranslating, 'enter': !isTranslating }">
+            <svg height="56" width="56">
+              <use xlink:href="#parrot"></use>
+            </svg>
+          </div>
+          <div v-if="user?.name">{{user?.name}}'s Phrasebook</div>
+          <div v-else>Parroty</div>
+        </h1>
+
+        <div v-if="user?.name" class="inline">
+          <button @click="logout" class="button-ghost">
+            <svg fill="none" stroke="currentColor" stroke-width="2" class="icon" viewBox="0 0 24 24">
+              <title>Logout</title>
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M8.3 9V5.2A2.3 2.3 0 0 1 10.4 3h6a2.3 2.3 0 0 1 2.3 2.3v13.4a2.3 2.3 0 0 1-2.3 2.3h-6a2.3 2.3 0 0 1-2.3-2.3V15M12 9l3 3m0 0-3 3m3-3H2.2"
+              />
+            </svg>
+          </button>
+        </div>
+      </header>
+
+      <div v-else class="container onboard stack">
+        <h1 :class="{ 'parrot-container' : true, 'leave': isLoading, 'enter': !isLoading }">
+          <svg height="100" width="100">
+            <title>Parroty</title>
+            <use xlink:href="#parrot"></use>
+          </svg>
+        </h1>
+
+        <div v-if="isLoading" class="inline"><div>Loading...</div></div>
+
+        <form v-if="!user" @submit.prevent="login" class="container login stack">
+          <div class="stack-half">
+            <label for="email">What's your email?</label>
+            <input autofocus id="email" type="email" required v-model="onboarding.email" />
+          </div>
+          <button>Log in or Sign up</button>
+        </form>
+
+        <form v-if="user && user.isNew" @submit.prevent="signup" class="container login stack-2x">
+          <h2>Welcome!</h2>
+          <div class="stack-half">
+            <label for="name">What's your name?</label>
+            <input autofocus id="name" required v-model="onboarding.name" />
+          </div>
+
+          <label for="es">Choose your first language</label>
+          <div class="stack radiogroup">
+            <div v-for="language in languages.filter(l => onboardingLanguages.includes(l.code))" :key="language.code">
+              <input
+                type="radio"
+                :id="language.code"
+                name="language"
+                :value="language.code"
+                v-model="onboarding.language"
+                hidden
+              />
+              <label :for="language.code" class="inline">
+                <svg class="icon" role="img" aria-hidden="true">
+                  <use :href="`assets/flag.svg?#${language.code}`"></use>
+                </svg>
+                {{language.name}}
+              </label>
+            </div>
+          </div>
+
+          <button>Sign up!</button>
+        </form>
+      </div>
+
+      <nav v-if="user?.id" class="categories inline">
+        <button
+          v-for="category in categories"
+          :class="{ 'category': true, 'inline' : true, 'active': activeCategory && category.id === activeCategory.id }"
+          :key="category.id"
+          @click="loadPhrases(category.id)"
+        >
+          <svg class="icon" role="img" aria-hidden="true">
+            <use :href="`assets/flag.svg#${category.language_to}`"></use>
+          </svg>
+
+          {{languages.find(l => l.code === category.language_to)?.name}}
+        </button>
+
+        <button class="add-category" popovertarget="add-category-popover" popovertargetaction="show">
+          <svg height="24" width="24" viewBox="0 0 24 24" fill="currentColor">
+            <title>Add category</title>
+            <path
+              fill-rule="evenodd"
+              d="M12 3.75a.75.75 0 0 1 .75.75v6.75h6.75a.75.75 0 0 1 0 1.5h-6.75v6.75a.75.75 0 0 1-1.5 0v-6.75H4.5a.75.75 0 0 1 0-1.5h6.75V4.5a.75.75 0 0 1 .75-.75Z"
+              clip-rule="evenodd"
+            />
+          </svg>
+        </button>
+      </nav>
+
+      <dialog id="add-category-popover" popover>
+        <header class="inline-between">
+          <h3>Add a language</h3>
+
+          <button popovertarget="add-category-popover" popovertargetaction="hide" class="button-ghost">
+            <svg stroke-width="3.5" stroke="currentColor" class="icon" height="20" width="20" viewBox="0 0 24 24">
+              <title>Delete</title>
+              <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
+            </svg>
+          </button>
+        </header>
+
+        <div class="stack radiogroup">
+          <div v-for="language in languages" :key="language.code">
+            <input
+              :class="{active: categories.some(c => c.language_to === language.code)}"
+              :id="language.code"
+              :value="language.code"
+              @click="categories.some(c => c.language_to === language.code) ? deleteByCategory(categories.find(c => c.language_to === language.code)?.id) : addCategory(defaultLanguage, language.code)"
+              hidden
+              name="language"
+              popovertarget="add-category-popover"
+              popovertargetaction="hide"
+              type="radio"
+            />
+            <label :for="language.code" class="inline">
+              <svg class="icon" role="img" aria-hidden="true">
+                <use :href="`assets/flag.svg?#${language.code}`"></use>
+              </svg>
+              {{language.name}}
+            </label>
+          </div>
+        </div>
+      </dialog>
+
+      <main v-if="user?.id" class="container stack">
+        <form @submit.prevent="addPhrase()" class="stack-zero">
+          <label for="add-phrase" hidden>Add a phrase</label>
+          <input
+            :disabled="isTranslating"
+            autofocus
+            enterkeyhint="go"
+            id="add-phrase"
+            placeholder="Add a phrase..."
+            v-model="phrase"
+          />
+
+          <button hidden>Add</button>
+
+          <div v-if="isTranslating === 1" class="inline-half">
+            <div class="parrot-container enter">
+              <svg height="44" width="44">
+                <use xlink:href="#parrot"></use>
+              </svg>
+            </div>
+            <svg height="24" width="24" viewBox="0 0 24 24" fill="currentColor" class="icon">
+              <circle cx="6" cy="11" r="2" />
+              <circle cx="12" cy="11" r="2" />
+              <circle cx="18" cy="11" r="2" />
+            </svg>
+          </div>
+        </form>
+
+        <ul v-if="phrases && phrases.length > 0" class="phrases stack-2x drag-list">
+          <li
+            v-for="phrase in phrases"
+            :data-sort="phrase.sort"
+            :key="phrase.id"
+            class="stack-zero drag-item"
+            draggable="true"
+          >
+            <div class="inline-between">
+              <label :for="`phrase_${phrase.id}`" hidden>Update phrase {{phrase.id}}</label>
+              <input
+                :disabled="isTranslating === phrase.id"
+                :id="`phrase_${phrase.id}`"
+                :value="phrase.phrase"
+                @keyup.enter="updatePhrase(phrase.id, $event.target.value)"
+                enterkeyhint="go"
+              />
+
+              <button @click="deletePhrase(phrase.id)" class="button-delete button-ghost">
+                <svg stroke-width="3.5" stroke="currentColor" class="icon" height="20" width="20" viewBox="0 0 24 24">
+                  <title>Delete</title>
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
+                </svg>
+              </button>
+            </div>
+
+            <div v-if="isTranslating === phrase.id" class="inline-half">
+              <div class="parrot-container enter">
+                <svg height="44" width="44">
+                  <use xlink:href="#parrot"></use>
+                </svg>
+              </div>
+              <svg height="24" width="24" viewBox="0 0 24 24" fill="currentColor" class="icon">
+                <circle cx="6" cy="11" r="2" />
+                <circle cx="12" cy="11" r="2" />
+                <circle cx="18" cy="11" r="2" />
+              </svg>
+            </div>
+
+            <div v-else-if="phrase.audio_url" class="translation inline-half">
+              <button
+                @click="playAudio(phrase.id)"
+                :class="{ 'active': audioActiveId === phrase.id && audioStatus === 'play'}"
+              >
+                <svg fill="currentColor" class="icon" height="20" width="20" viewBox="0 0 24 24">
+                  <title>Play</title>
+                  <path
+                    d="M13.5 4.06c0-1.336-1.616-2.005-2.56-1.06l-4.5 4.5H4.508c-1.141 0-2.318.664-2.66 1.905A9.76 9.76 0 0 0 1.5 12c0 .898.121 1.768.35 2.595.341 1.24 1.518 1.905 2.659 1.905h1.93l4.5 4.5c.945.945 2.561.276 2.561-1.06V4.06ZM18.584 5.106a.75.75 0 0 1 1.06 0c3.808 3.807 3.808 9.98 0 13.788a.75.75 0 0 1-1.06-1.06 8.25 8.25 0 0 0 0-11.668.75.75 0 0 1 0-1.06Z"
+                  />
+                  <path
+                    d="M15.932 7.757a.75.75 0 0 1 1.061 0 6 6 0 0 1 0 8.486.75.75 0 0 1-1.06-1.061 4.5 4.5 0 0 0 0-6.364.75.75 0 0 1 0-1.06Z"
+                  />
+                </svg>
+              </button>
+
+              <strong
+                :style="{ '--progress': `${audioActiveId === phrase.id && audioProgress ? 100 - audioProgress * 100 : 100}%` }"
+              >
+                {{phrase.translation}}
+              </strong>
+            </div>
+          </li>
+        </ul>
+        <div v-else-if="!isLoading && !isTranslating" class="inline">No phrases yet. Add one</div>
+      </main>
+    </div>
+  </body>
+</html>
