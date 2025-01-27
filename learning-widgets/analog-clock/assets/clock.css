@@ -1,0 +1,247 @@
+*,
+*::after,
+*::before {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+html {
+  font-family: sans-serif;
+  font-size: 1em;
+  line-height: 1.5;
+}
+
+body {
+  align-items: center;
+  background: #f7f7f7;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+[hidden] {
+  display: none;
+}
+
+ul[class],
+ol[class] {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+li {
+  padding: 0;
+}
+
+button {
+  background: transparent;
+  border: none;
+  border-radius: 4px;
+  font: inherit;
+  font-weight: bold;
+  line-height: 1;
+  margin: 0;
+  -webkit-appearance: none;
+}
+
+a,
+button {
+  transition: all 0.2s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+button.button {
+  background-color: #f0f0f0;
+  color: #444;
+  padding: 0.75rem;
+  width: auto;
+}
+
+button.button-primary {
+  background-color: #78bc3a;
+  color: #fff;
+}
+
+button.button:hover {
+  background-color: #aaa;
+}
+
+button.button-primary:hover {
+  background-color: #5f9a2d;
+}
+
+.clock-container {
+  background: #fff;
+  border-radius: 8px;
+  margin: 0.375rem;
+  padding: 0.75rem;
+  line-height: 1;
+  width: 40vw;
+  min-width: 320px;
+  -webkit-user-select: none;
+}
+
+.clock {
+  margin-bottom: 0.75rem;
+  height: auto;
+  width: 100%;
+  -webkit-user-select: none;
+}
+
+.clock text {
+  fill: currentColor;
+  pointer-events: none;
+}
+
+.circle {
+  fill: #fff;
+  stroke-width: 10;
+}
+
+.clock-marker {
+  fill: currentColor;
+  opacity: 0.8;
+}
+
+.clock-number {
+  font-size: 3rem;
+  font-weight: bold;
+  opacity: 0.9;
+}
+
+.clock-number-large {
+  font-size: 4.5rem;
+}
+
+.hand {
+  cursor: grab;
+  cursor: url(hand-open.svg) 20 20, grab;
+  transform-origin: 50% 50%;
+  fill: none;
+  stroke-linecap: "round";
+  touch-action: none;
+}
+
+.randomising .hand {
+  transition: transform 0.9s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.hand.active {
+  cursor: grabbing;
+  cursor: url(hand-closed.svg) 20 20, grabbing;
+  color: #78bc3a;
+}
+
+.hour-hand {
+  stroke-width: 20;
+}
+
+.minute-hand {
+  stroke-width: 11;
+}
+
+.second-hand {
+  color: red;
+  stroke-width: 4;
+}
+
+.list-timer {
+  font-size: 4rem;
+  font-variant-numeric: tabular-nums;
+  line-height: 1;
+  justify-content: center;
+}
+
+.flex,
+.list-timer > * {
+  align-items: center;
+  display: flex;
+}
+
+.list-timer li {
+  position: relative;
+}
+
+.list-timer li:after {
+  content: ":";
+  font-size: 0.6em;
+  opacity: 0.6;
+  padding: 0 0.375rem;
+  position: relative;
+  top: -0.1em;
+}
+
+.list-timer li:last-child:after {
+  content: "";
+}
+
+.controls {
+  margin-top: 0.75rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.25rem;
+}
+
+.theme-mouse {
+  background: #fff;
+  color: #272343;
+}
+
+.theme-mouse .clock {
+  background: #ffebec url("mouse-face.png") no-repeat center center;
+  background-size: 70% 70%;
+
+  border-radius: 50%;
+}
+
+.theme-mouse .hand,
+.theme-mouse .mid-circle,
+.theme-mouse .clock-number {
+  color: #272343;
+}
+
+.theme-mouse .circle {
+  stroke: #ed1c24;
+  fill: none;
+}
+
+.theme-mouse .clock-marker {
+  color: #ed1c24;
+}
+
+.theme-mouse .second-hand {
+  color: #272343;
+}
+
+.theme-mouse .hand.active {
+  color: #ed1c24;
+}
+
+.theme-mouse .mid-circle {
+  fill: #f8e625;
+}
+
+.theme-mouse button.button {
+  background-color: #f8e625;
+}
+
+.theme-mouse button.button-primary {
+  background-color: #ed1c24;
+}
+
+.theme-mouse .default-hand,
+.glove-hand {
+  display: none;
+}
+
+.theme-mouse .glove-hand {
+  display: block;
+}

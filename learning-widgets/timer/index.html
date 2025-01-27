@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html class="" lang="en">
+  <head>
+    <title>Countdown Timer | Learning Widget</title>
+    <meta charset="utf-8" />
+    <meta name="description" content="A little timer widget" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" type="image/png" href="assets/favicon.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="assets/timer.css" />
+    <script type="module">
+      import { createApp } from 'https://unpkg.com/petite-vue?module';
+
+      const chime = new Audio('assets/chime.mp3');
+      const click = new Audio('assets/click.mp3');
+      const musicChill = new Audio('assets/music-chill.mp3');
+      musicChill.loop = true;
+      musicChill.volume = 0.1;
+      click.volume = 0.5;
+
+      function Timer(props) {
+        return {
+          $template: '#timer-template',
+          activeDuration: 0,
+          colors: ['#f9b2b7', '#e4f2d8'],
+          currentTime: 0,
+          duration: props.duration,
+          hours: 0,
+          minutes: 0,
+          seconds: 0,
+          increment: 30,
+          interval: null,
+          progress: 0,
+          savedKey: 'so_timer',
+          status: 'editing',
+          mounted() {
+            // Load duration from local storage
+            const savedDuration = localStorage.getItem(this.savedKey);
+            if (savedDuration) {
+              this.duration = parseInt(savedDuration);
+            }
+
+            this.initTimer();
+
+            window.addEventListener('keydown', (e) => {
+              // Spacebar toggle pause
+              if (e.keyCode == 32) {
+                if (this.status === 'editing' && this.duration > 0) {
+                  this.startTimer();
+                } else if (this.status === 'ended') {
+                  this.initTimer();
+                  this.updateProgressBar();
+                  this.startTimer();
+                } else {
+                  this.pauseTimer();
+                }
+              }
+
+              // Esc
+              if (e.keyCode == 27) {
+                this.stopTimer();
+              }
+
+              // Left arrow
+              if (e.keyCode == 37) {
+                this.decreaseDuration();
+              }
+
+              // Right arrow
+              if (e.keyCode == 39) {
+                this.increaseDuration();
+              }
+            });
+          },
+          initTimer() {
+            this.secondsToHMS(this.duration);
+            this.activeDuration = this.duration;
+            this.currentTime = this.duration;
+          },
+          startTimer() {
+            clearInterval(this.interval);
+
+            this.status = 'playing';
+            musicChill.play();
+            this.playClick();
+
+            this.interval = setInterval(() => {
+              if (this.status === 'playing') {
+                this.playTimer();
+              }
+            }, 1000);
+          },
+          playTimer() {
+            this.currentTime--;
+            this.updateProgressBar();
+
+            if (this.currentTime === 0) {
+              this.endTimer();
+            } else {
+              this.secondsToHMS(this.currentTime);
+            }
+          },
+          pauseTimer() {
+            if (this.status === 'playing') {
+              this.status = 'paused';
+              musicChill.pause();
+            } else {
+              this.status = 'playing';
+              musicChill.play();
+            }
+            this.playClick();
+          },
+          stopTimer() {
+            this.status = 'editing';
+            clearInterval(this.interval);
+            this.initTimer();
+            musicChill.pause();
+            musicChill.currentTime = 0;
+            this.playClick();
+          },
+          endTimer() {
+            this.status = 'ended';
+            clearInterval(this.interval);
+            musicChill.pause();
+            musicChill.currentTime = 0;
+            chime.play();
+          },
+          updateProgressBar() {
+            this.progress = Math.floor(
+              ((this.activeDuration - this.currentTime) / this.activeDuration) *
+                100
+            );
+          },
+          addTime(addedTime) {
+            this.currentTime = this.currentTime + addedTime;
+            this.activeDuration = this.activeDuration + addedTime;
+            this.secondsToHMS(this.currentTime);
+            this.updateProgressBar();
+          },
+          secondsToHMS(seconds) {
+            // Convert duration in seconds to hours:minutes:seconds
+            this.hours = Math.floor(seconds / 3600);
+            this.minutes = Math.floor((seconds - this.hours * 3600) / 60);
+            this.seconds = seconds - this.hours * 3600 - this.minutes * 60;
+          },
+          HMStoSeconds() {
+            // Convert the hours:minutes:seconds to seconds
+            this.duration =
+              this.seconds + this.minutes * 60 + this.hours * 3600;
+            this.activeDuration = this.duration;
+            this.currentTime = this.duration;
+          },
+          decreaseDuration() {
+            this.updateDuration(this.duration - this.increment);
+          },
+          increaseDuration() {
+            this.updateDuration(this.duration + this.increment);
+          },
+          updateDuration(duration) {
+            if (duration > 0) {
+              this.duration = duration;
+              this.initTimer();
+              this.saveSettings();
+              this.playClick();
+            }
+          },
+          inputHMS(e) {
+            // Restrict max value for H:M:S to 59:59:59
+            if (e.target.value > 59) {
+              e.target.value = 59;
+            }
+
+            this.HMStoSeconds();
+            this.saveSettings();
+          },
+          playClick() {
+            click.pause();
+            click.currentTime = 0;
+            click.play();
+          },
+          getBackgroundProgress() {
+            const progressBarColour =
+              this.currentTime < 3 ? this.colors[0] : this.colors[1];
+
+            return (
+              'linear-gradient(to right, ' +
+              progressBarColour +
+              ' 0%, ' +
+              progressBarColour +
+              ' ' +
+              this.progress +
+              '%, transparent ' +
+              this.progress +
+              '%)'
+            );
+          },
+          saveSettings() {
+            // Save duration to localstorage
+            localStorage.setItem(this.savedKey, this.duration);
+          },
+        };
+      }
+
+      createApp({
+        Timer,
+      }).mount();
+
+      // Add a new timer
+      document.getElementById('add-timer').addEventListener('click', () => {
+        document
+          .getElementById('container')
+          .insertAdjacentHTML(
+            'afterbegin',
+            '<div v-scope="Timer({duration: 15})" @vue:mounted="mounted"></div>'
+          );
+
+        createApp({
+          Timer,
+        }).mount();
+      });
+    </script>
+  </head>
+  <body>
+    <template id="timer-template">
+      <div class="timer-container">
+        <div v-if="status === 'editing'" class="timer-container-inner flex">
+          <div class="flex">
+            <button
+              class="button button-round"
+              @click="decreaseDuration"
+              :title="'Decrease time by ' + increment + ' seconds'"
+              :disabled="duration < increment"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="12"
+                height="12"
+                viewBox="0 0 24 24"
+              >
+                <title>Decrease time</title>
+                <path fill="currentColor" d="M0 9h24v6h-24z" />
+              </svg>
+            </button>
+            <ol class="list-timer flex">
+              <li>
+                <label for="hours" hidden>Hours</label>
+                <input
+                  id="hours"
+                  type="number"
+                  min="0"
+                  max="59"
+                  maxlength="2"
+                  @keyup="inputHMS"
+                  v-model="hours"
+                  placeholder="00"
+                  onfocus="this.select()"
+                />
+              </li>
+              <li>
+                <label for="minutes" hidden>Hours</label>
+                <input
+                  id="minutes"
+                  type="number"
+                  min="0"
+                  max="59"
+                  maxlength="2"
+                  @keyup="inputHMS"
+                  v-model="minutes"
+                  placeholder="00"
+                  autofocus
+                  onfocus="this.select()"
+                />
+              </li>
+              <li>
+                <label for="seconds" hidden>Hours</label>
+                <input
+                  id="seconds"
+                  type="number"
+                  min="0"
+                  max="59"
+                  maxlength="2"
+                  @keyup="inputHMS"
+                  v-model="seconds"
+                  placeholder="00"
+                  onfocus="this.select()"
+                />
+              </li>
+            </ol>
+            <button
+              class="button button-round"
+              @click="increaseDuration"
+              :title="'Increase time by ' + increment + ' seconds'"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="12"
+                height="12"
+                viewBox="0 0 24 24"
+              >
+                <title>Increase time</title>
+                <path
+                  fill="currentColor"
+                  d="M24 9h-9v-9h-6v9h-9v6h9v9h6v-9h9z"
+                />
+              </svg>
+            </button>
+          </div>
+
+          <div class="timer-controls">
+            <button
+              class="button"
+              @click="startTimer"
+              title="Start timer"
+              :disabled="duration === 0"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+              >
+                <title>Start</title>
+                <path fill="currentColor" d="M3 22v-20l18 10-18 10z" />
+              </svg>
+            </button>
+          </div>
+        </div>
+
+        <div
+          v-else
+          class="timer-container-inner flex"
+          id="activeTimer"
+          :style="{backgroundImage: getBackgroundProgress()}"
+        >
+          <div v-show="currentTime > 0">
+            <ol class="list-timer flex">
+              <li v-if="hours > 0">
+                <template v-if="hours < 10">0</template>{{ hours }}
+              </li>
+              <li><template v-if="minutes < 10">0</template>{{ minutes }}</li>
+              <li><template v-if="seconds < 10">0</template>{{ seconds }}</li>
+            </ol>
+
+            <div class="timer-options">
+              <button class="button button-small" @click="addTime(60)">
+                +1m
+              </button>
+              <button class="button button-small" @click="addTime(300)">
+                +5m
+              </button>
+            </div>
+          </div>
+          <div v-show="currentTime === 0" class="timer-end">Time's Up!</div>
+          <div class="timer-controls">
+            <button
+              v-show="currentTime > 0"
+              :class="{ 'button': true, 'button-active': status === 'paused' }"
+              @click="pauseTimer"
+              title="Pause"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+              >
+                <title>Pause</title>
+                <path
+                  fill="currentColor"
+                  d="M10 24h-6v-24h6v24zm10-24h-6v24h6v-24z"
+                />
+              </svg>
+            </button>
+            <button
+              class="button button-negative"
+              @click="stopTimer"
+              v-show="status !== 'playing'"
+              title="Stop and Reset"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+              >
+                <title>Stop</title>
+                <path
+                  fill="currentColor"
+                  d="M24 20.188l-8.315-8.209 8.2-8.282-3.697-3.697-8.212 8.318-8.31-8.203-3.666 3.666 8.321 8.24-8.206 8.313 3.666 3.666 8.237-8.318 8.285 8.203z"
+                />
+              </svg>
+            </button>
+          </div>
+        </div>
+      </div>
+    </template>
+
+    <div id="container">
+      <div v-scope="Timer({duration: 15})" @vue:mounted="mounted"></div>
+      <button id="add-timer">+ Add timer</button>
+    </div>
+
+    <div class="callout">
+      Keyboard shortcuts:
+      <ol>
+        <li><code>Spacebar</code> play or pause timer</li>
+        <li><code>Esc</code> stop timer, back to edit</li>
+        <li><code>Right Arrow</code> adds 30 seconds</li>
+        <li><code>Left Arrow</code> subtracts 30 seconds</li>
+      </ol>
+      Timer remembers your settings.
+    </div>
+  </body>
+</html>

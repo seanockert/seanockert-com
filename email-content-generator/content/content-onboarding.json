@@ -1,0 +1,419 @@
+{
+  "updates" : [
+    {
+      "date" : "8/02/2018",
+      "items" : [
+        "Updated introduction text"
+      ]
+    },
+    {
+      "date" : "23/01/2018",
+      "items" : [
+        "Added Neto 360 plan to Plans & Pricing"
+      ]
+    },
+    {
+      "date" : "22/11/2017",
+      "items" : [
+        "Updated Small, Medium and Large content blocks with functionality and addon limitations. Also noted that prices are ex GST.",
+        "Added link to Sendle Pricing Page."
+      ]
+    }
+  ],
+  "sections" : [
+  {
+    "name" : "introductions",
+    "label" : "Introductions",
+    "type": "radio",
+    "options" : [
+      {
+        "name" : "general",
+        "label": "General Introduction",
+        "order": 0,
+        "active": true,
+        "content": "<p>Hi %customer_name%,</p><p>It’s %staff_name% here, from the Neto onboarding team.</p>" 
+      },
+      {
+        "name" : "first_time",
+        "label": "First Time Introduction",
+        "order": 0,
+        "active": false,
+        "content" : "<p>Hi %customer_name%,</p><p>My name is %staff_name%, from the onboarding team here at Neto.</p>"
+      },
+      {
+        "name" : "wrap_up",
+        "label": "Call Wrap Up",
+        "order": 0,
+        "active": false,
+        "content" : "<p>Hi %customer_name%,</p><p>Thanks so much for taking the time to chat with me earlier.</p>"
+      },
+      {
+        "name" : "missed",
+        "label": "Missed Call",
+        "order": 0,
+        "active": false,
+        "content" : "<p>Hi %customer_name%,</p><p>I tried calling earlier but it looks like I missed you. I just wanted to touch base and see how things are going and if there’s anything I can do to help.</p>"
+      },
+      {
+        "name" : "custom",
+        "label": "Custom",
+        "order": 0,
+        "active": false,
+        "type": "textarea",
+        "content" : "Write your introduction..."
+      }
+    ]
+  },  
+  {
+    "name" : "checkpoint",
+    "label" : "Checkpoint",
+    "type": "radio",
+    "options" : [
+      {
+        "name" : "go_live",
+        "label": "Go Live",
+        "order": 0,
+        "active": false,
+        "content": "<p>Congratulations on going live with %store_name%!</p>" 
+      },
+      {
+        "name" : "two_months",
+        "label": "2 Months",
+        "order": 0,
+        "active": false,
+        "content": "<p>I just wanted to congratulate you on hitting the <strong>2 month</strong> mark for your store!</p>" 
+      },
+      {
+        "name" : "three_months",
+        "label": "3 Months",
+        "order": 0,
+        "active": false,
+        "content": "<p>I just wanted to congratulate you on hitting the <strong>3 month</strong> mark for your store!</p>" 
+      }
+    ]
+  }, 
+  {
+    "name" : "additional_info",
+    "label" : "Additional Information",
+    "type": "radio",
+    "options" : [
+      {
+        "name" : "additional_general",
+        "label": "Yes - attached",
+        "order": 0,
+        "active": false,
+        "content": "<p>As discussed, I’ve attached some additional info below that I think will really benefit your business. If you have any trouble at all, please don’t hesitate to get in touch.</p>" 
+      },
+      {
+        "name" : "additional_no_contact",
+        "label": "Yes - simple",
+        "order": 0,
+        "active": false,
+        "content": "<p>I've included some further information for you that I think you may find helpful.</p>" 
+      }
+    ]
+  },
+  {
+    "name" : "plans",
+    "label" : "Plans & Pricing",
+    "type": "checkbox",
+    "options" : [
+            {
+        "name" : "small",
+        "label": "Small plan",
+        "order": 0,
+        "active": false,
+        "content": "<p><strong>Small Plan</strong></p><p>Neto's small plan is perfect for new or home-run businesses and includes the following:</p><table><thead><tr><th style='text-align:left'>Small</th><th align='right'>&nbsp;</th></tr></thead><tbody><tr><td>Monthly pricing</td><td align='right'>$79 AUD ex GST</td></tr><tr><td>Transactions fees</td><td align='right'>0%</td></tr><tr><td><strong>Plan Limits</strong></td><td align='right'>&nbsp;</td></tr><tr><td>Sales channels</td><td align='right'>1</td></tr><tr><td>Locations (outlets/warehouses)</td><td align='right'>1</td></tr><tr><td>Users</td><td align='right'>3</td></tr><tr><td>Registers</td><td align='right'>3</td></tr><tr><td>Products</td><td align='right'>1000</td></tr><tr><td>Neto Connect™</td><td align='right'>Yes</td></tr><tr><td>Neto Ship™</td><td align='right'>No</td></tr><tr><td>Pick'n Pack™</td><td align='right'>No</td></tr></tbody></table><br><p><strong>Please note</strong>, The Small plan does not include: Batch Order Processing, Click &amp; Collect, Advanced Inventory Functionality, Customer Price Groups &amp; Segmentation, Gift Vouchers &amp; Rewards Programs.</p><p><a href='https://www.neto.com.au/pricing'>More info</a></p>" 
+      },
+      {
+        "name" : "medium",
+        "label": "Medium plan",
+        "order": 0,
+        "active": false,
+        "content": "<p><strong>Medium Plan</strong></p><p>Neto’s Medium Plan is ideal for growing, mid-sized businesses and includes the following:</p><table><thead><tr><th style='text-align:left'>Medium</th><th align='right'></th></tr></thead><tbody><tr><td>Monthly pricing</td><td align='right'>$199 AUD ex GST</td></tr><tr><td>Transactions fees</td><td align='right'>0%</td></tr><tr><td><strong>Plan Limits</strong></td><td align='right'></td></tr><tr><td>Sales channels</td><td align='right'>1</td></tr><tr><td>Locations (outlets/warehouses)</td><td align='right'>3</td></tr><tr><td>Users</td><td align='right'>5</td></tr><tr><td>Registers</td><td align='right'>9</td></tr><tr><td>Products</td><td align='right'>5000</td></tr><tr><td>Neto Connect™</td><td align='right'>Yes</td></tr><tr><td>Neto Ship™</td><td align='right'>No</td></tr><tr><td>Pick'n Pack™</td><td align='right'>No</td></tr></tbody></table><br><p><strong>Please note</strong>, The Medium plan does not include: Click &amp; Collect or Advanced Inventory Functionality.</p><p><a href='https://www.neto.com.au/pricing'>More info</a></p>" 
+      },
+      {
+        "name" : "large",
+        "label": "Large plan",
+        "order": 0,
+        "active": false,
+        "content": "<p><strong>Large Plan</strong></p><p>Neto’s Large Plan is for high-volume retailers wanting to expand and includes the following:</p><table><thead><tr><th style='text-align:left'>Large</th><th align='right'></th></tr></thead><tbody><tr><td>Monthly pricing</td><td align='right'>$349 AUD ex GST</td></tr><tr><td>Transactions fees</td><td align='right'>0%</td></tr><tr><td><strong>Plan Limits</strong></td><td align='right'></td></tr><tr><td>Sales channels</td><td align='right'>2</td></tr><tr><td>Locations (outlets/warehouses)</td><td align='right'>5</td></tr><tr><td>Users</td><td align='right'>10</td></tr><tr><td>Registers</td><td align='right'>15</td></tr><tr><td>Products</td><td align='right'>Unlimited</td></tr><tr><td>Neto Connect™</td><td align='right'>Yes</td></tr><tr><td>Neto Ship™</td><td align='right'>No</td></tr><tr><td>Pick'n Pack™</td><td align='right'>No</td></tr><tr><td>Neto Inventory</td><td align='right'>Yes</td></tr></tbody></table><br><p><a href='https://www.neto.com.au/pricing'>More info</a></p>" 
+      },
+      {
+        "name" : "neto_360",
+        "label": "Neto 360 plan",
+        "order": 0,
+        "active": false,
+        "content": "<p><strong>Neto 360 Plan</strong></p><p>Neto’s 360 Plan is for large-scale retailers who need a full-featured solution and includes the following:</p><table><thead><tr><th style='text-align:left'>Neto 360</th><th align='right'></th></tr></thead><tbody><tr><td>Monthly pricing</td><td align='right'>$499 AUD ex GST</td></tr><tr><td>Transactions fees</td><td align='right'>0%</td></tr><tr><td><strong>Plan Limits</strong></td><td align='right'></td></tr><tr><td>Sales channels</td><td align='right'>3</td></tr><tr><td>Locations (outlets/warehouses)</td><td align='right'>10</td></tr><tr><td>Users</td><td align='right'>15</td></tr><tr><td>Registers</td><td align='right'>Unlimited</td></tr><tr><td>Products</td><td align='right'>Unlimited</td></tr><tr><td>Neto Analytics Studio</td><td align='right'>Yes</td></tr><tr><td>Neto Connect™</td><td align='right'>Yes</td></tr><tr><td>Neto Ship™</td><td align='right'>Yes</td></tr><tr><td>Pick'n Pack™</td><td align='right'>Yes</td></tr><tr><td>Neto Inventory</td><td align='right'>Yes</td></tr></tbody></table><br><p><a href='https://www.neto.com.au/pricing'>More info</a></p>" 
+      },
+      {
+        "name" : "xl",
+        "label": "XL plan",
+        "order": 0,
+        "active": false,
+        "content": "<p><strong>Neto XL</strong></p><p>Neto XL caters exclusively to high-volume retailers. In addition to our feature-rich platform, Neto XL customers receive personalised solutions tailored to their individual business needs.</p><ul><li><strong>Dedicated account management</strong> - Always know who to call with your own digital commerce expert, dedicated to making your Neto-powered store a success.</li><li><strong>Adaptable design</strong> - Bring your existing website over to Neto and have your designers easily make modifications as required, thanks to our user-friendly interface.</li><li><strong>Business intelligence reporting</strong> - Increase your ROI with business intelligence reporting. We analyse the growth patterns in your monthly metrics and make recommendations for success.</li><li><strong>Early access to new features</strong> - Gain access to our new features and software versions before everyone else, so you can stay ahead of the curve.</li><li><strong>Highly secure</strong> - Ensure that every page of your website is secure with custom SSL certificates and storewide HTTPS, not just your checkout.</li><li><strong>Priority support guaranteed</strong> - We offer a priority support guarantee, which means your calls will be answered within 10 rings, and all emails responded to within 6 hours.</li><li><strong>Personalised reviews</strong> - Expand your ecommerce knowledge base and optimise the setup of your store with a personalised Neto merchant audit review that you’ll receive every month.</li><li><strong>Hourly backups</strong> - Rest assured your data is secure with consistent backups. We back up your data every hour to ensure your data is always current and readily available.</li></ul><p><a href='https://www.neto.com.au/neto-xl'>More info</a></p>" 
+      }
+    ]
+  },
+  {
+    "name" : "kickstarter",
+    "label" : "Kickstarter Plans",
+    "type": "checkbox",
+    "options" : [
+      {
+        "name" : "kickstarter_overview",
+        "label": "Kickstarter Overview",
+        "order": 0,
+        "active": false,
+        "content": "<p><strong>Neto Kickstart Packages</strong></p><p>Neto’s Kickstart Packages enables you to expedite your Neto website setup by letting us take care of all the work.</p><ul><li><strong>One-off setup fee</strong> - No hidden costs or additional monthly fees. You just provide us with the information we need and we will setup your website.</li><li><strong>System setup</strong> - We can design and build your website as well as set up the rest of your system, including your product data and shipping matrix.</li><li><strong>One-on-one training</strong> - We’ll make sure you’re ready to run your business after we’ve finished the project, with training included in our packages.</li><li><strong>Project manager</strong> - You will have a single, dedicated project manager for the duration of your project, who can help you out with all your needs.</li></ul><p>This is a great option if you are time poor or have a time sensitive launch date for your website. Some examples of sites who have opted for this package are:</p><ul><li><a href='https://www.longemity.com.au/'>Longemity</a></li><li><a href='https://www.petwave.com.au/'>Petwave</a></li><li><a href='https://www.mylunchclub.com.au/'>My Lunch Club</a></li><li><a href='https://www.cloud9babybedrooms.com.au/'>Cloud 9 Baby Bedrooms</a></li></ul><p><strong>How it works</strong></p><p><img src='https://assets.netohq.com/cms/neto_kickstarter_how_it_works.png' alt='How it works'></p><ul><li><a href='https://www.neto.com.au/kickstart-managed-services'>More info</a></li></ul>" 
+      },
+      {
+        "name" : "kickstarter_small",
+        "label": "Kickstarter Small",
+        "order": 0,
+        "active": false,
+        "content": "<p><strong>Kickstarter - Small</strong></p><p>Neto’s Small Kickstarter Plan is perfect for new or home-run businesses and includes the following:</p><table><thead><tr><th>Small</th><th align='right'></th></tr></thead><tbody><tr><td>Up-front payment</td><td align='right'>$2,999</td></tr><tr><td>Pricing billed in AUD exclusive of GST</td><td align='right'></td></tr><tr><td>Products configured</td><td align='right'>100</td></tr><tr><td>Products variations configured</td><td align='right'>1,000</td></tr><tr><td>Custom copywriting with SEO best-practice</td><td align='right'>5 pages</td></tr><tr><td>Custom design</td><td align='right'>Yes</td></tr><tr><td>Project Manager with consultation</td><td align='right'>Yes</td></tr><tr><td>Responsive design</td><td align='right'>Yes</td></tr><tr><td>Revisions during build</td><td align='right'>2</td></tr><tr><td>Shipping configuration</td><td align='right'>Yes</td></tr><tr><td>Payment gateway setup</td><td align='right'>1</td></tr><tr><td>Google Analytics configuration</td><td align='right'>Yes</td></tr><tr><td>Domain name registration</td><td align='right'>Yes</td></tr><tr><td>Setting website live on URL</td><td align='right'>Yes</td></tr><tr><td>Training</td><td align='right'>30 mins</td></tr></tbody></table><p><a href='https://www.neto.com.au/kickstart-managed-services'>More info</a></p>"
+      },
+      {
+        "name" : "kickstarter_medium",
+        "label": "Kickstarter Medium",
+        "order": 0,
+        "active": false,
+        "content": "<p><strong>Kickstarter - Medium</strong></p><p>Neto’s Medium Kickstarter Plan is ideal for growing, mid-sized businesses and includes the following:</p><table><thead><tr><th>Medium</th><th align='right'></th></tr></thead><tbody><tr><td>Up-front payment</td><td align='right'>$3,999</td></tr><tr><td>Pricing billed in AUD exclusive of GST</td><td align='right'></td></tr><tr><td>Products configured</td><td align='right'>250</td></tr><tr><td>Products variations configured</td><td align='right'>5,000</td></tr><tr><td>Custom copywriting with SEO best-practice</td><td align='right'>15 pages</td></tr><tr><td>Custom design</td><td align='right'>Yes</td></tr><tr><td>Project Manager with consultation</td><td align='right'>Yes</td></tr><tr><td>Responsive design</td><td align='right'>Yes</td></tr><tr><td>Revisions during build</td><td align='right'>2</td></tr><tr><td>Shipping configuration</td><td align='right'>Yes</td></tr><tr><td>Payment gateway setup</td><td align='right'>1</td></tr><tr><td>Google Analytics configuration</td><td align='right'>Yes</td></tr><tr><td>Domain name registration</td><td align='right'>Yes</td></tr><tr><td>Setting website live on URL</td><td align='right'>Yes</td></tr><tr><td>Training</td><td align='right'>30 mins</td></tr></tbody></table><p><a href='https://www.neto.com.au/kickstart-managed-services'>More info</a></p>"
+      },
+      {
+        "name" : "kickstarter_large",
+        "label": "Kickstarter Large",
+        "order": 0,
+        "active": false,
+        "content": "<p><strong>Large Kickstarter Plan</strong></p><p>Neto’s Large Kickstarter plan is for high-volume retailers wanting to expand and includes the following:</p><table><thead><tr><th>Large</th><th align='right'></th></tr></thead><tbody><tr><td>Up-front payment</td><td align='right'>$4,999</td></tr><tr><td>Pricing billed in AUD exclusive of GST</td><td align='right'></td></tr><tr><td>Products configured</td><td align='right'>1000</td></tr><tr><td>Products variations configured</td><td align='right'>Unlimited</td></tr><tr><td>Custom copywriting with SEO best-practice</td><td align='right'>15 pages</td></tr><tr><td>Custom design</td><td align='right'>Yes</td></tr><tr><td>Project Manager with consultation</td><td align='right'>Yes</td></tr><tr><td>Responsive design</td><td align='right'>Yes</td></tr><tr><td>Revisions during build</td><td align='right'>2</td></tr><tr><td>Shipping configuration</td><td align='right'>Yes</td></tr><tr><td>Payment gateway setup</td><td align='right'>1</td></tr><tr><td>Google Analytics configuration</td><td align='right'>Yes</td></tr><tr><td>Domain name registration</td><td align='right'>Yes</td></tr><tr><td>Setting website live on URL</td><td align='right'>Yes</td></tr><tr><td>Training</td><td align='right'>30 mins</td></tr></tbody></table><p><a href='https://www.neto.com.au/kickstart-managed-services'>More info</a></p>"
+      }
+    ]
+  },
+  {
+    "name" : "setup",
+    "label" : "Design & Setup Services",
+    "type": "checkbox",
+    "options" : [
+      {
+        "name" : "tweak",
+        "label": "Design Tweak",
+        "order": 0,
+        "active": false,
+        "content": "<p><strong>Design Tweaks</strong></p><p>If you need a quick change made to the front-end of your site, a design tweak is the best way to get this done. To carry out your design requests, we use a small network of trusted partners to provide a hands-on, cost-efficient service with quick turnaround times. Our partners still work very closely with our internal design team to ensure the work they produce is to the high standard that we deem acceptable.</p><p><a href='http://forms.neto.com.au/services/designtweak.html'>Submit a Design Tweak</a></p>" 
+      }
+    ]
+  },
+  {
+    "name" : "msr_products",
+    "label" : "MSR Products",
+    "type": "checkbox",
+    "options" : [
+      {
+        "name" : "afterpay",
+        "label": "Afterpay",
+        "order": 0,
+        "active": false,
+        "content": "<p><strong>AfterPay</strong></p><p>Afterpay lets you offer your customers the convenience of buy now, pay later for purchases up to $1000 without any of the hassle on your end. The best part, is that customers who use Afterpay will often spend more per order, and return to your site more frequently. As a merchant, Afterpay offers you:</p><ul><li>Guaranteed up-front payment</li><li>Zero credit or fraud risk</li><li>Four easy payments for your customers</li></ul><p><a href='https://www.netohq.com/l/managed-checkout/afterpay'>More info</a></p>"
+      },
+      {
+        "name" : "braintree",
+        "label": "Braintree",
+        "order": 0,
+        "active": false,
+        "content": "<p><strong>Braintree</strong></p><p>Braintree is an end-to-end payment solution for selling to customers on web, mobile, and native app experiences. Braintree allows you to accept credit cards, debit cards, PayPal, and more. In conjunction with Neto Managed Checkout, Braintree fully supports Stored Cards, allowing your customers to save their card details at the checkout to use on future transactions. Braintree can also:</p><ul><li>Offer the security and trust of their parent company, PayPal</li><li>Process over 130 currencies in over 45 countries</li><li>Show transactions, reporting, and more from within the Braintree control panel</li></ul><p><a href='https://www.netohq.com/l/managed-checkout/braintree'>More info</a></p>"
+      },
+      {
+        "name" : "eway",
+        "label": "eWay",
+        "order": 0,
+        "active": false,
+        "content": "<p><strong>eWay</strong></p><p>eWAY Rapid 3.1 is a customer-friendly payment gateway that offers merchants responsive and hosted payment pages, easy refunds, support for purchases, customer verification upon checkout, and direct connections to the eWAY payment platform. With eWay, you’ll also get:</p><ul><li>Simple pricing, no hidden fees</li><li>24/7 Support</li><li>Same day setup</li></ul><p><a href='https://www.netohq.com/l/managed-checkout/eway'>More info</a></p>"
+      },
+      {
+        "name" : "apptizer",
+        "label": "Mobile App by Apptizer",
+        "order": 0,
+        "active": false,
+        "content": "<p><strong>Neto Mobile App by Apptizer</strong></p><p>For just $49 per month, you can create a Mobile App for your store, using all your existing product information, in under 5 minutes. With 71% of customers using mobile devices to make purchases, a mobile app is a powerful sales channel. With a Neto Mobile App by Apptizer you can:</p><ul><li>Send push notifications directly to your customers devices</li><li>Create apps compatible with both iOS and Android</li><li>Offer secure, PayPal enabled checkout</li></ul><p><a href='https://www.netohq.com/l/q2-release/mobile-app'>More info</a></p>"
+      },
+      {
+        "name" : "paymark",
+        "label": "Paymark",
+        "order": 0,
+        "active": false,
+        "content": "<p><strong>Paymark</strong></p><p>As the New Zealand leader in processing secure and reliable EFTPOS transactions, Paymark process 75% of all transactions in New Zealand. With Click by Paymark, you can offer your customers Online EFTPOS, which enables them to buy online using their ASB mobile banking app. No need to enter their personal banking or card payment data into your website! Paymark also offers:</p><ul><li>A 24/7 New Zealand-based Helpdesk</li><li>Simple pricing, with no minimum contract period</li><li>Scalable to suit New Zealand businesses of any size</li></ul><p><a href='https://www.netohq.com/l/managed-checkout/paymark'>More info</a></p>"
+      },
+      {
+        "name" : "sendle",
+        "label": "Sendle",
+        "order": 0,
+        "active": false,
+        "content": "<p><strong>Sendle</strong></p><p>By shipping with Sendle, you can have your orders picked up directly from your doorstep with no minimum order quantity. There’s also no lock-in contracts so you can cancel anytime. As a Neto customer, you’ll get upgraded to a Sendle Premium account for free, saving you up to $1 on every parcel.</p><ul><li>Tracking and insurance included</li><li>Signature on delivery</li><li><p>100% Carbon Neutral</p></li></ul><ul><li><a href='https://www.netohq.com/l/neto-sendle'>More info</a></li><li><a href='https://www.sendle.com/pricing'>Sendle Pricing</a></li><li><a href='https://neto.wistia.com/medias/4fqy1ata5h'>Watch Video</a></li></ul>"
+      },
+      {
+        "name" : "smartrmail",
+        "label": "SmartrMail",
+        "order": 0,
+        "active": false,
+        "content": "<p><strong>SmartrMail</strong></p><p>SmartrMail is marketing automation that’s made specifically for online retailers, with personalised emails based on your customer’s purchase history. On average, customers are seeing a return of $45 for every 1 spent on their SmartrMail subscription! You can also create your own emails in under 5 minutes with product data pulled directly from Neto! SmartrMail also gives you access to:</p><ul><li>Simple setup with no complicated API keys or processes</li><li>Easy automated flows and smart segmentation</li><li>Advanced sales &amp; reporting data</li></ul><p><a href='https://www.netohq.com/l/smartrmail'>More info</a></p>"
+      },
+      {
+        "name" : "stripe",
+        "label": "Stripe",
+        "order": 0,
+        "active": false,
+        "content": "<p><strong>Stripe</strong></p><p>As you start accepting more payments and growing your business, Stripe is the payment gateway that can scale with you. Stripe can even help you run it better with real-time data access (on iOS too!), fraud prevention, 21st-century accounting and international support. See and manage every payment, customer, subscription, transfer, and more right from your Stripe Dashboard. Stripe also enables you to:</p><ul><li>Operate with a simple, pay-as-you-go merchant account</li><li>Have transfers arrive in your bank account on a 2-day rolling basis</li><li>Accept payments in over 135 currencies</li></ul><p><a href='https://www.netohq.com/l/managed-checkout/stripe'>More info</a></p>"
+      },
+      {
+        "name" : "zipmoney",
+        "label": "zipMoney",
+        "order": 0,
+        "active": false,
+        "content": "<p><strong>zipMoney</strong></p><p>zipMoney is a line of credit for larger amounts, generally $1,000 and above. Offer your customers at least 3 months interest free payments across all your products. You’ll only get charged one simple merchant fee per transaction starting from 3% + GST. Not a bad tradeoff when most merchants see an average increase of 80% in order value and 30% in overall sales after implementation! To make things easier, zipMoney will:</p><ul><li>Cover all credit and fraud risk</li><li>Guarantee every payment with same-day settlement to your bank account</li><li>Increase customer return rates by up to 3x on average</li></ul><p><a href='https://www.netohq.com/l/managed-checkout/zipmoney'>More info</a></p>"
+      },
+      {
+        "name" : "zippay",
+        "label": "zipPay",
+        "order": 0,
+        "active": false,
+        "content": "<p><strong>ZipPay</strong></p><p>zipPay is an online shopping wallet with an interest-free credit limit of up to $1,000. Different to zipMoney, which is typically for larger amounts, zipPay lets your customers log in with their account details on your site, and access their ‘digital wallet’ and pay back their amount in weekly, fortnightly, or monthly installments. To make things easier, zipPay will:</p><ul><li>Cover all credit and fraud risk</li><li>Guarantee every payment with same-day settlement to your bank account</li><li>Once you issue a refund, zipPay will follow through with the customer</li></ul><p><a href='https://www.netohq.com/l/managed-checkout/zipmoney'>More info</a></p>"
+      }
+    ]
+  },
+  {
+    "name" : "msr_services",
+    "label" : "MSR Services",
+    "type": "checkbox",
+    "options" : [
+      {
+        "name" : "alpha_digital",
+        "label": "Alpha Digital",
+        "order": 0,
+        "active": false,
+        "content": "<p><strong>Alpha Digital</strong></p><p>Alpha Digital provide ongoing account management to ensure your brand, products, and store are visible online. You can leverage their team of experts to write, design, photograph, analyse, develop, report, resize, boost, split out, split test, amplify, bid, measure, link build, program, speed up, re-market, make responsive, and then communicate it all in an easy to understand, jargon-free way. The services they provide include:</p><ul><li>Social Media Management to keep your followers entertained & engaged</li><li>Search Engine Optimisation to get your products and brand more visibility</li><li>Pay Per Click, Programmatic, and Display advertising</li></ul><p><a href='https://www.neto.com.au/p/alpha-digital/1015'>More info</a></p>"
+      },
+      {
+        "name" : "the_certainty_principle",
+        "label": "The Certainty Principle",
+        "order": 0,
+        "active": false,
+        "content": "<p><strong>The Certainty Principle</strong></p><p>The Certainty Principle are a full service Creative and Digital Marketing Agency that we’ve appointed as a partner to provide high quality services at discounted rates. If you’re spending too much time on your digital marketing, or you’d just like to see what you could be doing better, The Certainty Principle can help. They offer ongoing managed services that include:</p><ul><li>SEO, Managed Pay Per Click, Re-Marketing, and Display Advertising</li><li>Social Media and Influencer Marketing </li><li>Digital Marketing Strategy and Brand Strategy</li><li>Email Marketing</li></ul><p><a href='https://neto.certaintyprinciple.com.au/'>More info</a></p>"
+      },
+      {
+        "name" : "milk_it_academy",
+        "label": "Milk It Academy",
+        "order": 0,
+        "active": false,
+        "content": "<p><strong>Milk It Academy</strong></p><p>If you'd like to help your team confidently execute successful campaigns, rather than hiring an agency to do it for you, Milk It Academy are your go-to people. As Australia’s leading digital marketing skills gap trainers, Milk It Academy offer customised training and consulting programs for teams of 1-10 people. Milk It Academy can provide you and your team with:</p><ul><li>Education on blogging, email marketing, and social media strategy development</li><li>Customised training and consulting programs</li><li>Advice on how best to spend your digital marketing budget for best results</li></ul><p><a href='https://m.milkdigitalstrategy.com.au/neto-training/'>More info</a></p>"
+      },
+      {
+        "name" : "dynamic_creative",
+        "label": "Dynamic Creative",
+        "order": 0,
+        "active": false,
+        "content": "<p><strong>Dynamic Creative</strong></p><p>The team at Dynamic Creative are Google with Premier Google Partner status. With their unique Ad Champion software, Dynamic Creative can produce a highly-granular Google Shopping campaign that stays in sync with your website inventory and updates campaigns daily. This gives the team complete control on bids and budgets across your complete product catalogue, from top-level categories all the way down to brands, products, and individual SKUs. Dynamic Creative can help you with:</p><ul><li>Google Shopping advertisement builds</li><li>Google AdWords account management</li><li>Professional onboarding and monthly reporting</li></ul><p><a href='https://www.dynamiccreative.com/'>More info</a>"
+      }
+    ]
+  }, 
+  {
+    "name" : "products",
+    "label" : "Neto Products",
+    "type": "checkbox",
+    "options" : [
+      {
+        "name" : "overview",
+        "label": "Neto Overview",
+        "order": 0,
+        "active": false,
+        "content": "<p><strong>What is Neto?</strong></p><p>Neto is the only Australian retail management platform that provides a complete solution for eCommerce, Point of Sale, Inventory and Fulfilment. Our integrated back-end technology enables exceptional and consistent customer experiences via any channel be it in store, online or through a marketplace like eBay or Amazon.</p><p><strong>Sell Everywhere, Manage Everything</strong></p><p>With Neto, you can sell in more channels and grow your business faster by managing your bricks-and-mortar stores, marketplace listings and ecommerce business from a single source.&nbsp;You can centralise your operations and improve efficiency with the only retail management platform that provides a complete solution from advance inventory to fulfillment. Everything you need built into the one platform.</p><p style='text-align:center;'><img src='https://assets.netohq.com/cms/sell-everywhere-manage-everything.png' style='max-width: 60%;'/></p><p><strong>Powerful Integrations</strong></p><p>Instead of relying on undependable third-party plugins like our competitors, all of our integrations are built in-house by Neto staff. We pride ourselves on the fact that we&rsquo;re at the forefront of the Australian retail industry so we can offer integrations with the technology that our retailers need.</p><p style='text-align:center;'><img src='https://assets.netohq.com/cms/neto-integrations.png' style='max-width: 100%;'/></p>" 
+      },
+      {
+        "name" : "support_hub",
+        "label": "Support Hub",
+        "order": 0,
+        "active": false,
+        "content": "<p><strong>Support Hub</strong></p><p>After months of hard work, we’re excited to introduce our brand new Neto Support Hub: your one-stop location for all the Neto support you’ll ever need.</p><ul><li><strong>Knowledge Base</strong> - The knowledge base is where you’ll find all the Neto support documentation you need. Take a look in the categories on the front page, or use the search bar at the top to find relevant posts in the user community too.</li><li><strong>Online Training</strong> - Access structured online courses to help you and your team learn how to use Neto. Start with the basics or move straight onto running configuring your store. Once you’ve started a course, come back and pick up where you left off at any time.</li><li><strong>Community</strong> - Use the community to share your own ideas, insights, or questions, and learn from other Neto merchants too. The discussions aren’t limited to the Neto platform either. You can post about anything related to running a retail business!</li><li><strong>Support Cases</strong> - Manage all of your support enquiries from directly within the Support Hub. Submit accounts, technical support, or web design enquiries and track your communication in one central location. No more searching through your inbox!</li><li><strong>Ideas &amp; Roadmap</strong> - Help us improve the platform by submitting an idea of your own, or commenting and voting for other ideas that you think would benefit your business. You can also check the Product Roadmap to see what new features we’re releasing and when.</li></ul><p>You can enter the Neto Support Hub from your Neto Control Panel by clicking the question mark icon in the top right hand corner. You can also save it as a bookmark in your web browser for quick and easy access!</p><p><a href='https://www.netohq.com/support/s/'>Visit Support Hub</a></p>"
+      },
+      {
+        "name" : "partner_design_tweaks",
+        "label": "Partner Design Tweaks",
+        "order": 0,
+        "active": false,
+        "content": "<p><strong>Design Tweaks</strong></p><p>If you need a quick change made to the front-end of your site, a design tweak is the best way to get this done. To carry out your design requests, we use a small network of trusted partners to provide a hands-on, cost-efficient service with quick turnaround times. Our partners still work very closely with our internal design team to ensure the work they produce is to the high standard that we deem acceptable.</p><p><a href='http://forms.neto.com.au/services/designtweak.html'>Submit a Design Tweak</a></p>"
+      },
+      {
+        "name" : "experts_directory",
+        "label": "Experts Directory",
+        "order": 0,
+        "active": false,
+        "content": "<p><strong>Experts Directory</strong></p><p>Over the years, we’ve developed an extensive network of trusted organisations who know Neto inside and out. Each organisation in our network provides a hands-on services to their clients and comes with a track record of happy clients with improved results. This means they can provide a tailored solution that will work with your current Neto setup.</p><p>Whether it’s marketing, web design, consulting, accounting, or something else entirely that you need help with, just use the filters on our Experts Directory below to find a partner that suits your business needs, budget, and location.</p><p><a href='https://www.netohq.com/experts'>Use Experts Directory</a></p>"
+      },
+      {
+        "name" : "refer_a_friend",
+        "label": "Refer a Friend",
+        "order": 0,
+        "active": false,
+        "content": "<p><strong>Refer a Friend</strong></p><p>Our refer-a-friend program lets you refer any business to us who you think would benefit from an all-in-one retail management platform. In exchange for you spreading the good word about Neto, we offer a $500 referral bonus for each referral who goes live with us. Refer as many people as you like. There’s no cap on the amount you can earn!</p><p>Just remember, you must complete the form prior to your friend signing up for a trial, and your friend must have never had a trial with us previously. You can access the form through the ‘Refer a Friend’ link from the user drop down in the top right hand corner of your Neto Control Panel or with the link below. </p><p><a href='https://www.neto.com.au/partners/refer-a-friend'>Make a Referral</a></p>"
+      }
+    ]
+  },
+  {
+    "name" : "releases",
+    "label" : "Releases",
+    "type": "checkbox",
+    "options" : [
+      {
+        "name" : "611",
+        "label": "6.11 Release",
+        "order": 0,
+        "active": false,
+        "content": "<p><strong>6.11 Release</strong></p><p>Neto 6.11 introduces hundreds of improvements as part of this release. We understand from the results of our customer prioritisation survey that platform reliability and speed are number one, and that’s why we’re focussing much of our energy and attention on these areas of our platform.</p><p>We’ve also made a number of control panel user interface changes. We’ve redesigned the left hand sidebar navigation to better meet your needs moving forward and we’ll be adding a number of sales channels in the coming months, so these changes take that into account.</p><p>There’s also been some enhancements to Managed Checkout as well as a redesign of our shipping setup wizard and the addition of new shipping carriers.</p><p>We’ve added new features to Neto Inventory and enhanced some of the existing features. We’ve also redesigned the Discounts and Coupons engine, making it much easier for you to add and manage discount and coupons.</p><p>If you’re a developer looking to integrate a third party platform with Neto, it will now be much easier with the addition of a number of new API End-points.</p><p>Finally, we’ve partnered with a number of new add-ons, including SmartrMail, an automated email marketing solution designed specifically for retailers and wholesalers in the ecommerce space.</p><ul><li><a href='https://www.netohq.com/l/611release'>More info</a></li><li><a href='https://neto.wistia.com/medias/r39tth4xsq'>Watch 6.11 Webinar</a></li></ul>" 
+      }
+    ]
+  }, 
+  {
+    "name" : "followup",
+    "label" : "Follow Up",
+    "type": "radio",
+    "options" : [
+      {
+        "name" : "periodically",
+        "label": "Periodically",
+        "order": 0,
+        "active": false,
+        "content": "<p>Because my top priority is the success of your business, I’ll be checking in from time to time to see how you’re going, and keep you updated on what’s new here at Neto.</p><p>In the meantime, if you have any support or design enquiries, you can get in touch with our technical support and design teams on 1300 730 300. You can also reach us by email at <a href='mailto:support@neto.com.au'>support@neto.com.au</a></p>" 
+      },
+      {
+        "name" : "next_month",
+        "label": "Next Month",
+        "order": 0,
+        "active": false,
+        "content": "<p>I'll be in touch next month to check in and let you know of any updates between then and now!</p>" 
+      }
+    ]
+  }
+  ],
+  "contacts" : [
+    { 
+      "name" : "customer_name",
+      "label" : "Customer name",
+      "value" : "Customer"
+    },
+    { 
+      "name" : "staff_name",
+      "label" : "Your Name",
+      "value" : "Staff"
+    },
+    { 
+      "name" : "store_name",
+      "label" : "Store name",
+      "value" : "Store"
+    },
+    { 
+      "name" : "store_url",
+      "label" : "Store URL",
+      "value" : "store.neto.com.au"
+    }
+  ]
+}

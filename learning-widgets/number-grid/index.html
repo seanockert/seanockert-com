@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html class="" lang="en">
+  <head>
+    <title>Hundreds Number Grid | Learning Widget</title>
+    <meta charset="utf-8" />
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" type="image/png" href="assets/favicon.png" />
+    <link rel="stylesheet" href="assets/number-grid.css" />
+    <script type="module">
+      import { createApp } from 'https://unpkg.com/petite-vue?module';
+
+      function NumberGrid(props) {
+        return {
+          $template: '#number-grid-template',
+          maxValue: props.maxValue,
+          gridCols: Math.round(Math.sqrt(this.maxValue)),
+          activeCells: [],
+          colors: [
+            '#78bc3a',
+            '#ef3e4c',
+            '#efac1f',
+            '#26b2d8',
+            '#8a5fa8',
+            '#000',
+          ],
+          activeColor: 0,
+          mouseIsDown: 0,
+          randomiseCount: 0,
+          savedKey: 'so_number_grid_settings',
+          mounted() {
+            // Detect if mouse is down
+            document.body.onmousedown = () => {
+              ++this.mouseIsDown;
+            };
+            document.body.onmouseup = () => {
+              --this.mouseIsDown;
+            };
+
+            // Load state from local storage
+            let savedData = localStorage.getItem(this.savedKey);
+            if (savedData) {
+              savedData = JSON.parse(savedData);
+              this.setMaxValue(savedData.maxValue);
+              this.activeCells = savedData.activeCells;
+            }
+          },
+          toggleActive(value) {
+            //const index = this.activeCells.indexOf(value);
+            const index = this.activeCells.findIndex(
+              item => item.value === value
+            );
+
+            if (index !== -1) {
+              var cellColor = this.activeCells[index].color;
+
+              // Disable cell
+              this.activeCells.splice(index, 1);
+
+              // Replace cell with new colour
+              if (cellColor !== this.activeColor) {
+                this.activeCells.push({ value, color: this.activeColor });
+              }
+            } else {
+              // Enable
+              this.activeCells.push({ value, color: this.activeColor });
+            }
+
+            this.saveSettings();
+          },
+          toggleActiveDrag(value) {
+            // Hold and drag
+            if (this.mouseIsDown) {
+              this.toggleActive(value);
+            }
+          },
+          setMaxValue(value) {
+            // Resize the grid
+            this.maxValue = value;
+            this.gridCols = Math.round(Math.sqrt(value));
+          },
+          isActive(value) {
+            // Return true if cell is highlighed
+            return (
+              this.activeCells.findIndex((item) => item.value === value) !== -1
+            );
+          },
+          setColor(index) {
+            // Change the colour
+            this.activeColor = index;
+          },
+          cellStyle(value) {
+            // Return a gradient value for the cell (colour stored with cell index)
+            const item = this.activeCells.find((item) => item.value === value);
+
+            if (item) {
+              let style = {
+                backgroundImage:
+                  'radial-gradient(' +
+                  this.colors[item.color] +
+                  ' 50%, transparent 50%)',
+              };
+
+              // Set the text colour to black if the background is also black
+              if (this.colors[item.color] === '#000') {
+                style.color = '#000';
+              }
+
+              return style;
+            }
+
+            return null;
+          },
+          gridColsStyle() {
+            // Set the number of columns in th grid
+            return 'repeat(' + this.gridCols + ', 1fr)';
+          },
+          saveSettings() {
+            // Save duration to localstorage
+            localStorage.setItem(
+              this.savedKey,
+              JSON.stringify({
+                activeCells: this.activeCells,
+                maxValue: this.maxValue,
+              })
+            );
+          },
+          clear() {
+            this.activeCells = [];
+            localStorage.removeItem(this.savedKey);
+          },
+          randomise() {    
+            setTimeout(() => {
+              let randomIndex = Math.floor(Math.random() * this.maxValue) + 1;
+              this.activeCells = [];
+              this.activeCells.push({ value: randomIndex, color: this.activeColor });
+              this.randomiseCount++;    
+                 
+              if (this.randomiseCount < 3) {
+                this.randomise();          
+              } else {
+                this.randomiseCount = 0;
+              }
+            }, 500)
+          },
+        };
+      }
+
+      createApp({
+        NumberGrid,
+      }).mount();
+    </script>
+  </head>
+  <body>
+    <template id="number-grid-template">
+      <ol class="grid" :style="{gridTemplateColumns: gridColsStyle()}">
+        <li
+          v-for="index in maxValue"
+          :key="index"
+          :class="{active: isActive(index)}"
+        >
+          <button
+            @click="toggleActive(index)"
+            @mouseenter="toggleActiveDrag(index)"
+            @touchenter="toggleActiveDrag(index)"
+            :style="cellStyle(index)"
+          >
+            {{index}}
+          </button>
+        </li>
+      </ol>
+      <div class="color-picker">
+        <ul class="color-picker-swatches">
+          <li
+            v-for="(color,index) in colors"
+            :key="color"
+            :class="{active: color === colors[activeColor]}"
+          >
+            <button
+              @click="setColor(index)"
+              :style="{backgroundColor: color}"
+            ></button>
+          </li>
+          <li style="width:2rem">&nbsp;</li>
+          <li><button @click="setMaxValue(25)" class="button">25</button></li>
+          <li><button @click="setMaxValue(50)" class="button">50</button></li>
+          <li><button @click="setMaxValue(100)" class="button">100</button></li>
+          <li>
+            <button @click="randomise()" class="button">Randomise</button>
+          </li>
+          <li>
+            <button
+              v-show="activeCells.length > 0"
+              @click="clear()"
+              class="button"
+            >
+              Clear All
+            </button>
+          </li>
+        </ul>
+      </div>
+    </template>
+
+    <div v-scope="NumberGrid({maxValue: 100})" @vue:mounted="mounted"></div>
+  </body>
+</html>

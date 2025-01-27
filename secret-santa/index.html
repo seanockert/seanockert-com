@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Secret Santa Generator</title>
+    <meta name="description" content="Reveal your Secret Santa match" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700;800&display=swap" rel="stylesheet" />
+    <link href="styles.css" rel="stylesheet" />
+    <link rel="icon" type="image/svg" href="favicon.svg" />
+  </head>
+  <body>
+    <section id="reveal" class="stack hidden">
+      <h1 class="stack">
+        <img src="favicon.svg" height="32" alt="" />
+        <div id="giver"></div>
+      </h1>
+      <div class="revealer">
+        <div id="receiver"></div>
+        <button id="reveal-button" class="button">Reveal</button>
+      </div>
+    </section>
+
+    <section id="generator" class="stack hidden">
+      <h1 class="inline"><img src="favicon.svg" height="30" alt="" /> Secret Santa</h1>
+
+      <label for="names" class="stack-half">Add your participants, one name per line.<div class="text-small">To prevent someone from matching, add their name in (brackets) eg. <em>Bob (Alice)</em></div></label>
+      <div class="grow-wrap">
+        <textarea name="names" id="names" rows="3" placeholder="Alice
+Bob (Alice)
+..." autofocus></textarea>
+      </div>
+
+      <button id="submit" class="button primary">Match!</button>
+
+      <div id="results" class="stack-half"></div>
+    </section>
+
+    <footer>made by <a href="https://seanockert.com" title="Visit Seano's website">Seano</a></footer>
+
+    <script>
+      const $ = (id) => document.getElementById(id);
+      const [$receiver, $generator, $giver, $names, $results, $reveal, $revealButton, $submit] = [
+        'receiver',
+        'generator',
+        'giver',
+        'names',
+        'results',
+        'reveal',
+        'reveal-button',
+        'submit'
+      ].map($);
+      let namesList = [];
+      let nameMaxLength = 0;
+
+      const updateNameList = () => {
+        namesList = $names.value
+          .split(/\r?\n/)
+          .map((line) => line.trim())
+          .filter(Boolean);
+
+        localStorage.setItem('names_list', namesList.join('\n'));
+      };
+
+      const listMatches = (matches) => {
+        $results.innerHTML = matches
+          .map(
+            (match) => `<button id="${match.code}" title="Tap to copy" onclick="copyText(event, '${match.code}')">Hey ${match.giver}, reveal your Secret Santa match at 
+              <a href="${window.location.origin}?s=${match.code}" target="_blank">
+              ${window.location.origin}?s=${match.code}</a></button>`
+          )
+          .join('');
+
+        if (matches.length < namesList.length) {
+          $results.innerHTML += '<div class="critical">Missing a match. Try again</div>';
+        }
+      };
+
+      const shuffle = (array) =>
+        array.forEach((_, i) => {
+          const j = Math.floor(Math.random() * (i + 1));
+          [array[i], array[j]] = [array[j], array[i]];
+          nameMaxLength = Math.max(nameMaxLength, _.length);
+        });
+
+      const extractExclusions = (names) => {
+        const exclusions = {};
+        const sanitizedNames = names.map((name) => {
+          const match = name.match(/\(([^)]+)\)/);
+          if (match) {
+            exclusions[name.replace(/\([^)]+\)/, '').trim()] = match[1].trim();
+            return name.replace(/\([^)]+\)/, '').trim();
+          }
+          return name;
+        });
+
+        return { sanitizedNames, exclusions };
+      };
+
+      const assignNames = () => {
+        matches = [];
+        const { sanitizedNames, exclusions } = extractExclusions(namesList);
+        const shuffledNames = [...sanitizedNames];
+
+        shuffle(shuffledNames);
+
+        sanitizedNames.forEach((giver, i) => {
+          const excludedReceiver = exclusions[giver];
+          const remainingReceivers = shuffledNames.filter((name) => name !== giver && name !== excludedReceiver);
+          if (remainingReceivers.length > 0) {
+            const receiver = remainingReceivers[i % remainingReceivers.length];
+            const padding = Math.random()
+              .toString(36)
+              .substr(2, Math.max(nameMaxLength - giver.length + 1, 0));
+
+            console.log(giver, padding);
+            matches.push({
+              giver,
+              code: btoa(`${giver}|${receiver}|${padding}`)
+            });
+            shuffledNames.splice(shuffledNames.indexOf(receiver), 1);
+          }
+        });
+
+        localStorage.setItem('matches_list', JSON.stringify(matches));
+        listMatches(matches);
+      };
+
+      const decodeMatch = (secretName) => {
+        try {
+          const match = atob(secretName);
+          const [name, receiver] = match.split('|');
+
+          if (!receiver) {
+            throw new Error();
+          }
+
+          $giver.innerText = `Hey ${name}, you're getting a gift for...`;
+          $receiver.innerText = `${receiver}!`;
+          document.title = `${name}'s Secret Santa`;
+        } catch (e) {
+          $giver.innerText = `Uh oh, wrong link. Ask for the link again.`;
+          document.querySelector('.revealer').style.display = 'none';
+        }
+      };
+
+      const expand = (el) => (el.parentNode.dataset.replicatedValue = el.value);
+
+      $submit.addEventListener('click', assignNames);
+      $revealButton.addEventListener('click', () => $reveal.classList.add('revealed'));
+      $names.addEventListener('input', (e) => {
+        updateNameList();
+        expand(e.target);
+      });
+
+      const copyText = (event, elemId) => {
+        if (event.target === event.currentTarget) {
+          const elem = document.getElementById(elemId);
+          if (!elem) return;
+          const textToCopy = elem.innerText || elem.textContent;
+          const textarea = document.createElement('textarea');
+          textarea.value = textToCopy;
+          document.body.appendChild(textarea);
+          textarea.select();
+          document.execCommand('copy');
+          document.body.removeChild(textarea);
+          alert('Copied to clipboard!');
+        }
+      };
+
+      window.onload = () => {
+        const urlParams = new URLSearchParams(window.location.search);
+        const secretName = urlParams.get('s');
+
+        $giver.innerHTML = '';
+        $receiver.innerHTML = '';
+
+        if (secretName) {
+          $generator.classList.add('hidden');
+          $reveal.classList.remove('hidden');
+          decodeMatch(secretName);
+        } else {
+          $generator.classList.remove('hidden');
+          $reveal.classList.add('hidden');
+
+          const savedNames = localStorage.getItem('names_list');
+          if (savedNames) {
+            $names.value = savedNames;
+            updateNameList();
+            expand($names);
+          }
+
+          const savedMatches = localStorage.getItem('matches_list');
+          if (savedMatches) {
+            listMatches(JSON.parse(savedMatches));
+          }
+        }
+      };
+    </script>
+  </body>
+</html>
