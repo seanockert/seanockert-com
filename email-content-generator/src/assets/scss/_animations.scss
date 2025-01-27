@@ -1,0 +1,54 @@
+
+
+// Fade in page on router transition
+.fade-enter-active, 
+.fade-leave-active {
+  transform-origin: center center;
+  transform: translate3d(0,0,0);
+  transition: all .4s $transition;
+
+  .sidebar, 
+  .content ul {
+    transition: all .4s $transition;
+    transform: translate3d(0,0,0)
+  }
+
+  .content ul.content-inputs { transition-duration: .2s; transition-delay: .05s;  }
+}
+
+.fade-enter, 
+.fade-leave-to {
+  opacity: 0;
+
+  .sidebar { transform: translate3d(-25px,0,0) }
+  .content ul { transform: translate3d(50px,0,0) }
+}
+
+
+// Highlight and fade in sections
+.highlight-enter-active, 
+.highlight-leave-active {
+  background-color: transparent;
+  transform-origin: center center;
+  transform: translate3d(0,0,0);
+  transition: all .2s $transition
+}
+
+//.highlight-enter-active { transition: all .2s .1s $transition }
+
+.highlight-leave-active,
+.highlight-leave-to {
+  transition: all .1s $transition
+}
+
+.highlight-enter {
+  opacity: 0;
+  transform: scale(.9) translate3d(0,10px,0)
+}
+
+.highlight-leave-to {
+  opacity: 0;
+  transform: scale(.7) translate3d(0,-100px,0)
+}
+
+.highlight-enter { background-color: $color-yellow }

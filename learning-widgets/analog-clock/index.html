@@ -1,0 +1,512 @@
+<html class="" lang="en">
+  <head>
+    <title>Analog Clock with Draggable Hands | Learning Widget</title>
+    <meta charset="utf-8" />
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" type="image/png" href="assets/favicon.png" />
+    <link rel="stylesheet" href="assets/clock.css" />
+    <script type="module">
+      import { createApp } from "https://unpkg.com/petite-vue?module";
+
+      const increments60 = [
+        -360,
+        -354,
+        -348,
+        -342,
+        -336,
+        -330,
+        -324,
+        -318,
+        -312,
+        -306,
+        -300,
+        -294,
+        -288,
+        -282,
+        -276,
+        -270,
+        -264,
+        -258,
+        -252,
+        -246,
+        -240,
+        -234,
+        -228,
+        -222,
+        -216,
+        -210,
+        -204,
+        -198,
+        -192,
+        -186,
+        -180,
+        -174,
+        -168,
+        -162,
+        -156,
+        -150,
+        -144,
+        -138,
+        -132,
+        -126,
+        -120,
+        -114,
+        -108,
+        -102,
+        -96,
+        -90,
+        -84,
+        -78,
+        -72,
+        -66,
+        -60,
+        -54,
+        -48,
+        -42,
+        -36,
+        -30,
+        -24,
+        -18,
+        -12,
+        -6,
+      ];
+      const increments12 = [
+        -360,
+        -330,
+        -300,
+        -270,
+        -240,
+        -210,
+        -180,
+        -150,
+        -120,
+        -90,
+        -60,
+        -30,
+      ];
+
+      function ClockHands(props) {
+        return {
+          $template: "#clock-template",
+          theme: props.theme,
+          activeHand: null,
+          interval: null,
+          isRotating: false,
+          isTicking: true,
+          isRandomising: false,
+          markerIncrements: props.markerIncrements || 12,
+          clockBounds: null,
+          clockRadius: 0,
+          hideSecondHand: false,
+          hideDigitalTime: false,
+          hours: 12,
+          hourAngle: 0,
+          minutes: 0,
+          minuteAngle: 0,
+          seconds: 0,
+          secondAngle: 0,
+          mounted() {
+            this.$refs.hourHand.addEventListener("mousedown", (e) => {
+              this.rotateHand(e, "hour");
+            });
+
+            this.$refs.hourHand.addEventListener("touchstart", (e) => {
+              this.rotateHand(e, "hour");
+            });
+
+            this.$refs.minuteHand.addEventListener("mousedown", (e) => {
+              this.rotateHand(e, "minute");
+            });
+
+            this.$refs.minuteHand.addEventListener("touchstart", (e) => {
+              this.rotateHand(e, "minute");
+            });
+
+            this.$refs.secondHand.addEventListener("mousedown", (e) => {
+              this.rotateHand(e, "second");
+            });
+
+            this.$refs.secondHand.addEventListener("touchstart", (e) => {
+              this.rotateHand(e, "second");
+            });
+
+            this.setCurrentTime();
+            this.startClock();
+          },
+          rotateHand(e, hand) {
+            this.activeHand = hand;
+            this.isRotating = true;
+
+            this.clockBounds = this.$refs.clock.getBoundingClientRect();
+            this.clockRadius = this.clockBounds.width / 2;
+
+            document.addEventListener(
+              "mousemove",
+              (e) => {
+                this.rotateHandler(e);
+              },
+              { passive: false }
+            );
+
+            document.addEventListener(
+              "touchmove",
+              (e) => {
+                this.rotateHandler(e);
+              },
+              { passive: false }
+            );
+
+            document.addEventListener("mouseup", () => {
+              this.cancelRotate();
+            });
+
+            document.addEventListener("touchend", () => {
+              this.cancelRotate();
+            });
+          },
+          rotateHandler(e) {
+            if (this.isRotating) {
+              e.preventDefault();
+
+              const radians = Math.atan2(
+                (e.pageX || e.touches[0].pageX) -
+                  (this.clockBounds.x + this.clockRadius),
+                (e.pageY || e.touches[0].pageY) -
+                  (this.clockBounds.y + this.clockRadius)
+              );
+
+              const rotateDegrees = radians * (180 / Math.PI) * -1 - 180;
+              //this.$refs[this.activeHand].style.transform = 'rotate(' + rotateDegrees + 'deg)';
+              //console.log(e.pageX + ', ' + e.pageY, rotateDegrees);
+              switch (this.activeHand) {
+                case "hour":
+                  this.hourAngle = rotateDegrees;
+                  break;
+                case "minute":
+                  this.minuteAngle = rotateDegrees;
+                  break;
+                case "second":
+                  this.secondAngle = rotateDegrees;
+                  break;
+              }
+
+              this.setDigitalTime();
+            }
+          },
+          cancelRotate() {
+            this.isRotating = false;
+            this.activeHand = null;
+
+            document.removeEventListener("mousemove", () => {
+              this.rotateHandler();
+            });
+            document.removeEventListener("mouseup", () => {
+              this.cancelRotate();
+            });
+
+            document.removeEventListener("touchmove", () => {
+              this.rotateHandler();
+            });
+            document.removeEventListener("touchend", () => {
+              this.cancelRotate();
+            });
+          },
+          setCurrentTime() {
+            const date = new Date();
+            const hour = date.getHours();
+            const minute = date.getMinutes();
+            const second = date.getSeconds();
+
+            this.hourAngle = (hour * 360) / 12 + (minute * 6) / 12 - 360;
+            this.minuteAngle = (minute * 360) / 60 + (second * 6) / 60 - 360;
+            this.secondAngle = (second * 360) / 60 - 360;
+          },
+          updateHandsTime() {
+            this.secondAngle = this.findClosest(this.secondAngle);
+
+            // Ensure seconds are always 1/60th of the rotation
+            this.hourAngle += 3 / 360;
+            this.minuteAngle += 6 / 60;
+            this.secondAngle += 6;
+
+            // If rotation > 0 then reset to -360
+            if (this.secondAngle >= 0) {
+              this.secondAngle -= 360;
+              this.minuteAngle = this.findClosest(this.minuteAngle);
+            }
+
+            if (this.minuteAngle >= 0) {
+              this.minuteAngle -= 360;
+              this.hourAngle = this.findClosest(this.hourAngle, true);
+            }
+
+            if (this.hourAngle >= 0) {
+              this.hourAngle -= 360;
+            }
+
+            this.setDigitalTime();
+          },
+          setDigitalTime() {
+            this.hours = Math.floor(
+              (360 - Math.abs(this.hourAngle)) / (360 / 12)
+            );
+            this.hours = this.hours === 0 ? 12 : this.hours;
+            this.minutes = Math.floor(
+              (360 - Math.abs(this.minuteAngle)) / (360 / 60)
+            );
+            this.minutes = this.minutes === 60 ? 0 : this.minutes;
+            this.seconds = Math.floor(
+              (360 - Math.abs(this.secondAngle)) / (360 / 60)
+            );
+
+            this.seconds = this.seconds === 60 ? 0 : this.seconds;
+          },
+          startClock() {
+            this.interval = setInterval(() => {
+              if (this.isTicking) {
+                this.updateHandsTime();
+              }
+            }, 1000);
+          },
+          stopClock() {
+            clearInterval(this.interval);
+          },
+          setRandomTime() {
+            this.isRandomising = true;
+            const hour = this.getRandomBetween(1, 12);
+            const minute = this.getRandomBetween(0, 59);
+            const second = this.getRandomBetween(0, 59);
+
+            this.hourAngle = (hour * 360) / 12 + (minute * 6) / 12 - 360;
+            this.minuteAngle = (minute * 360) / 60 + (second * 6) / 60 - 360;
+            this.secondAngle = (second * 360) / 60 - 360;
+
+            window.setTimeout(() => {
+              this.isRandomising = false;
+            }, 1000);
+          },
+          toPolarCoordXY(index, segments = 12, padding = 0) {
+            const angle = 180 + (index * 360) / segments;
+            const angleInRadians = ((angle - 90) * Math.PI) / 180;
+            const r = 300;
+            const x = r - Math.cos(angleInRadians) * (r - padding);
+            const y = r - Math.sin(angleInRadians) * (r - padding);
+            return "translate(" + x + "," + y + ")";
+          },
+          findClosest(value, isHours = false) {
+            const increments = isHours ? increments12 : increments60;
+
+            return increments.reduce(function(prev, curr) {
+              return Math.abs(curr - value) < Math.abs(prev - value)
+                ? curr
+                : prev;
+            });
+          },
+          getRandomBetween(min, max) {
+            min = Math.ceil(min);
+            max = Math.floor(max);
+            return Math.floor(Math.random() * (max - min + 1)) + min;
+          },
+        };
+      }
+
+      createApp({
+        ClockHands,
+      }).mount();
+    </script>
+  </head>
+  <body>
+    <template id="clock-template">
+      <svg
+        :class="{clock: true, ticking: isTicking, randomising: isRandomising}"
+        ref="clock"
+        xmlns="http://www.w3.org/2000/svg"
+        width="600"
+        height="600"
+        viewBox="0 0 600 600"
+        @mouseover="isTicking = false"
+        @mouseleave="isTicking = true"
+      >
+        <g>
+          <circle
+            class="circle"
+            stroke="currentColor"
+            cx="300"
+            cy="300"
+            r="290"
+          />
+
+          <g
+            v-once
+            v-for="index in 12"
+            :transform="toPolarCoordXY(index, 12, 80)"
+            :class="{'clock-number': true, 'clock-number-large': index % 3 === 0}"
+            :key="index"
+          >
+            <text text-anchor="middle" alignment-baseline="middle">
+              {{index}}
+            </text>
+          </g>
+
+          <g
+            v-once
+            v-for="index in markerIncrements"
+            :transform="toPolarCoordXY(index, markerIncrements, 30)"
+            class="clock-marker"
+            :key="index"
+          >
+            <circle
+              v-if="markerIncrements === 60"
+              :r="index % 5 === 0 ? '10' : '5'"
+            />
+            <circle v-else :r="index % 3 === 0 ? '10' : '5'" />
+          </g>
+
+          <g
+            v-if="theme === 'theme-mouse'"
+            :class="{ 'hand': true, 'hour-hand': true, 'active': activeHand === 'hour' }"
+            :style="{ transform: 'rotate(' + hourAngle + 'deg)' }"
+            ref="hourHand"
+          >
+            <svg
+              x="300"
+              width="200"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 405 128"
+            >
+              <g fill="none" fill-rule="evenodd">
+                <path fill="#000" d="M202 42H-2v45h204z" />
+                <path
+                  fill="#000"
+                  fill-rule="nonzero"
+                  d="M302.7 2.1c15.1 2.4 39.4 2.6 59.5.4 18.3-2 31-2 35.5-.2 8.1 3.4 9.6 13.4 3.8 25.6a33.6 33.6 0 01-23.8 19.6c-2.8.8-12 2-20.5 2.5-8.5.6-15.6 1.2-15.8 1.4-.2.2.4 2.6 1.4 5.4 2.9 9 .9 15.2-8 24.8-5 5.4-5.4 6.2-6.1 12.3-1.8 16-6.9 24.5-17.7 30-9.5 4.7-16.6 4.2-23-1.7l-2.6-2.5-5.4 1.8c-4 1.4-8 2-16.3 1.8-9.5 0-12-.4-18.5-2.8-13.6-5-23.2-12.3-27.5-20.6-1.4-2.7-1.9-3-4.9-2.5-8.1 1.6-17.9-7.3-21.7-19.6-6.3-20 4.7-48.8 22.3-58.4 4.4-2.4 6.7-3 14.3-3.3 8.4-.4 9.5-.8 16.5-4.7 20.9-11.8 32.2-13.6 58.5-9.3z"
+                />
+                <path
+                  fill="#FFF"
+                  fill-rule="nonzero"
+                  d="M264.5 7.1A74.2 74.2 0 00236 23.2c-3.8 3.6-7 6.2-7 6 0-.5.7-2.4 1.5-4.4L232 21c0-1-7.1-.2-12 1.2-10.1 3-21.2 17.3-24 31-2 9-1 22 2 27.8 3.4 6.7 8.5 10.8 13 10.4 2.5-.2 3.4-.7 3-1.8-1-4.9-1.1-28.3 0-33 2.3-10 3-8.7 2.3 4.5-1.4 31.2 6.3 45 29.9 53.6 14.9 5.5 25.5 4.8 41.8-2.6 7.6-3.4 17-5.5 17-3.6 0 .5-1.5 1.3-3.3 1.6-1.7.4-5.4 1.8-8 3.2-5.3 2.6-5.2 4 .4 7 8 4 20.6-2.6 26.7-14.2 2-4 2.6-6.4 2.7-12 0-8.2-2.3-13.7-9.3-22.3a23.2 23.2 0 01-4-5.8c1.2-1.2 10.3 6.2 13 10.6 1.7 2.8 3.4 5 3.8 5 .7 0 6.3-6.6 9.2-10.9 3.6-5.2 1.2-16.7-5.3-25.5A62.8 62.8 0 00317 32.5c-1-.4-1.3-1-1-1.5 1.5-1.4 11 4 15.4 8.6l4.6 5h10.7c30.3 0 43-5 49.8-19.4 3-6.6 3.3-14.6.5-17-3-2.8-11.7-3-28.6-1.2A263 263 0 01309 8l-18.5-2.5a74 74 0 00-26 1.6z"
+                />
+                <path
+                  fill="#000"
+                  fill-rule="nonzero"
+                  d="M275.6 21.6c3.2 2.5 1.2 5.6-4.7 7.3a303 303 0 01-35.4 5.2c-.5-.6 17.5-9.3 23.2-11.2 7.3-2.4 14.6-3 16.9-1.3zM284.2 41.2c6 3 5 7.5-1.9 8.7-3.4.6-27.1-1.4-40.6-3.4l-5-.7 7-1.8c19-4.8 34.3-5.9 40.5-2.8zM248.7 70.4c20.3 2 35.8 7.2 37.1 12.5.9 3.7-1.8 5.7-6.6 5-5.4-1-44.8-18.7-41-18.4l10.5 1z"
+                />
+              </g>
+            </svg>
+          </g>
+
+          <g v-if="theme === 'theme-mouse'" :class="{ 'hand': true,
+          'minute-hand': true, 'active': activeHand === 'minute' }" :style="{
+          transform: 'rotate(' + minuteAngle + 'deg)' }" }" ref="minuteHand">
+          <svg
+            x="300"
+            width="200"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 440 102"
+          >
+            <g fill="none" fill-rule="evenodd">
+              <path fill="#000" d="M272 33.6H-1.6v36H272z" />
+              <path
+                fill="#000"
+                fill-rule="nonzero"
+                d="M358 1.7c12 2 31.4 2 47.5.3C420.2.4 430.3.3 434 2c6.5 2.7 7.7 10.7 3 20.4-4 8.5-9.7 13.2-19 15.7-2.2.7-9.6 1.5-16.4 2L389 41.1c-.2.2.3 2.1 1 4.4 2.4 7.2.8 12.1-6.3 19.8-4 4.3-4.3 5-4.9 9.8-1.4 12.8-5.5 19.6-14.1 24-7.6 3.8-13.3 3.4-18.4-1.3l-2.1-2-4.3 1.4a35.6 35.6 0 01-13 1.5c-7.7 0-9.7-.4-14.9-2.3-10.9-4-18.5-9.8-22-16.5-1.1-2.1-1.5-2.4-4-2-6.4 1.3-14.2-5.8-17.3-15.6-5-16.1 3.8-39 17.9-46.8 3.5-1.9 5.3-2.4 11.4-2.6 6.7-.3 7.6-.6 13.2-3.8C327.8-.3 337-1.7 358 1.7z"
+              />
+              <path
+                fill="#FFF"
+                fill-rule="nonzero"
+                d="M327.3 5.7c-7.3 2-16.5 7.1-22.8 12.9-3 2.9-5.6 5-5.6 4.7l1.2-3.4 1.2-3.2c0-.8-5.7-.1-9.6 1-8 2.4-17 13.8-19.2 24.8a41.8 41.8 0 001.6 22.2c2.7 5.4 6.8 8.7 10.4 8.4 2-.2 2.7-.6 2.5-1.5-.9-3.9-1-22.6 0-26.5 1.8-7.9 2.3-6.8 1.8 3.7-1.2 25 5 36 23.9 42.9 12 4.4 20.4 3.8 33.4-2 6.1-2.8 13.6-4.5 13.6-3 0 .4-1.2 1-2.6 1.3a33 33 0 00-6.4 2.6c-4.3 2-4.2 3.1.3 5.5 6.5 3.3 16.5-2 21.4-11.3 1.6-3.2 2-5.1 2.1-9.6 0-6.5-1.8-11-7.4-17.8-2-2.3-3.4-4.5-3.2-4.7 1-1 8.2 5 10.4 8.5a14 14 0 003 4c.6 0 5-5.3 7.4-8.7 2.9-4.2 1-13.4-4.3-20.4-2.1-3-8.1-8.5-11-10-.7-.4-1-1-.7-1.3 1.1-1.1 8.7 3.1 12.2 6.9l3.7 4h8.6c24.2 0 34.4-4 39.8-15.5 2.4-5.3 2.6-11.7.4-13.7-2.3-2.2-9.4-2.4-22.9-.9-19.5 2.1-36 2.4-47.6.8l-14.8-2c-6-.9-14.5-.3-20.8 1.3z"
+              />
+              <path
+                fill="#000"
+                fill-rule="nonzero"
+                d="M336.2 17.3c2.6 2 1 4.4-3.7 5.8-4.3 1.2-27.8 4.6-28.3 4.2-.4-.5 14-7.5 18.5-9 5.9-2 11.7-2.4 13.5-1zM343.1 33c4.8 2.4 4 6-1.5 7-2.7.4-21.7-1.2-32.5-2.8l-4-.6 5.6-1.4c15.2-3.8 27.5-4.7 32.4-2.2zM314.7 56.3c16.3 1.6 28.7 5.8 29.7 10 .7 3-1.4 4.6-5.3 4-4.3-.8-35.8-15-32.8-14.7l8.4.7z"
+              />
+            </g>
+          </svg>
+        </g>
+
+        <path
+          v-if="theme !== 'theme-mouse'"
+          :class="{ 'hand': true, 'hour-hand': true, 'active': activeHand === 'hour' }"
+          :style="{ transform: 'rotate(' + hourAngle + 'deg)' }"
+          ref="hourHand"
+          stroke="currentColor"
+          d="M300.5 298V142"
+        />
+        <path
+          v-if="theme !== 'theme-mouse'"
+          :class="{ 'hand': true, 'minute-hand': true, 'active': activeHand === 'minute' }"
+          :style="{ transform: 'rotate(' + minuteAngle + 'deg)' }"
+          ref="minuteHand"
+          stroke="currentColor"
+          d="M300 298V67"
+        />
+        <path
+          v-show="!hideSecondHand"
+          :class="{ 'hand': true, 'second-hand': true, 'active': activeHand === 'second' }"
+          :style="{ transform: 'rotate(' + secondAngle + 'deg)' }"
+          ref="secondHand"
+          stroke="currentColor"
+          d="M300 350V55"
+        />
+        <circle
+          class="mid-circle"
+          fill="currentColor"
+          cx="300"
+          cy="300"
+          r="20"
+        />
+      </svg>
+
+      <ol v-if="!hideDigitalTime" class="list-timer flex">
+        <li v-if="hours > 0">
+          {{ hours }}
+        </li>
+        <li>
+          <template v-if="minutes < 10"
+            >0</template
+          >{{ minutes }}
+        </li>
+        <li v-if="!hideSecondHand">
+          <template v-if="seconds < 10"
+            >0</template
+          >{{ seconds }}
+        </li>
+      </ol>
+
+      <div class="controls">
+        <button @click="setRandomTime()" class="button button-primary">
+          Random time
+        </button>
+        <button @click="hideDigitalTime = !hideDigitalTime" class="button">
+          <template v-if="!hideDigitalTime"
+            >Hide</template
+          ><template v-else
+            >Show</template
+          >
+          time
+        </button>
+        <button @click="hideSecondHand = !hideSecondHand" class="button">
+          <template v-if="!hideSecondHand"
+            >Hide</template
+          ><template v-else
+            >Show</template
+          >
+          seconds
+        </button>
+      </div>
+    </template>
+
+    <div
+      v-scope="ClockHands({markerIncrements: 12, theme: ''})"
+      class="clock-container"
+      @vue:mounted="mounted"
+    ></div>
+    <div
+      v-scope="ClockHands({markerIncrements: 60, theme: 'theme-mouse'})"
+      class="clock-container theme-mouse"
+      @vue:mounted="mounted"
+    ></div>
+  </body>
+</html>

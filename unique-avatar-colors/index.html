@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Avatars</title>
+    <style>
+      /* Styles to make the demos below a bit prettier */
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+        margin: 0;
+        overflow-wrap: break-word;
+      }
+
+      body {
+        color: #444;
+        font-family: sans-serif;
+        line-height: 1.5;
+        margin: 1.5rem;
+        max-width: 50rem;
+      }
+
+      .avatar {
+        align-items: center;
+        aspect-ratio: 1;
+        background-color: #767676;
+        border-radius: 40rem;
+        color: #fff;
+        display: flex;
+        height: 3rem;
+        justify-content: center;
+        width: 3rem;
+      }
+
+      .inline {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.75rem;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>Generate avatar colours based on their ID</h2>
+
+    <div class="inline">
+      <div class="avatar" data-id="c91f92cj">SO</div>
+      <div class="avatar" data-id="77yo7nv5">JD</div>
+      <div class="avatar" data-id="s5vyg761">KB</div>
+      <div class="avatar" data-id="ecs7ospx">MA</div>
+      <div class="avatar" data-id="0apqw3zk">SM</div>
+      <div class="avatar" data-id="gfj838t2">KK</div>
+      <div class="avatar" data-id="2dfhct3y">EE</div>
+      <div class="avatar" data-id="nbcraenu">RE</div>
+      <div class="avatar" data-id="9i90jyxh">WR</div>
+      <div class="avatar" data-id="4g69r9hd">JH</div>
+      <div class="avatar" data-id="pn3izurz">PP</div>
+      <div class="avatar" data-id="bl0ryebv">PK</div>
+      <div class="avatar" data-id="wjx16zlr">TR</div>
+      <div class="avatar" data-id="squafk5e">WA</div>
+      <div class="avatar" data-id="dortn4fa">AL</div>
+      <div class="avatar" data-id="zmo2mpzw">YM</div>
+      <div class="avatar" data-id="kubbu09s">SO</div>
+      <div class="avatar" data-id="6r8k2lso">TO</div>
+      <div class="avatar" data-id="8uzciawt">PM</div>
+    </div>
+
+    <script>
+      const defaultColor = '#767676';
+      const stringToColor = (str) => {
+        const hashCode = str
+          .split('')
+          .reduce((hash, char) => char.charCodeAt(0) + ((hash << 5) - hash), 0);
+        const h = ((hashCode % 360) + 360) % 360;
+        const s = (hashCode % 21) + 40 + '%';
+        const l = (hashCode % 21) + 55 + '%';
+        return `hsl(${h}, ${s}, ${l})`;
+      };
+
+      const generateColorWithContrast = (seed, text = '#fff') => {
+        if (!seed) return defaultColor;
+
+        const maxAttempts = 10;
+        let adjustedSeed = seed;
+
+        const intToRGB = (i) =>
+          `#${((i & 0x00ffffff) | 0x1000000)
+            .toString(16)
+            .slice(1)
+            .toUpperCase()}`;
+
+        const getLuminance = (color) => {
+          const rgb = parseInt(color.slice(1), 16);
+          const r = (rgb >> 16) & 0xff;
+          const g = (rgb >> 8) & 0xff;
+          const b = (rgb >> 0) & 0xff;
+          return 0.2126 * r + 0.7152 * g + 0.0722 * b;
+        };
+
+        const computeContrast = (color) => {
+          const seedColor = intToRGB(hashCode(color));
+          const luminance1 = getLuminance(seedColor);
+          const luminance2 = getLuminance(text);
+          return (
+            (Math.max(luminance1, luminance2) + 0.05) /
+            (Math.min(luminance1, luminance2) + 0.05)
+          );
+        };
+
+        const hashCode = (str) =>
+          Array.from(str).reduce(
+            (hash, char) => char.charCodeAt(0) + ((hash << 5) - hash),
+            0
+          );
+
+        const initialContrastRatio = computeContrast(seed);
+
+        if (initialContrastRatio >= 4.5 && initialContrastRatio <= 5.5) {
+          return intToRGB(hashCode(seed));
+        }
+
+        for (let attempts = 0; attempts < maxAttempts; attempts++) {
+          adjustedSeed += '1';
+          const contrastRatio = computeContrast(adjustedSeed);
+
+          if (contrastRatio >= 4.5 && contrastRatio <= 5.5) {
+            return intToRGB(hashCode(adjustedSeed));
+          }
+        }
+
+        return defaultColor;
+      };
+
+      const avatars = document.querySelectorAll('.avatar');
+
+      avatars.forEach((avatar) => {
+        const id = avatar.getAttribute('data-id');
+        avatar.style.backgroundColor = stringToColor(id);
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>CSS Layouts</title>
+    <link href="styles.css" rel="stylesheet" />
+    <style>
+      /* Styles to make the demos below a bit prettier. Don't copy these! */
+      :root {
+        --color-bg: #fff;
+        --color-border: #d1d9ba;
+        --color-example-bg-alt: #e0e0e0;
+        --color-example-bg: #f0f0f0;
+        --color-gradient: #efe3fd;
+        --color-highlight-1: #aaffd5;
+        --color-highlight-2: #d0aaff;
+        --color-highlight-3: #edffaa;
+        --color-link: #1c46a0;
+        --color-pre-text: #283109;
+        --color-text: #444;
+      }
+
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+        margin: 0;
+        overflow-wrap: break-word;
+      }
+
+      html {
+        background: var(--color-bg)
+          linear-gradient(var(--color-gradient), transparent 3rem);
+        padding: 0.75rem;
+        color: var(--color-text);
+      }
+
+      body {
+        color: inherit;
+        font-family: sans-serif;
+        line-height: 1.5;
+        margin: 1.5rem auto;
+        max-width: 50rem;
+        text-wrap: balance;
+      }
+
+      pre {
+        border: 0.5px solid var(--color-border);
+        color: var(--color-pre-text);
+        overflow: auto;
+        padding: 0.75rem;
+        position: relative;
+      }
+
+      code {
+        font-size: 110%;
+      }
+
+      a {
+        color: var(--color-link);
+      }
+
+      [class^='grid'] > *,
+      section > [class^='inline'] > *,
+      section > [class^='stack'] > *,
+      [padding] {
+        background-color: var(--color-example-bg);
+        line-height: 1;
+        outline: 1px solid var(--color-bg);
+        padding: 1rem;
+      }
+
+      [no-padding] {
+        background-color: transparent !important;
+        padding: 0 !important;
+      }
+
+      .a,
+      .header {
+        background-color: var(--color-highlight-1);
+      }
+
+      .b,
+      .content {
+        background-color: var(--color-highlight-2);
+      }
+
+      .c,
+      .sidebar {
+        background-color: var(--color-highlight-3);
+      }
+
+      .sidebar ul {
+        display: flex;
+        flex-direction: column;
+        min-height: 500px;
+        overflow: hidden;
+      }
+
+      [class^='grid-blocks'] > :nth-child(2n + 1),
+      .grid-inline > :nth-child(2n + 1) {
+        background-color: var(--color-example-bg-alt);
+      }
+
+      .copy {
+        background: none;
+        border: none;
+        cursor: pointer;
+        opacity: 0.7;
+        padding: 0.5rem;
+        position: absolute;
+        right: 0;
+        top: 0;
+      }
+
+      .copy:hover {
+        opacity: 1;
+      }
+
+      @media (prefers-color-scheme: dark) {
+        /* html {
+          background: #0b0b0b linear-gradient(#51327a, transparent 6rem);
+          color: #e6e6e6;
+        } */
+
+        :root {
+          --color-bg: #191420;
+          --color-border: #594b6c;
+          --color-example-bg-alt: #3b314b;
+          --color-example-bg: #31283d;
+          --color-gradient: #594b6c;
+          --color-highlight-1: #1a412e;
+          --color-highlight-2: #3a0d25;
+          --color-highlight-3: #1a535e;
+          --color-link: #6287d9;
+          --color-pre-text: #cdbae8;
+          --color-text: #e6e6e6;
+        }
+      }
+    </style>
+  </head>
+  <body class="stack-2x">
+    <header class="stack-half">
+      <h1>CSS Layouts</h1>
+      <p>
+        Who needs a grid system anymore? Some useful CSS layouts using
+        <code>flex</code> and <code>grid</code> for any project.
+      </p>
+
+      <p>
+        To use, copy the CSS from <a href="styles.css">styles.css</a> and drop
+        it into your project. Then use the the HTML markup below.
+      </p>
+
+      <p>
+        <a href="https://github.com/seanockert/css-layouts">View on Github</a>
+      </p>
+    </header>
+
+    <section class="stack">
+      <h2 id="stack">Stack</h2>
+
+      <h3>Stack items in a column</h3>
+
+      <div class="stack">
+        <div>Stack item 1</div>
+        <div>Stack item 2</div>
+        <div>Stack item 3</div>
+      </div>
+
+      <pre><code id="code-stack">&lt;div class=&quot;stack&quot;&gt; 
+  &lt;div&gt;Stack item 1&lt;/div&gt; 
+  &lt;div&gt;Stack item 2&lt;/div&gt;
+  ...
+&lt;/div&gt;</code><button class="copy" onclick="copyText('code-stack')">Copy</button></pre>
+
+      <h3>Change gap size</h3>
+
+      <div>Adjust the space between items in the stack.</div>
+
+      <div>
+        Options: <code>stack-zero</code>, <code>stack-quarter</code>,
+        <code>stack-half</code>, <code>stack-2x</code>, <code>stack-4x</code>
+      </div>
+
+      <div class="stack-2x">
+        <div>Stack item 1</div>
+        <div>Stack item 2</div>
+        <div>Stack item 3</div>
+      </div>
+
+      <pre><code id="code-stack-2x">&lt;div class=&quot;stack-2x&quot;&gt; 
+  &lt;div&gt;Stack item 1&lt;/div&gt; 
+  &lt;div&gt;Stack item 2&lt;/div&gt;
+  ...
+&lt;/div&gt;</code><button class="copy" onclick="copyText('code-stack-2x')">Copy</button></pre>
+
+      <h3>Bottom align last item</h3>
+
+      <div class="stack-end" style="min-height: 14rem">
+        <div>Stack item 1</div>
+        <div>Stack item 2</div>
+        <div>Last stack item</div>
+      </div>
+
+      <pre><code id="code-stack-end">&lt;div class=&quot;stack-end&quot;&gt; 
+  &lt;div&gt;Stack item 1&lt;/div&gt; 
+  &lt;div&gt;Stack item 2&lt;/div&gt;
+  &lt;div&gt;Last stack item&lt;/div&gt; 
+&lt;/div&gt;</code><button class="copy" onclick="copyText('code-stack-end')">Copy</button></pre>
+    </section>
+
+    <section class="stack">
+      <h2 id="inline">Inline</h2>
+
+      <h3>Align items in a row</h3>
+
+      <div class="inline">
+        <div>Inline item 1</div>
+        <div>Inline item 2</div>
+        <div>Inline item 3</div>
+      </div>
+
+      <pre><code id="code-inline">&lt;div class=&quot;inline&quot;&gt; 
+  &lt;div&gt;Inline item 1&lt;/div&gt; 
+  &lt;div&gt;Inline item 2&lt;/div&gt;
+  ...
+&lt;/div&gt;</code><button class="copy" onclick="copyText('code-inline')">Copy</button></pre>
+
+      <h3>Change gap size</h3>
+
+      <div>
+        Options: <code>inline-zero</code>, <code>inline-quarter</code>,
+        <code>inline-half</code>, <code>inline-2x</code>
+      </div>
+
+      <div class="inline-2x">
+        <div>Inline item 1</div>
+        <div>Inline item 2</div>
+        <div>Inline item 3</div>
+      </div>
+
+      <pre><code id="code-inline-2x">&lt;div class=&quot;inline-2x&quot;&gt; 
+  &lt;div&gt;Inline item 1&lt;/div&gt; 
+  &lt;div&gt;Inline item 2&lt;/div&gt;
+  ...
+&lt;/div&gt;</code><button class="copy" onclick="copyText('code-inline-2x')">Copy</button></pre>
+
+      <h3>Align items with space between</h3>
+
+      <div class="inline-between">
+        <div>Inline item 1</div>
+        <div>Inline item 2</div>
+      </div>
+
+      <pre><code id="code-inline-between">&lt;div class=&quot;inline-between&quot;&gt; 
+  &lt;div&gt;Inline item 1&lt;/div&gt; 
+  &lt;div&gt;Inline item 2&lt;/div&gt;
+  ...
+&lt;/div&gt;</code><button class="copy" onclick="copyText('code-inline-between')">Copy</button></pre>
+
+      <h3>Wrap items on small viewports</h3>
+
+      <div class="inline-wrap">
+        <div>Inline item 1</div>
+        <div>Inline item 2</div>
+        <div>Inline item 3</div>
+        <div>Inline item 4</div>
+        <div>Inline item 5</div>
+      </div>
+
+      <pre><code id="code-inline-wrap">&lt;div class=&quot;inline-wrap&quot;&gt; 
+  &lt;div&gt;Inline item 1&lt;/div&gt; 
+  &lt;div&gt;Inline item 2&lt;/div&gt;
+  ...
+&lt;/div&gt;</code><button class="copy" onclick="copyText('code-inline-wrap')">Copy</button></pre>
+
+      <h3>Top align instead of center align</h3>
+
+      <div class="inline align-top">
+        <div>Inline item 1</div>
+        <div style="height: 150px">Inline item 2</div>
+        <div>Inline item 3</div>
+      </div>
+
+      <pre><code id="code-inline-top">&lt;div class=&quot;inline align-top&quot;&gt; 
+  &lt;div&gt;Inline item 1&lt;/div&gt; 
+  &lt;div&gt;Inline item 2&lt;/div&gt;
+  ...
+&lt;/div&gt;</code><button class="copy" onclick="copyText('code-inline-top')">Copy</button></pre>
+    </section>
+
+    <section class="stack">
+      <h2 id="inline">Nested Stack and Inline</h2>
+
+      <div class="stack" no-padding>
+        <div class="inline inline-wrap" no-padding>
+          <div class="stack" padding>
+            <label>Label 1</label>
+            <input />
+          </div>
+          <div class="stack" padding>
+            <label>Label 2</label>
+            <input />
+          </div>
+        </div>
+        <div class="stack" padding>
+          <label>Label 3</label>
+          <input />
+        </div>
+      </div>
+
+      <pre><code id="code-nested">&lt;div class=&quot;stack&quot;&gt;
+  &lt;div class=&quot;inline inline-wrap&quot;&gt;
+    &lt;div class=&quot;stack&quot;&gt;
+      &lt;label&gt;Label&lt;/label&gt;
+      &lt;input /&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;stack&quot;&gt;
+      &lt;label&gt;Label&lt;/label&gt;
+      &lt;input /&gt;
+    &lt;/div&gt; 
+  &lt;/div&gt;
+  &lt;div class=&quot;stack&quot;&gt;
+    &lt;label&gt;Label&lt;/label&gt;
+    &lt;input /&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code><button class="copy" onclick="copyText('code-nested')">Copy</button></pre>
+    </section>
+
+    <section class="stack-half">
+      <h2 id="grid-sidebar">Grid Sidebar</h2>
+      <p>Content with scrollable sidebar.</p>
+      <p>
+        On mobile, collapse to 1 column with the order: Header &rarr; Sidebar
+        &rarr; Content
+      </p>
+
+      <div class="grid-sidebar">
+        <header class="header">Header</header>
+        <section class="content">Content</section>
+        <aside class="sidebar">
+          Sidebar
+          <div class="scroll-container">
+            <ul>
+              <li>Item 1</li>
+              <li>Item 2</li>
+            </ul>
+            <ul>
+              <li>Item 3</li>
+            </ul>
+          </div>
+        </aside>
+      </div>
+
+      <pre><code id="code-grid-sidebar">&lt;div class=&quot;grid-sidebar&quot;&gt; 
+  &lt;header class=&quot;header&quot;&gt;Header&lt;/header&gt; 
+  &lt;section class=&quot;content&quot;&gt;Content&lt;/section&gt; 
+  &lt;aside class=&quot;sidebar&quot;&gt;Sidebar&lt;/div&gt;
+&lt;/div&gt;</code><button class="copy" onclick="copyText('grid-sidebar')">Copy</button></pre>
+    </section>
+
+    <section class="stack-half">
+      <h2 id="grid-acb">Grid ACB</h2>
+      <p>
+        Uses named sections to order content. Right align an image with a
+        specific aspect ratio.
+      </p>
+      <p>
+        On mobile, collapse to 1 column with the order: Header &rarr; Image
+        &rarr; Content
+      </p>
+      <div class="grid-acb">
+        <header class="a">Header (Section A)</header>
+        <div class="b">Content (Section B)</div>
+        <div class="c">Image (Section C)</div>
+      </div>
+
+      <pre><code id="code-grid-acb">&lt;div class=&quot;grid-acb&quot;&gt; 
+  &lt;header class=&quot;a&quot;&gt;Header (Section A)&lt;/header&gt; 
+  &lt;div class=&quot;b&quot;&gt;Content (Section B)&lt;/div&gt; 
+  &lt;div class=&quot;c&quot;&gt;Image (Section C)&lt;/div&gt;
+&lt;/div&gt;</code><button class="copy" onclick="copyText('code-grid-acb')">Copy</button></pre>
+    </section>
+
+    <section class="stack-half">
+      <h2 id="grid-blocks">Grid Blocks</h2>
+      <p>
+        A block of N items per row. Reduce items per row at breakpoints. Modify
+        the number of items per row as needed
+      </p>
+
+      <h3>Grid Blocks 4</h3>
+
+      <ul class="grid-blocks-4">
+        <li>A</li>
+        <li>B</li>
+        <li>C</li>
+        <li>D</li>
+        <li>E</li>
+        <li>F</li>
+        <li>G</li>
+      </ul>
+
+      <pre><code id="code-grid-blocks-4">&lt;ul class=&quot;grid-blocks-4&quot;&gt; 
+  &lt;li&gt;Item 1&lt;/li&gt;
+  &lt;li&gt;Item 2&lt;/li&gt;
+  ...
+&lt;/ul&gt;</code><button class="copy" onclick="copyText('code-grid-blocks-4')">Copy</button></pre>
+
+      <h3>Grid Blocks 5</h3>
+
+      <ul class="grid-blocks-5">
+        <li>A</li>
+        <li>B</li>
+        <li>C</li>
+        <li>D</li>
+        <li>E</li>
+        <li>F</li>
+        <li>G</li>
+        <li>H</li>
+        <li>I</li>
+        <li>J</li>
+        <li>K</li>
+        <li>L</li>
+        <li>M</li>
+        <li>N</li>
+      </ul>
+
+      <pre><code id="code-grid-blocks-5">&lt;ul class=&quot;grid-blocks-5&quot;&gt; 
+  &lt;li&gt;Item 1&lt;/li&gt;
+  &lt;li&gt;Item 2&lt;/li&gt;
+  ...
+&lt;/ul&gt;</code><button class="copy" onclick="copyText('code-grid-blocks-5')">Copy</button></pre>
+    </section>
+
+    <section class="stack-half">
+      <h2 id="grid-inline">Grid Inline</h2>
+      <p>
+        Collapse items per row based on their fixed width (in this case 12rem)
+      </p>
+
+      <ul class="grid-inline">
+        <li>A</li>
+        <li>B</li>
+        <li>C</li>
+        <li>D</li>
+        <li>E</li>
+        <li>F</li>
+        <li>G</li>
+        <li>H</li>
+        <li>I</li>
+        <li>J</li>
+        <li>K</li>
+        <li>L</li>
+        <li>M</li>
+        <li>N</li>
+      </ul>
+
+      <pre><code id="code-grid-inline">&lt;ul class=&quot;grid-inline&quot;&gt; 
+  &lt;li&gt;Item 1&lt;/li&gt;
+  &lt;li&gt;Item 2&lt;/li&gt;
+  ...
+&lt;/ul&gt;</code><button class="copy" onclick="copyText('code-grid-inline')">Copy</button></pre>
+    </section>
+
+    <section class="stack-half">
+      <h2 id="grid-block-5">Breakout</h2>
+      <p>
+        When you need a column of content like a blog post, with sections that
+        "break out" eg. image or sections with a different background colour.
+      </p>
+
+      <p>
+        <a href="https://ryanmulligan.dev/blog/layout-breakouts/">Source</a>
+      </p>
+
+      <div class="breakout">
+        <p padding>Content</p>
+        <div class="feature" padding>Feature content</div>
+        <p padding>Content</p>
+        <div class="full" padding>Full width content</div>
+        <p padding>Content</p>
+      </div>
+
+      <pre><code id="code-breakout">&lt;div class=&quot;breakout&quot;&gt; 
+  &lt;p&gt;Content&lt;/p&gt;
+  &lt;div class=&quot;feature&quot;&gt;Feature content&lt;/p&gt;
+  &lt;p&gt;Content&lt;/p&gt;
+  &lt;div class=&quot;full&quot;&gt;Full width content&lt;/p&gt;
+  ...
+&lt;/div&gt;</code><button class="copy" onclick="copyText('code-breakout')">Copy</button></pre>
+    </section>
+
+    <script>
+      const copyText = (divId) => {
+        const div = document.getElementById(divId);
+        if (!div) return;
+        const textToCopy = div.innerText || div.textContent;
+        const textarea = document.createElement('textarea');
+        textarea.value = textToCopy;
+        document.body.appendChild(textarea);
+        textarea.select();
+        document.execCommand('copy');
+        document.body.removeChild(textarea);
+        alert('HTML copied to clipboard');
+      };
+    </script>
+  </body>
+</html>

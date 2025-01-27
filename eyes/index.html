@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <title>Eyes</title>
+    <style>
+      body {
+        background: #000;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 4rem;
+        height: 100vh;
+      }
+
+      #eyes {
+        display: flex;
+        perspective: 1000px;
+        gap: 0.5rem;
+      }
+
+      #eyes > svg {
+        height: 10rem;
+        /*     transition: all 0.3s cubic-bezier(0.8, -0.4, 0.5, 1); */
+      }
+
+      #eyes path,
+      #eyes g {
+        transition: all 0.3s cubic-bezier(0.8, -0.4, 0.5, 1);
+        transform-origin: 50% 50%;
+        animation-timing-function: linear(
+          0,
+          0.008 1.1%,
+          0.031 2.2%,
+          0.129 4.8%,
+          0.257 7.2%,
+          0.671 14.2%,
+          0.789 16.5%,
+          0.881 18.6%,
+          0.957 20.7%,
+          1.019 22.9%,
+          1.063 25.1%,
+          1.094 27.4%,
+          1.114 30.7%,
+          1.112 34.5%,
+          1.018 49.9%,
+          0.99 59.1%,
+          1
+        );
+      }
+
+      #eyes path {
+        fill: #fff;
+      }
+
+      #eyes:hover path {
+        filter: drop-shadow(0 0 6px rgba(255, 255, 255, 1));
+      }
+
+      #eye-r g {
+        transform: scaleX(-1);
+      }
+
+      .blink g {
+        animation: blink 0.4s forwards;
+      }
+
+      @keyframes blink {
+        40% {
+          transform: scale(1.4, 0.2);
+        }
+        0%,
+        100% {
+          transform: scale(1, 1);
+        }
+      }
+    </style>
+    <script src="https://unpkg.com/polymorph-js/dist/polymorph.min.js"></script>
+  </head>
+  <body>
+    <div id="eyes">
+      <svg id="eye-l" width="68" height="118" viewBox="0 0 68 118" fill="none">
+        <g>
+          <path
+            class="eye-a"
+            d="M14 29C14 17.9543 22.9543 9 34 9C45.0457 9 54 17.9543 54 29V89C54 100.046 45.0457 109 34 109C22.9543 109 14 100.046 14 89V29Z"
+          />
+        </g>
+      </svg>
+      <svg id="eye-r" width="68" height="118" viewBox="0 0 68 118" fill="none">
+        <g>
+          <path
+            class="eye-a"
+            d="M14 29C14 17.9543 22.9543 9 34 9C45.0457 9 54 17.9543 54 29V89C54 100.046 45.0457 109 34 109C22.9543 109 14 100.046 14 89V29Z"
+          />
+        </g>
+      </svg>
+    </div>
+
+    <script>
+      // DOM Elements
+      const eyes = document.getElementById('eyes');
+      const eyeL = document.getElementById('eye-l');
+      const eyeR = document.getElementById('eye-r');
+      const eyeLPath = document.querySelector('#eye-l g path');
+      const eyeRPath = document.querySelector('#eye-r g path');
+
+      // Configuration
+      const CONFIG = {
+        smoothing: 0.1,
+        maxDistance: 25,
+        maxRotation: 45,
+        minScale: 0.85,
+        blinkInterval: { min: 2000, max: 10000 },
+        idleTimeout: 5000, // 5 seconds before idle animation
+      };
+
+      // Eye movement state using a single object for better performance
+      const state = {
+        x: 0,
+        y: 0,
+        rotateX: 0,
+        rotateY: 0,
+        scaleL: 1,
+        scaleR: 1,
+        xOffset: 0,
+        isAnimating: false,
+        currentMood: 'default',
+        lastInteraction: Date.now(),
+      };
+
+      // Define eye shapes
+      const moods = {
+        default:
+          'M14 29C14 17.9543 22.9543 9 34 9C45.0457 9 54 17.9543 54 29V89C54 100.046 45.0457 109 34 109C22.9543 109 14 100.046 14 89V29Z',
+        evil: 'M6.4005 41.0016C11.4706 42.4539 24.5497 46.0552 35.641 49.0874C46.7323 52.1196 56.4358 53.9937 63.3693 55.1518C70.3028 56.3099 62.033 66.8734 55.807 72.3343C49.581 77.7952 42.9846 81.7006 27.1366 80.7077C11.2887 79.7148 6.8688 66.6233 4.88788 58.184C2.90697 49.7447 1.33039 39.5492 6.4005 41.0016Z',
+        happy:
+          'M11 75.1417C11 66.7792 22.9543 60 34 60C45.0457 60 57 66.7792 57 75.1417V90.2833C57 98.6458 50.5 85 34 85C17.5 85 11 98.6458 11 90.2833V75.1417Z',
+      };
+
+      // Pre-define look around patterns
+      const positions = [
+        [
+          { x: 120, y: -100, d: 1000 },
+          { x: -300, y: 180, d: 1500 },
+          { x: 60, y: 180, d: 1000 },
+          { x: 0, y: 0, d: 800 },
+        ],
+        [
+          { x: 0, y: -100, d: 1000 },
+          { x: 60, y: 20, d: 500 },
+          { x: -60, y: 20, d: 400 },
+          { x: 60, y: 20, d: 400 },
+          { x: 0, y: 0, d: 200 },
+        ],
+      ];
+
+      // Create mood interpolators once
+      const moodInterpolators = {
+        defaultToEvil: polymorph.interpolate([moods.default, moods.evil], {
+          optimize: 'fill',
+          precision: 2,
+        }),
+        defaultToHappy: polymorph.interpolate([moods.default, moods.happy], {
+          optimize: 'fill',
+          precision: 2,
+        }),
+        evilToHappy: polymorph.interpolate([moods.evil, moods.happy], {
+          optimize: 'fill',
+          precision: 2,
+        }),
+      };
+
+      // Utility functions
+      const lerp = (start, end, factor) => start + (end - start) * factor;
+      const random = (min, max) => Math.random() * (max - min) + min;
+      const getRandomMood = () => {
+        const availableMoods = ['default', 'evil', 'happy'].filter(
+          (mood) => mood !== state.currentMood
+        );
+        return availableMoods[
+          Math.floor(Math.random() * availableMoods.length)
+        ];
+      };
+
+      // Animation functions
+      function blink() {
+        eyes.classList.add('blink');
+        setTimeout(() => {
+          eyes.classList.remove('blink');
+          if (Math.random() < 0.3) {
+            // 30% chance to double blink
+            setTimeout(() => {
+              eyes.classList.add('blink');
+              setTimeout(() => {
+                eyes.classList.remove('blink');
+                setTimeout(
+                  blink,
+                  random(CONFIG.blinkInterval.min, CONFIG.blinkInterval.max)
+                );
+              }, 400);
+            }, 200);
+          } else {
+            setTimeout(
+              blink,
+              random(CONFIG.blinkInterval.min, CONFIG.blinkInterval.max)
+            );
+          }
+        }, 400);
+      }
+
+      function changeMood() {
+        const nextMood = getRandomMood();
+        if (nextMood === state.currentMood) return;
+
+        const duration = 300;
+        const startTime = performance.now();
+        const startMood = state.currentMood;
+
+        function animateStep(currentTime) {
+          const progress = Math.min((currentTime - startTime) / duration, 1);
+          let interpolator;
+
+          if (startMood === 'default') {
+            interpolator =
+              nextMood === 'evil'
+                ? moodInterpolators.defaultToEvil
+                : moodInterpolators.defaultToHappy;
+          } else if (startMood === 'evil') {
+            interpolator =
+              nextMood === 'default'
+                ? moodInterpolators.defaultToEvil
+                : moodInterpolators.evilToHappy;
+          } else {
+            interpolator =
+              nextMood === 'default'
+                ? moodInterpolators.defaultToHappy
+                : moodInterpolators.evilToHappy;
+          }
+
+          const path = interpolator(
+            nextMood === startMood ? 1 - progress : progress
+          );
+          eyeLPath.setAttribute('d', path);
+          eyeRPath.setAttribute('d', path);
+
+          if (progress < 1) {
+            requestAnimationFrame(animateStep);
+          } else {
+            state.currentMood = nextMood;
+          }
+        }
+
+        requestAnimationFrame(animateStep);
+      }
+
+      function updateEyeTransform(eye, scaleValue, offsetMultiplier) {
+        const { x, y, rotateX, rotateY, xOffset } = state;
+        eye.style.transform = `scale(${scaleValue}) translate3d(${
+          x + xOffset * offsetMultiplier
+        }px, ${y}px, 0) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+      }
+
+      function calculateEyeMovement(deltaX, deltaY, eyeRect) {
+        const distance = Math.hypot(deltaX, deltaY);
+        const threshold = eyeRect.width / 2;
+
+        if (distance <= threshold) {
+          return {
+            x: 0,
+            y: 0,
+            rotateX: 0,
+            rotateY: 0,
+            scaleL: 1,
+            scaleR: 1,
+            xOffset: 0,
+          };
+        }
+
+        const distanceFactor =
+          Math.min(distance - threshold, CONFIG.maxDistance) /
+          CONFIG.maxDistance;
+        const normalizedX = deltaX / distance;
+        const normalizedY = deltaY / distance;
+
+        return {
+          x: normalizedX * CONFIG.maxDistance * distanceFactor,
+          y: normalizedY * CONFIG.maxDistance * distanceFactor,
+          rotateX: -normalizedY * CONFIG.maxRotation * distanceFactor,
+          rotateY: normalizedX * CONFIG.maxRotation * distanceFactor,
+          scaleL: 1 - normalizedX * (1 - CONFIG.minScale) * distanceFactor,
+          scaleR: 1 + normalizedX * (1 - CONFIG.minScale) * distanceFactor,
+          xOffset: -10 * distanceFactor,
+        };
+      }
+
+      // Look around animation
+      function lookAround(positions) {
+        if (!positions || state.isAnimating) return;
+
+        state.isAnimating = true;
+        let currentIndex = 0;
+
+        function moveToPosition(startPos) {
+          if (currentIndex >= positions.length) {
+            state.isAnimating = false;
+            return;
+          }
+
+          const targetPos = positions[currentIndex];
+          const startTime = performance.now();
+
+          function animateStep(currentTime) {
+            if (!state.isAnimating) return;
+
+            const progress = Math.min(
+              (currentTime - startTime) / targetPos.d,
+              1
+            );
+
+            const currentX = lerp(startPos.x, targetPos.x, progress);
+            const currentY = lerp(startPos.y, targetPos.y, progress);
+
+            const eyeRect = eyeL.getBoundingClientRect();
+            const targets = calculateEyeMovement(currentX, currentY, eyeRect);
+
+            Object.keys(targets).forEach((key) => {
+              state[key] = targets[key];
+            });
+
+            updateEyeTransform(eyeL, state.scaleR, -1);
+            updateEyeTransform(eyeR, state.scaleL, 1);
+
+            if (progress < 1 && state.isAnimating) {
+              requestAnimationFrame(animateStep);
+            } else if (state.isAnimating) {
+              currentIndex++;
+              setTimeout(() => moveToPosition(targetPos), 100);
+            }
+          }
+
+          requestAnimationFrame(animateStep);
+        }
+
+        moveToPosition({ x: state.x, y: state.y });
+      }
+
+      // Main update function
+      const updateEyes = (() => {
+        let rafId = null;
+
+        return (x, y) => {
+          state.lastInteraction = Date.now();
+
+          // Cancel any ongoing lookAround animation and center eyes
+          if (state.isAnimating) {
+            state.isAnimating = false;
+            const eyeRect = eyeL.getBoundingClientRect();
+            x = eyeRect.left + eyeRect.width / 2;
+            y = eyeRect.top + eyeRect.height / 2;
+          }
+
+          if (rafId) cancelAnimationFrame(rafId);
+
+          rafId = requestAnimationFrame(() => {
+            const eyeRect = eyeL.getBoundingClientRect();
+            const eyeCenterX = eyeRect.left + eyeRect.width / 2;
+            const eyeCenterY = eyeRect.top + eyeRect.height / 2;
+
+            const targets = calculateEyeMovement(
+              x - eyeCenterX,
+              y - eyeCenterY,
+              eyeRect
+            );
+
+            Object.keys(targets).forEach((key) => {
+              state[key] = lerp(state[key], targets[key], CONFIG.smoothing);
+            });
+
+            updateEyeTransform(eyeL, state.scaleR, -1);
+            updateEyeTransform(eyeR, state.scaleL, 1);
+
+            rafId = null;
+          });
+        };
+      })();
+
+      // Idle animation handler
+      function checkIdle() {
+        const timeSinceLastInteraction = Date.now() - state.lastInteraction;
+
+        // Check if enough time has passed since last interaction and no animation is running
+        if (
+          !state.isAnimating &&
+          timeSinceLastInteraction >= CONFIG.idleTimeout
+        ) {
+          lookAround(positions[Math.floor(Math.random() * positions.length)]);
+          // After lookAround starts, update lastInteraction to enforce waiting period
+          state.lastInteraction = Date.now();
+        }
+      }
+
+      // Event listeners
+      document.addEventListener('mousemove', (e) =>
+        updateEyes(e.clientX, e.clientY)
+      );
+      document.addEventListener('touchmove', (e) => {
+        e.preventDefault();
+        const touch = e.touches[0];
+        updateEyes(touch.clientX, touch.clientY);
+      });
+      document.addEventListener('touchend', () => {
+        const eyeRect = eyeL.getBoundingClientRect();
+        updateEyes(
+          eyeRect.left + eyeRect.width / 2,
+          eyeRect.top + eyeRect.height / 2
+        );
+      });
+
+      eyes.addEventListener('click', () => {
+        if (state.isAnimating) {
+          state.isAnimating = false;
+          setTimeout(() => {
+            const eyeRect = eyeL.getBoundingClientRect();
+            updateEyes(
+              eyeRect.left + eyeRect.width / 2,
+              eyeRect.top + eyeRect.height / 2
+            );
+          }, 100);
+        } else {
+          changeMood();
+        }
+      });
+
+      setTimeout(blink, 300);
+      setInterval(checkIdle, 3000);
+    </script>
+  </body>
+</html>
