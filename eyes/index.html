@@ -148,7 +148,7 @@
         scaleR: 1,
         xOffset: 0,
         isAnimating: false,
-        currentMood: 'default',
+        currentMood: 'evil',
         lastInteraction: Date.now()
       };
 
@@ -246,11 +246,13 @@
         const dX = x < 0 ? 'left' : 'right';
         const dY = y < 0 ? 'down' : 'up';
 
-        eye.style.transform = `scale(${scaleValue}) translate3d(${
-          x + xOffset * offsetMultiplier
-        }px, ${y}px, 0) rotateX(${x < 0 ? rotateX : rotateX * offsetMultiplier}deg) rotateY(${
-          y < 0 ? rotateY : rotateY * offsetMultiplier * -1
-        }deg)`;
+        // eye.style.transform = `scale(${scaleValue}) translate3d(${
+        //   x + xOffset * offsetMultiplier
+        // }px, ${y}px, 0) rotateX(${x < 0 ? rotateX : rotateX * offsetMultiplier}deg) rotateY(${
+        //   y < 0 ? rotateY : rotateY * offsetMultiplier * -1
+        // }deg)`;
+
+        eye.style.transform = `scale(${scaleValue}) translate3d(${x + xOffset * offsetMultiplier}px, ${y}px, 0) rotateX(${rotateX}deg) rotateY(${rotateY * offsetMultiplier}deg)`;
       }
 
       function calculateEyeMovement(deltaX, deltaY, eyeRect) {
@@ -280,7 +282,7 @@
           rotateY: normalizedX * CONFIG.maxRotation * distanceFactor,
           scaleL: 1 - normalizedX * (1 - CONFIG.minScale) * distanceFactor,
           scaleR: 1 + normalizedX * (1 - CONFIG.minScale) * distanceFactor,
-          xOffset: -10 * distanceFactor
+          xOffset: -15 * distanceFactor
         };
       }
 
@@ -408,7 +410,6 @@
       });
 
       setTimeout(blink, 300);
-      setTimeout(() => changeMood('evil'), 300);
       setInterval(checkIdle, CONFIG.idleTimeout);
     </script>
   </body>

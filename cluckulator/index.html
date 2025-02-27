@@ -1,0 +1,761 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width; initial-scale=1; viewport-fit=cover" />
+
+    <title>Cluckulator</title>
+    <meta name="description" content="Calculate with a squawk" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Cherry+Bomb+One&display=swap" rel="stylesheet" />
+    <link rel="manifest" href="/manifest.json" />
+    <link rel="apple-touch-icon" href="icon-egg-512.png" />
+    <link rel="shortcut icon" href="icon-egg.png" />
+
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+    <style>
+      :root {
+        --bg: #ffcc81;
+        --fg: #fff;
+        --color-text: #440204;
+        --easing: cubic-bezier(0.4, 0, 0.2, 1);
+        --anticipation: linear(
+          0,
+          -0.004 4.9%,
+          -0.02 9.4%,
+          -0.124 26.4%,
+          -0.126 30.5%,
+          -0.104 34.1%,
+          -0.027 38.8%,
+          0.108 43.1%,
+          0.299 47%,
+          0.817 55.2%,
+          0.97 59.1%,
+          1.071 63.4%,
+          1.118 67.7%,
+          1.127 72.6%,
+          1.108 77.2%,
+          1.019 90.7%,
+          1.004 95.2%,
+          1
+        );
+      }
+
+      *,
+      *:after {
+        box-sizing: border-box;
+        margin: 0;
+      }
+
+      html {
+        display: flex;
+        justify-content: center;
+      }
+
+      html,
+      body {
+        background: linear-gradient(-45deg in oklab, var(--bg), #f6f9c4);
+        color: var(--color-text);
+        font-family: 'Cherry Bomb One', sans-serif;
+        font-weight: 400;
+        height: 100dvh;
+        height: 100vh;
+        overflow: hidden;
+        overscroll-behavior: none;
+        position: fixed;
+        width: 100%;
+        -webkit-overflow-scrolling: none;
+      }
+
+      body {
+        align-items: center;
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+        justify-content: center;
+        max-width: 60rem;
+        padding: env(safe-area-inset-top, 1rem) 1rem 2rem 1rem;
+      }
+
+      button {
+        align-items: center;
+        background-color: var(--fg);
+        border-radius: 50%;
+        border: none;
+        color: inherit;
+        cursor: pointer;
+        display: flex;
+        font-size: 1.5rem;
+        font: inherit;
+        height: 3.3rem;
+        justify-content: center;
+        line-height: 1;
+        padding-bottom: 0.5rem;
+        transition: all 0.15s var(--easing);
+        width: 3.3rem;
+      }
+
+      button:hover,
+      button:focus {
+        transform: scale(1.1) rotate(-3deg);
+      }
+
+      button:active {
+        transform: scale(0.95) rotate(3deg);
+      }
+
+      .eye-closed {
+        display: none;
+      }
+
+      .wing-l,
+      .wing-r,
+      .foot-l,
+      .foot-r {
+        transition: transform 0.4s var(--anticipation);
+      }
+
+      .wing-l {
+        transform-origin: 70% 50%;
+      }
+
+      .wing-r {
+        transform-origin: 30% 50%;
+      }
+
+      .foot-l {
+        transform-origin: 55% 70%;
+      }
+
+      .foot-r {
+        transform-origin: 40% 80%;
+      }
+
+      #dial {
+        cursor: grab;
+      }
+
+      .dragging #dial-container {
+        cursor: grabbing;
+      }
+
+      .dragging .eye {
+        display: none;
+      }
+
+      .dragging .eye-closed {
+        display: block;
+      }
+
+      .dragging .wing-l {
+        transform: rotate(-25deg);
+      }
+
+      .dragging .wing-r {
+        transform: rotate(25deg);
+      }
+
+      .dragging .foot-l {
+        transform: rotate(15deg);
+      }
+
+      .dragging .foot-r {
+        transform: rotate(-15deg);
+      }
+
+      .symbols {
+        opacity: 0;
+        transition: all 0.1s ease-out;
+      }
+
+      .symbols text {
+        fill: #440204;
+      }
+
+      .show-symbols .symbols {
+        opacity: 1;
+      }
+
+      .show-symbols .active {
+        fill: #f0182d;
+      }
+
+      .show-symbols .active text {
+        fill: #fff;
+      }
+
+      #history {
+        opacity: 0.7;
+        text-align: center;
+      }
+
+      #display {
+        font-size: 3.4rem;
+        font-variant-numeric: tabular-nums;
+        line-height: 1;
+      }
+
+      .dragend #display {
+        animation: confirm 0.15s var(--anticipation) forwards;
+      }
+
+      .controls {
+        bottom: 0;
+        display: flex;
+        font-size: 2rem;
+        justify-content: space-between;
+        padding: 1rem;
+        position: absolute;
+        width: 100%;
+      }
+
+      .shadow {
+        width: 5rem;
+        height: 1rem;
+        border-radius: 4rem;
+        background: rgba(0, 0, 0, 0.2);
+        margin-top: -3rem;
+        margin-bottom: -1rem;
+        z-index: -1;
+      }
+
+      .dragging .shadow {
+        transform: scale(1.2, 1);
+      }
+
+      .feather-1 {
+        bottom: 30%;
+        left: 35%;
+        opacity: 0;
+        position: absolute;
+        transform: scale(0.5);
+        width: 5rem;
+        z-index: -1;
+      }
+
+      .dragend .feather-1 {
+        animation: feather 0.8s var(--easing) forwards;
+      }
+
+      @keyframes confirm {
+        30% {
+          transform: scale(1.3);
+        }
+        100% {
+          transform: scale(1);
+        }
+      }
+
+      @keyframes feather {
+        30% {
+          opacity: 1;
+          transform: scale(1) rotate(20deg) translate3d(-5rem, -3rem, 0);
+        }
+        90% {
+          opacity: 1;
+          transform: scale(1) rotate(0deg) translate3d(-6rem, 4rem, 0);
+        }
+        100% {
+          opacity: 0;
+          transform: scale(0.5) translate3d(-5rem, 2rem, 0);
+        }
+      }
+
+      .feather-2 {
+        bottom: 30%;
+        right: 35%;
+        opacity: 0;
+        position: absolute;
+        transform: scale(0.5);
+        width: 5rem;
+        z-index: -1;
+      }
+
+      .dragend .feather-2 {
+        animation: feather2 0.8s var(--easing) forwards;
+      }
+
+      @keyframes feather2 {
+        30% {
+          opacity: 1;
+          transform: scale(-1, 1) rotate(20deg) translate3d(-5rem, -3rem, 0);
+        }
+        90% {
+          opacity: 1;
+          transform: scale(-1, 1) rotate(0deg) translate3d(-6rem, 4rem, 0);
+        }
+        100% {
+          opacity: 0;
+          transform: scale(-0.5, 1) translate3d(-5rem, 2rem, 0);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div id="history"></div>
+    <div id="display">Spin me</div>
+
+    <svg class="feather-1" fill="none" viewBox="0 0 84 30">
+      <path fill="#fff" d="m.8 1 82.3 2.5c1.5 0 .8 2.4.5 3.4-.4 1-11.8 53.4-83.2-3C-.2 3.6-.2 1 .8 1Z" />
+    </svg>
+    <svg class="feather-2" fill="none" viewBox="0 0 84 30">
+      <path fill="#fff" d="m.8 1 82.3 2.5c1.5 0 .8 2.4.5 3.4-.4 1-11.8 53.4-83.2-3C-.2 3.6-.2 1 .8 1Z" />
+    </svg>
+
+    <svg id="dial-container" viewBox="0 0 400 400" width="400" height="400">
+      <g class="symbols" fill="#fff"></g>
+
+      <g id="dial" transform-origin="200 200">
+        <path
+          fill="#F7F7F7"
+          stroke="#440204"
+          stroke-width="4"
+          d="M200 335c43.2 0 77-15 100-39.6 23-24.5 35-58.2 35-95.4 0-30-14-58.3-36.8-83.5C275.5 91.5 245 65 200 65c-35 0-64.7 19.4-89.7 39A125.1 125.1 0 0 0 65 200c0 37.2 12 71 35 95.4C123 320 156.8 335 200 335Z" />
+        <path
+          fill="#CBC0D0"
+          d="M179 270c-6.5 0-12-24.5-8.5-26 1 11 6 20.5 6.5 20.5 13.5 0 13.5-10 16.5 1.5 2.7 10.4 12.3-2 16-10-.2.5 1.5 7.5 7 7 11.2-1 9.7-16.2 11.5-24 .3 1.2 3.8 4.7 1 21.5s-15 9-19.5 1.5c-1 2-7.5 15-12 15s-6.5-12.5-8.5-12.5-3.5 5.5-10 5.5Z" />
+        <path
+          fill="#CBC0D0"
+          d="M96.4 288.6c52.2 36.7 155.6 47.9 208.2-2a128.3 128.3 0 0 1-102.8 46.6c-68.7 0-92-30.6-105.4-44.6Z" />
+        <path
+          stroke="#440204"
+          fill="none"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="3"
+          d="M171 244.8c-1 24.1 14.2 23.7 18.7 12 2 8.1 8.5 25.1 19.6 0 7 9.9 17.2 11.4 18.7-16.8" />
+        <g class="wing-l">
+          <path
+            fill="#F7F7F7"
+            d="M333.7 203.5c-6.6-3.7-39.2-6.3-44.5-6-5.4.3-3.2 34.3 6 50.9 9.1 16.6 30.6 17.4 38.5-6.7 7.7-23.2 6.7-34.6 0-38.2Z" />
+          <path
+            fill="#CBC0D0"
+            d="M312.4 261.7c-8.9 21-43.1-13-25.4-65 6.3-16.7 2 6.2 6 33.8 4 27.6 32.6 33.2 32.6 11 16.8.3-3.6 15-13.2 20.2Z" />
+          <path
+            fill="#440204"
+            d="M316 257.7c-26.3 0-28.5-41.3-26.4-53.2 2.1-11.9-.3-16-3-5.3-7.4 29 2.4 50.8 12.7 58.5 10.4 7.7 31.8 8 39.5-23.8 7.8-31.7-.6-30.4-4.6-32-4-1.7-20.4-4.6-14.1-.4 5.3 3.7 16 1.7 17.4 7.6.3 1.3-4.7 3-14.8 6 9.1 2.3 14.5 0 14.5 0 1.3 6-6 12.9-13.5 13.8 2.7 2.2 8.9.6 11.8-.6 0 0 .6.6-1 4.6-3.7 9-5.7 6.6-8.7 9 2.6 2.2 5.7 1 5.7 1-1.4 3.6-7.4 14.8-15.5 14.8Z" />
+        </g>
+        <g class="wing-r">
+          <path
+            fill="#F7F7F7"
+            d="M65.8 198.7c6.5-3.6 38.5-6 43.8-5.8 5.2.2 3.1 33.3-6 49.5-9 16.1-30 16.9-37.8-6.5-7.5-22.7-6.5-33.7 0-37.2Z" />
+          <path
+            fill="#CBC0D0"
+            d="M86.8 256c8.5 20 41.4-12.5 24.4-62.6-6-16-2 6-5.7 32.6-3.8 26.5-31.3 31.9-31.3 10.5-16.2.3 3.4 14.4 12.6 19.5Z" />
+
+          <path
+            fill="#440204"
+            d="M83.6 251.8c25 0 27.1-40.7 25-52.5-2-11.7.4-15.8 3-5.2 7 28.7-2.3 50-12.1 57.7-9.8 7.6-30.2 7.8-37.5-23.5-7.3-31.2.6-30 4.4-31.6 3.9-1.6 19.4-4.5 13.4-.3-5 3.6-15.3 1.6-16.5 7.5-.3 1.3 4.4 3 14 5.9-8.6 2.2-13.7 0-13.7 0-1.3 5.8 5.7 12.7 12.7 13.6-2.5 2.1-8.4.6-11.1-.6 0 0-.6.6 1 4.5 3.4 8.8 5.3 6.5 8.2 8.8-2.5 2.3-5.4 1-5.4 1 1.3 3.6 7 14.7 14.6 14.7Z" />
+        </g>
+        <ellipse cx="144" cy="178" fill="#FFA6A6" rx="22" ry="14" />
+        <ellipse cx="21.9" cy="14.3" fill="#FFA6A6" rx="21.9" ry="14.3" transform="matrix(-1 0 0 1 277.6 163.6)" />
+        <g class="eye-closed">
+          <path
+            fill="#440204"
+            d="M228 159c1.6 10.4.7-6.6 15.6-9 15-2.3 18.2 10.6 17 3.1-.6-4-9-10.8-18.1-9.4-9 1.5-15.3 10.2-14.5 15.2Z" />
+          <path
+            fill="#440204"
+            d="M174.8 153.6c1.6 10.5-2.6-6-17.1-3.8-14.5 2.3-13.6 15.6-14.8 8.1-.7-4 5-13 13.9-14.4 8.8-1.4 17.2 5.1 18 10.1Z" />
+        </g>
+        <g class="eye">
+          <path
+            fill="#440204"
+            d="M228 151c1.7 10.5 9.4 17.2 17 16 7.6-1.2 12.4-9.8 10.7-20.3-1.6-10.5-9.1-18-16.8-16.8-7.6 1.2-12.5 10.6-10.8 21.1Z" />
+
+          <path
+            fill="#440204"
+            d="M171.8 150.6c-1.7 10.7-8.7 17.6-16.3 16.4-7.6-1.2-13-10-11.4-20.7 1.7-10.6 9.3-18.3 16.9-17.1 7.6 1.2 12.5 10.8 10.8 21.4Z" />
+          <ellipse cx="161" cy="142" fill="#fff" rx="6" ry="6.7" transform="rotate(20 163.2 142)" />
+          <ellipse
+            cx="3.3"
+            cy="3"
+            fill="#fff"
+            fill-opacity=".3"
+            rx="3.3"
+            ry="3"
+            transform="matrix(-1 0 0 1 158 158.3)" />
+
+          <ellipse cx="6" cy="6.7" fill="#fff" rx="6" ry="6.7" transform="matrix(-1 0 0 1 242 136.4)" />
+          <ellipse
+            cx="3.3"
+            cy="3"
+            fill="#fff"
+            fill-opacity=".3"
+            rx="3.3"
+            ry="3"
+            transform="matrix(-1 0 0 1 248.3 155.6)" />
+        </g>
+        <path
+          fill="#F0182D"
+          stroke="#440204"
+          stroke-linejoin="round"
+          stroke-width="4"
+          d="M173.7 84.7c1 .6 2 .3 2.7-.5 12.2-16.6 23.4-20.6 33-20.3a49 49 0 0 1 17.4 3.9c3 1 5.8 2 8.4 2.4a2 2 0 0 0 2.3-1.7c.6-5.6-.3-9.5-2.5-12.1a11.5 11.5 0 0 0-8-3.8c-2.2-.2-4.3 0-5.8.2v-.4a41 41 0 0 0-5.5-15 30.5 30.5 0 0 0-8.9-9c-3.6-2.2-8-3-12.6-1.4-9 3.2-12.7 11-14.2 17.7-1 4.3-1 8.5-1 11.2-4.3-1.2-8-1-10.7.3a9.9 9.9 0 0 0-5.3 8.4 23.2 23.2 0 0 0 10.7 20Z" />
+        <path
+          fill="#FF5959"
+          d="M171 64.5c-6.8 10.7 1.9 13.1 3.5 18.5-6-3.7-13.9-14.8-9-21.7 4-5.6 9.3-5.7 15.3-3 0-8.8 0-28.2 16.3-30.2 16.2-2 24.9 18.8 21.5 26.8-.2.7 6.3-2.3 12.6 0 5.8 2.1 5 13.4 4.4 13.4-2 0-.7-5.4-4.7-9-2.2-2-1.9-.4-13.8-1 3-5.7-2.3-15.2-17-16-14.5-.6-17 7.1-19 16.3-5.3.6-7.8 2.2-10.1 5.9Z" />
+        <path
+          fill="#FDA110"
+          stroke="#440204"
+          stroke-width="4"
+          d="M216.6 159c-8-8.4-15.7-10.3-22.5-7.9a27.1 27.1 0 0 0-14.3 14.3c-.5 1-.7 2.2-.5 3.4.3 1 .8 2 1.6 2.8 1.4 1.6 3.6 2.8 6 3.8a51.6 51.6 0 0 0 26.4 2.3c2.6-.6 5-1.7 6.6-3.3a7.1 7.1 0 0 0 1.9-7c-.6-2.5-2.4-5.3-5.2-8.4Z" />
+        <path
+          fill="#FFD088"
+          d="M198.8 151.7c11.4-1.4 17.8 9.6 19.1 12-4.3-3.7-6-2-12.8-1.1-1.6-.4-3-6.5-4.7-6.4a32 32 0 0 0-17.3 7.1c2-3.7 4.5-10.3 15.7-11.6Z" />
+        <path
+          fill="#D57208"
+          d="M219.6 167.3c-12.4 10.1-27.1 7-37.9-1.7-3 4.7 5.6 10.8 16.8 12 11.4 1 24.1-3 21.1-10.3Z" />
+        <g class="foot-r">
+          <path
+            fill="#D57208"
+            stroke="#440204"
+            stroke-width="4"
+            d="M144 334.8c11.7 0 12-25.3 11.4-34.7-.6-9.5-9.5-34.7-21-32.2-9 2-8.2 8-9.8 11-1.5-1.2-3.1-5-12.7 1.3-9.5 6.3 3.2 19.6 15 29.6 6.8 6 5.4 25 17.1 25Z" />
+          <path
+            fill="#FDA110"
+            d="M129 283.4c5.8-9.5 15.3-2.9 20.7 12 5.4 14.8-1.9 34-3.5 37.1 1.6-1.2 16-11.8 3.5-47.9-7.5-21.6-21.4-15.9-22.2-7.2l-1 .2c-2 .3-7.7.6-12 3-5.4 3-4 6.6-3.8 7.2 10.5-7.3 17.8-5.4 18.4-4.4Z" />
+          <path
+            fill="#FFD088"
+            d="M127.2 277c5-3 8.5-5.6 18-1.5-1.1-1.9-5.3-6.7-10-6-6.8 1-7 7.4-12.5 8.2-5.4.8-10.4 2.8-12.3 7.2 3.8-2.5 8.5-5 12.7-4.7 3 .3-1 0 4-3.1Z" />
+          <path
+            fill="#440204"
+            d="M137.8 298c-3.2-6.5-7.8-12.4-10-21.8-1.1-4.7-5.2-1.5-4.3 1.3 3.4 10.6 16.5 25.3 14.3 20.6Z" />
+        </g>
+        <g class="foot-l">
+          <path
+            fill="#D57208"
+            stroke="#440204"
+            stroke-width="4"
+            d="M255.6 333.6c-11.7 0-12-25.1-11.4-34.6.7-9.4 9.5-34.5 20.8-32 9 2 8.2 7.8 9.7 11 1.6-1.3 3.2-5 12.6 1.2 9.4 6.3-3.1 19.5-14.8 29.6-6.7 5.8-5.3 24.8-17 24.8Z" />
+          <path
+            fill="#FDA110"
+            d="M270.3 282.4c-5.6-9.4-15-2.8-20.4 12-5.3 14.7 1.9 33.9 3.5 37-1.6-1.2-16-11.8-3.5-47.8 7.4-21.5 19.6-15.6 22.6-7.6l1 .3c2.2.4 7.2 1 11.3 3.3 5.3 3 3.7 6.4 3.7 6.9-10.4-7.2-17.5-5-18.2-4.1Z" />
+          <path
+            fill="#FFD088"
+            d="M272.2 276.1c-4.9-3-8.5-5.7-17.9-1.6 1.2-1.9 5.3-6.6 10-6 6.7 1 7 7.5 12.3 8.2 5.4.8 11.4 3.3 11.9 7.3-3.8-2.5-8.1-5-12.2-4.8-3 .3 1 0-4-3.1Z" />
+          <path fill="#440204" d="M261.8 298.7c3.2-6.6 9-14.3 11.2-23.7 1.5 0 2 1 4 1.5-3.5 10.7-17.4 27-15.2 22.2Z" />
+        </g>
+      </g>
+    </svg>
+
+    <div class="shadow"></div>
+
+    <div class="controls">
+      <button id="ac">AC</button>
+      <button id="back"><</button>
+    </div>
+
+    <script>
+      const el = {
+        ac: document.getElementById('ac'),
+        back: document.getElementById('back'),
+        dial: document.getElementById('dial'),
+        dialContainer: document.getElementById('dial-container'),
+        display: document.getElementById('display'),
+        history: document.getElementById('history'),
+        symbolsGroup: document.querySelector('.symbols')
+      };
+
+      const config = {
+        symbolPositions: [
+          { angle: 45, symbol: '+', label: '+' },
+          { angle: 135, symbol: '-', label: '-' },
+          { angle: 225, symbol: '*', label: 'x' },
+          { angle: 315, symbol: '/', label: '÷' }
+        ],
+        numbersPerRotation: 100,
+        returnTime: 600,
+        soundEffect: 'https://pub-f4adc2b52417432b8b0d1eceb5c7d1f4.r2.dev/effect-cluck.mp3'
+      };
+
+      const calculator = {
+        state: [],
+        expressions: [],
+        cumulativeRotation: 0,
+        currentAngle: 0,
+        currentNumber: 0,
+        isDragging: false,
+        isSymbolMode: false,
+        lastAngle: 0,
+        runningTotal: 0,
+        startAngle: 0,
+        stateIndex: 0,
+        soundEffect: null
+      };
+
+      const createSymbols = () => {
+        config.symbolPositions.forEach(({ angle, symbol, label }) => {
+          const g = document.createElementNS('http://www.w3.org/2000/svg', 'g');
+          g.setAttribute('class', 'symbol');
+          g.setAttribute('transform', `translate(200 200) rotate(${angle}) translate(0 -180) rotate(180)`);
+
+          const egg = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+          egg.setAttribute('d', 'M58 39.3C58 53 46 64 31 64S4 53 4 39.3C4 22.2 16 0 31 0s27 22 27 39.3Z');
+          egg.setAttribute('transform', 'translate(-31, -32)');
+
+          const text = document.createElementNS('http://www.w3.org/2000/svg', 'text');
+          text.setAttribute('x', '0');
+          text.setAttribute('y', '0');
+          text.setAttribute('text-anchor', 'middle');
+          text.setAttribute('dominant-baseline', 'middle');
+          text.setAttribute('font-size', '36');
+          text.setAttribute('transform', 'rotate(45)');
+          text.textContent = label;
+
+          g.appendChild(egg);
+          g.appendChild(text);
+          el.symbolsGroup.appendChild(g);
+        });
+      };
+
+      const preloadSoundEffect = () => {
+        calculator.soundEffect = new Audio(config.soundEffect);
+        calculator.soundEffect.preload = 'auto';
+        calculator.soundEffect.volume = 0.7;
+        calculator.soundEffect.load();
+      };
+
+      const playSound = () => {
+        calculator.soundEffect.currentTime = 0;
+        calculator.soundEffect.play().catch((error) => {
+          console.warn('Sound playback error:', error);
+        });
+      };
+
+      // Helper functions
+      const formatNumber = (num) => {
+        const str = num.toString();
+        return str.includes('.') && str.split('.')[1].length > 5 ? Number(num.toFixed(5)) : num;
+      };
+
+      const getAngle = (center, point) => {
+        const dx = point.clientX - center.x;
+        const dy = point.clientY - center.y;
+        const angle = Math.atan2(dy, dx) * (180 / Math.PI);
+        return (angle + 90 + 360) % 360;
+      };
+
+      const getNearestSymbol = (angle) => {
+        return config.symbolPositions.reduce((nearest, current) => {
+          // Calculate angular distance, handling the 0/360 boundary
+          let currentDiff = Math.abs(current.angle - angle);
+          if (currentDiff > 180) currentDiff = 360 - currentDiff;
+
+          let nearestDiff = Math.abs(nearest.angle - angle);
+          if (nearestDiff > 180) nearestDiff = 360 - nearestDiff;
+
+          return currentDiff < nearestDiff ? current : nearest;
+        });
+      };
+
+      const calculateExpression = (state) => {
+        if (state.length === 0) {
+          return 0;
+        }
+
+        const workingState = [...state];
+
+        // First pass: handle multiplication and division
+        for (let i = 0; i < workingState.length; i++) {
+          if (workingState[i] === '*' || workingState[i] === '/') {
+            const left = parseFloat(workingState[i - 1]);
+            const right = parseFloat(workingState[i + 1]);
+
+            if (workingState[i] === '/' && right === 0) {
+              throw new Error('Division by zero');
+            }
+
+            const result = formatNumber(workingState[i] === '*' ? left * right : left / right);
+            workingState.splice(i - 1, 3, result);
+            i -= 2;
+          }
+        }
+
+        // Second pass: handle addition and subtraction
+        for (let i = 0; i < workingState.length; i++) {
+          if (workingState[i] === '+' || workingState[i] === '-') {
+            const left = parseFloat(workingState[i - 1]);
+            const right = parseFloat(workingState[i + 1]);
+            const result = formatNumber(workingState[i] === '+' ? left + right : left - right);
+            workingState.splice(i - 1, 3, result);
+            i -= 2;
+          }
+        }
+
+        return workingState[0];
+      };
+
+      const updateSymbolHighlight = (angle) => {
+        angle = (angle + 360) % 360;
+        const nearest = getNearestSymbol(angle);
+
+        document.querySelectorAll('.symbol').forEach((el, i) => {
+          el.classList.toggle('active', config.symbolPositions[i].symbol === nearest.symbol);
+        });
+
+        return nearest.symbol;
+      };
+
+      const toggleSymbolMode = () => {
+        if (calculator.isSymbolMode) {
+          el.dialContainer.classList.add('show-symbols');
+        } else {
+          el.dialContainer.classList.remove('show-symbols');
+          el.symbolsGroup.childNodes.forEach((el) => {
+            el.classList.remove('active');
+          });
+        }
+      };
+
+      // Event handlers
+      const handleStart = (e) => {
+        e.preventDefault();
+        const svg = el.dial.closest('svg');
+        const rect = svg.getBoundingClientRect();
+        const point = e.touches ? e.touches[0] : e;
+        const center = {
+          x: rect.left + rect.width / 2,
+          y: rect.top + rect.height / 2
+        };
+
+        calculator.startAngle = getAngle(center, point) - calculator.currentAngle;
+        calculator.isDragging = true;
+        calculator.stateIndex = calculator.state.length;
+        calculator.isSymbolMode =
+          calculator.state.length > 0 && typeof calculator.state[calculator.state.length - 1] === 'number';
+
+        document.documentElement.classList.add('dragging');
+      };
+
+      const handleMove = (e) => {
+        if (!calculator.isDragging) {
+          return;
+        }
+        e.preventDefault();
+
+        const svg = el.dial.closest('svg');
+        const rect = svg.getBoundingClientRect();
+        const point = e.touches ? e.touches[0] : e;
+        const center = {
+          x: rect.left + rect.width / 2,
+          y: rect.top + rect.height / 2
+        };
+
+        let angle = getAngle(center, point) - calculator.startAngle;
+
+        // Handle angle wrapping
+        if (Math.abs(angle - calculator.lastAngle) > 180) {
+          calculator.cumulativeRotation += angle < calculator.lastAngle ? 360 : -360;
+        }
+
+        calculator.currentAngle = angle;
+        calculator.lastAngle = angle;
+
+        if (calculator.isSymbolMode) {
+          updateSymbolHighlight(angle);
+        } else {
+          // Update number selection
+          const totalRotation = calculator.cumulativeRotation + angle;
+          calculator.currentNumber = Math.floor((totalRotation / 360) * config.numbersPerRotation);
+
+          calculator.state[calculator.stateIndex] = calculator.currentNumber;
+          el.display.textContent = calculator.state.join(' ');
+        }
+
+        el.dial.style.transform = `rotate(${calculator.cumulativeRotation + angle}deg)`;
+      };
+
+      const handleEnd = (e) => {
+        if (!calculator.isDragging) {
+          return;
+        }
+
+        calculator.isDragging = false;
+        document.documentElement.classList.remove('dragging');
+        el.dial.style.transition = `transform ${config.returnTime}ms cubic-bezier(0.4, 0.0, 0.2, 1)`;
+        el.dial.style.transform = 'rotate(0deg)';
+
+        playSound();
+
+        if (calculator.isSymbolMode) {
+          const finalSymbol = updateSymbolHighlight(calculator.currentAngle);
+          calculator.state.push(finalSymbol);
+          el.display.textContent = calculator.state.join(' ');
+        } else if (calculator.state.length >= 3) {
+          try {
+            const expression = [...calculator.state];
+            const result = calculateExpression(expression);
+            calculator.expressions.push(`${expression.join(' ')} = ${result}`);
+            calculator.runningTotal = result;
+
+            el.history.textContent = calculator.expressions.join(' → ');
+            calculator.state.length = 0;
+            calculator.state.push(result);
+            el.display.textContent = calculator.state.join(' ');
+            el.display.classList.remove('error');
+          } catch (err) {
+            el.display.textContent = err.message;
+            el.display.classList.add('error');
+          }
+        }
+
+        document.documentElement.classList.add('dragend');
+
+        setTimeout(() => {
+          el.dial.style.transition = 'none';
+          calculator.isSymbolMode = !calculator.isSymbolMode;
+          toggleSymbolMode();
+          calculator.cumulativeRotation = 0;
+          calculator.currentAngle = 0;
+          calculator.currentNumber = 0;
+          calculator.lastAngle = 0;
+        }, config.returnTime);
+
+        setTimeout(() => {
+          document.documentElement.classList.remove('dragend');
+        }, 800);
+      };
+
+      const clear = () => {
+        calculator.state.length = 0;
+        calculator.runningTotal = 0;
+        calculator.expressions = [];
+        calculator.isSymbolMode = false;
+        toggleSymbolMode();
+        el.display.textContent = 'Spin me';
+        el.history.textContent = '';
+      };
+
+      const back = () => {
+        if (!calculator.isSymbolMode) {
+          calculator.expressions.pop();
+        }
+        calculator.state.pop();
+        calculator.isSymbolMode = !calculator.isSymbolMode;
+        toggleSymbolMode();
+        el.display.textContent = calculator.state.length > 0 ? calculator.state.join(' ') : '0';
+        el.history.textContent = calculator.expressions.join(' → ');
+      };
+
+      const init = () => {
+        createSymbols();
+        preloadSoundEffect();
+
+        el.ac.addEventListener('click', clear);
+        el.back.addEventListener('click', back);
+        el.dial.addEventListener('mousedown', handleStart);
+        el.dial.addEventListener('touchstart', handleStart);
+        document.addEventListener('mousemove', handleMove);
+        document.addEventListener('touchmove', handleMove);
+        document.addEventListener('mouseup', handleEnd);
+        document.addEventListener('touchend', handleEnd);
+      };
+
+      init();
+    </script>
+  </body>
+</html>

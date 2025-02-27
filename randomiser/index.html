@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>Touch Randomiser</title>
+    <style>
+      * {
+        box-sizing: border-box;
+        margin: 0;
+      }
+
+      body {
+        -webkit-user-select: none;
+        background-color: #151b5b;
+        height: 100vh;
+        overflow: hidden;
+        padding: 0;
+        position: relative;
+        touch-action: none;
+        user-select: none;
+        width: 100vw;
+      }
+
+      #touch-area {
+        height: 100%;
+        position: relative;
+        width: 100%;
+      }
+
+      .touch-point {
+        border-radius: 50%;
+        border: 4px solid rgba(255, 255, 255, 0.3);
+        height: 7.5rem;
+        pointer-events: none;
+        position: absolute;
+        transform: translate(-50%, -50%) scale(1);
+        transition: transform 0.15s ease-out;
+        width: 7.5rem;
+      }
+
+      .touch-point.active {
+        border-color: white;
+        box-shadow: 0 0 30px currentColor;
+        transform: translate(-50%, -50%) scale(1.4);
+      }
+
+      .touch-point.winner {
+        border-color: white;
+        box-shadow: 0 0 30px currentColor, 0 0 60px currentColor, 0 0 90px currentColor;
+        transform: translate(-50%, -50%) scale(1.6);
+      }
+    </style>
+  </head>
+  <body>
+    <div id="touch-area"></div>
+
+    <script>
+      const touchArea = document.getElementById('touch-area');
+      const touchPoints = new Map();
+      let stillnessTimer = null;
+      let cycleInterval = null;
+
+      // @todo improve colours
+      const colors = [
+        'hsl(0, 100%, 60%)', // Red
+        'hsl(220, 100%, 60%)', // Blue
+        'hsl(280, 100%, 60%)', // Purple
+        'hsl(160, 100%, 50%)', // Green
+        'hsl(40, 100%, 50%)' // Orange
+      ];
+      const usedColors = new Set();
+
+      function getNextColor() {
+        const availableColors = colors.filter((c) => !usedColors.has(c));
+        if (availableColors.length === 0) {
+          usedColors.clear();
+          return colors[0];
+        }
+        const color = availableColors[0];
+        usedColors.add(color);
+        return color;
+      }
+
+      function releaseColor(color) {
+        usedColors.delete(color);
+      }
+
+      function createTouchPoint(x, y) {
+        const point = document.createElement('div');
+        point.className = 'touch-point';
+        point.style.left = x + 'px';
+        point.style.top = y + 'px';
+        const color = getNextColor();
+        point.style.backgroundColor = color;
+        point.style.color = color;
+        touchArea.appendChild(point);
+        return { element: point, lastX: x, lastY: y, moved: false, color };
+      }
+
+      function updateTouchPoint(touch) {
+        const point = touchPoints.get(touch.identifier);
+        if (point) {
+          const dx = touch.pageX - point.lastX;
+          const dy = touch.pageY - point.lastY;
+          if (Math.hypot(dx, dy) > 5) {
+            point.moved = true;
+            resetStillnessTimer();
+          }
+          point.element.style.left = touch.pageX + 'px';
+          point.element.style.top = touch.pageY + 'px';
+          point.lastX = touch.pageX;
+          point.lastY = touch.pageY;
+        }
+      }
+
+      function resetStillnessTimer() {
+        if (stillnessTimer) clearTimeout(stillnessTimer);
+        if (cycleInterval) clearTimeout(cycleInterval);
+
+        isSelecting = false;
+        document.querySelectorAll('.touch-point').forEach((point) => {
+          point.classList.remove('active', 'winner');
+        });
+
+        touchPoints.forEach((point) => (point.moved = false));
+
+        if (touchPoints.size > 1) {
+          stillnessTimer = setTimeout(checkStillness, 1000);
+        }
+      }
+
+      function checkStillness() {
+        if (Array.from(touchPoints.values()).every((point) => !point.moved)) {
+          startCycling();
+        }
+      }
+
+      function startCycling() {
+        const points = Array.from(document.querySelectorAll('.touch-point'));
+        if (points.length < 2) return;
+
+        isSelecting = true;
+        let cycleCount = 0;
+        let interval = 100;
+
+        function cycle() {
+          // If selection was cancelled, stop cycling
+          if (!isSelecting) {
+            points.forEach((p) => p.classList.remove('active', 'winner'));
+            return;
+          }
+
+          points.forEach((p) => p.classList.remove('active', 'winner'));
+          points[Math.floor(Math.random() * points.length)].classList.add('active');
+
+          cycleCount++;
+          if (cycleCount > 8) {
+            interval *= 1.4;
+          }
+
+          if (cycleCount >= 12) {
+            setTimeout(() => {
+              if (isSelecting) {
+                // Only show winner if still selecting
+                points.forEach((p) => p.classList.remove('active'));
+                points[Math.floor(Math.random() * points.length)].classList.add('winner');
+              }
+            }, 300);
+            isSelecting = false;
+            return;
+          }
+
+          cycleInterval = setTimeout(cycle, interval);
+        }
+
+        cycle();
+      }
+
+      let isSelecting = false;
+
+      function handleTouch(e) {
+        e.preventDefault();
+
+        const wasSelecting = isSelecting;
+        const previousCount = touchPoints.size;
+
+        // Handle removing touches
+        Array.from(e.changedTouches).forEach((touch) => {
+          const point = touchPoints.get(touch.identifier);
+          if (point && (e.type === 'touchend' || e.type === 'touchcancel')) {
+            releaseColor(point.color);
+            point.element.remove();
+            touchPoints.delete(touch.identifier);
+          }
+        });
+
+        // Handle adding/updating touches
+        Array.from(e.touches).forEach((touch) => {
+          if (!touchPoints.has(touch.identifier) && touchPoints.size < 5) {
+            touchPoints.set(touch.identifier, createTouchPoint(touch.pageX, touch.pageY));
+          } else if (touchPoints.has(touch.identifier)) {
+            updateTouchPoint(touch);
+          }
+        });
+
+        // If touch count changed during selection, reset everything
+        if (wasSelecting && touchPoints.size !== previousCount) {
+          isSelecting = false;
+          resetStillnessTimer();
+        }
+
+        if (touchPoints.size <= 1) {
+          resetStillnessTimer();
+        }
+      }
+
+      touchArea.addEventListener('touchstart', handleTouch, { passive: false });
+      touchArea.addEventListener('touchmove', handleTouch, { passive: false });
+      touchArea.addEventListener('touchend', handleTouch, { passive: false });
+      touchArea.addEventListener('touchcancel', handleTouch, { passive: false });
+    </script>
+  </body>
+</html>

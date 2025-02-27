@@ -1,0 +1,21 @@
+{
+  "name": "Cluckulator",
+  "short_name": "Cluckulator",
+  "description": "Calculate with a squawk",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffcc81",
+  "theme_color": "#ffcc81",
+  "icons": [
+    {
+      "src": "icon-egg-512.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "icon-egg-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
