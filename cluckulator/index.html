@@ -2,24 +2,28 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width; initial-scale=1; viewport-fit=cover" />
+    <meta name="viewport" content="width=device-width; initial-scale=1; user-scalable=no; viewport-fit=cover" />
 
-    <title>Cluckulator</title>
+    <title>Cluckulator!</title>
     <meta name="description" content="Calculate with a squawk" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Cherry+Bomb+One&display=swap" rel="stylesheet" />
-    <link rel="manifest" href="https://seanockert.com/cluckulator/manifest.json" />
+    <link rel="manifest" href="manifest.json" />
     <link rel="apple-touch-icon" href="icon-egg-512.png" />
     <link rel="shortcut icon" href="icon-egg.png" />
 
     <meta name="mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta property="og:title" content="Cluckulator!" />
+    <meta property="og:image" content="https://seanockert.com/cluckulator/cover.png" />
+    <meta name="twitter:card" content="https://seanockert.com/cluckulator/cover.png" />
 
     <style>
       :root {
         --bg: #ffcc81;
+        --bg-light: #f6f9c4;
         --fg: #fff;
         --color-text: #440204;
         --easing: cubic-bezier(0.4, 0, 0.2, 1);
@@ -58,27 +62,26 @@
 
       html,
       body {
-        background: linear-gradient(-45deg in oklab, var(--bg), #f6f9c4);
+        background: var(--bg-light);
         color: var(--color-text);
         font-family: 'Cherry Bomb One', sans-serif;
         font-weight: 400;
         height: 100dvh;
-        height: 100vh;
+        max-height: 100dvh;
         overflow: hidden;
         overscroll-behavior: none;
-        position: fixed;
         width: 100%;
         -webkit-overflow-scrolling: none;
       }
 
       body {
         align-items: center;
+        background: linear-gradient(180deg in oklab, var(--bg-light) 30%, var(--bg) 60%, var(--bg-light) 100%);
         display: flex;
         flex-direction: column;
         gap: 0.5rem;
         justify-content: center;
-        max-width: 60rem;
-        padding: 1rem 1rem 2rem 1rem;
+        padding: env(safe-area-inset-top) 0.75rem 0 0.75rem;
       }
 
       button {
@@ -91,12 +94,13 @@
         display: flex;
         font-size: 1.5rem;
         font: inherit;
-        height: 3.3rem;
+        height: 3.6rem;
         justify-content: center;
         line-height: 1;
         padding-bottom: 0.5rem;
         transition: all 0.15s var(--easing);
-        width: 3.3rem;
+        width: 3.6rem;
+        -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
       }
 
       button:hover,
@@ -133,6 +137,10 @@
 
       .foot-r {
         transform-origin: 40% 80%;
+      }
+
+      #dial-container {
+        z-index: 1;
       }
 
       #dial {
@@ -173,6 +181,7 @@
       }
 
       .symbols text {
+        user-select: none;
         fill: #440204;
       }
 
@@ -194,9 +203,17 @@
       }
 
       #display {
+        display: flex;
+        flex-wrap: wrap;
         font-size: 3.4rem;
-        font-variant-numeric: tabular-nums;
+        justify-content: center;
         line-height: 1;
+        text-align: center;
+        z-index: 2;
+      }
+
+      #display > b {
+        width: 0.65em;
       }
 
       .dragend #display {
@@ -208,19 +225,21 @@
         display: flex;
         font-size: 2rem;
         justify-content: space-between;
-        padding: 1rem;
-        position: absolute;
+        margin: 0 auto;
+        max-width: 40rem;
+        padding-top: 2rem;
         width: 100%;
+        z-index: 2;
       }
 
       .shadow {
-        width: 5rem;
-        height: 1rem;
-        border-radius: 4rem;
         background: rgba(0, 0, 0, 0.2);
-        margin-top: -3rem;
+        border-radius: 50%;
+        height: 1rem;
         margin-bottom: -1rem;
-        z-index: -1;
+        margin-top: -3rem;
+        transition: transform 0.15s var(--easing);
+        width: 5rem;
       }
 
       .dragging .shadow {
@@ -229,16 +248,24 @@
 
       .feather-1 {
         bottom: 30%;
-        left: 35%;
-        opacity: 0;
+        left: 50%;
         position: absolute;
-        transform: scale(0.5);
+        transform-origin: top center;
+        transform: rotate(30deg) translate3d(-50%, -7rem, 0);
         width: 5rem;
-        z-index: -1;
       }
 
       .dragend .feather-1 {
-        animation: feather 0.8s var(--easing) forwards;
+        animation: feather 1s 0.2s ease-in;
+      }
+
+      @keyframes squeeze {
+        50% {
+          transform: scale(0.95, 1.05);
+        }
+        100% {
+          transform: scale(1);
+        }
       }
 
       @keyframes confirm {
@@ -252,45 +279,18 @@
 
       @keyframes feather {
         30% {
-          opacity: 1;
-          transform: scale(1) rotate(20deg) translate3d(-5rem, -3rem, 0);
+          transform: rotate(80deg) translate3d(calc(50% - 14rem), 6rem, 0);
+        }
+        70% {
+          transform: rotate(-10deg) translate3d(calc(50% - 12rem), -2rem, 0);
         }
         90% {
-          opacity: 1;
-          transform: scale(1) rotate(0deg) translate3d(-6rem, 4rem, 0);
+          opacity: 0.6;
+          transform: rotate(10deg) translate3d(calc(50% - 10rem), 3rem, 0);
         }
         100% {
           opacity: 0;
-          transform: scale(0.5) translate3d(-5rem, 2rem, 0);
-        }
-      }
-
-      .feather-2 {
-        bottom: 30%;
-        right: 35%;
-        opacity: 0;
-        position: absolute;
-        transform: scale(0.5);
-        width: 5rem;
-        z-index: -1;
-      }
-
-      .dragend .feather-2 {
-        animation: feather2 0.8s var(--easing) forwards;
-      }
-
-      @keyframes feather2 {
-        30% {
-          opacity: 1;
-          transform: scale(-1, 1) rotate(20deg) translate3d(-5rem, -3rem, 0);
-        }
-        90% {
-          opacity: 1;
-          transform: scale(-1, 1) rotate(0deg) translate3d(-6rem, 4rem, 0);
-        }
-        100% {
-          opacity: 0;
-          transform: scale(-0.5, 1) translate3d(-5rem, 2rem, 0);
+          transform: rotate(10deg) translate3d(calc(50% - 10rem), 3rem, 0);
         }
       }
     </style>
@@ -299,11 +299,8 @@
     <div id="history"></div>
     <div id="display">Spin me</div>
 
-    <svg class="feather-1" fill="none" viewBox="0 0 84 30">
-      <path fill="#fff" d="m.8 1 82.3 2.5c1.5 0 .8 2.4.5 3.4-.4 1-11.8 53.4-83.2-3C-.2 3.6-.2 1 .8 1Z" />
-    </svg>
-    <svg class="feather-2" fill="none" viewBox="0 0 84 30">
-      <path fill="#fff" d="m.8 1 82.3 2.5c1.5 0 .8 2.4.5 3.4-.4 1-11.8 53.4-83.2-3C-.2 3.6-.2 1 .8 1Z" />
+    <svg class="feather-1" fill="none" viewBox="0 0 84 115">
+      <path fill="#fff" d="M.8 86s53 10.5 82 2.5c2.2-.7.8 2.4.4 3.4-.3 1-11.7 53.4-82.8-3-.6-.4-.6-2.9.4-2.9Z" />
     </svg>
 
     <svg id="dial-container" viewBox="0 0 400 400" width="400" height="400">
@@ -446,7 +443,7 @@
 
     <div class="controls">
       <button id="ac">AC</button>
-      <button id="back"><</button>
+      <button id="back">&laquo;</button>
     </div>
 
     <script>
@@ -484,7 +481,9 @@
         runningTotal: 0,
         startAngle: 0,
         stateIndex: 0,
-        soundEffect: null
+        soundEffect: null,
+        soundEnabled: false,
+        soundPool: null
       };
 
       const createSymbols = () => {
@@ -509,20 +508,6 @@
           g.appendChild(egg);
           g.appendChild(text);
           el.symbolsGroup.appendChild(g);
-        });
-      };
-
-      const preloadSoundEffect = () => {
-        calculator.soundEffect = new Audio(config.soundEffect);
-        calculator.soundEffect.preload = 'auto';
-        calculator.soundEffect.volume = 0.7;
-        calculator.soundEffect.load();
-      };
-
-      const playSound = () => {
-        calculator.soundEffect.currentTime = 0;
-        calculator.soundEffect.play().catch((error) => {
-          console.warn('Sound playback error:', error);
         });
       };
 
@@ -611,6 +596,84 @@
         }
       };
 
+      const renderDisplay = () => {
+        el.display.innerHTML =
+          calculator.state.length > 0
+            ? calculator.state
+                .map((item) => {
+                  return String(item)
+                    .split('')
+                    .map((char) => `<b>${char}</b>`)
+                    .join('');
+                })
+                .join('&nbsp;')
+            : '0';
+      };
+
+      const initAudio = () => {
+        // Create AudioContext but don't initialize until user interaction
+        const AudioContext = window.AudioContext || window.webkitAudioContext;
+        calculator.audioContext = new AudioContext();
+
+        const loadSound = () => {
+          fetch(config.soundEffect)
+            .then((response) => response.arrayBuffer())
+            .then((arrayBuffer) => calculator.audioContext.decodeAudioData(arrayBuffer))
+            .then((audioBuffer) => {
+              calculator.audioBuffer = audioBuffer;
+              console.log('Sound loaded successfully');
+            })
+            .catch((error) => console.error('Error loading audio:', error));
+        };
+
+        // Single handler for all user interaction
+        const enableAudio = () => {
+          // Resume context and load sound if needed
+          calculator.audioContext.resume().then(() => {
+            if (!calculator.audioBuffer) {
+              loadSound();
+            }
+
+            // Play a silent sound (crucial for iOS)
+            const silentBuffer = calculator.audioContext.createBuffer(1, 1, 22050);
+            const source = calculator.audioContext.createBufferSource();
+            source.buffer = silentBuffer;
+            source.connect(calculator.audioContext.destination);
+            source.start(0);
+
+            // Remove listeners after successful activation
+            document.removeEventListener('touchstart', enableAudio);
+            document.removeEventListener('pointerdown', enableAudio);
+            document.removeEventListener('keydown', enableAudio);
+          });
+        };
+
+        // Add both touchstart (for iOS) and other events
+        document.addEventListener('touchstart', enableAudio);
+        document.addEventListener('pointerdown', enableAudio);
+        document.addEventListener('keydown', enableAudio);
+
+        // Try to load sound anyway - will work on desktop
+        loadSound();
+      };
+
+      const playSound = () => {
+        if (!calculator.audioBuffer || !calculator.audioContext) {
+          return;
+        }
+
+        // Always resume context before playing (important for iOS)
+        calculator.audioContext.resume().then(() => {
+          const source = calculator.audioContext.createBufferSource();
+          source.buffer = calculator.audioBuffer;
+          const gainNode = calculator.audioContext.createGain();
+          gainNode.gain.value = 0.7;
+          source.connect(gainNode);
+          gainNode.connect(calculator.audioContext.destination);
+          source.start(0);
+        });
+      };
+
       // Event handlers
       const handleStart = (e) => {
         e.preventDefault();
@@ -625,8 +688,6 @@
         calculator.startAngle = getAngle(center, point) - calculator.currentAngle;
         calculator.isDragging = true;
         calculator.stateIndex = calculator.state.length;
-        calculator.isSymbolMode =
-          calculator.state.length > 0 && typeof calculator.state[calculator.state.length - 1] === 'number';
 
         document.documentElement.classList.add('dragging');
       };
@@ -635,7 +696,6 @@
         if (!calculator.isDragging) {
           return;
         }
-        e.preventDefault();
 
         const svg = el.dial.closest('svg');
         const rect = svg.getBoundingClientRect();
@@ -663,14 +723,14 @@
           calculator.currentNumber = Math.floor((totalRotation / 360) * config.numbersPerRotation);
 
           calculator.state[calculator.stateIndex] = calculator.currentNumber;
-          el.display.textContent = calculator.state.join(' ');
+          renderDisplay();
         }
 
         el.dial.style.transform = `rotate(${calculator.cumulativeRotation + angle}deg)`;
       };
 
       const handleEnd = (e) => {
-        if (!calculator.isDragging) {
+        if (!calculator.isDragging || calculator.currentAngle === 0) {
           return;
         }
 
@@ -679,12 +739,12 @@
         el.dial.style.transition = `transform ${config.returnTime}ms cubic-bezier(0.4, 0.0, 0.2, 1)`;
         el.dial.style.transform = 'rotate(0deg)';
 
-        playSound();
+        window.setTimeout(() => playSound(), 0);
 
         if (calculator.isSymbolMode) {
           const finalSymbol = updateSymbolHighlight(calculator.currentAngle);
           calculator.state.push(finalSymbol);
-          el.display.textContent = calculator.state.join(' ');
+          renderDisplay();
         } else if (calculator.state.length >= 3) {
           try {
             const expression = [...calculator.state];
@@ -692,22 +752,22 @@
             calculator.expressions.push(`${expression.join(' ')} = ${result}`);
             calculator.runningTotal = result;
 
-            el.history.textContent = calculator.expressions.join(' → ');
+            el.history.textContent = calculator.expressions.join(' » ');
             calculator.state.length = 0;
             calculator.state.push(result);
-            el.display.textContent = calculator.state.join(' ');
-            el.display.classList.remove('error');
+
+            renderDisplay();
           } catch (err) {
             el.display.textContent = err.message;
-            el.display.classList.add('error');
           }
         }
+
+        calculator.isSymbolMode = !calculator.isSymbolMode;
 
         document.documentElement.classList.add('dragend');
 
         setTimeout(() => {
           el.dial.style.transition = 'none';
-          calculator.isSymbolMode = !calculator.isSymbolMode;
           toggleSymbolMode();
           calculator.cumulativeRotation = 0;
           calculator.currentAngle = 0;
@@ -717,7 +777,7 @@
 
         setTimeout(() => {
           document.documentElement.classList.remove('dragend');
-        }, 800);
+        }, 1200);
       };
 
       const clear = () => {
@@ -734,17 +794,15 @@
         if (!calculator.isSymbolMode) {
           calculator.expressions.pop();
         }
+
         calculator.state.pop();
         calculator.isSymbolMode = !calculator.isSymbolMode;
         toggleSymbolMode();
-        el.display.textContent = calculator.state.length > 0 ? calculator.state.join(' ') : '0';
-        el.history.textContent = calculator.expressions.join(' → ');
+        renderDisplay();
+        el.history.textContent = calculator.expressions.join(' » ');
       };
 
-      const init = () => {
-        createSymbols();
-        preloadSoundEffect();
-
+      const init = async () => {
         el.ac.addEventListener('click', clear);
         el.back.addEventListener('click', back);
         el.dial.addEventListener('mousedown', handleStart);
@@ -753,6 +811,9 @@
         document.addEventListener('touchmove', handleMove);
         document.addEventListener('mouseup', handleEnd);
         document.addEventListener('touchend', handleEnd);
+
+        createSymbols();
+        await initAudio();
       };
 
       init();

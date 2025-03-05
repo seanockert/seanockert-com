@@ -1,8 +1,9 @@
-const CACHE_NAME = 'cluckulator-002';
+const CACHE_NAME = 'cluckulator-011';
 const urlsToCache = [
   '/',
   '/index.html',
   '/icon-egg.png',
+  '/icon-egg-512.png',
   'https://pub-f4adc2b52417432b8b0d1eceb5c7d1f4.r2.dev/effect-cluck.mp3'
 ];
 

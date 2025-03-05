@@ -4,8 +4,8 @@
   "description": "Calculate with a squawk",
   "start_url": "/",
   "display": "standalone",
-  "background_color": "#ffcc81",
-  "theme_color": "#ffcc81",
+  "background_color": "#f6f9c4",
+  "theme_color": "#f6f9c4",
   "icons": [
     {
       "src": "icon-egg-512.png",
