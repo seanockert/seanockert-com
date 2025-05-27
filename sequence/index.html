@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Sequence Game</title>
+  <meta name="viewport"
+    content="width=device-width, viewport-fit=cover, initial-scale=1.0, maximum-scale=1, user-scalable=0" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Alegreya+Sans+SC:wght@900&display=swap" rel="stylesheet" />
+  <style>
+    html {
+      color: #444;
+      font-family: 'Alegreya Sans SC', sans-serif;
+    }
+
+    html,
+    body {
+      padding: 0;
+      margin: 0;
+    }
+
+    body {
+      line-height: 1;
+      padding: 0.75rem;
+      display: fixed;
+      top: 0;
+      overflow: hidden;
+      touch-action: manipulation;
+    }
+
+    header {
+      align-items: center;
+      display: flex;
+      font-size: 5rem;
+      font-weight: bold;
+      padding-bottom: 0.75rem;
+    }
+
+    header :last-child {
+      margin-left: auto;
+      font-size: 3rem;
+      color: #767676;
+    }
+
+    .hidden {
+      display: none !important;
+    }
+
+    button:disabled {
+      color: inherit;
+      opacity: 1;
+    }
+
+
+    .button {
+      position: relative;
+      display: inline-block;
+      cursor: pointer;
+      outline: none;
+      border: 0;
+      vertical-align: middle;
+      text-decoration: none;
+      font-size: inherit;
+      font-family: inherit;
+      color: #444;
+      text-transform: uppercase;
+      padding: 0;
+      background: #f8dacd;
+      border: 2px solid #5e3626;
+      border-radius: 0.75em;
+      max-width: 100%;
+      transform: scale(1);
+      transform-style: preserve-3d;
+      transition: transform 50ms cubic-bezier(0, 0, 0.58, 1), background 50ms cubic-bezier(0, 0, 0.58, 1);
+      -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    }
+
+    .button span {
+      align-items: center;
+      display: flex;
+      font-size: 4rem;
+      font-variant-numeric: tabular-nums;
+      justify-content: center;
+      pointer-events: none;
+      width: inherit;
+    }
+
+    .button span:before {
+      height: 4px;
+      position: absolute;
+      content: '';
+      background: #fff;
+      border-radius: 50px;
+      top: 5px;
+      right: 5px;
+      opacity: 0.7;
+      width: 40%;
+    }
+
+    .button::before {
+      position: absolute;
+      content: '';
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: #cd9279;
+      border-radius: inherit;
+      box-shadow: 0 0 0 2px #5e3626;
+      transform: translate3d(0, 0.75em, -1em);
+      transition: transform 50ms cubic-bezier(0, 0, 0.58, 1), box-shadow 50ms cubic-bezier(0, 0, 0.58, 1);
+    }
+
+    .button:hover {
+      background: #edc7b8;
+      transform: translate(0, 0.25em);
+    }
+
+    .button:hover::before {
+      box-shadow: 0 0 0 2px #5e3626;
+      transform: translate3d(0, 0.5em, -1em);
+    }
+
+    .button:active,
+    .button.correct,
+    .button.wrong {
+      background: #edc7b8;
+      transform: translate(0em, 0.75em);
+    }
+
+    .button:active::before,
+    .button.correct::before,
+    .button.wrong::before {
+      background: #ffe2cb;
+      box-shadow: 0 0 0 2px #5e3626;
+      transform: translate3d(0, 0, -1em);
+    }
+
+    .button.correct {
+      background: #cdef85;
+      border: 2px solid #3e5e26;
+    }
+
+    .button.correct::before {
+      box-shadow: 0 0 0 2px #3e5e26;
+    }
+
+    .button.wrong {
+      background: #ff6767;
+      border: 2px solid #5e2626;
+    }
+
+    .button.wrong::before {
+      background: #954a4a;
+      box-shadow: 0 0 0 2px #5e2626;
+    }
+
+    .button *::selection {
+      background: transparent;
+    }
+
+    #start-button {
+      align-items: center;
+      display: flex;
+      justify-content: center;
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      right: 0;
+      z-index: 1;
+    }
+
+    #start-button .button {
+      height: 100px;
+    }
+
+    #start-button .button span {
+      padding: 0 1rem;
+    }
+
+    .game {
+      width: 100%;
+    }
+
+    .square {
+      position: relative;
+      max-width: 80vh;
+      margin: 0 auto;
+    }
+
+    .square::after {
+      content: '';
+      display: block;
+      padding-bottom: 100%;
+    }
+
+    .square>.game-grid {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      z-index: 0;
+    }
+
+    .game-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr);
+      grid-template-rows: minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr);
+      list-style: none;
+      margin: 0 auto;
+      max-width: 80vh;
+      max-height: 100vh;
+      padding: 0;
+      grid-gap: 4px;
+      min-height: 0;
+      min-width: 0;
+    }
+
+    .game-grid::before {
+      content: '';
+      width: 0;
+      padding-bottom: 100%;
+      grid-row: 1 / 1;
+      grid-column: 1 / 1;
+    }
+
+    .game-grid>*:first-child {
+      grid-row: 1 / 1;
+      grid-column: 1 / 1;
+    }
+
+    .game-grid li {
+      align-items: stretch;
+      display: flex;
+      width: 100%;
+      background: rgba(0, 0, 0, 0.05);
+      border-radius: 0.75em;
+    }
+
+    .game-grid li>* {
+      width: 100%;
+    }
+
+    .game-grid .button {
+      display: flex;
+      top: -11px;
+    }
+
+    .game-grid.hide .button span {
+      opacity: 0;
+    }
+
+    .game-grid .button.correct span,
+    .game-grid .button.wrong span {
+      opacity: 1;
+      position: relative;
+    }
+
+    .next .button {
+      transform: scale(0);
+      animation: bounceIn 250ms linear both;
+    }
+
+    @media (min-width: 640px) and (min-height: 600px) {
+      .game-grid .button span {
+        font-size: 6rem;
+      }
+    }
+
+    @media (orientation: landscape) and (max-height: 460px) {
+      .square {
+        margin-top: -5rem;
+      }
+    }
+
+    @keyframes bounceIn {
+      0% {
+        transform: matrix3d(0.2,0,0,0,0,0.2,0,0,0,0,1,0,0,0,0,1);
+      }
+      3.4% {
+        transform: matrix3d(0.452,0,0,0,0,0.526,0,0,0,0,1,0,0,0,0,1);
+      }
+      4.7% {
+        transform: matrix3d(0.56,0,0,0,0,0.679,0,0,0,0,1,0,0,0,0,1);
+      }
+      6.81% {
+        transform: matrix3d(0.727,0,0,0,0,0.914,0,0,0,0,1,0,0,0,0,1);
+      }
+      9.41% {
+        transform: matrix3d(0.907,0,0,0,0,1.134,0,0,0,0,1,0,0,0,0,1);
+      }
+      10.21% {
+        transform: matrix3d(0.953,0,0,0,0,1.181,0,0,0,0,1,0,0,0,0,1);
+      }
+      13.61% {
+        transform: matrix3d(1.098,0,0,0,0,1.266,0,0,0,0,1,0,0,0,0,1);
+      }
+      14.11% {
+        transform: matrix3d(1.113,0,0,0,0,1.265,0,0,0,0,1,0,0,0,0,1);
+      }
+      17.52% {
+        transform: matrix3d(1.166,0,0,0,0,1.192,0,0,0,0,1,0,0,0,0,1);
+      }
+      18.72% {
+        transform: matrix3d(1.17,0,0,0,0,1.15,0,0,0,0,1,0,0,0,0,1);
+      }
+      21.32% {
+        transform: matrix3d(1.157,0,0,0,0,1.056,0,0,0,0,1,0,0,0,0,1);
+      }
+      24.32% {
+        transform: matrix3d(1.12,0,0,0,0,0.968,0,0,0,0,1,0,0,0,0,1);
+      }
+      25.23% {
+        transform: matrix3d(1.107,0,0,0,0,0.95,0,0,0,0,1,0,0,0,0,1);
+      }
+      29.03% {
+        transform: matrix3d(1.05,0,0,0,0,0.917,0,0,0,0,1,0,0,0,0,1);
+      }
+      29.93% {
+        transform: matrix3d(1.038,0,0,0,0,0.919,0,0,0,0,1,0,0,0,0,1);
+      }
+      35.54% {
+        transform: matrix3d(0.984,0,0,0,0,0.97,0,0,0,0,1,0,0,0,0,1);
+      }
+      36.74% {
+        transform: matrix3d(0.977,0,0,0,0,0.983,0,0,0,0,1,0,0,0,0,1);
+      }
+      41.04% {
+        transform: matrix3d(0.969,0,0,0,0,1.018,0,0,0,0,1,0,0,0,0,1);
+      }
+      44.44% {
+        transform: matrix3d(0.973,0,0,0,0,1.026,0,0,0,0,1,0,0,0,0,1);
+      }
+      52.15% {
+        transform: matrix3d(0.993,0,0,0,0,1.005,0,0,0,0,1,0,0,0,0,1);
+      }
+      59.86% {
+        transform: matrix3d(1.005,0,0,0,0,0.992,0,0,0,0,1,0,0,0,0,1);
+      }
+      63.26% {
+        transform: matrix3d(1.006,0,0,0,0,0.994,0,0,0,0,1,0,0,0,0,1);
+      }
+      75.28% {
+        transform: matrix3d(1.001,0,0,0,0,1.002,0,0,0,0,1,0,0,0,0,1);
+      }
+      85.49% {
+        transform: matrix3d(0.999,0,0,0,0,1,0,0,0,0,1,0,0,0,0,1);
+      }
+      90.69% {
+        transform: matrix3d(0.999,0,0,0,0,0.999,0,0,0,0,1,0,0,0,0,1);
+      }
+      100% {
+        transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="game">
+    <header>
+      <div id="score">0</div>
+      <div id="high-score">0</div>
+    </header>
+
+    <div id="start-button">
+      <div>
+        <button class="button">
+          <span>
+            <svg width="64" height="64" viewBox="0 0 24 24">
+              <path fill="currentColor" d="M4.5 5.7C4.5 4.2 6 3.3 7.3 4l11.5 6.4c1.3.7 1.3 2.5 0 3.2L7.3 20c-1.3.7-2.8-.2-2.8-1.7V5.7Z" />
+            </svg>
+          </span>
+        </button>
+      </div>
+    </div>
+
+    <div class="square">
+      <ul id="game-grid" class="game-grid">
+        <li><span></span></li>
+        <li><span></span></li>
+        <li><span></span></li>
+        <li><span></span></li>
+        <li><span></span></li>
+        <li><span></span></li>
+        <li><span></span></li>
+        <li><span></span></li>
+        <li><span></span></li>
+        <li><span></span></li>
+        <li><span></span></li>
+        <li><span></span></li>
+        <li><span></span></li>
+        <li><span></span></li>
+        <li><span></span></li>
+        <li><span></span></li>
+      </ul>
+    </div>
+  </div>
+
+  <script>
+    var $grid;
+    var $startButton;
+    var $score;
+    var $highScore;
+    var score = 0;
+    var highScore = 0;
+    var level = 1;
+    var boardSize = 16;
+    var numbers = [];
+    var revealTime = 1.4; // seconds
+    var cancelHide;
+
+    var AudioContext = window.AudioContext || window.webkitAudioContext;
+    var audioCtx = new AudioContext();
+    var sound_tap = new Audio('audio/tap.mp3');
+    var sound_success = new Audio('audio/success.mp3');
+    var sound_failure = new Audio('audio/failure.mp3');
+
+    document.addEventListener('DOMContentLoaded', function () {
+      $grid = document.getElementById('game-grid');
+      $startButton = document.getElementById('start-button');
+      $score = document.getElementById('score');
+      $highScore = document.getElementById('high-score');
+      $score.innerText = score;
+
+      if (localStorage.getItem('sequence_high_score')) {
+        highScore = localStorage.getItem('sequence_high_score');
+      }
+
+      $highScore.innerText = highScore;
+
+      $startButton.addEventListener('mousedown', init, false);
+      $startButton.addEventListener('touchdown', init, true);
+
+      sound_tap.play();
+      sound_tap.pause();
+    });
+
+    function init() {
+      var length = level;
+      var i = 0;
+
+      $grid.innerHTML = '';
+      $grid.classList.remove('hide');
+      $startButton.classList.add('hidden');
+
+      // Reset score
+      if (level === 1) {
+        score = 0;
+        $score.innerText = score;
+      }
+
+      // Reset numbers
+      numbers = [];
+
+      if (level > 6) {
+        length = 6;
+      }
+
+      for (; i <= length; i++) {
+        numbers.push(i + 1);
+      }
+
+      generateBoard();
+    }
+
+    function initBlankGrid(cellCount) {
+      var i = 0;
+      var cells = [];
+
+      for (; i < cellCount; i++) {
+        var li = document.createElement('li');
+        li.innerHTML = '<span></span>';
+        cells.push(li);
+      }
+
+      return cells;
+    }
+
+    function generateBoard() {
+      var i = 0;
+      var j = 0;
+      var cells = initBlankGrid(boardSize - numbers.length);
+      var buttons = [];
+
+      for (; i < numbers.length; i++) {
+        var li = document.createElement('li');
+        var button = document.createElement('button');
+        button.classList.add('button');
+        button.innerHTML = '<span>' + numbers[i] + '</span>';
+        button.dataset.value = numbers[i];
+        button.addEventListener('mousedown', tapNumber, false);
+        button.addEventListener('touchstart', tapNumber, true);
+
+        li.appendChild(button);
+        buttons.push(li);
+      }
+
+      var items = shuffle(cells.concat(buttons));
+
+      for (; j < items.length; j++) {
+        $grid.appendChild(items[j]);
+      }
+
+      $grid.classList.add('next');
+      window.setTimeout(function () {
+        console.log('remove next');
+        $grid.classList.remove('next');
+      }, 250);
+
+      window.setTimeout(function () {
+        // Hide numbers
+        $grid.classList.add('hide');
+      }, revealTime * 1000);
+    }
+
+    function tapNumber(e) {
+      var $button = e.target;
+      var value = parseInt($button.dataset.value);
+      var isCorrect = false;
+
+      $grid.classList.add('hide');
+
+      $button.disabled = true;
+      $button.removeEventListener('mousedown', tapNumber, false);
+      $button.removeEventListener('touchdown', tapNumber, false);
+
+      // Check if number is next in sequence
+      if (value === numbers[0]) {
+        isCorrect = true;
+        numbers.shift();
+      }
+
+      sound_tap.currentTime = 0;
+      sound_tap.play();
+
+      if (isCorrect) {
+        $button.classList.add('correct');
+
+        score = score + value;
+        $score.innerText = score;
+
+        if (score > highScore) {
+          highScore = score;
+          $highScore.innerText = highScore;
+        }
+
+        if (numbers.length === 0) {
+          // Go to next level
+          window.setTimeout(function () {
+            sound_success.currentTime = 0;
+            sound_success.play();
+          }, 100);
+
+          window.setTimeout(function () {
+            nextLevel();
+          }, 700);
+        }
+      } else {
+        $button.classList.add('wrong');
+        $grid.classList.remove('hide');
+
+        window.setTimeout(function () {
+          sound_failure.currentTime = 0;
+          sound_failure.play();
+        }, 100);
+
+        clearTimeout(cancelHide);
+
+        [].forEach.call($grid.children, function (li) {
+          if (li.children[0].classList.contains('button')) {
+            li.children[0].removeEventListener('mousedown', tapNumber, false);
+            li.children[0].removeEventListener('touchdown', tapNumber, false);
+            li.children[0].disabled = true;
+          }
+        });
+
+        window.setTimeout(function () {
+          resetGame();
+        }, revealTime * 1000);
+      }
+    }
+
+    function resetGame() {
+      var i = 0;
+      var cells = initBlankGrid(boardSize);
+
+      $grid.innerHTML = '';
+
+      for (; i < cells.length; i++) {
+        $grid.appendChild(cells[i]);
+      }
+
+      level = 1;
+
+      localStorage.setItem('sequence_high_score', highScore);
+      $startButton.classList.remove('hidden');
+    }
+
+    function nextLevel() {
+      level++;
+      init();
+    }
+
+    function shuffle(array) {
+      var currentIndex = array.length,
+        temporaryValue,
+        randomIndex;
+
+      while (0 !== currentIndex) {
+        randomIndex = Math.floor(Math.random() * currentIndex);
+        currentIndex -= 1;
+
+        // And swap it with the current element.
+        temporaryValue = array[currentIndex];
+        array[currentIndex] = array[randomIndex];
+        array[randomIndex] = temporaryValue;
+      }
+
+      return array;
+    }
+  </script>
+</body>
+</html>
