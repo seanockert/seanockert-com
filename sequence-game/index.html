@@ -1,0 +1,426 @@
+<html>
+	<head>
+		<title>Sequence</title>
+		<meta name="viewport" content="width=device-width,user-scalable=no" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Alegreya+Sans+SC:wght@900&display=swap"
+			rel="stylesheet"
+		/>
+		<style>
+			html {
+				color: #444;
+				font-family: 'Alegreya Sans SC', sans-serif;
+			}
+
+			html,
+			body {
+				padding: 0;
+				margin: 0;
+			}
+
+			body {
+				display: flex;
+				height: 100vh;
+				max-width: 100%;
+				padding: 0.75rem;
+				display: fixed;
+				overflow: hidden;
+			}
+
+			button {
+				border: none;
+				font-family: 'Alegreya Sans SC', sans-serif;
+				line-height: 1;
+				outline: none;
+				-webkit-appearance: none;
+			}
+
+			button span {
+				pointer-events: none;
+				z-index: 0;
+			}
+
+			header {
+				display: flex;
+				font-size: clamp(1rem, 20vw, 5rem);
+				font-weight: bold;
+				padding-bottom: 0.75rem;
+			}
+
+			header :last-child {
+				margin-left: auto;
+			}
+
+			.hidden {
+				display: none;
+			}
+
+			#start-button {
+				background: #efac1f;
+				box-shadow: 0 4px 0 #664904;
+				border: 2px solid #664904;
+				border-radius: 4px;
+				font-size: 5rem;
+				line-height: 0.8;
+				padding: 1rem;
+				position: absolute;
+				left: 50%;
+				top: 50%;
+				transform: translate3d(-50%, -50%, 0);
+			}
+
+			.game {
+				width: 100%;
+			}
+
+			.game-grid {
+				display: grid;
+				grid-template-columns: 1fr 1fr 1fr 1fr;
+				grid-template-rows: 1fr 1fr 1fr 1fr;
+				list-style: none;
+				margin: 0 auto;
+				max-width: 80vh;
+				padding: 0;
+			}
+
+			.game-grid::before {
+				content: '';
+				width: 0;
+				padding-bottom: 100%;
+				grid-row: 1 / 1;
+				grid-column: 1 / 1;
+			}
+
+			.game-grid > *:first-child {
+				grid-row: 1 / 1;
+				grid-column: 1 / 1;
+			}
+
+			.game-grid li {
+				align-items: stretch;
+				display: flex;
+				padding: 2px;
+			}
+
+			.game-grid li > button,
+			.game-grid li > span {
+				align-self: normal;
+				border: none;
+				display: block;
+				width: 100%;
+			}
+
+			.game-grid li > button {
+				align-items: center;
+				background: #efac1f;
+				box-shadow: 0 3px 0 #664904;
+				border: 2px solid #664904;
+				border-radius: 4px;
+				display: flex;
+
+				font-weight: bold;
+				justify-content: center;
+				outline: none;
+				transform: translate3d(0, -3px, 0);
+			}
+
+			.game-grid li > button:hover {
+				background: #f2bd4c;
+				box-shadow: 0 5px 0 #664904;
+				transform: translate3d(0, -4px, 0);
+			}
+
+			.game-grid li > button:active {
+				background: #f9dea5;
+				box-shadow: 0 1px 0 #664904;
+				transform: translate3d(0, 1px, 0);
+			}
+
+			.game-grid li > button:disabled {
+				color: inherit;
+				transform: none;
+			}
+
+			.game-grid li > span {
+				background: rgba(0, 0, 0, 0.05);
+			}
+
+			.game-grid li > button span {
+				font-size: clamp(1rem, 20vw, 5rem);
+			}
+
+			.game-grid.hide button span {
+				display: none;
+				max-width: 2rem;
+			}
+
+			.game-grid button.correct {
+				background-color: lightgreen !important;
+				border-color: green !important;
+				box-shadow: 0 1px 0 green !important;
+				color: darkgreen;
+			}
+
+			.game-grid button.wrong {
+				background-color: pink !important;
+				border-color: red !important;
+				box-shadow: 0 1px 0 red !important;
+				color: red;
+			}
+
+			.game-grid button.correct span,
+			.game-grid button.wrong span {
+				display: block;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="game">
+			<header>
+				<div id="score">0</div>
+				<div id="high-score">0</div>
+			</header>
+
+			<button id="start-button">
+				<span
+					><svg width="64" height="64" viewBox="0 0 24 24">
+						<path d="M3 22v-20l18 10-18 10z" /></svg
+				></span>
+			</button>
+
+			<ul id="game-grid" class="game-grid">
+				<li><span></span></li>
+				<li><span></span></li>
+				<li><span></span></li>
+				<li><span></span></li>
+				<li><span></span></li>
+				<li><span></span></li>
+				<li><span></span></li>
+				<li><span></span></li>
+				<li><span></span></li>
+				<li><span></span></li>
+				<li><span></span></li>
+				<li><span></span></li>
+				<li><span></span></li>
+				<li><span></span></li>
+				<li><span></span></li>
+				<li><span></span></li>
+			</ul>
+		</div>
+
+		<script>
+			var $grid;
+			var $startButton;
+			var $score;
+			var $highScore;
+			var score = 0;
+			var highScore = 0;
+			var level = 1;
+			var boardSize = 16;
+			var numbers = [];
+			var revealTime = 1.5; // seconds
+
+			var sound_tap = new Audio('audio/tap.mp3');
+			var sound_success = new Audio('audio/success.mp3');
+			var sound_failure = new Audio('audio/failure.mp3');
+
+			document.addEventListener('DOMContentLoaded', function() {
+				$grid = document.getElementById('game-grid');
+				$startButton = document.getElementById('start-button');
+				$score = document.getElementById('score');
+				$highScore = document.getElementById('high-score');
+				$score.innerText = score;
+
+				if (localStorage.getItem('sequence_high_score')) {
+					highScore = localStorage.getItem('sequence_high_score');
+				}
+
+				$highScore.innerText = highScore;
+
+				$startButton.addEventListener('mousedown', init, false);
+				$startButton.addEventListener('touchdown', init, false);
+			});
+
+			function init() {
+				var length = level;
+				var i = 0;
+
+				sound_tap.currentTime = 0;
+				sound_tap.play();
+
+				$grid.innerHTML = '';
+				$grid.classList.remove('hide');
+				$startButton.classList.add('hidden');
+
+				// Reset score
+				if (level === 1) {
+					score = 0;
+					$score.innerText = score;
+				}
+
+				// Reset numbers
+				numbers = [];
+
+				if (level > 6) {
+					length = 6;
+				}
+
+				for (; i <= length; i++) {
+					numbers.push(i + 1);
+				}
+
+				generateBoard();
+			}
+
+			function initBlankGrid(cellCount) {
+				var i = 0;
+				var cells = [];
+
+				for (; i < cellCount; i++) {
+					var li = document.createElement('li');
+					li.innerHTML = '<span></span>';
+					cells.push(li);
+				}
+
+				return cells;
+			}
+
+			function generateBoard() {
+				var i = 0;
+				var j = 0;
+				var cells = initBlankGrid(boardSize - numbers.length);
+				var buttons = [];
+
+				console.log(boardSize, numbers.length);
+
+				for (; i < numbers.length; i++) {
+					var li = document.createElement('li');
+					var button = document.createElement('button');
+					button.innerHTML = '<span>' + numbers[i] + '</span>';
+					button.dataset.value = numbers[i];
+					button.addEventListener('mousedown', tapNumber, false);
+					button.addEventListener('touchdown', tapNumber, false);
+
+					li.appendChild(button);
+					buttons.push(li);
+				}
+
+				var items = shuffle(cells.concat(buttons));
+
+				for (; j < items.length; j++) {
+					$grid.appendChild(items[j]);
+				}
+
+				window.setTimeout(function() {
+					// Hide numbers
+					$grid.classList.add('hide');
+				}, revealTime * 1000);
+			}
+
+			function tapNumber(e) {
+				var $button = e.target;
+				var value = parseInt($button.dataset.value);
+				var isCorrect = false;
+
+				sound_tap.currentTime = 0;
+				sound_tap.play();
+
+				$grid.classList.add('hide');
+
+				//$button.disabled = true;
+				$button.removeEventListener('mousedown', tapNumber, false);
+				$button.removeEventListener('touchdown', tapNumber, false);
+
+				// Check if number is next in sequence
+				if (value === numbers[0]) {
+					isCorrect = true;
+					numbers.shift();
+				}
+
+				if (isCorrect) {
+					$button.classList.add('correct');
+
+					// Update score
+					score = score + value;
+					$score.innerText = score;
+
+					if (score > highScore) {
+						highScore = score;
+						$highScore.innerText = highScore;
+					}
+
+					if (numbers.length === 0) {
+						
+
+						window.setTimeout(function() {
+							sound_success.currentTime = 0;
+							sound_success.play();
+						}, 100);
+
+						window.setTimeout(function() {
+							nextLevel();
+						}, revealTime * 1000);
+					}
+				} else {
+					$button.classList.add('wrong');
+					$grid.classList.remove('hide');
+
+					window.setTimeout(function() {
+						sound_failure.currentTime = 0;
+						sound_failure.play();
+					}, 100);
+
+					window.setTimeout(function() {
+						resetGame();
+					}, revealTime * 1000);
+				}
+			}
+
+			function resetGame() {
+				var i = 0;
+				var cells = initBlankGrid(boardSize);
+
+				// Reset the grid
+				$grid.innerHTML = '';
+
+				for (; i < cells.length; i++) {
+					$grid.appendChild(cells[i]);
+				}
+
+				level = 1;
+
+				// Save the high score
+				localStorage.setItem('sequence_high_score', highScore);
+
+				// Show start button
+				$startButton.classList.remove('hidden');
+			}
+
+			function nextLevel() {
+				level++;
+				init();
+			}
+
+			function shuffle(array) {
+				var currentIndex = array.length,
+					temporaryValue,
+					randomIndex;
+
+				// While there remain elements to shuffle...
+				while (0 !== currentIndex) {
+					// Pick a remaining element...
+					randomIndex = Math.floor(Math.random() * currentIndex);
+					currentIndex -= 1;
+
+					// And swap it with the current element.
+					temporaryValue = array[currentIndex];
+					array[currentIndex] = array[randomIndex];
+					array[randomIndex] = temporaryValue;
+				}
+
+				return array;
+			}
+		</script>
+	</body>
+</html>
