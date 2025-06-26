@@ -26,11 +26,21 @@
     <section id="generator" class="stack hidden">
       <h1 class="inline"><img src="favicon.svg" height="30" alt="" /> Secret Santa</h1>
 
-      <label for="names" class="stack-half">Add your participants, one name per line.<div class="text-small">To prevent someone from matching, add their name in (brackets) eg. <em>Bob (Alice)</em></div></label>
+      <label for="names" class="stack-half"
+        >Add your participants, one name per line.
+        <div class="text-small">
+          To prevent someone from matching, add their name in (brackets) eg. <em>Bob (Alice)</em>
+        </div></label
+      >
       <div class="grow-wrap">
-        <textarea name="names" id="names" rows="3" placeholder="Alice
+        <textarea
+          name="names"
+          id="names"
+          rows="3"
+          placeholder="Alice
 Bob (Alice)
-..." autofocus></textarea>
+..."
+          autofocus></textarea>
       </div>
 
       <button id="submit" class="button primary">Match!</button>
@@ -67,7 +77,9 @@ Bob (Alice)
       const listMatches = (matches) => {
         $results.innerHTML = matches
           .map(
-            (match) => `<button id="${match.code}" title="Tap to copy" onclick="copyText(event, '${match.code}')">Hey ${match.giver}, reveal your Secret Santa match at 
+            (
+              match
+            ) => `<button id="${match.code}" title="Tap to copy" onclick="copyText(event, '${match.code}')">Hey ${match.giver}, reveal your Secret Santa match at 
               <a href="${window.location.origin}?s=${match.code}" target="_blank">
               ${window.location.origin}?s=${match.code}</a></button>`
           )
